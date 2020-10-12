@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-10-12T20:23:58+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-the-zephyr-project&quot; id=&quot;markdown-toc-what-is-the-zephyr-project&quot;&gt;What is the Zephyr Project?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#getting-started&quot; id=&quot;markdown-toc-getting-started&quot;&gt;Getting Started&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#installing-nordic-nrf52-dev-platform&quot; id=&quot;markdown-toc-installing-nordic-nrf52-dev-platform&quot;&gt;Installing Nordic nRF52 dev-platform&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#project-setup&quot; id=&quot;markdown-toc-project-setup&quot;&gt;Project setup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#adding-a-custom-board-to-zephyr&quot; id=&quot;markdown-toc-adding-a-custom-board-to-zephyr&quot;&gt;Adding a custom board to Zephyr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#adding-a-custom-board-to-platformio&quot; id=&quot;markdown-toc-adding-a-custom-board-to-platformio&quot;&gt;Adding a custom board to PlatformIO&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#compile-and-upload&quot; id=&quot;markdown-toc-compile-and-upload&quot;&gt;Compile and Upload&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debugging&quot; id=&quot;markdown-toc-debugging&quot;&gt;Debugging&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;This article uses the following components:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot;&gt;VSCode with installed PlatformIO IDE extension&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Any board based on &lt;a href=&quot;https://www.nordicsemi.com/Products/Low-power-short-range-wireless/nRF52833&quot;&gt;Nordic nRF52833 SoC&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Any &lt;a href=&quot;https://www.segger.com/products/debug-probes/j-link/&quot;&gt;JLink probe&lt;/a&gt; (used for uploading and debugging)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-the-zephyr-project&quot;&gt;What is the Zephyr Project?&lt;/h2&gt;
+
+&lt;p&gt;The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with security in mind.&lt;/p&gt;
+
+&lt;p&gt;The Zephyr Project is perfect for building simple connected sensors, LED wearables, up to modems and small IoT wireless gateways. Because the Zephyr RTOS is modular and supports multiple architectures, developers are able to easily come up with optimal applications to meet their needs. As a true open source project, the community can evolve the project to support new hardware, developer tools, sensors, and device drivers. Enhancements in security, device management capabilities, connectivity stacks, and file systems can be easily implemented.&lt;/p&gt;
+
+&lt;p&gt;Zephyr RTOS has several great features that make it a good choice for developing embedded applications. The Zephyr RTOS’s goal is to establish a neutral project where silicon vendors, OEMs, ODMs, ISVs, and OSVs can contribute technology to reduce the cost and accelerate time to market for developing the billions of devices that will make up the majority of the Internet of Things. The operating system itself also has a number of powerful features, including a device model, symmetric multiprocess support, and rich networking and Bluetooth stacks.&lt;/p&gt;
+
+&lt;p&gt;Zephyr RTOS is open source under the Apache 2.0 license and the source code is available on &lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+
+&lt;h3 id=&quot;installing-nordic-nrf52-dev-platform&quot;&gt;Installing Nordic nRF52 dev-platform&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO dev-platforms contain a lot of required information about supported packages (toolchains, SDKs, uploaders, etc), configurations for popular development boards/kits, examples. Also, all dev-platforms include predefined build scripts that help you compile, upload, and debug embedded applications. The platform can be installed automatically when you run your project the first time we can use &lt;a href=&quot;https://docs.platformio.org/en/latest/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; directly in the IDE.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-2.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-2.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Alternatively, you can install the platform manually from CLI using the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;platformio platform &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nordicnrf52
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;project-setup&quot;&gt;Project setup&lt;/h3&gt;
+
+&lt;p&gt;Once the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nordicnrf52&lt;/code&gt; dev-platform is installed, we have everything to start developing for the Zephyr RTOS. The platform already contains a BLE beacon example that we can use as a boilerplate for our project. To import the example, open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PlatformIO Home&lt;/code&gt; page and press the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Examples&lt;/code&gt; button in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Quick Access&lt;/code&gt; menu, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr-ble-beacon&lt;/code&gt; in the input field and push the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Import&lt;/code&gt; button:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After the successful import you should see a typical PlatformIO project with a bunch of folders and a special &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;project_dir
+├── include
+├── lib
+├── src
+│    └── main.c
+├── test
+├── zephyr
+│    ├── prj.conf
+│    └── CMakeLists.txt
+└── platformio.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Besides files and folders related to PlatformIO, there is a special folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; that contains Zephyr-specific files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeLists.txt&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prj.conf&lt;/code&gt;, a rough description of these files is the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeLists.txt&lt;/code&gt;: tells the build system where to find the other application files, and links the application directory with Zephyr’s build system. This link provides features supported by Zephyr’s build system, such as board-specific kernel configuration files, the ability to run and debug compiled binaries on real or emulated hardware, and more.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prj.conf&lt;/code&gt;: describes application-specific values for one or more kernel configuration options. These application settings are merged with board-specific settings to produce a kernel configuration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since PlatformIO is able to generate CMake-based projects for certain IDEs, Zephyr-specific files are moved to a separate folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; in order to avoid conflicts between CMakeLists.txt files. That requires users to specify relative paths to source files in already existing projects. After adding Zephyr-specific files, our project should look like this:&lt;/p&gt;
+
+&lt;p&gt;If you need more information about configuration steps, please go through the official PlatformIO &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html&quot;&gt;configuration guide&lt;/a&gt; for the Zephyr project.&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-a-custom-board-to-zephyr&quot;&gt;Adding a custom board to Zephyr&lt;/h3&gt;
+
+&lt;p&gt;Since our board is neither directly supported by Zephyr nor by PlatformIO, we need to create the required board files manually. First, let’s add support for our board to Zephyr. There is comprehensive &lt;a href=&quot;https://docs.zephyrproject.org/latest/application/index.html#custom-board-definition&quot;&gt;official Zephyr documentation&lt;/a&gt; on how to integrate out-of-tree board definitions. In a nutshell, the structure needed to support an out-of-tree board or SoC development is similar to how boards and SoCs are maintained in the official Zephyr tree.&lt;/p&gt;
+
+&lt;p&gt;Fortunately, our board uses the Nordic nRF52833 SoC that’s already supported and used in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf52833dk_nrf52833&lt;/code&gt; board. We can use that board as boilerplate, so we just need to copy and modify the board files according to our needs. Adding a custom board is usually done using the following structure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boards/&amp;lt;architecture&amp;gt;/&amp;lt;board_name&amp;gt;&lt;/code&gt;. Files in this folder extend the SoC configuration, apply the pin-muxing settings, and much more. A special file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;board_name&amp;gt;_defconfig&lt;/code&gt; defines which SoC and basic features and interfaces are included.&lt;/p&gt;
+
+&lt;p&gt;Navigate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PLATFORMIO_PACKAGES_DIR/framework-zephyr/boards/arm/nrf52833dk_nrf52833&lt;/code&gt; where &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/section_platformio.html?highlight=core_dir#packages-dir&quot;&gt;PLATFORMIO_PACKAGES_DIR&lt;/a&gt; is a special folder with all installed PlatformIO packages. Copy all files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf52833dk_nrf52833&lt;/code&gt; folder to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; folder in our project so the final path will look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr/boards/arm/ble_beacon_nrf52833&lt;/code&gt;. Then rename the files according to our board name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833&lt;/code&gt;, the final files should look like the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;board.cmake
+Kconfig
+Kconfig.board
+Kconfig.defconfig
+ble_beacon_nrf52833_defconfig
+ble_beacon_nrf52833.dts
+ble_beacon_nrf52833.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that we need to fix values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kconfig.board&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kconfig.defconfig&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833.yaml&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833_defconfig&lt;/code&gt; so the Zephyr build system will be able to generate configuration and C definitions for our board.&lt;/p&gt;
+
+&lt;p&gt;Once the board structure is ready, we need to specify the location of our custom board information with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BOARD_ROOT&lt;/code&gt; parameter to the CMake build system. The easiest way is to specify this path at the top of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeList.txt&lt;/code&gt; file like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-cmake highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Path to out-of-tree boards definitions&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;BOARD_ROOT &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;cmake_minimum_required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;VERSION 3.13.1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;$ENV{ZEPHYR_BASE}/cmake/app/boilerplate.cmake NO_POLICY_SCOPE&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;custom-board&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;target_sources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;app PRIVATE ../src/main.c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;adding-a-custom-board-to-platformio&quot;&gt;Adding a custom board to PlatformIO&lt;/h3&gt;
+
+&lt;p&gt;The next step is to add support for our board to the PlatformIO &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nordicnrf52&lt;/code&gt; dev-platform. The easiest and most portable way to do it is to create a new folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boards&lt;/code&gt; in the root of our project and add a special JSON manifest file with the name of our board &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833.json&lt;/code&gt; and with the following contents:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;cpu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cortex-m4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;f_cpu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;64000000L&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;mcu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nrf52833&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;zephyr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;variant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ble_beacon_nrf52833&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;connectivity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bluetooth&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;debug&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;jlink_device&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nRF52833_xxAA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;svd_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nrf52.svd&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;frameworks&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;zephyr&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BLE Beacon nRF52833&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;upload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;maximum_ram_size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;131072&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;maximum_size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;524288&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;protocol&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jlink&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;protocols&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jlink&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vendor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Vendor Name&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s briefly go through the main parts of the above configuration:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build&lt;/code&gt; section contains information about CPU architecture, framework configurations, MCU name, etc. As the variant for Zephyr, we specified the same name as the board name used in the Zephyr configuration files&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug&lt;/code&gt; section sets the configuration for debug tools and the path SVD file. Since we plan to use a JLink probe, we need to specify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink_device&lt;/code&gt; name used for connecting to our board. The list of supported JLink devices can be found on &lt;a href=&quot;https://www.segger.com/downloads/supported-devices.php&quot;&gt;the official JLink website&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;framework&lt;/code&gt; represents is a list of supported frameworks/SDKs which can be used with our board. We plan to use only Zephyr, so we specified only one framework.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;upload&lt;/code&gt; section specifies maximum memory sizes and available upload protocols. We specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink&lt;/code&gt; as the protocol since we plan to use the debug probe to upload firmware to the device.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Other sections are not mandatory, but they might be useful if we decide to push our board manifest to the upstream repository to make the board publicly available for other users.
+More detailed information about the JSON structure of board manifests can be found in the &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/creating_board.html#json-structure&quot;&gt;PlatformIO Docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The final project structure should like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;project_dir
+├── boards
+│     └── ble_beacon_nrf52833.json
+├── include
+├── lib
+├── src
+│    └── main.c
+├── test
+├── zephyr
+│    ├── boards
+│    │     └── arm
+│    │          └── ble_beacon_nrf52833
+│    ├── prj.conf
+│    └── CMakeLists.txt
+└── platformio.ini
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that we can use the new board in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:ble_beacon_nrf52833]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nordicnrf52&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;zephyr&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ble_beacon_nrf52833&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;; Use the debug probe for uploading
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;upload_protocol&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that we need to specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink&lt;/code&gt; as the upload method to force PlatformIO to use the debug probe for uploading.&lt;/p&gt;
+
+&lt;h3 id=&quot;compile-and-upload&quot;&gt;Compile and Upload&lt;/h3&gt;
+
+&lt;p&gt;After the previous configuration steps, we are ready to compile the project. It can be done using the CLI command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run&lt;/code&gt; or via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build&lt;/code&gt; button on the Toolbar:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-4.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If everything went well, we should see a successful result message in the terminal window:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-5.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Uploading the code to the board varies across hardware platforms. As for this article, the board is connected to the computer via a JLink debug probe so it will be used to flash the firmware. Just make sure your board is connected to the computer and run the CLI command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run -t upload&lt;/code&gt; or use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upload&lt;/code&gt; button on the Toolbar:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-6.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If everything went well, we can open any desktop/mobile application which is able to show near BLE devices, for example here is how the device is showed in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nRF Connect&lt;/code&gt; tool:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-7.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-7.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;/h3&gt;
+
+&lt;p&gt;The PlatformIO dev-platforms already have predefined configurations for popular debug probes, including the JLink probe used in this article. All we need is to specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug_tool&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:ble_beacon_nrf52833]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nordicnrf52&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;zephyr&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ble_beacon_nrf52833&lt;/span&gt;
+
+&lt;span class=&quot;py&quot;&gt;upload_protocol&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;debug_tool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and push the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Debug&lt;/code&gt; button. PlatformIO will do all the heavy lifting for us:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-8.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-8.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this post, we went over:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;An introduction to the Zephyr project&lt;/li&gt;
+  &lt;li&gt;Setup and installation steps&lt;/li&gt;
+  &lt;li&gt;Adding a custom board to Zephyr and PlatformIO&lt;/li&gt;
+  &lt;li&gt;Compiling and uploading a simple BLE example&lt;/li&gt;
+  &lt;li&gt;Debugging the application using a JLink probe&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Zephyr RTOS is a promising project with a long list of supported hardware. The active community, permissive license, comprehensive documentation, rich set of features, focus on security all this makes Zephyr a great choice for modern embedded development.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="engineering" /><summary type="html">In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO IDE 2.0 for VSCode 🚀</title><link href="https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released.html" rel="alternate" type="text/html" title="PlatformIO IDE 2.0 for VSCode 🚀" /><published>2020-09-10T00:00:00+03:00</published><updated>2020-09-10T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released.html">&lt;p&gt;We are happy to announce the major release of &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide&quot; target=&quot;_blank&quot;&gt;PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode)&lt;/a&gt; that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png&quot; alt=&quot;PlatformIO IDE 2.0 for VSCode 🚀&quot; /&gt;&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#task-explorer&quot; id=&quot;markdown-toc-task-explorer&quot;&gt;Task Explorer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#project-environment-switcher&quot; id=&quot;markdown-toc-project-environment-switcher&quot;&gt;Project Environment Switcher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#new-installer&quot; id=&quot;markdown-toc-new-installer&quot;&gt;New Installer&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
+
+&lt;p&gt;In this section, we are going to highlight the most important changes and
+features introduced in PlatformIO IDE 2.0 for VSCode. Please visit &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/releases/tag/v2.0.0&quot; target=&quot;_blank&quot;&gt;PlatformIO IDE for VSCode Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h3 id=&quot;task-explorer&quot;&gt;Task Explorer&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO IDE 2.0 for VSCode finally brings a powerful task explorer with the next features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instant access to the Project Tasks within the VSCode Explorer&lt;/li&gt;
+  &lt;li&gt;Grouped tasks: Generic, Advanced, Remote Development, Platform, Custom, etc.&lt;/li&gt;
+  &lt;li&gt;Support for PlatformIO &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/index.html&quot;&gt;development platform&lt;/a&gt; targets (Program FPGA bitstream, Burn bootloader, Upload to FS, OTA Update, etc). The list of tasks depends on a particular dev-platform&lt;/li&gt;
+  &lt;li&gt;Access to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html#custom-targets&quot;&gt;User Custom Targets&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The latest version of &lt;a href=&quot;https://platformio.org/platforms/chipsalliance&quot;&gt;CHIPS Alliance&lt;/a&gt; dev-platform provides custom targets such as programming of FPGA board, starting simulator, etc. See a demo of a project from &lt;a href=&quot;https://www.imgtec.com/news/press-release/imagination-announces-the-first-risc-v-computer-architecture-course/&quot; target=&quot;_blank&quot;&gt;RVfpga: Understanding Computer Architecture&lt;/a&gt; course by &lt;a href=&quot;https://www.imgtec.com/&quot; target=&quot;_blank&quot;&gt;Imagination Technologies&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/task-explorer.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-50&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/task-explorer.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;project-environment-switcher&quot;&gt;Project Environment Switcher&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Project Environment Switcher&lt;/strong&gt; was the most requested feature by our community. It is possible now to switch between project environments without any changes to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; configuration file:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Switch between project environments declared in &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/index.html&quot;&gt;platformio.ini&lt;/a&gt; project configuration file (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/544&quot;&gt;#544&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Activate IntelliSense service based on the current environment&lt;/li&gt;
+  &lt;li&gt;Automatically generate a debugging configuration for the active environment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A good example of this feature will be &lt;a href=&quot;https://github.com/MarlinFirmware/Marlin&quot; target=&quot;_blank&quot;&gt;Marlin&lt;/a&gt; project, an optimized firmware for RepRap 3D printers. Developers can now easily switch between pre-configured settings:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/project-environment-switcher.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-75&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/project-environment-switcher.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;new-installer&quot;&gt;New Installer&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO IDE installer was rewritten from the scratch. It now is based on the cross-platform and portable &lt;a href=&quot;https://github.com/platformio/platformio-core-installer&quot; target=&quot;_blank&quot;&gt;get-platformio.py&lt;/a&gt; installer script. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get-platformio.py&lt;/code&gt; can also be used for &lt;a href=&quot;https://docs.platformio.org/en/latest/core/installation.html#integration-with-custom-applications-extensions-plugins&quot;&gt;integration with custom applications or plugins&lt;/a&gt;. It automatically installs PlatformIO Core into the isolated Python environment with the rest dependencies.&lt;/p&gt;
+
+&lt;p&gt;The next major improvement is &lt;strong&gt;installation progress&lt;/strong&gt;. The new installer will show detailed information about each step:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/new-ide-installer.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-75&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/new-ide-installer.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Requires PlatformIO Core 5.0 or above&lt;/strong&gt;
+&lt;strong&gt;Requires VSCode 1.44 or above&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Please navigate to “VSCode &amp;gt; View &amp;gt; Extensions” and click “Update”.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html">We are happy to announce the major release of PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode) that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 5.0 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-0-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.0 🚀" /><published>2020-09-03T00:00:00+03:00</published><updated>2020-09-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-0-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-0-released.html">&lt;p&gt;We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png&quot; alt=&quot;PlatformIO Core 5.0 🚀&quot; /&gt;&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#platformio-trusted-registry&quot; id=&quot;markdown-toc-platformio-trusted-registry&quot;&gt;PlatformIO Trusted Registry&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#collaborative-platform&quot; id=&quot;markdown-toc-collaborative-platform&quot;&gt;Collaborative Platform&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#package-management&quot; id=&quot;markdown-toc-package-management&quot;&gt;Package Management&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#library-manager&quot; id=&quot;markdown-toc-library-manager&quot;&gt;Library Manager&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-system&quot; id=&quot;markdown-toc-build-system&quot;&gt;Build System&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#migration&quot; id=&quot;markdown-toc-migration&quot;&gt;Migration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
+
+&lt;p&gt;In this section, we are going to highlight the most important changes and
+features introduced in PlatformIO Core 5.0. Please visit &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.0.0&quot; target=&quot;_blank&quot;&gt;PlatformIO 5.0.0 Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h3 id=&quot;platformio-trusted-registry&quot;&gt;PlatformIO Trusted Registry&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 has been switched to the official &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enterprise-grade package storage with high availability (multi replicas)&lt;/li&gt;
+  &lt;li&gt;Secure, fast, and reliable global content delivery network (CDN)&lt;/li&gt;
+  &lt;li&gt;Universal support for all packages:
+    &lt;ul&gt;
+      &lt;li&gt;Libraries&lt;/li&gt;
+      &lt;li&gt;Development platforms&lt;/li&gt;
+      &lt;li&gt;Toolchains&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Built-in fine-grained access control (role-based, &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/team/index.html&quot;&gt;teams&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/org/index.html&quot;&gt;organizations&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The new Web front-end and upgraded &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; are coming soon.&lt;/p&gt;
+
+&lt;h3 id=&quot;collaborative-platform&quot;&gt;Collaborative Platform&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 is fully unlocked for developers and teams. They can now share their packages (libraries, &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt;, toolchains) with team members or collaborate on open source projects. There are new CLI commands that help you to manage organizations, teams, team memberships, and resource access:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/index.html&quot;&gt;platformio package&lt;/a&gt; – manage packages in the registry&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/org/index.html&quot;&gt;platformio org&lt;/a&gt; - manage organizations&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/team/index.html&quot;&gt;platformio team&lt;/a&gt; - manage teams and team memberships&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/access/index.html&quot;&gt;platformio access&lt;/a&gt; – manage package access for users, teams, and maintainers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;package-management&quot;&gt;Package Management&lt;/h3&gt;
+
+&lt;p&gt;The package management infrastructure has been rewritten from scratch. It is based now on the new &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; that supports a strict dependency declaration using the package owner. This improvement resolves the issues when package maintainers publish packages under the same name.&lt;/p&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 does not handle packages from unofficial repositories declared via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;packageRepositories&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platform.json&lt;/code&gt;. There were a lot of security issues and reports when PlatformIO Core 4.0 hangs when you manage external dependencies.&lt;/p&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 uses THE ONLY official &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; that supports not only the libraries but also &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt; and toolchains.&lt;/p&gt;
+
+&lt;p&gt;Package maintainers can publish their libraries, development platforms, and toolchains to the registry using &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/index.html&quot;&gt;platformio package&lt;/a&gt; CLI.&lt;/p&gt;
+
+&lt;h3 id=&quot;library-manager&quot;&gt;Library Manager&lt;/h3&gt;
+
+&lt;p&gt;The biggest improvement for &lt;a href=&quot;https://docs.platformio.org/page/librarymanager/index.html&quot;&gt;Library Management&lt;/a&gt; is the owner-based dependency declaration. You can finally forget about conflicts with library names in the registry. Use the new syntax &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ownername/pkgname&lt;/code&gt; to declare an owner-based dependency in &lt;a href=&quot;https://docs.platformio.org/page/projectconf/index.html&quot;&gt;“platformio.ini” (Project Configuration File)&lt;/a&gt; via &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_env_library.html#projectconf-lib-deps&quot;&gt;lib_deps&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:myenv]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;lib_deps&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;bblanchon/ArduinoJson&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;^6.16.1&lt;/span&gt;
+  &lt;span class=&quot;err&quot;&gt;knolleary/PubSubClient&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;^2.8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can find an owner name of a library in the registry using &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; &amp;gt; Libraries &amp;gt; Some Library &amp;gt; Installation tab.&lt;/p&gt;
+
+&lt;h3 id=&quot;build-system&quot;&gt;Build System&lt;/h3&gt;
+
+&lt;h4 id=&quot;scons-40&quot;&gt;SCons 4.0&lt;/h4&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 build engine has been upgraded to the latest &lt;a href=&quot;https://scons.org/&quot; target=&quot;_blank&quot;&gt;SCons 4.0 - a next-generation software construction tool&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html&quot;&gt;Configuration files are Python scripts&lt;/a&gt; – use the power of a real programming language to solve build problems&lt;/li&gt;
+  &lt;li&gt;Built-in reliable and automatic dependency analysis&lt;/li&gt;
+  &lt;li&gt;Improved support for parallel builds&lt;/li&gt;
+  &lt;li&gt;Ability to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_platformio.html#projectconf-pio-cache-dir&quot;&gt;share built files in a cache&lt;/a&gt; to speed up multiple builds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;custom-targets&quot;&gt;Custom Targets&lt;/h4&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 gives more freedom to developers and &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt; maintainers. They can now declare the &lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html#projectconf-advanced-scripting-custom-targets&quot;&gt;Custom Targets&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pre/Post processing based on dependent sources (another target, source file, etc.)&lt;/li&gt;
+  &lt;li&gt;Command launcher with own arguments&lt;/li&gt;
+  &lt;li&gt;Launch command with custom options declared in &lt;a href=&quot;https://docs.platformio.org/page/projectconf/index.html&quot;&gt;“platformio.ini” (Project Configuration File)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Python callback as a target (use the power of Python interpreter and PlatformIO Build API)&lt;/li&gt;
+  &lt;li&gt;List available project targets (including dev-platform specific and custom targets) with a new &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_run.html#cmdoption-platformio-run-list-targets&quot;&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run --list-targets&lt;/code&gt; &lt;/a&gt; command&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;strong&gt;Build System&lt;/strong&gt; section in &lt;a href=&quot;https://docs.platformio.org/page/core/history.html#release-notes-5&quot;&gt;PlatformIO Core 5&lt;/a&gt; release notes for more details.&lt;/p&gt;
+
+&lt;h2 id=&quot;migration&quot;&gt;Migration&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO Core 5.0 is fully backward compatible with PlatformIO 4.0 projects.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://docs.platformio.org/page/core/migration.html&quot;&gt;migration guide from 4.x to 5.0&lt;/a&gt; for the further details.&lt;/p&gt;
+
+&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry.
+Our unique philosophy gives embedded developers true freedom – personally decide which operating system, integrated development environment, and hardware to use.
+In this blog post, we will try to openly discuss the question regarding integrated development environments and the important role they play for the success of your products including hardware and software development tools.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#who-needs-an-ide&quot; id=&quot;markdown-toc-who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#create-an-in-house-ide-or-use-commercial-one&quot; id=&quot;markdown-toc-create-an-in-house-ide-or-use-commercial-one&quot;&gt;Create an in-house IDE or use Commercial one?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#yet-another-ide&quot; id=&quot;markdown-toc-yet-another-ide&quot;&gt;Yet another IDE?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#no-platformio&quot; id=&quot;markdown-toc-no-platformio&quot;&gt;No, PlatformIO!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#global-discussion&quot; id=&quot;markdown-toc-global-discussion&quot;&gt;Global discussion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/h2&gt;
+
+&lt;p&gt;So, who actually needs an IDE? Apparently, “Developers” is the simplest answer that might come to your mind, and in most cases and that’s correct.
+But, it turns out there are other parties that might be interested in an IDE solution:&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-who-needs.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Parties interested in IDE solutions
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;These other interested parties are “Manufactures” and “Chip Vendors” (Semiconductor Companies).
+The manufactures play a significant role in the chip vendor’s supply chain and add extra value to chip vendor’s products by using and promoting their solutions. Besides, the manufacturers develop hardware and software solutions to simplify the entrance to the chip vendor’s products line.&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-what-is-common.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    An IDE is common ground for all parties
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It becomes apparent that all of them need an IDE and, unfortunately, we see an acute problem in the embedded systems industry.
+A lot of semiconductor companies don’t think about manufacturers and don’t provide any integration mechanisms where developers could use the same IDE for both semiconductor and manufacturer products.
+That’s why having a “democratic” IDE can significantly reduce time-to-market costs and make developers happy.&lt;/p&gt;
+
+&lt;h2 id=&quot;create-an-in-house-ide-or-use-commercial-one&quot;&gt;Create an in-house IDE or use Commercial one?&lt;/h2&gt;
+
+&lt;p&gt;So, what form of an IDE do you need for your product?
+Create your own or forward your customers to a third-party, paid, and proprietary IDE?
+Let’s take a look at the following comparison table:&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Pros and cons of different IDEs
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;There is only one benefit of a commercial IDE over your own. It’s time.
+Yes, the time is a valuable resource, and creating your own IDE inevitably leads to additional risks and expenses.
+On the other hand, a commercial IDE doesn’t allow you to easily provide security updates for your software products and bundled examples.&lt;/p&gt;
+
+&lt;p&gt;It’s not uncommon when developers need to personally visit the chip vendor’s web-site, check for software and toolchain updates, download proper versions and apply them manually on each machine where the previous development stack was used. In contrast, a custom IDE for your product gives you full freedom and keys to create a single IDE solution for both developers and manufacturers.&lt;/p&gt;
+
+&lt;h2 id=&quot;yet-another-ide&quot;&gt;Yet another IDE?&lt;/h2&gt;
+
+&lt;p&gt;As it turns out, a commercial IDE is not the way to go if time is not a crucial factor.
+But developing an in-house IDE immediately arises additional concerns:&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-yet-another.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    IDE developing steps
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;What is also worth noting that we even are not discussing the amount of required effort and resources to get a decent adoption in the market.
+And again, all of these concerns are accompanied by high risks, time, and cost implications.&lt;/p&gt;
+
+&lt;p&gt;We have already brought up a lot of difficult questions. In our opinion, the next generation IDE shouldn’t force you to find the answers right now if you don’t know what will be tomorrow. Instead, an IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history and much better one replaces it. Yes, it might sound like magic, but it’s achievable.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-platformio&quot;&gt;No, PlatformIO!&lt;/h2&gt;
+
+&lt;p&gt;We would like to show you a simple and powerful solution proved by over a million developers around the world.
+The solution that will make your developers happy and significantly reduce your time to market costs.&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-platformio.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    PlatformIO benefits
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is PlatformIO! The only neutral and open source ecosystem for embedded development.
+A place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning curve in comparison with toolsets from the past decade. Businesses can save money because no highly skilled engineers are required to start developing.&lt;/p&gt;
+
+&lt;h2 id=&quot;global-discussion&quot;&gt;Global discussion&lt;/h2&gt;
+
+&lt;p&gt;We had an opportunity to raise our concerns at &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt; in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt; where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core components of embedded infrastructure using modern technologies.&lt;/p&gt;
+
+&lt;p&gt;You are welcome to watch the recorded version of the presentation:&lt;/p&gt;
+
+&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
+
+&lt;!-- Youtube video --&gt;
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;ytSrc&amp;quot;: &amp;quot;0eYDKION0Bs&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/summit-talk-ikravets-youtube-video-cover.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;Next-generation IDE for decades, not years&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;
+  The slides from the presentation are available on &lt;a href=&quot;https://www.slideshare.net/ivankravets/riscv-summit-2019-nextgeneration-ide-for-your-riscv-product-in-20-minutes&quot; target=&quot;_blank&quot;&gt;SlideShare&lt;/a&gt;.
+&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="insights" /><category term="featured" /><category term="featured-top" /><summary type="html">6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. Our unique philosophy gives embedded developers true freedom – personally decide which operating system, integrated development environment, and hardware to use. In this blog post, we will try to openly discuss the question regarding integrated development environments and the important role they play for the success of your products including hardware and software development tools.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
