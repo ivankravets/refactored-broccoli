@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-10-16T22:13:23+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-10-17T13:10:23+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
 
 &lt;h2&gt;Table of Contents&lt;/h2&gt;
 
@@ -449,9 +449,11 @@ features introduced in PlatformIO Core 5.0. Please visit &lt;a href=&quot;https:
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry.
-Our unique philosophy gives embedded developers true freedom – personally decide which operating system, integrated development environment, and hardware to use.
-In this blog post, we will try to openly discuss the question regarding integrated development environments and the important role they play for the success of your products including hardware and software development tools.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each 
+vendor platform required using a specific development tool that was often complex and limited in terms of OS and editor support.
+Our unique philosophy gives embedded developers true freedom. They can personally decide which operating system, editor, hardware, and framework to use.
+In this blog post, we openly discuss the important role that integrated development environments (IDEs) play for the success and speed of embedded systems 
+development. It isn’t just hardware specifications that professionals look at, they also care deeply about the quality of the available software development tools.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -459,16 +461,17 @@ In this blog post, we will try to openly discuss the question regarding integrat
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#who-needs-an-ide&quot; id=&quot;markdown-toc-who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#create-an-in-house-ide-or-use-commercial-one&quot; id=&quot;markdown-toc-create-an-in-house-ide-or-use-commercial-one&quot;&gt;Create an in-house IDE or use Commercial one?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#yet-another-ide&quot; id=&quot;markdown-toc-yet-another-ide&quot;&gt;Yet another IDE?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#no-platformio&quot; id=&quot;markdown-toc-no-platformio&quot;&gt;No, PlatformIO!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-common&quot; id=&quot;markdown-toc-what-is-common&quot;&gt;What is common?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#create-an-in-house-ide-or-use-a-commercial-one&quot; id=&quot;markdown-toc-create-an-in-house-ide-or-use-a-commercial-one&quot;&gt;Create an in-house IDE or use a commercial one?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#best-of-both-worlds&quot; id=&quot;markdown-toc-best-of-both-worlds&quot;&gt;Best of both worlds?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-power-of-platformio&quot; id=&quot;markdown-toc-the-power-of-platformio&quot;&gt;The Power of PlatformIO&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#global-discussion&quot; id=&quot;markdown-toc-global-discussion&quot;&gt;Global discussion&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/h2&gt;
 
-&lt;p&gt;So, who actually needs an IDE? Apparently, “Developers” is the simplest answer that might come to your mind, and in most cases and that’s correct.
-But, it turns out there are other parties that might be interested in an IDE solution:&lt;/p&gt;
+&lt;p&gt;So, who actually needs an IDE? “Developers” is the simplest answer that comes to mind, and in most cases and that’s correct.
+But, it turns out that there are other parties interested in offering a quality IDE solution:&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
   &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-who-needs.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
@@ -477,8 +480,12 @@ But, it turns out there are other parties that might be interested in an IDE sol
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;These other interested parties are “Manufactures” and “Chip Vendors” (Semiconductor Companies).
-The manufactures play a significant role in the chip vendor’s supply chain and add extra value to chip vendor’s products by using and promoting their solutions. Besides, the manufacturers develop hardware and software solutions to simplify the entrance to the chip vendor’s products line.&lt;/p&gt;
+&lt;p&gt;“Manufacturers” and “Chip Vendors” (semiconductor companies) want to make it easy for developers to build products based on their technology. 
+Manufacturers tend to focus on combining hardware and software solutions that simplify the entrance to the chip vendor’s product line. They 
+play a significant role in promoting and adding extra value to chip vendor solutions. If chip vendor development tools are limited, a manufacturer 
+can gain a competitive advantage by offering better tools that please their developer customers and speed time to market.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-common&quot;&gt;What is common?&lt;/h2&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
   &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-what-is-common.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
@@ -487,14 +494,17 @@ The manufactures play a significant role in the chip vendor’s supply chain and
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;It becomes apparent that all of them need an IDE and, unfortunately, we see an acute problem in the embedded systems industry.
-A lot of semiconductor companies don’t think about manufacturers and don’t provide any integration mechanisms where developers could use the same IDE for both semiconductor and manufacturer products.
-That’s why having a “democratic” IDE can significantly reduce time-to-market costs and make developers happy.&lt;/p&gt;
+&lt;p&gt;It becomes apparent that all three parties need an IDE. Unfortunately, we see an acute problem in the embedded systems industry.
+A lot of semiconductor companies don’t think about manufacturers who offer more than one chipset solution. In such cases, manufacturers may end up 
+having to both offer and support their developer customers with multiple tools. If manufacturers choose to promote different tools than chip vendors, then 
+developers get caught in the middle, perhaps having to learn both. Developers want the same IDE for both semiconductor and manufacturer products. And they 
+don’t want to have to learn a new tool for each different chipset that is incorporated into the breadth of an entire embedded product solution.
+That’s why having a “democratic” and flexible mutli-platform IDE can significantly reduce time-to-market costs and make developers happy.&lt;/p&gt;
 
-&lt;h2 id=&quot;create-an-in-house-ide-or-use-commercial-one&quot;&gt;Create an in-house IDE or use Commercial one?&lt;/h2&gt;
+&lt;h2 id=&quot;create-an-in-house-ide-or-use-a-commercial-one&quot;&gt;Create an in-house IDE or use a commercial one?&lt;/h2&gt;
 
-&lt;p&gt;So, what form of an IDE do you need for your product?
-Create your own or forward your customers to a third-party, paid, and proprietary IDE?
+&lt;p&gt;If you are a manufacturer or chip vendor, what type of IDE is best for your product?
+Should you create your own or should you forward your customers to a third-party commercial (paid and proprietary) IDE?
 Let’s take a look at the following comparison table:&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
@@ -504,33 +514,40 @@ Let’s take a look at the following comparison table:&lt;/p&gt;
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;There is only one benefit of a commercial IDE over your own. It’s time.
-Yes, the time is a valuable resource, and creating your own IDE inevitably leads to additional risks and expenses.
-On the other hand, a commercial IDE doesn’t allow you to easily provide security updates for your software products and bundled examples.&lt;/p&gt;
+&lt;p&gt;There is only one benefit of using a commercial IDE over your own. It’s time.
+Although time is a valuable resource, a commercial IDE doesn’t allow you to easily provide security updates for your software products and bundled examples.
+On the other hand, creating your own IDE inevitably leads to additional risks and expenses.&lt;/p&gt;
 
-&lt;p&gt;It’s not uncommon when developers need to personally visit the chip vendor’s web-site, check for software and toolchain updates, download proper versions and apply them manually on each machine where the previous development stack was used. In contrast, a custom IDE for your product gives you full freedom and keys to create a single IDE solution for both developers and manufacturers.&lt;/p&gt;
+&lt;p&gt;For chip vendors and hardware manufacturers, providing software and tooling is a necessary burden, but it is often under-funded and under-resourced. 
+Developers often end up carrying the burden of visiting chip vendor and manufacturer websites, checking for software and toolchain updates, downloading
+the latest versions, and manually applying them on each development machine. Developers want a single, flexible IDE solution that can support any and all hardware. 
+But they don’t want to pay for it, and they don’t want to be stuck to a specific one if there’s a better solution available.&lt;/p&gt;
 
-&lt;h2 id=&quot;yet-another-ide&quot;&gt;Yet another IDE?&lt;/h2&gt;
+&lt;h2 id=&quot;best-of-both-worlds&quot;&gt;Best of both worlds?&lt;/h2&gt;
 
-&lt;p&gt;As it turns out, a commercial IDE is not the way to go if time is not a crucial factor.
-But developing an in-house IDE immediately arises additional concerns:&lt;/p&gt;
+&lt;p&gt;What features and factors must be analyzed and satsified to get the best of both worlds, that will yield the happiest and most productive developers? 
+Here is a list of factors involved in achieving a comprehensive and flexible IDE solution:&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
   &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-yet-another.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
   &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    IDE developing steps
+    IDE development factors
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;What is also worth noting that we even are not discussing the amount of required effort and resources to get a decent adoption in the market.
-And again, all of these concerns are accompanied by high risks, time, and cost implications.&lt;/p&gt;
+&lt;p&gt;Any brand new IDE solution will require a significant amount of time, effort, and resources to gain decent adoption in the market. 
+And again, all factors involved in creating a new IDE solution are accompanied by unknown risk, time, and cost complications.&lt;/p&gt;
 
-&lt;p&gt;We have already brought up a lot of difficult questions. In our opinion, the next generation IDE shouldn’t force you to find the answers right now if you don’t know what will be tomorrow. Instead, an IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history and much better one replaces it. Yes, it might sound like magic, but it’s achievable.&lt;/p&gt;
+&lt;p&gt;We have already brought up a lot of difficult questions. One last difficult one is how to achieve a best-of-breed next generation IDE 
+that doesn’t stay static for today’s hardware, but that will grow and be ready for tomorrow.
+An IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history books and a much better one replaces it. 
+Yes, solving all these problems might sound like magic, but it’s achievable.&lt;/p&gt;
 
-&lt;h2 id=&quot;no-platformio&quot;&gt;No, PlatformIO!&lt;/h2&gt;
+&lt;h2 id=&quot;the-power-of-platformio&quot;&gt;The Power of PlatformIO&lt;/h2&gt;
 
-&lt;p&gt;We would like to show you a simple and powerful solution proved by over a million developers around the world.
-The solution that will make your developers happy and significantly reduce your time to market costs.&lt;/p&gt;
+&lt;p&gt;We would like to show you a simple and powerful IDE solution used, loved and proven to be the favorite of over a million developers around the world.
+PlatformIO is a flexible next-generation IDE solution that will make your existing developers happier and significantly reduces the barrier of adoption 
+by new developers who may be interested in your hardware.&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
   &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-platformio.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
@@ -539,14 +556,19 @@ The solution that will make your developers happy and significantly reduce your 
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;This is PlatformIO! The only neutral and open source ecosystem for embedded development.
-A place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning curve in comparison with toolsets from the past decade. Businesses can save money because no highly skilled engineers are required to start developing.&lt;/p&gt;
+&lt;p&gt;This is the power of PlatformIO! It’s the only free-for-developers, completely neutral, and open source ecosystem for embedded development.
+It’s a place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees 
+full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning 
+curve in comparison with toolsets from the past decade. Your customers save money and time because a broad range of software developers can get 
+started easily, in comparison with today when only the highest-skilled and most-experienced hardware engineers are required to build products.&lt;/p&gt;
 
 &lt;h2 id=&quot;global-discussion&quot;&gt;Global discussion&lt;/h2&gt;
 
-&lt;p&gt;We had an opportunity to raise our concerns at &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt; in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt; where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core components of embedded infrastructure using modern technologies.&lt;/p&gt;
+&lt;p&gt;We had an opportunity to raise our concerns at the &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt; 
+in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt;, where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core 
+components of embedded development infrastructure using modern software frameworks and technologies.&lt;/p&gt;
 
-&lt;p&gt;You are welcome to watch the recorded version of the presentation:&lt;/p&gt;
+&lt;p&gt;You can watch the recorded version of the presentation here:&lt;/p&gt;
 
 &lt;hr class=&quot;hr-md mb-7&quot; /&gt;
 
@@ -559,4 +581,4 @@ A place where developers have true freedom, where they have a choice to use thei
 
 &lt;p class=&quot;text-center&quot;&gt;
   The slides from the presentation are available on &lt;a href=&quot;https://www.slideshare.net/ivankravets/riscv-summit-2019-nextgeneration-ide-for-your-riscv-product-in-20-minutes&quot; target=&quot;_blank&quot;&gt;SlideShare&lt;/a&gt;.
-&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="insights" /><category term="featured" /><category term="featured-top" /><summary type="html">6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. Our unique philosophy gives embedded developers true freedom – personally decide which operating system, integrated development environment, and hardware to use. In this blog post, we will try to openly discuss the question regarding integrated development environments and the important role they play for the success of your products including hardware and software development tools.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="insights" /><category term="featured" /><category term="featured-top" /><summary type="html">6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each vendor platform required using a specific development tool that was often complex and limited in terms of OS and editor support. Our unique philosophy gives embedded developers true freedom. They can personally decide which operating system, editor, hardware, and framework to use. In this blog post, we openly discuss the important role that integrated development environments (IDEs) play for the success and speed of embedded systems development. It isn’t just hardware specifications that professionals look at, they also care deeply about the quality of the available software development tools.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
