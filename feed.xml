@@ -1,6 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-10-22T14:16:32+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-11-04T21:10:09+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source October Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-october-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source October Updates" /><published>2020-11-02T00:00:00+02:00</published><updated>2020-11-02T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-october-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-october-updates.html">&lt;p&gt;Welcome to the October 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-11-02-oss-october-updates/platformio-oss-october-news.png&quot; alt=&quot;PlatformIO Open Source October Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This month, we launched new features and improvements, fixed a lot of issues, rolled out new updates for Nordic nRF52 and Microchip AVR/megaAVR platforms. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-core-502&quot; id=&quot;markdown-toc-platformio-core-502&quot;&gt;PlatformIO Core 5.0.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-avr-dev-platform-v30&quot; id=&quot;markdown-toc-atmel-avr-dev-platform-v30&quot;&gt;Atmel AVR dev-platform v3.0&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#avr-gdb-stub&quot; id=&quot;markdown-toc-avr-gdb-stub&quot;&gt;AVR GDB stub&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-megaavr-dev-platform-v12&quot; id=&quot;markdown-toc-atmel-megaavr-dev-platform-v12&quot;&gt;Atmel megaAVR dev-platform v1.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nordic-nrf52-dev-platform-v45&quot; id=&quot;markdown-toc-nordic-nrf52-dev-platform-v45&quot;&gt;Nordic nRF52 dev-platform v4.5&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-core-502&quot;&gt;PlatformIO Core 5.0.2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is a heart of the whole PlatformIO ecosystem and we are glad to announce the next 5.0.2 release with a lot of improvements and bugfixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Initialize a new project or update the existing passing working environment name and its options (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3686&quot;&gt;issue #3686&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Automatically build PlatformIO Core extra Python dependencies on a host machine if they are missed in the registry (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3700&quot;&gt;issue #3700&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Improved “core.call” RPC for PlatformIO Home (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3671&quot;&gt;issue #3671&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed a “PermissionError: [WinError 5]” on Windows when an external repository is used with &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_env_library.html#lib-deps&quot;&gt;lib_deps&lt;/a&gt; option (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3664&quot;&gt;issue #3664&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed a “KeyError: ‘versions’” when dependency does not exist in the registry (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3666&quot;&gt;issue #3666&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue with GCC linker when “native” dev-platform is used in pair with library dependencies (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3669&quot;&gt;issue #3669&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an “AssertionError: ensure_dir_exists” when checking library updates from simultaneous subprocesses (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3677&quot;&gt;issue #3677&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue when &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/cmd_publish.html&quot;&gt;pio package publish&lt;/a&gt; command removes original archive after submitting to the registry (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3716&quot;&gt;issue #3716&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue when multiple &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/lib/cmd_install.html&quot;&gt;pio lib install&lt;/a&gt; command with the same local library results in duplicates in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib_deps&lt;/code&gt; (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3715&quot;&gt;issue #3715&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue with a “wrong” timestamp in device monitor output using &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/device/cmd_monitor.html#filters&quot;&gt;“time” filter&lt;/a&gt; (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3712&quot;&gt;issue #3712&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.0.2&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
+
+&lt;h2 id=&quot;atmel-avr-dev-platform-v30&quot;&gt;Atmel AVR dev-platform v3.0&lt;/h2&gt;
+
+&lt;p&gt;Happy to announce a massive update for &lt;a href=&quot;https://platformio.org/platforms/atmelavr&quot;&gt;Atmel AVR&lt;/a&gt; dev-platform (supports 8-bit MCUs that deliver a unique combination of performance, power efficiency and design flexibility):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added initial support for &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/debug-tools/avr-stub.html&quot;&gt;avr-stub&lt;/a&gt; debug tool based on &lt;a href=&quot;https://github.com/jdolinay/avr_debug&quot;&gt;avr_debug&lt;/a&gt; GDB stub&lt;/li&gt;
+  &lt;li&gt;Updated cores:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arduino AVR&lt;/code&gt; v1.8.3&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MightyCore&lt;/code&gt; v2.0.6 (&lt;a href=&quot;https://github.com/MCUdude/MightyCore/releases/tag/v2.0.6&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MiniCore&lt;/code&gt; v2.0.7 (&lt;a href=&quot;https://github.com/MCUdude/MiniCore/releases/tag/v2.0.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MegaCore&lt;/code&gt; v2.0.4 (&lt;a href=&quot;https://github.com/MCUdude/MegaCore/releases/tag/v2.0.4&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MajorCore&lt;/code&gt; v2.0.3 (&lt;a href=&quot;https://github.com/MCUdude/MajorCore/releases/tag/v2.0.3&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MicroCore&lt;/code&gt; v1.0.7 (&lt;a href=&quot;https://github.com/MCUdude/MicroCore/releases/tag/v1.0.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Improved support for more flexible fuses and bootloader programming. More information with examples in the &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelavr.html#overriding-default-fuses-command&quot;&gt;docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelavr/releases/tag/v3.0.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h3 id=&quot;avr-gdb-stub&quot;&gt;AVR GDB stub&lt;/h3&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-11-02-oss-october-updates/avr-stub-demo.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-11-02-oss-october-updates/avr-stub-demo.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;AVR GDB stub is a source-level debugger based on the GDB stub mechanism that allows debugging for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ATmega328&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ATmega1280&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ATmega2560&lt;/code&gt; MCUs using only a serial port, so no additional hardware is required.&lt;/p&gt;
+
+&lt;p&gt;More detailed information about configuration steps and inherent limitations can be found in the AVR GDB stub &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/debug-tools/avr-stub.html&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Atmel AVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-megaavr-dev-platform-v12&quot;&gt;Atmel megaAVR dev-platform v1.2&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/atmelmegaavr&quot;&gt;Atmel megaAVR&lt;/a&gt; dev-platform adds support for new boards and &lt;a href=&quot;https://github.com/MCUdude/MegaCoreX&quot;&gt;MCUDude/MegaCoreX&lt;/a&gt; Arduino core:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega1608.html&quot;&gt;ATmega1608&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega1609.html&quot;&gt;ATmega1609&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega3208.html&quot;&gt;ATmega3208&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega3209.html&quot;&gt;ATmega3209&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega4808.html&quot;&gt;ATmega4808&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega4809.html&quot;&gt;ATmega4809&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega808.html&quot;&gt;ATmega808&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega809.html&quot;&gt;ATmega809&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/avr_iot_wg.html&quot;&gt;avr_iot_wg&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/curiosity_nano_4809.html&quot;&gt;curiosity_nano_4809&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/atmelmegaavr/xplained_pro_4809.html&quot;&gt;xplained_pro_4809&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Added support for &lt;a href=&quot;https://github.com/MCUdude/MegaCoreX&quot;&gt;MCUDude/MegaCoreX&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/releases/tag/v1.2.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Atmel megaAVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nordic-nrf52-dev-platform-v45&quot;&gt;Nordic nRF52 dev-platform v4.5&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/nordicnrf52&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform comes wuith updated Arduino cores and other improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.3.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/1.3.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Adafruit core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v0.21.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/0.21.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/releases/tag/v4.5.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Nordic nRF52 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html#tutorials&quot;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h1&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the October 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-02-oss-october-updates/platformio-oss-october-news.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-02-oss-october-updates/platformio-oss-october-news.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
@@ -261,7 +393,7 @@ More detailed information about the JSON structure of board manifests can be fou
 
 &lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png&quot; alt=&quot;PlatformIO IDE 2.0 for VSCode 🚀&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
@@ -336,7 +468,7 @@ features introduced in PlatformIO IDE 2.0 for VSCode. Please visit &lt;a href=&q
 
 &lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png&quot; alt=&quot;PlatformIO Core 5.0 🚀&quot; /&gt;&lt;/p&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
@@ -449,15 +581,15 @@ features introduced in PlatformIO Core 5.0. Please visit &lt;a href=&quot;https:
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each 
+&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each
 vendor platform required using a specific development tool that was often complex and limited in terms of OS and editor support.
 Our unique philosophy gives embedded developers true freedom. They can personally decide which operating system, editor, hardware, and framework to use.
-In this blog post, we openly discuss the important role that integrated development environments (IDEs) play for the success and speed of embedded systems 
+In this blog post, we openly discuss the important role that integrated development environments (IDEs) play for the success and speed of embedded systems
 development. It isn’t just hardware specifications that professionals look at, they also care deeply about the quality of the available software development tools.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
-&lt;h2&gt;Table of Contents&lt;/h2&gt;
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#who-needs-an-ide&quot; id=&quot;markdown-toc-who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/a&gt;&lt;/li&gt;
@@ -480,9 +612,9 @@ But, it turns out that there are other parties interested in offering a quality 
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;“Manufacturers” and “Chip Vendors” (semiconductor companies) want to make it easy for developers to build products based on their technology. 
-Manufacturers tend to focus on combining hardware and software solutions that simplify the entrance to the chip vendor’s product line. They 
-play a significant role in promoting and adding extra value to chip vendor solutions. If chip vendor development tools are limited, a manufacturer 
+&lt;p&gt;“Manufacturers” and “Chip Vendors” (semiconductor companies) want to make it easy for developers to build products based on their technology.
+Manufacturers tend to focus on combining hardware and software solutions that simplify the entrance to the chip vendor’s product line. They
+play a significant role in promoting and adding extra value to chip vendor solutions. If chip vendor development tools are limited, a manufacturer
 can gain a competitive advantage by offering better tools that please their developer customers and speed time to market.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-common&quot;&gt;What is common?&lt;/h2&gt;
@@ -495,9 +627,9 @@ can gain a competitive advantage by offering better tools that please their deve
 &lt;/figure&gt;
 
 &lt;p&gt;It becomes apparent that all three parties need an IDE. Unfortunately, we see an acute problem in the embedded systems industry.
-A lot of semiconductor companies don’t think about manufacturers who offer more than one chipset solution. In such cases, manufacturers may end up 
-having to both offer and support their developer customers with multiple tools. If manufacturers choose to promote different tools than chip vendors, then 
-developers get caught in the middle, perhaps having to learn both. Developers want the same IDE for both semiconductor and manufacturer products. And they 
+A lot of semiconductor companies don’t think about manufacturers who offer more than one chipset solution. In such cases, manufacturers may end up
+having to both offer and support their developer customers with multiple tools. If manufacturers choose to promote different tools than chip vendors, then
+developers get caught in the middle, perhaps having to learn both. Developers want the same IDE for both semiconductor and manufacturer products. And they
 don’t want to have to learn a new tool for each different chipset that is incorporated into the breadth of an entire embedded product solution.
 That’s why having a “democratic” and flexible mutli-platform IDE can significantly reduce time-to-market costs and make developers happy.&lt;/p&gt;
 
@@ -518,14 +650,14 @@ Let’s take a look at the following comparison table:&lt;/p&gt;
 Although time is a valuable resource, a commercial IDE doesn’t allow you to easily provide security updates for your software products and bundled examples.
 On the other hand, creating your own IDE inevitably leads to additional risks and expenses.&lt;/p&gt;
 
-&lt;p&gt;For chip vendors and hardware manufacturers, providing software and tooling is a necessary burden, but it is often under-funded and under-resourced. 
+&lt;p&gt;For chip vendors and hardware manufacturers, providing software and tooling is a necessary burden, but it is often under-funded and under-resourced.
 Developers often end up carrying the burden of visiting chip vendor and manufacturer websites, checking for software and toolchain updates, downloading
-the latest versions, and manually applying them on each development machine. Developers want a single, flexible IDE solution that can support any and all hardware. 
+the latest versions, and manually applying them on each development machine. Developers want a single, flexible IDE solution that can support any and all hardware.
 But they don’t want to pay for it, and they don’t want to be stuck to a specific one if there’s a better solution available.&lt;/p&gt;
 
 &lt;h2 id=&quot;best-of-both-worlds&quot;&gt;Best of both worlds?&lt;/h2&gt;
 
-&lt;p&gt;What features and factors must be analyzed and satsified to get the best of both worlds, that will yield the happiest and most productive developers? 
+&lt;p&gt;What features and factors must be analyzed and satsified to get the best of both worlds, that will yield the happiest and most productive developers?
 Here is a list of factors involved in achieving a comprehensive and flexible IDE solution:&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
@@ -535,18 +667,18 @@ Here is a list of factors involved in achieving a comprehensive and flexible IDE
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Any brand new IDE solution will require a significant amount of time, effort, and resources to gain decent adoption in the market. 
+&lt;p&gt;Any brand new IDE solution will require a significant amount of time, effort, and resources to gain decent adoption in the market.
 And again, all factors involved in creating a new IDE solution are accompanied by unknown risk, time, and cost complications.&lt;/p&gt;
 
-&lt;p&gt;We have already brought up a lot of difficult questions. One last difficult one is how to achieve a best-of-breed next generation IDE 
+&lt;p&gt;We have already brought up a lot of difficult questions. One last difficult one is how to achieve a best-of-breed next generation IDE
 that doesn’t stay static for today’s hardware, but that will grow and be ready for tomorrow.
-An IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history books and a much better one replaces it. 
+An IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history books and a much better one replaces it.
 Yes, solving all these problems might sound like magic, but it’s achievable.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-power-of-platformio&quot;&gt;The Power of PlatformIO&lt;/h2&gt;
 
 &lt;p&gt;We would like to show you a simple and powerful IDE solution used, loved and proven to be the favorite of over a million developers around the world.
-PlatformIO is a flexible next-generation IDE solution that will make your existing developers happier and significantly reduces the barrier of adoption 
+PlatformIO is a flexible next-generation IDE solution that will make your existing developers happier and significantly reduces the barrier of adoption
 by new developers who may be interested in your hardware.&lt;/p&gt;
 
 &lt;figure class=&quot;figure mb-7&quot;&gt;
@@ -557,15 +689,15 @@ by new developers who may be interested in your hardware.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;This is the power of PlatformIO! It’s the only free-for-developers, completely neutral, and open source ecosystem for embedded development.
-It’s a place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees 
-full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning 
-curve in comparison with toolsets from the past decade. Your customers save money and time because a broad range of software developers can get 
+It’s a place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees
+full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning
+curve in comparison with toolsets from the past decade. Your customers save money and time because a broad range of software developers can get
 started easily, in comparison with today when only the highest-skilled and most-experienced hardware engineers are required to build products.&lt;/p&gt;
 
 &lt;h2 id=&quot;global-discussion&quot;&gt;Global discussion&lt;/h2&gt;
 
-&lt;p&gt;We had an opportunity to raise our concerns at the &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt; 
-in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt;, where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core 
+&lt;p&gt;We had an opportunity to raise our concerns at the &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt;
+in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt;, where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core
 components of embedded development infrastructure using modern software frameworks and technologies.&lt;/p&gt;
 
 &lt;p&gt;You can watch the recorded version of the presentation here:&lt;/p&gt;
