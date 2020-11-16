@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-11-05T17:58:35+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source October Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-october-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source October Updates" /><published>2020-11-02T00:00:00+02:00</published><updated>2020-11-02T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-october-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-october-updates.html">&lt;p&gt;Welcome to the October 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-11-16T14:33:15+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 1. Intro and basic analysis</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-1.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 1. Intro and basic analysis" /><published>2020-11-16T00:00:00+02:00</published><updated>2020-11-16T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-1</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-1.html">&lt;p&gt;Nowadays, microcontrollers are becoming more powerful and efficient, but at the same time, embedded applications are getting even more sophisticated. That complexity requires additional RAM and Flash memory to support all expected features.&lt;!-- more --&gt;  Besides, if a device needs additional memory to perform over-the-air updates then the memory requirements become even more crucial.&lt;/p&gt;
+
+&lt;p&gt;This blog post is the first part of a series on how to analyze the memory footprint in the PlatformIO ecosystem. We will start by analyzing the default memory report after the successful compilation, in the next posts we’ll try more advanced PlatformIO instruments which help analyze application memory usage more precisely and comprehensively.&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#executables&quot; id=&quot;markdown-toc-executables&quot;&gt;Executables&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#memory-layout&quot; id=&quot;markdown-toc-memory-layout&quot;&gt;Memory layout&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#real-world-example&quot; id=&quot;markdown-toc-real-world-example&quot;&gt;Real-world Example&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;executables&quot;&gt;Executables&lt;/h2&gt;
+
+&lt;p&gt;Typically the process of creating an executable consists of several steps and uses a few tools from an appropriate toolchain package. After source files are compiled, the corresponding relocatable object files and additional libraries are linked together into an executable file by a special tool called “linker”. The linker knows where to place the data from object files and libraries by reading linker scripts that describe the actual memory structure specific to the hardware and a use case.&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-1.png&quot; alt=&quot;Compilation and linking process&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Linking process
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Describing the compilation process is outside the scope of this article. If you are interested in the understanding of compilation and linking processes, here is &lt;a href=&quot;https://blog.feabhas.com/2012/06/the-c-build-process/&quot; target=&quot;_blank&quot;&gt;a great introduction&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;memory-layout&quot;&gt;Memory layout&lt;/h2&gt;
+
+&lt;p&gt;There are several formats of binary files, one of the most used is &lt;a href=&quot;https://en.wikipedia.org/wiki/Executable_and_Linkable_Format&quot; target=&quot;_blank&quot;&gt;Executable and Linkable Format&lt;/a&gt; (ELF) which is quite widespread among different platforms. To move further to the next steps, we need to get acquainted with the most important memory sections. Typically, an application contains the following commonly known sections:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; - contains data that can be modified by the application at runtime (statically initialized global and local variables without the default value). Usually, the system initializes this data with zeros before the program begins to run.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.data&lt;/code&gt; - contains data that can be modified by the application at runtime (statically initialized global and local variables with the default value)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rodata&lt;/code&gt; - a read-only section for constant data (e.g. numeric constants, strings, etc)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.text&lt;/code&gt; - a read-only section that contains the executable instructions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;An approximate memory layout for a hypothetical target might be organized in the following way:&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png&quot; alt=&quot;Memory layout of a simple embedded binary&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Memory layout of a simple embedded binary
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As shown on the figure above, the free memory area between the end of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; section and the lowest address in the stack can be be used for dynamic memory allocations.&lt;/p&gt;
+
+&lt;h2 id=&quot;real-world-example&quot;&gt;Real-world Example&lt;/h2&gt;
+
+&lt;p&gt;Let’s try to run a simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Blink&lt;/code&gt; example based on the &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/stm32cube.html&quot; target=&quot;_blank&quot;&gt;STM32Cube&lt;/a&gt; framework on any supported board, in this article &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html&quot; target=&quot;_blank&quot;&gt;ST Nucleo-F401RE&lt;/a&gt; is used.&lt;/p&gt;
+
+&lt;p&gt;First, we need to install the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ST STM32&lt;/code&gt; platform by following instructions on &lt;a href=&quot;https://platformio.org/platforms/ststm32/installation&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;. Once the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ststm32&lt;/code&gt; dev-platform is installed, we can import a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STM32Cube&lt;/code&gt; example and compile it:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As shown on the image above, after the successful compilation PlatformIO reported basic information about Flash and RAM usage. In our case, it’s 44 bytes of RAM and 1244 bytes of Flash memory. This approximate information should be enough for most cases when developers just need to verify that new changes to the code base don’t introduce unnecessary memory overhead. But if such overhead has occurred, it might be useful to compile the project in verbose mode and see what exact sections are using up the largest part of the memory:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-4.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In this case, we see the memory footprint per section and their addresses in the decimal format. The most interesting of them were already described in the previous chapter, so let’s focus on a few new items (keep in mind that the full format of the ELF contains many more items):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;._user_heap_stack&lt;/code&gt; - an auxiliary section specified in the linker script that checks whether there is enough RAM left&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ARM.attributes&lt;/code&gt; - a section for hardware-specific attributes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.comment&lt;/code&gt; - a section that holds version control information&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.debug_frame&lt;/code&gt; - additional debug information (part of the DWARF standard)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.isr_section&lt;/code&gt; - interrupt vector table at the start of the Flash memory&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.init_array&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.fini_array&lt;/code&gt; - sections that hold arrays of pointers to functions that will be called on application initialization and termination accordingly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;As it turned out, memory analysis is not that hard and even the default build information contains enough data to help estimate the memory footprint. In the next article, we’ll run through advanced PlatformIO instruments that show different ways of optimizing embedded applications by generating more comprehensive reports on memory usage.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">Nowadays, microcontrollers are becoming more powerful and efficient, but at the same time, embedded applications are getting even more sophisticated. That complexity requires additional RAM and Flash memory to support all expected features.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source October Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-october-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source October Updates" /><published>2020-11-02T00:00:00+02:00</published><updated>2020-11-02T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-october-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-october-updates.html">&lt;p&gt;Welcome to the October 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
