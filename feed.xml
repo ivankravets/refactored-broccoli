@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-12-02T19:09:34+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Labs joins Eclipse Foundation</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html" rel="alternate" type="text/html" title="PlatformIO Labs joins Eclipse Foundation" /><published>2020-12-01T00:00:00+02:00</published><updated>2020-12-01T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-12-04T14:46:01+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source November Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-november-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source November Updates" /><published>2020-12-04T00:00:00+02:00</published><updated>2020-12-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-november-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-november-updates.html">&lt;p&gt;Welcome to the November 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-november-news.jpg&quot; alt=&quot;PlatformIO Open Source November Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During November, we implemented several feature requests, added support for Zephyr v2.4, rolled out updates for ST STM32, Microchip SAM/megaAVR, Shakti RISC-V platforms and fixed a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-core-503&quot; id=&quot;markdown-toc-platformio-core-503&quot;&gt;PlatformIO Core 5.0.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#zephyr-v24-new-boards-initial-support-for-vmm-and-new-tcp-stack&quot; id=&quot;markdown-toc-zephyr-v24-new-boards-initial-support-for-vmm-and-new-tcp-stack&quot;&gt;Zephyr v2.4: New boards, initial support for VMM and new TCP stack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-sam-dev-platform-v50&quot; id=&quot;markdown-toc-atmel-sam-dev-platform-v50&quot;&gt;Atmel SAM dev-platform v5.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-megaavr-dev-platform-v13&quot; id=&quot;markdown-toc-atmel-megaavr-dev-platform-v13&quot;&gt;Atmel megaAVR dev-platform v1.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#shakti-risc-v-dev-platform-v11&quot; id=&quot;markdown-toc-shakti-risc-v-dev-platform-v11&quot;&gt;Shakti RISC-V dev-platform v1.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#st-stm32-dev-platform-v100&quot; id=&quot;markdown-toc-st-stm32-dev-platform-v100&quot;&gt;ST STM32 dev-platform v10.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-core-503&quot;&gt;PlatformIO Core 5.0.3&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is a heart of the whole PlatformIO ecosystem and we are glad to announce the next 5.0.3 release with improvements and bugfixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added an error selector for &lt;a href=&quot;https://docs.platformio.org/page/integration/ide/sublimetext.html&quot;&gt;Sublime Text&lt;/a&gt; build runner (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3733&quot;&gt;issue #3733&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Generate a working “projectEnvName” for PlatformIO IDE’s debugger for VSCode&lt;/li&gt;
+  &lt;li&gt;Force VSCode’s intelliSenseMode to “gcc-x64” when GCC toolchain is used&lt;/li&gt;
+  &lt;li&gt;Print ignored test suites and environments in the test summary report only in verbose mode (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3726&quot;&gt;issue #3726&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue when the package manager tries to install a built-in library from the registry (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3662&quot;&gt;issue #3662&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue when &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/cmd_pack.html&quot;&gt;pio package pack&lt;/a&gt; ignores some folders (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3730&quot;&gt;issue #3730&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.0.3&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
+
+&lt;h2 id=&quot;zephyr-v24-new-boards-initial-support-for-vmm-and-new-tcp-stack&quot;&gt;Zephyr v2.4: New boards, initial support for VMM and new TCP stack&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for a new release v2.4 of Zephyr Project - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in v2.4:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduced initial support for virtual memory management, device memory-mapped I/O APIs, and reduced memory requirements for kernel thread stacks when user mode is enabled&lt;/li&gt;
+  &lt;li&gt;Added Bluetooth host-level support for periodic advertisement and isochronous channels, laying the groundwork for Bluetooth LE audio support in a future release.&lt;/li&gt;
+  &lt;li&gt;The networking subsystem switched over to the TCP2 implementation as the default, allowing for better network protocol testing than the previous TCP implementation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Zephyr framework&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.4.0&quot;&gt;Release notes for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.4.0&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html&quot;&gt;Documentation for Zephyr framework&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms&quot;&gt;Supported development platforms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-sam-dev-platform-v50&quot;&gt;Atmel SAM dev-platform v5.0&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; dev-platform comes with updated Zephyr, Arduino frameworks and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.4.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.4.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino SAMD core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.9&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.9&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Pull &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;meteca&lt;/code&gt; packages from its own organization&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelsam/releases/tag/v5.0.1&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h2 id=&quot;atmel-megaavr-dev-platform-v13&quot;&gt;Atmel megaAVR dev-platform v1.3&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/atmelmegaavr&quot;&gt;Atmel megaAVR&lt;/a&gt; brings handy enhancements for dynamic fuses calculation and bootloader programming:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MegaCoreX&lt;/code&gt; fuses and bootloader programming&lt;/li&gt;
+  &lt;li&gt;Fixed build process that generated broken images for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uno_wifi_rev2&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nano_every&lt;/code&gt; boards&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/releases/tag/v1.3.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Atmel megaAVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;shakti-risc-v-dev-platform-v11&quot;&gt;Shakti RISC-V dev-platform v1.1&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/shakti&quot;&gt;Shakti&lt;/a&gt; dev-platform comes with three new boards and the latest Shakti SDK:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added support for &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/shakti/parashu.html&quot;&gt;Parashu&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/shakti/pinaka.html&quot;&gt;Pinaka&lt;/a&gt; and &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/shakti/vajra.html&quot;&gt;Vajra&lt;/a&gt; boards&lt;/li&gt;
+  &lt;li&gt;Updated Shakti SDK to the latest available&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-shakti/releases/tag/v1.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Shakti dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/shakti.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-shakti/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;st-stm32-dev-platform-v100&quot;&gt;ST STM32 dev-platform v10.0&lt;/h2&gt;
+
+&lt;p&gt;Improved support for the STM32Cube framework is perhaps our most anticipated update of this version. We’ve had plans on updating it for a long time and finally we finished the development needed to use the official packages from the ST Microelectronics &lt;a href=&quot;https://github.com/STMicroelectronics?q=stm32cube&amp;amp;type=&amp;amp;language=&quot;&gt;repositories&lt;/a&gt;. Now users are able to easily develop applications using the latest STM32Cube packages for popular ST MCU families. Other updates include new boards, updated Arduino cores, improved support for Zephyr framework and several fixes and improvements.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_h745zi_q.html&quot;&gt;ST Nucleo H745ZI-Q&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/olimex_f103.html&quot;&gt;Olimex STM32-H103&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/waveshare_open103z.html&quot;&gt;Waveshare Open103Z&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.4.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.4.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated support for STM32Cube framework&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Maple core to the latest available&lt;/li&gt;
+  &lt;li&gt;Updated Arduino MXChip core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/microsoft/devkit-sdk/releases/tag/2.0.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-ststm32/releases/tag/v10.0.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h1 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h1&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the November 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs joins Eclipse Foundation</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html" rel="alternate" type="text/html" title="PlatformIO Labs joins Eclipse Foundation" /><published>2020-12-01T00:00:00+02:00</published><updated>2020-12-01T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html">&lt;ul&gt;
   &lt;li&gt;Modern software and new standards enable more developers to tackle the embedded systems and IoT markets&lt;/li&gt;
   &lt;li&gt;Open, flexible, and neutral ecosystem tools improve growth for hardware and toolchain providers&lt;/li&gt;
 &lt;/ul&gt;
