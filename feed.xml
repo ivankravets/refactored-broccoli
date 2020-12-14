@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-12-04T14:46:01+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source November Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-november-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source November Updates" /><published>2020-12-04T00:00:00+02:00</published><updated>2020-12-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-november-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-november-updates.html">&lt;p&gt;Welcome to the November 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-12-14T20:45:42+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-2.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector" /><published>2020-12-14T00:00:00+02:00</published><updated>2020-12-14T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-2.html">&lt;p&gt;Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;/blog/insights/memory-analysis-part-1.html&quot;&gt;previous post&lt;/a&gt;, we briefly looked into general aspects of the memory layout of executable files. In this post, we will go deeper into the ELF file structure and memory analysis using a very useful PlatformIO tool called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt; which allows analyzing application memory usage or to answer specific questions about which memory section a variable or function is placed in or what file this symbol is located in.&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#running-analysis&quot; id=&quot;markdown-toc-running-analysis&quot;&gt;Running Analysis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#inspecting-results&quot; id=&quot;markdown-toc-inspecting-results&quot;&gt;Inspecting Results&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#project-statistics&quot; id=&quot;markdown-toc-project-statistics&quot;&gt;Project Statistics&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#project-explorer&quot; id=&quot;markdown-toc-project-explorer&quot;&gt;Project Explorer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#symbol-table&quot; id=&quot;markdown-toc-symbol-table&quot;&gt;Symbol Table&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#memory-sections&quot; id=&quot;markdown-toc-memory-sections&quot;&gt;Memory Sections&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;running-analysis&quot;&gt;Running Analysis&lt;/h2&gt;
+
+&lt;p&gt;We already installed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ststm32&lt;/code&gt; platform and imported a basic example in the previous blog post. Let’s analyze the same project, but this time via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt;. On the PlatformIO Home page, navigate to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inspect&lt;/code&gt; tab, select your project and environment, press the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inspect&lt;/code&gt; button:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-2.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-2.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;inspecting-results&quot;&gt;Inspecting Results&lt;/h2&gt;
+
+&lt;h3 id=&quot;project-statistics&quot;&gt;Project Statistics&lt;/h3&gt;
+
+&lt;p&gt;Once the analysis is done, PlatformIO will show a detailed report on memory usage. The first &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Statistics&lt;/code&gt; tab displays general information about used hardware, a graphical representation of the percentage of used memory, Top-5 files with the most significant contribution to the memory footprint, along with Top-5 largest symbols defined in the firmware:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For example, in our case, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stm32f4xx_hal_gpio.c&lt;/code&gt; file has the highest memory consumption of 428 bytes.&lt;/p&gt;
+
+&lt;p&gt;As we can see, the report from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt; a bit differs from the regular information reported after each build step. In this case, the differences can be explained by a different calculation method of memory consumption. Project Inspector also takes into account the memory section which was allocated for the stack and heap. Usually, it’s done in the project linker script and used to ensure that there is enough free memory left for the stack and heap to fit into the RAM. In code  such verification may look like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_Min_Heap_Size = 0x200;      /* required amount of heap  */
+_Min_Stack_Size = 0x400;     /* required amount of stack */
+...
+._user_heap_stack :
+{
+    . = ALIGN(4);
+    PROVIDE ( end = . );
+    PROVIDE ( _end = . );
+    . = . + _Min_Heap_Size;
+    . = . + _Min_Stack_Size;
+    . = ALIGN(4);
+} &amp;gt;RAM
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;._user_heap_stack&lt;/code&gt; (or similar name) is exactly the section that declares the memory area that could be allocated at runtime.&lt;/p&gt;
+
+&lt;h3 id=&quot;project-explorer&quot;&gt;Project Explorer&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Explorer&lt;/code&gt; tab provides a convenient way for navigating through project source files while displaying used RAM and Flash memory for each file. By clicking on any particular file we can see a detailed report on symbols defined in this file and their size:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-4.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;symbol-table&quot;&gt;Symbol Table&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symbols&lt;/code&gt; page lists the most memory-consuming symbols in the entire project. Besides the information about size, address, and the memory segment where that symbols are located, there are also two additional columns that provide extra information:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-5.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt; column describes the specific type of each symbol. The most interesting for us are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STT_OBJECT&lt;/code&gt; - This symbol is associated with a data object, such as a variable, an array, and so on.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STT_FUNC&lt;/code&gt; - This symbol indicates that this symbol represents a function or other executable code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bind&lt;/code&gt; column shows symbol binding type. For most applications, symbol types fall into the following three categories:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_LOCAL&lt;/code&gt; - Local symbols that are not visible outside the object file containing their definition. Local symbols with the same name may exist in multiple files without interfering with each other.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_GLOBAL&lt;/code&gt; - Global symbols. These symbols are visible to all object files being combined.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_WEAK&lt;/code&gt; - Weak symbols resemble global symbols, but their definitions have lower precedence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can also click on the magnifier icon on the right to the symbol name to open the corresponding source file and highlight the line where that symbol was defined.&lt;/p&gt;
+
+&lt;h3 id=&quot;memory-sections&quot;&gt;Memory Sections&lt;/h3&gt;
+
+&lt;p&gt;The last tab &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sections&lt;/code&gt; is similar to the memory report after the verbose build, but shows extra information like section types and attributes:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-6.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt; column categorizes the section contents and semantics. A short description of the possible values:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_PROGBITS&lt;/code&gt; - The section holds information defined by the program, includes executable code and data&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_NOBITS&lt;/code&gt; - A section of this type occupies no space in the file but otherwise resembles &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_PROGBITS&lt;/code&gt; (for example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; section)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_STRTAB&lt;/code&gt; - The section holds the string table&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_SYMTAB&lt;/code&gt; - The section holds the symbol table&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flags&lt;/code&gt; column describes miscellaneous section attributes The most interesting for us are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;W (SHF_WRITE)&lt;/code&gt; - The section contains data that should be writable during process execution.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A (SHF_ALLOC)&lt;/code&gt; - The section occupies memory during process execution (used to attribute control sections that don’t reside in the memory image of an object file).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X (SHF_EXECINSTR)&lt;/code&gt; - The section contains executable machine instructions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you are interested in more detailed information about the structure of ELF files, here is a great &lt;a href=&quot;https://man7.org/linux/man-pages/man5/elf.5.html&quot; target=&quot;_blank&quot;&gt;man page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Advanced analysis tools are becoming more useful as the modern firmware in embedded systems is getting highly complicated. Such tools enable developers to better understand how optimization flags, standard libraries, or even coding style affect memory consumption. Dismissive attitude towards optimization may lead to nonrecoverable software failures after deployment, especially on embedded systems where code space is a very constrained resource.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source November Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-november-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source November Updates" /><published>2020-12-04T00:00:00+02:00</published><updated>2020-12-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-november-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-november-updates.html">&lt;p&gt;Welcome to the November 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -546,7 +667,7 @@ ble_beacon_nrf52833.yaml
 &lt;span class=&quot;nb&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;$ENV{ZEPHYR_BASE}/cmake/app/boilerplate.cmake NO_POLICY_SCOPE&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;custom-board&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;nf&quot;&gt;target_sources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;app PRIVATE ../src/main.c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;target_sources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;app PRIVATE ../src/main.c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;adding-a-custom-board-to-platformio&quot;&gt;Adding a custom board to PlatformIO&lt;/h3&gt;
