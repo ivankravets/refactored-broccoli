@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2020-12-26T19:29:34+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-2.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector" /><published>2020-12-14T00:00:00+02:00</published><updated>2020-12-14T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-2.html">&lt;p&gt;Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-07T18:21:22+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source December Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-december-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source December Updates" /><published>2021-01-07T00:00:00+02:00</published><updated>2021-01-07T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-december-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-december-updates.html">&lt;p&gt;Welcome to the December 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-december-news.jpg&quot; alt=&quot;PlatformIO Open Source December Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During December, we implemented several feature requests, added support for Mbed OS v6.6.0, rolled out major updates for Nordic nRF52 and Microchip SAM/megaAVR platforms, added a new RISC-V dev-platform and fixed a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-core-504&quot; id=&quot;markdown-toc-platformio-core-504&quot;&gt;PlatformIO Core 5.0.4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#mbed-os-updates&quot; id=&quot;markdown-toc-mbed-os-updates&quot;&gt;Mbed OS Updates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-sam-dev-platform-v51&quot; id=&quot;markdown-toc-atmel-sam-dev-platform-v51&quot;&gt;Atmel SAM dev-platform v5.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nordic-nrf52-dev-platform-v60&quot; id=&quot;markdown-toc-nordic-nrf52-dev-platform-v60&quot;&gt;Nordic nRF52 dev-platform v6.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-avr-dev-platform-v31&quot; id=&quot;markdown-toc-atmel-avr-dev-platform-v31&quot;&gt;Atmel AVR dev-platform v3.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#wrapping-up-2020--intro-to-2021&quot; id=&quot;markdown-toc-wrapping-up-2020--intro-to-2021&quot;&gt;Wrapping Up 2020 &amp;amp; Intro to 2021&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-core-504&quot;&gt;PlatformIO Core 5.0.4&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is the heart of the whole PlatformIO ecosystem and we are glad to announce the next v5.0.4 release with improvements and bugfixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added “Core” suffix when showing PlatformIO Core version using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio --version&lt;/code&gt; command&lt;/li&gt;
+  &lt;li&gt;Improved &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ccls&lt;/code&gt; configuration file for Emacs, Vim, and Sublime Text integrations&lt;/li&gt;
+  &lt;li&gt;Updated analysis tools:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/plus/check-tools/cppcheck.html&quot;&gt;Cppcheck&lt;/a&gt; v2.3 with improved C++ parser and several new MISRA rules&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/plus/check-tools/pvs-studio.html&quot;&gt;PVS-Studio&lt;/a&gt; v7.11 with new diagnostics and updated mass suppression mechanism&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Show a warning message about deprecated support for Python 2 and Python 3.5&lt;/li&gt;
+  &lt;li&gt;Do not provide “intelliSenseMode” option when generating configuration for VSCode C/C++ extension&lt;/li&gt;
+  &lt;li&gt;Fixed a “git-sh-setup: file not found” error when installing project dependencies from Git VCS (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3740&quot;&gt;issue #3740&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue with package publishing on Windows when Unix permissions are not preserved (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3776&quot;&gt;issue #3776&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.0.4&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
+
+&lt;h2 id=&quot;mbed-os-updates&quot;&gt;Mbed OS Updates&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for the latest &lt;strong&gt;Mbed OS 6&lt;/strong&gt; - an open source embedded operating system designed specifically for the Internet of Things. It includes all the features you need to develop a connected product based on an Arm Cortex-M microcontroller, including security, connectivity, an RTOS and drivers for sensors and I/O devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in the latest releases:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improvements to BLE and COAP implementations&lt;/li&gt;
+  &lt;li&gt;Additional cloud connectivity integrations&lt;/li&gt;
+  &lt;li&gt;Better support for the bare metal profile&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Legacy &lt;strong&gt;Mbed OS 5&lt;/strong&gt; was updated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v5.15.6&lt;/code&gt; - the latest version for the Mbed OS 5.15 branch to keep legacy projects up to date with the latest bugfixes and improvements.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Important fixes in v5.15.6:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nanostack release &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v12.6.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Improvements to WiSUN functionality&lt;/li&gt;
+  &lt;li&gt;Mbed CoAP updated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v5.1.8&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More information on project configuration for Mbed OS can be found &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Mbed OS&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.6.0&quot;&gt;Release notes for v6.6.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.5.0&quot;&gt;Release notes for v6.5.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.4.0&quot;&gt;Release notes for v6.4.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.3.0&quot;&gt;Release notes for v6.3.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-5.15.6&quot;&gt;Release notes for v5.15.6&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html&quot;&gt;Documentation for Mbed OS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html#platforms&quot;&gt;Supported development platforms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-sam-dev-platform-v51&quot;&gt;Atmel SAM dev-platform v5.1&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; dev-platform brings new boards, updated Arduino cores and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_blm_badge.html&quot;&gt;Adafruit BLM Badge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_feather_m4_can.html&quot;&gt;Adafruit Feather M4 CAN&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_matrix_portal_m4.html&quot;&gt;Adafruit Matrix Portal M4&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_qt_py_m0.html&quot;&gt;Adafruit QT Py M0&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Arduino SAMD core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.10&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.6.4&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Adafruit SAMD core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.6.4&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.10&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelsam/releases/tag/v5.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h2 id=&quot;nordic-nrf52-dev-platform-v60&quot;&gt;Nordic nRF52 dev-platform v6.0&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform comes with new boards and updated Arduino nRF5 core:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/bbcmicrobit_v2.html&quot;&gt;BBC micro:bit V2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/dwm1001_dev.html&quot;&gt;decaWave DWM1001 Module Development Board&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/raytac_mdbt50q_rx.html&quot;&gt;Raytac MDBT50Q-RX Dongle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/reel_board.html&quot;&gt;PHYTEC reel board&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/reel_board_v2.html&quot;&gt;PHYTEC reel board v2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Arduino nRF5 core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v0.7&lt;/code&gt; (&lt;a href=&quot;https://github.com/sandeepmistry/arduino-nRF5/releases/tag/0.7.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/releases/tag/v6.0.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h2 id=&quot;atmel-avr-dev-platform-v31&quot;&gt;Atmel AVR dev-platform v3.1&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/atmelavr&quot;&gt;Atmel AVR&lt;/a&gt; includes a major update of MicroCore - a lightweight Arduino core for ATtiny13 MCUs, dynamic flash memory calculation for bootloader-enabled devices and several minor updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated MicroCore to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MicroCore/releases/tag/v2.0.2&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;The bootloader size for MCUdude’s cores is now calculated dynamically&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Minor releases of MCUdude’s cores&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;MightyCore &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.8&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MightyCore/releases/tag/v2.0.8&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;MiniCore &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.9&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MiniCore/releases/tag/v2.0.9&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;MegaCore &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.6&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MegaCore/releases/tag/v2.0.6&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;MajorCore &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.5&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MajorCore/releases/tag/v2.0.5&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelavr/releases/tag/v3.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Atmel AVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wrapping-up-2020--intro-to-2021&quot;&gt;Wrapping Up 2020 &amp;amp; Intro to 2021&lt;/h2&gt;
+
+&lt;p&gt;2020 was challenging in many aspects, but all that obstacles and constraints didn’t diminish our commitment to the growing Open Source Community. Ensuring the OSS part of PlatformIO Labs is thriving, stable, and up to date has always been one of our main goals. We’ve remained motivated and did our best even in this difficult time thanks to our users and their open and sincere feedback.&lt;/p&gt;
+
+&lt;p&gt;We want to thank everyone who has been a part of all of this work and progress, whether you worked with us as a client, contributed to our projects, or participated in any other way. We look forward to continuing our mission of consistent improvement in 2021. PlatformIO Labs will keep improving and bringing features to the community and we hope you will continue to be a part of our big global family!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Have a great 2021!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the December 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-2.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector" /><published>2020-12-14T00:00:00+02:00</published><updated>2020-12-14T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-2.html">&lt;p&gt;Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -243,7 +395,7 @@ _Min_Stack_Size = 0x400;     /* required amount of stack */
 
 &lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-ststm32/releases/tag/v10.0.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
 
-&lt;h1 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h1&gt;
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
 &lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the November 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs joins Eclipse Foundation</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html" rel="alternate" type="text/html" title="PlatformIO Labs joins Eclipse Foundation" /><published>2020-12-01T00:00:00+02:00</published><updated>2020-12-01T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html">&lt;ul&gt;
   &lt;li&gt;Modern software and new standards enable more developers to tackle the embedded systems and IoT markets&lt;/li&gt;
@@ -326,7 +478,7 @@ PlatformIO Labs is a great example of a company with a strong commitment to the 
 &lt;/p&gt;
 &lt;footer class=&quot;text-center&quot;&gt;
   &lt;p class=&quot;h4 mb-0&quot;&gt;Ivan Kravets&lt;/p&gt;
-  &lt;p class=&quot;font-size-sm text-muted mb-0&quot;&gt;Founder and CEO the of PlatformIO Labs&lt;/p&gt;
+  &lt;p class=&quot;font-size-sm text-muted mb-0&quot;&gt;Founder and CEO of PlatformIO Labs&lt;/p&gt;
 &lt;/footer&gt;
 &lt;/blockquote&gt;
 &lt;hr class=&quot;hr-md my-7&quot; /&gt;
@@ -548,7 +700,7 @@ PlatformIO Labs is a great example of a company with a strong commitment to the 
   &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html#tutorials&quot;&gt;Tutorials&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h1&gt;
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
 &lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the October 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
 
@@ -1001,136 +1153,4 @@ features introduced in PlatformIO Core 5.0. Please visit &lt;a href=&quot;https:
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Next-generation IDE for decades, not years</title><link href="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html" rel="alternate" type="text/html" title="Next-generation IDE for decades, not years" /><published>2020-09-01T00:00:00+03:00</published><updated>2020-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/next-generation-ide-for-decades</id><content type="html" xml:base="https://piolabs.com/blog/insights/next-generation-ide-for-decades.html">&lt;p&gt;6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each
-vendor platform required using a specific development tool that was often complex and limited in terms of OS and editor support.&lt;/p&gt;
-
-&lt;p&gt;Our unique philosophy gives embedded developers true freedom. &lt;!-- more --&gt; They can personally decide which operating system, editor, hardware, and framework to use.&lt;/p&gt;
-
-&lt;p&gt;In this blog post, we openly discuss the important role that integrated development environments (IDEs) play for the success and speed of embedded systems
-development. It isn’t just hardware specifications that professionals look at, they also care deeply about the quality of the available software development tools.&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#who-needs-an-ide&quot; id=&quot;markdown-toc-who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-is-common&quot; id=&quot;markdown-toc-what-is-common&quot;&gt;What is common?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#create-an-in-house-ide-or-use-a-commercial-one&quot; id=&quot;markdown-toc-create-an-in-house-ide-or-use-a-commercial-one&quot;&gt;Create an in-house IDE or use a commercial one?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#best-of-both-worlds&quot; id=&quot;markdown-toc-best-of-both-worlds&quot;&gt;Best of both worlds?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#the-power-of-platformio&quot; id=&quot;markdown-toc-the-power-of-platformio&quot;&gt;The Power of PlatformIO&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#global-discussion&quot; id=&quot;markdown-toc-global-discussion&quot;&gt;Global discussion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;who-needs-an-ide&quot;&gt;Who needs an IDE?&lt;/h2&gt;
-
-&lt;p&gt;So, who actually needs an IDE? “Developers” is the simplest answer that comes to mind, and in most cases and that’s correct.
-But, it turns out that there are other parties interested in offering a quality IDE solution:&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-who-needs.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Parties interested in IDE solutions
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;“Manufacturers” and “Chip Vendors” (semiconductor companies) want to make it easy for developers to build products based on their technology.
-Manufacturers tend to focus on combining hardware and software solutions that simplify the entrance to the chip vendor’s product line. They
-play a significant role in promoting and adding extra value to chip vendor solutions. If chip vendor development tools are limited, a manufacturer
-can gain a competitive advantage by offering better tools that please their developer customers and speed time to market.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-is-common&quot;&gt;What is common?&lt;/h2&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-what-is-common.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    An IDE is common ground for all parties
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;It becomes apparent that all three parties need an IDE. Unfortunately, we see an acute problem in the embedded systems industry.
-A lot of semiconductor companies don’t think about manufacturers who offer more than one chipset solution. In such cases, manufacturers may end up
-having to both offer and support their developer customers with multiple tools. If manufacturers choose to promote different tools than chip vendors, then
-developers get caught in the middle, perhaps having to learn both. Developers want the same IDE for both semiconductor and manufacturer products. And they
-don’t want to have to learn a new tool for each different chipset that is incorporated into the breadth of an entire embedded product solution.
-That’s why having a “democratic” and flexible mutli-platform IDE can significantly reduce time-to-market costs and make developers happy.&lt;/p&gt;
-
-&lt;h2 id=&quot;create-an-in-house-ide-or-use-a-commercial-one&quot;&gt;Create an in-house IDE or use a commercial one?&lt;/h2&gt;
-
-&lt;p&gt;If you are a manufacturer or chip vendor, what type of IDE is best for your product?
-Should you create your own or should you forward your customers to a third-party commercial (paid and proprietary) IDE?
-Let’s take a look at the following comparison table:&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Pros and cons of different IDEs
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;There is only one benefit of using a commercial IDE over your own. It’s time.
-Although time is a valuable resource, a commercial IDE doesn’t allow you to easily provide security updates for your software products and bundled examples.
-On the other hand, creating your own IDE inevitably leads to additional risks and expenses.&lt;/p&gt;
-
-&lt;p&gt;For chip vendors and hardware manufacturers, providing software and tooling is a necessary burden, but it is often under-funded and under-resourced.
-Developers often end up carrying the burden of visiting chip vendor and manufacturer websites, checking for software and toolchain updates, downloading
-the latest versions, and manually applying them on each development machine. Developers want a single, flexible IDE solution that can support any and all hardware.
-But they don’t want to pay for it, and they don’t want to be stuck to a specific one if there’s a better solution available.&lt;/p&gt;
-
-&lt;h2 id=&quot;best-of-both-worlds&quot;&gt;Best of both worlds?&lt;/h2&gt;
-
-&lt;p&gt;What features and factors must be analyzed and satsified to get the best of both worlds, that will yield the happiest and most productive developers?
-Here is a list of factors involved in achieving a comprehensive and flexible IDE solution:&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-yet-another.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    IDE development factors
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Any brand new IDE solution will require a significant amount of time, effort, and resources to gain decent adoption in the market.
-And again, all factors involved in creating a new IDE solution are accompanied by unknown risk, time, and cost complications.&lt;/p&gt;
-
-&lt;p&gt;We have already brought up a lot of difficult questions. One last difficult one is how to achieve a best-of-breed next generation IDE
-that doesn’t stay static for today’s hardware, but that will grow and be ready for tomorrow.
-An IDE should be prepared for unpredictable changes in the market and be ready when one editor goes into history books and a much better one replaces it.
-Yes, solving all these problems might sound like magic, but it’s achievable.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-power-of-platformio&quot;&gt;The Power of PlatformIO&lt;/h2&gt;
-
-&lt;p&gt;We would like to show you a simple and powerful IDE solution used, loved and proven to be the favorite of over a million developers around the world.
-PlatformIO is a flexible next-generation IDE solution that will make your existing developers happier and significantly reduces the barrier of adoption
-by new developers who may be interested in your hardware.&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-platformio.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    PlatformIO benefits
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;This is the power of PlatformIO! It’s the only free-for-developers, completely neutral, and open source ecosystem for embedded development.
-It’s a place where developers have true freedom, where they have a choice to use their favorite editor and operating system. PlatformIO guarantees
-full reproducibility starting from project building and ending with 1-click debugging. Also, PlatformIO offers a significantly gentler learning
-curve in comparison with toolsets from the past decade. Your customers save money and time because a broad range of software developers can get
-started easily, in comparison with today when only the highest-skilled and most-experienced hardware engineers are required to build products.&lt;/p&gt;
-
-&lt;h2 id=&quot;global-discussion&quot;&gt;Global discussion&lt;/h2&gt;
-
-&lt;p&gt;We had an opportunity to raise our concerns at the &lt;a href=&quot;https://riscv.org/2019/12/risc-v-summit-2019-proceedings/&quot; target=&quot;_blank&quot;&gt;RISC-V Summit 2019&lt;/a&gt;
-in San Jose, &lt;strong&gt;California, USA&lt;/strong&gt;, where we presented our vision of how a new generation of development ecosystems could rapidly renovate the core
-components of embedded development infrastructure using modern software frameworks and technologies.&lt;/p&gt;
-
-&lt;p&gt;You can watch the recorded version of the presentation here:&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
-
-&lt;!-- Youtube video --&gt;
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;ytSrc&amp;quot;: &amp;quot;0eYDKION0Bs&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img src=&quot;/assets/posts/2020-09-01-next-generation-ide-for-decades/summit-talk-ikravets-youtube-video-cover.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;Next-generation IDE for decades, not years&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;
-  The slides from the presentation are available on &lt;a href=&quot;https://www.slideshare.net/ivankravets/riscv-summit-2019-nextgeneration-ide-for-your-riscv-product-in-20-minutes&quot; target=&quot;_blank&quot;&gt;SlideShare&lt;/a&gt;.
-&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="insights" /><category term="featured" /><category term="featured-top" /><summary type="html">6 years ago we founded PlatformIO to solve the problem of multi-platform development in the embedded systems industry. At that time, (and even today) each vendor platform required using a specific development tool that was often complex and limited in terms of OS and editor support. Our unique philosophy gives embedded developers true freedom.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-01-next-generation-ide-for-decades/next-generation-ide-for-decades-own-or-commercial.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
