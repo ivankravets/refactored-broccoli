@@ -1,4 +1,330 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-13T22:10:05+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source December Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-december-2020-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source December Updates" /><published>2021-01-07T00:00:00+02:00</published><updated>2021-01-07T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-december-2020-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-december-2020-updates.html">&lt;p&gt;Welcome to the December 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-25T16:30:45+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Unit Testing with PlatformIO: Part 1. The Basics</title><link href="https://piolabs.com/blog/insights/unit-testing-part-1.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 1. The Basics" /><published>2021-01-25T00:00:00+02:00</published><updated>2021-01-25T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-1</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-1.html">&lt;p&gt;Unit testing isn’t a new concept in the software engineering field, it has been around for at least the past three decades. At the same time, it is still not so widespread in the embedded industry, even though the situation is getting better in recent years.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#getting-started&quot; id=&quot;markdown-toc-getting-started&quot;&gt;Getting started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#adding-first-tests&quot; id=&quot;markdown-toc-adding-first-tests&quot;&gt;Adding first tests&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In a nutshell, unit testing boils down to splitting the code into small units which can be tested in isolation to verify their behavior in different circumstances. The main benefit of thorough unit testing is looser coupling between software modules which implicitly leads to better software design. A broad set of tests also improves developer confidence in the project codebase by exposing errors very early in the development cycle and preventing regression bugs.&lt;/p&gt;
+
+&lt;p&gt;Thanks to proper module isolation, tests can be run directly on the host machine which allows us to start developing software even without real hardware at hand. Besides, well-structured tests represent a form of documentation on the proper use of each tested module.&lt;/p&gt;
+
+&lt;p&gt;In embedded software, a “unit” usually represents a single module that consists of a source file and an accompanying header file. This module usually abstracts a part of the system and packs together a group of related functions and data, for example, a peripheral driver, data structure, etc.&lt;/p&gt;
+
+&lt;p&gt;This article is the beginning of a series that concentrates on creating a convenient environment for test-driven development for embedded devices. We will implement and test a very useful array-based data structure called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circular buffer&lt;/code&gt;. In a nutshell, the main advantage of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circular buffer&lt;/code&gt; is that it does not need to have its elements shifted each time when a new element is added.&lt;/p&gt;
+
+&lt;p&gt;Please note, the project in this series has been purposefully made as simple as possible for the sake of clarity. A comprehensive description of all nuances of implementing a proper circular buffer can easily take an entire dedicated article. The goal of this series is to concentrate on testing workflow, so don’t rely on the code presented in this series in real projects.&lt;/p&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot; target=&quot;_blank&quot;&gt;VSCode with installed PlatformIO IDE extension&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Any GCC-based compiler&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting started&lt;/h2&gt;
+
+&lt;p&gt;We will start with testing our module on the host machine. First, we need to install the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;native&lt;/code&gt; development platform. PlatformIO doesn’t install any toolchains automatically for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;native&lt;/code&gt; dev-platform and uses the toolchain (preferably based on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GCC&lt;/code&gt;) native for your OS (on Windows it’s recommended to install &lt;a href=&quot;http://www.mingw.org/&quot; target=&quot;_blank&quot;&gt;MinGW&lt;/a&gt; and make it available via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt; variable). Let’s install the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;native&lt;/code&gt; dev-platform via PlatformIO Home:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-2.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-2.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of creating our project from scratch, we can conveniently import the “Hello World” example and use it as a boilerplate:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s replace the contents of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.c&lt;/code&gt; file with an empty &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If we try to build the project, we should see the successful result:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-4.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-first-tests&quot;&gt;Adding first tests&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO comes with its own tool called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unit Testing Engine&lt;/code&gt; to help you start testing as quickly as possible. Out-of-the-box support for a unit testing framework called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unity&lt;/code&gt; and a built-in test runner allows us to start writing tests without any preconfiguration. We just need to add new files with test cases to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test&lt;/code&gt; folder. For more details on the Unity Test API used in this project, see the overview in &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/unit-testing.html#api&quot; target=&quot;_blank&quot;&gt;PlatformIO Documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Back to the project, let’s create a new file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_circular_buffer.c&lt;/code&gt; with the following boilerplate code:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unity.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;UNITY_BEGIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;UNITY_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now if we run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Test&lt;/code&gt; task in the PlatformIO shortcut menu we should see that PlatformIO successfully detected our new file with no tests inside:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-5.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now it’s time to think through the API for our implementation. We recommend to split any application into isolated modules and place them into the special &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt; folder in the root of the project. PlatformIO offers a very convenient mechanism called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Library Dependency Finder (LDF)&lt;/code&gt; that will find these modules and automatically add them to the project build tree based on included header files or explicit dependencies specified in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;For the sake of simplicity, our buffer will be fixed-sized with 8-bit bytes as elements. The basic functionality will include the following functions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Initialization of a circular buffer&lt;/li&gt;
+  &lt;li&gt;Adding a new element to a circular buffer&lt;/li&gt;
+  &lt;li&gt;Getting an element from a circular buffer&lt;/li&gt;
+  &lt;li&gt;Reporting whether a circular buffer is empty&lt;/li&gt;
+  &lt;li&gt;Cleaning the entire circular buffer&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The requirements above lead us to the following header file for our module:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef CIRCULAR_BUFFER_H
+#define CIRCULAR_BUFFER_H
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdint.h&amp;gt;
+#include &amp;lt;stdbool.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;/*
+    If the buffer is of a power-of-2 size,
+    then a much quicker bitwise-AND instruction can be used instead.
+*/&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#ifndef BUFFER_SIZE
+#define BUFFER_SIZE (32)
+#endif
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#if (BUFFER_SIZE &amp;amp; (BUFFER_SIZE - 1)) != 0
+#error &quot;BUFFER_SIZE must be a power of two&quot;
+#endif
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define BUFFER_MASK (BUFFER_SIZE-1)
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;typedef&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cbuffer_s&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_full&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#endif // CIRCULAR_BUFFER_H
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s create a new folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/cbuffer&lt;/code&gt; and add two new files: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer.h&lt;/code&gt; with the code above and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer.c&lt;/code&gt; with empty implementations:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;cbuffer.h&quot;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_full&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The function stubs above do nothing in terms of functionality, but they are required at this step so we can compile test binary without linker issues.&lt;/p&gt;
+
+&lt;p&gt;It’s time to add the first test case. It’s logical to assume that after initialization a circular buffer shouldn’t contain any elements, let’s test this behavior by adding the first test case to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_circular_buffer.c&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;unity.h&amp;gt;
+#include &quot;cbuffer.h&quot;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_circular_buffer_empty_after_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;TEST_ASSERT_TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;UNITY_BEGIN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;RUN_TEST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_circular_buffer_empty_after_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;UNITY_END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The body of the test function is pretty simple. We create a new buffer and initialize it in the default state. By using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TEST_ASSERT_TRUE&lt;/code&gt; statement we check that the return value from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer_empty&lt;/code&gt; function is exactly what we expect. If we run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Test&lt;/code&gt; task again, PlatformIO will report that everything worked as expected, and that seems correct since we hardcoded the return value of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer_empty&lt;/code&gt; to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;. Let’s add another test that adds a new element to the buffer and checks that it’s not empty:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_circular_buffer_not_empty_after_new_element_added&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;TEST_ASSERT_FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This time PlatformIO complains that our new test failed:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-6.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This means that it’s time to implement some missing parts of our module in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/cbuffer/cbuffer.c&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_full&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_MASK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_MASK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, if we run our tests, we see that all of them passed:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-7.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-7.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In the same way, we can add a new test &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_circular_buffer_reports_full_correctly&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_circular_buffer_reports_full_correctly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;TEST_ASSERT_TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_full&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we can implement the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer_full&lt;/code&gt; function and ensure that it works as expected:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_full&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_MASK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_MASK&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The next step is to implement reading from the buffer. Let’s write a new test case for this functionality and run the tests:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_circular_buffer_read_element_succesful&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;TEST_ASSERT_EQUAL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cbuffer_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Predictably, the new test failed because the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer_get&lt;/code&gt; function is not implemented yet. Let’s fix that by adding the following code to our module:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The last requirement states that we have to provide a function that clears the entire buffer. Let’s start by writing a simple test case which uses this feature and fails if we run the tests:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_circular_buffer_cleaned_succesfully&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BUFFER_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cbuffer_add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;TEST_ASSERT_TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can implement the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cbuffer_clear&lt;/code&gt; function in the following way:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cbuffer_clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cbuffer_t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Unit testing often deals with a lot of repeated code. Usually, we need to prepare some context before a test can be run and we also might have some finishing work after. Fortunately, testing frameworks like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unity&lt;/code&gt; have helper functions which can help us get rid of that code duplication:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setUp&lt;/code&gt; function is called before the invocation of each test method&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tearDown&lt;/code&gt; function is called after the invocation of each test method&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If we take a look at the contents of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test_circular_buffer.c&lt;/code&gt; file, we can notice that all tests contain code where we initialize a buffer before validating behavior. Let’s extract that initialization step into the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setUp&lt;/code&gt; function and clean the buffer in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tearDown&lt;/code&gt; function accordingly:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;tearDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cbuffer_clear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the tests look much better and if we run our tests again, PlatformIO will report that all tests are successful.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-8.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-8.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;At his point we’ve satisfied all the requirements specified in the beginning of this post. There are plenty of features that haven’t been implemented and probably even more edge cases that haven’t been tested properly. All of them could greatly improve our implementation, but they are out of the scope of this post since the main goal of this series is to introduce you to the unit testing mechanism used in PlatformIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Unit testing may look like an exhausting and boring process that introduces additional challenges, but in the long run, there are significant benefits. Unit testing forces the developers to write testable code which implicitly leads to better modular and loosely-coupled design, fewer bugs and less debug time. The more checks are covered in unit tests, the higher the quality of the final code.&lt;/p&gt;
+
+&lt;p&gt;In the next article, we will try to run our tests on real hardware and explore the subtleties of setting up a communication channel for getting results from an embedded device.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">Unit testing isn’t a new concept in the software engineering field, it has been around for at least the past three decades. At the same time, it is still not so widespread in the embedded industry, even though the situation is getting better in recent years.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-01-25-unit-testing-part-1/unit-testing-part-1-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source December Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-december-2020-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source December Updates" /><published>2021-01-07T00:00:00+02:00</published><updated>2021-01-07T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-december-2020-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-december-2020-updates.html">&lt;p&gt;Welcome to the December 2020 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1034,123 +1360,4 @@ features introduced in PlatformIO IDE 2.0 for VSCode. Please visit &lt;a href=&q
 &lt;p&gt;&lt;strong&gt;Requires PlatformIO Core 5.0 or above&lt;/strong&gt;
 &lt;strong&gt;Requires VSCode 1.44 or above&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Please navigate to “VSCode &amp;gt; View &amp;gt; Extensions” and click “Update”.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html">We are happy to announce the major release of PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode) that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 5.0 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-0-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.0 🚀" /><published>2020-09-03T00:00:00+03:00</published><updated>2020-09-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-0-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-0-released.html">&lt;p&gt;We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png&quot; alt=&quot;PlatformIO Core 5.0 🚀&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#platformio-trusted-registry&quot; id=&quot;markdown-toc-platformio-trusted-registry&quot;&gt;PlatformIO Trusted Registry&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#collaborative-platform&quot; id=&quot;markdown-toc-collaborative-platform&quot;&gt;Collaborative Platform&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#package-management&quot; id=&quot;markdown-toc-package-management&quot;&gt;Package Management&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#library-manager&quot; id=&quot;markdown-toc-library-manager&quot;&gt;Library Manager&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#build-system&quot; id=&quot;markdown-toc-build-system&quot;&gt;Build System&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#migration&quot; id=&quot;markdown-toc-migration&quot;&gt;Migration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
-
-&lt;p&gt;In this section, we are going to highlight the most important changes and
-features introduced in PlatformIO Core 5.0. Please visit &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.0.0&quot; target=&quot;_blank&quot;&gt;PlatformIO 5.0.0 Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;h3 id=&quot;platformio-trusted-registry&quot;&gt;PlatformIO Trusted Registry&lt;/h3&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 has been switched to the official &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Enterprise-grade package storage with high availability (multi replicas)&lt;/li&gt;
-  &lt;li&gt;Secure, fast, and reliable global content delivery network (CDN)&lt;/li&gt;
-  &lt;li&gt;Universal support for all packages:
-    &lt;ul&gt;
-      &lt;li&gt;Libraries&lt;/li&gt;
-      &lt;li&gt;Development platforms&lt;/li&gt;
-      &lt;li&gt;Toolchains&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Built-in fine-grained access control (role-based, &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/team/index.html&quot;&gt;teams&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/org/index.html&quot;&gt;organizations&lt;/a&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The new Web front-end and upgraded &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; are coming soon.&lt;/p&gt;
-
-&lt;h3 id=&quot;collaborative-platform&quot;&gt;Collaborative Platform&lt;/h3&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 is fully unlocked for developers and teams. They can now share their packages (libraries, &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt;, toolchains) with team members or collaborate on open source projects. There are new CLI commands that help you to manage organizations, teams, team memberships, and resource access:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/index.html&quot;&gt;platformio package&lt;/a&gt; – manage packages in the registry&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/org/index.html&quot;&gt;platformio org&lt;/a&gt; - manage organizations&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/team/index.html&quot;&gt;platformio team&lt;/a&gt; - manage teams and team memberships&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/core/userguide/access/index.html&quot;&gt;platformio access&lt;/a&gt; – manage package access for users, teams, and maintainers.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;package-management&quot;&gt;Package Management&lt;/h3&gt;
-
-&lt;p&gt;The package management infrastructure has been rewritten from scratch. It is based now on the new &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; that supports a strict dependency declaration using the package owner. This improvement resolves the issues when package maintainers publish packages under the same name.&lt;/p&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 does not handle packages from unofficial repositories declared via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;packageRepositories&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platform.json&lt;/code&gt;. There were a lot of security issues and reports when PlatformIO Core 4.0 hangs when you manage external dependencies.&lt;/p&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 uses THE ONLY official &lt;strong&gt;PlatformIO Trusted Registry&lt;/strong&gt; that supports not only the libraries but also &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt; and toolchains.&lt;/p&gt;
-
-&lt;p&gt;Package maintainers can publish their libraries, development platforms, and toolchains to the registry using &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/package/index.html&quot;&gt;platformio package&lt;/a&gt; CLI.&lt;/p&gt;
-
-&lt;h3 id=&quot;library-manager&quot;&gt;Library Manager&lt;/h3&gt;
-
-&lt;p&gt;The biggest improvement for &lt;a href=&quot;https://docs.platformio.org/page/librarymanager/index.html&quot;&gt;Library Management&lt;/a&gt; is the owner-based dependency declaration. You can finally forget about conflicts with library names in the registry. Use the new syntax &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ownername/pkgname&lt;/code&gt; to declare an owner-based dependency in &lt;a href=&quot;https://docs.platformio.org/page/projectconf/index.html&quot;&gt;“platformio.ini” (Project Configuration File)&lt;/a&gt; via &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_env_library.html#projectconf-lib-deps&quot;&gt;lib_deps&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:myenv]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;lib_deps&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;bblanchon/ArduinoJson&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;^6.16.1&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;knolleary/PubSubClient&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;^2.8&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can find an owner name of a library in the registry using &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; &amp;gt; Libraries &amp;gt; Some Library &amp;gt; Installation tab.&lt;/p&gt;
-
-&lt;h3 id=&quot;build-system&quot;&gt;Build System&lt;/h3&gt;
-
-&lt;h4 id=&quot;scons-40&quot;&gt;SCons 4.0&lt;/h4&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 build engine has been upgraded to the latest &lt;a href=&quot;https://scons.org/&quot; target=&quot;_blank&quot;&gt;SCons 4.0 - a next-generation software construction tool&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html&quot;&gt;Configuration files are Python scripts&lt;/a&gt; – use the power of a real programming language to solve build problems&lt;/li&gt;
-  &lt;li&gt;Built-in reliable and automatic dependency analysis&lt;/li&gt;
-  &lt;li&gt;Improved support for parallel builds&lt;/li&gt;
-  &lt;li&gt;Ability to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_platformio.html#projectconf-pio-cache-dir&quot;&gt;share built files in a cache&lt;/a&gt; to speed up multiple builds.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;custom-targets&quot;&gt;Custom Targets&lt;/h4&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 gives more freedom to developers and &lt;a href=&quot;https://docs.platformio.org/page/platforms/index.html&quot;&gt;Development Platforms&lt;/a&gt; maintainers. They can now declare the &lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html#projectconf-advanced-scripting-custom-targets&quot;&gt;Custom Targets&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Pre/Post processing based on dependent sources (another target, source file, etc.)&lt;/li&gt;
-  &lt;li&gt;Command launcher with own arguments&lt;/li&gt;
-  &lt;li&gt;Launch command with custom options declared in &lt;a href=&quot;https://docs.platformio.org/page/projectconf/index.html&quot;&gt;“platformio.ini” (Project Configuration File)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Python callback as a target (use the power of Python interpreter and PlatformIO Build API)&lt;/li&gt;
-  &lt;li&gt;List available project targets (including dev-platform specific and custom targets) with a new &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_run.html#cmdoption-platformio-run-list-targets&quot;&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run --list-targets&lt;/code&gt; &lt;/a&gt; command&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See &lt;strong&gt;Build System&lt;/strong&gt; section in &lt;a href=&quot;https://docs.platformio.org/page/core/history.html#release-notes-5&quot;&gt;PlatformIO Core 5&lt;/a&gt; release notes for more details.&lt;/p&gt;
-
-&lt;h2 id=&quot;migration&quot;&gt;Migration&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Core 5.0 is fully backward compatible with PlatformIO 4.0 projects.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://docs.platformio.org/page/core/migration.html&quot;&gt;migration guide from 4.x to 5.0&lt;/a&gt; for the further details.&lt;/p&gt;
-
-&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the major release of PlatformIO Core with full support for the PlatformIO Trusted Registry, SCons 4.0, custom targets, and refactored package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-03-platformio-core-5-0-released/platformio-core-5-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Please navigate to “VSCode &amp;gt; View &amp;gt; Extensions” and click “Update”.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html">We are happy to announce the major release of PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode) that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
