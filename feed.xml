@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-25T16:55:27+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Unit Testing with PlatformIO: Part 1. The Basics</title><link href="https://piolabs.com/blog/insights/unit-testing-part-1.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 1. The Basics" /><published>2021-01-25T00:00:00+02:00</published><updated>2021-01-25T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-1</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-1.html">&lt;p&gt;Unit testing isn’t a new concept in the software engineering field, it has been around for at least the past three decades. At the same time, it is still not so widespread in the embedded industry, even though the situation is getting better in recent years.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-28T19:33:49+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 5.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.1 🚀" /><published>2021-01-28T00:00:00+02:00</published><updated>2021-01-28T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-1-released.html">&lt;p&gt;We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png&quot; alt=&quot;PlatformIO Core 5.1 🚀&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#platformio-home&quot; id=&quot;markdown-toc-platformio-home&quot;&gt;PlatformIO Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-system&quot; id=&quot;markdown-toc-build-system&quot;&gt;Build System&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#package-management&quot; id=&quot;markdown-toc-package-management&quot;&gt;Package Management&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debugging&quot; id=&quot;markdown-toc-debugging&quot;&gt;Debugging&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-tuned&quot; id=&quot;markdown-toc-stay-tuned&quot;&gt;Stay tuned&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
+
+&lt;p&gt;In this section, we are going to highlight the most important changes and features introduced in PlatformIO Core 5.1.
+Please visit &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.1.0&quot; target=&quot;_blank&quot;&gt;PlatformIO 5.1.0 Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h3 id=&quot;platformio-home&quot;&gt;PlatformIO Home&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; is a powerful, modern, and interactive user interface (UI) for PlatformIO collaborative platform.
+It’s powered by &lt;a href=&quot;/technology/modern-ui-toolkit.html&quot;&gt;PlatformIO Labs’ Modern UI Toolkit&lt;/a&gt; and contains the following key instruments:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project Management&lt;/li&gt;
+  &lt;li&gt;Library Management&lt;/li&gt;
+  &lt;li&gt;Development Platforms, frameworks, and boards Management&lt;/li&gt;
+  &lt;li&gt;Device Management (serial, logical, and multicast DNS services)&lt;/li&gt;
+  &lt;li&gt;Static Code Analysis&lt;/li&gt;
+  &lt;li&gt;Firmware File Explorer&lt;/li&gt;
+  &lt;li&gt;Firmware Memory Inspection&lt;/li&gt;
+  &lt;li&gt;Firmware Sections &amp;amp; Symbols Viewer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;PlatformIO Core 5.1 brings significantly boosted performance to PlatformIO Home by migrating the codebase to the pure Python 3 Asynchronous I/O stack.
+This approach solves previous issues caused by the Twisted engine that depends on operating system libraries and 3rd-party Python packages.&lt;/p&gt;
+
+&lt;h3 id=&quot;build-system&quot;&gt;Build System&lt;/h3&gt;
+
+&lt;h4 id=&quot;scons-41&quot;&gt;SCons 4.1&lt;/h4&gt;
+
+&lt;p&gt;The PlatformIO Core 5.1 build engine has been upgraded to the latest &lt;a href=&quot;https://scons.org/&quot; target=&quot;_blank&quot;&gt;SCons 4.1 - a next-generation software construction tool&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html&quot;&gt;Configuration files are Python scripts&lt;/a&gt; – use the power of a real programming language to solve build problems&lt;/li&gt;
+  &lt;li&gt;Built-in reliable and automatic dependency analysis&lt;/li&gt;
+  &lt;li&gt;Improved support for parallel builds&lt;/li&gt;
+  &lt;li&gt;Ability to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_platformio.html#projectconf-pio-cache-dir&quot;&gt;share built files in a cache&lt;/a&gt; to speed up multiple builds.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;command-line-character-limitation&quot;&gt;Command-line character limitation&lt;/h4&gt;
+
+&lt;p&gt;Operating systems have their own default command-line character limitations. Windows OS is limited to 8192 characters where most Unix OSes to 131072.
+These limitations lead to build issues caused by development frameworks that pass multiple “include” flags or dependent libraries per one command.&lt;/p&gt;
+
+&lt;p&gt;PlatformIO Core 5.1 was switched to the SCons TempFileMunge that automatically handles long commands and moves flags to a temporary file.&lt;/p&gt;
+
+&lt;h3 id=&quot;package-management&quot;&gt;Package Management&lt;/h3&gt;
+
+&lt;p&gt;Starting with PlatformIO Core 5.1, the package management system does not cleanup unnecessary packages automatically.
+We had a lot of discussion around this case, and the best solution was to allow users to personally maintain PlatformIO System.&lt;/p&gt;
+
+&lt;p&gt;Hence, PlatformIO Core 5.1 introduces updated &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/system/cmd_prune.html&quot;&gt;pio system prune&lt;/a&gt; command with new options:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--dry-run&lt;/code&gt; option to show data that will be removed&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--core-packages&lt;/code&gt; option to remove unnecessary core packages&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--platform-packages&lt;/code&gt; option to remove unnecessary development platform packages&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Please note that PlatformIO Core 5.1 will monitor PlatformIO installation and inform you about unnecessary data when their size on disk crosses a value set in &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_settings.html#check-prune-system-threshold&quot;&gt;check_prune_system_threshold&lt;/a&gt; setting. A default value is set to 1024Mb (1Gb).&lt;/p&gt;
+
+&lt;p&gt;To list unnecessary data without pruning, please use the following command – &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio system prune --dry-run&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;/h3&gt;
+
+&lt;p&gt;The initial debug adapter speed is an important setting that greatly affects the overall debugging experience. This new option will help users to more easily tune that value directly from their project configuration file regardless of what debug server is used. Here are some typical examples:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:custom_debug_speed_examples]&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;; fixed speed in kHz
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;500&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;; automatic speed (only J-Link)
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;auto&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;; adaptive clocking instead of fixed JTAG speed (only J-Link)
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;adaptive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Please note that not all dev-platforms support this feature at the moment, but we’ll gradually implement this functionality in all eligible platforms. Stay tuned!&lt;/p&gt;
+
+&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stay-tuned&quot;&gt;Stay tuned&lt;/h2&gt;
+
+&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Unit Testing with PlatformIO: Part 1. The Basics</title><link href="https://piolabs.com/blog/insights/unit-testing-part-1.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 1. The Basics" /><published>2021-01-25T00:00:00+02:00</published><updated>2021-01-25T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-1</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-1.html">&lt;p&gt;Unit testing isn’t a new concept in the software engineering field, it has been around for at least the past three decades. At the same time, it is still not so widespread in the embedded industry, even though the situation is getting better in recent years.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1284,79 +1393,4 @@ More detailed information about the JSON structure of board manifests can be fou
   &lt;li&gt;Debugging the application using a JLink probe&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Zephyr RTOS is a promising project with a long list of supported hardware. The active community, permissive license, comprehensive documentation, rich set of features, focus on security all this makes Zephyr a great choice for modern embedded development.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="engineering" /><summary type="html">In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application. Table of Contents</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO IDE 2.0 for VSCode 🚀</title><link href="https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released.html" rel="alternate" type="text/html" title="PlatformIO IDE 2.0 for VSCode 🚀" /><published>2020-09-10T00:00:00+03:00</published><updated>2020-09-10T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-ide-2-0-for-vscode-released.html">&lt;p&gt;We are happy to announce the major release of &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide&quot; target=&quot;_blank&quot;&gt;PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode)&lt;/a&gt; that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png&quot; alt=&quot;PlatformIO IDE 2.0 for VSCode 🚀&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#task-explorer&quot; id=&quot;markdown-toc-task-explorer&quot;&gt;Task Explorer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#project-environment-switcher&quot; id=&quot;markdown-toc-project-environment-switcher&quot;&gt;Project Environment Switcher&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#new-installer&quot; id=&quot;markdown-toc-new-installer&quot;&gt;New Installer&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
-
-&lt;p&gt;In this section, we are going to highlight the most important changes and
-features introduced in PlatformIO IDE 2.0 for VSCode. Please visit &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/releases/tag/v2.0.0&quot; target=&quot;_blank&quot;&gt;PlatformIO IDE for VSCode Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;h3 id=&quot;task-explorer&quot;&gt;Task Explorer&lt;/h3&gt;
-
-&lt;p&gt;PlatformIO IDE 2.0 for VSCode finally brings a powerful task explorer with the next features:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Instant access to the Project Tasks within the VSCode Explorer&lt;/li&gt;
-  &lt;li&gt;Grouped tasks: Generic, Advanced, Remote Development, Platform, Custom, etc.&lt;/li&gt;
-  &lt;li&gt;Support for PlatformIO &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/index.html&quot;&gt;development platform&lt;/a&gt; targets (Program FPGA bitstream, Burn bootloader, Upload to FS, OTA Update, etc). The list of tasks depends on a particular dev-platform&lt;/li&gt;
-  &lt;li&gt;Access to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html#custom-targets&quot;&gt;User Custom Targets&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The latest version of &lt;a href=&quot;https://platformio.org/platforms/chipsalliance&quot;&gt;CHIPS Alliance&lt;/a&gt; dev-platform provides custom targets such as programming of FPGA board, starting simulator, etc. See a demo of a project from &lt;a href=&quot;https://www.imgtec.com/news/press-release/imagination-announces-the-first-risc-v-computer-architecture-course/&quot; target=&quot;_blank&quot;&gt;RVfpga: Understanding Computer Architecture&lt;/a&gt; course by &lt;a href=&quot;https://www.imgtec.com/&quot; target=&quot;_blank&quot;&gt;Imagination Technologies&lt;/a&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/task-explorer.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-50&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/task-explorer.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;project-environment-switcher&quot;&gt;Project Environment Switcher&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Project Environment Switcher&lt;/strong&gt; was the most requested feature by our community. It is possible now to switch between project environments without any changes to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; configuration file:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Switch between project environments declared in &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/index.html&quot;&gt;platformio.ini&lt;/a&gt; project configuration file (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/544&quot;&gt;#544&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Activate IntelliSense service based on the current environment&lt;/li&gt;
-  &lt;li&gt;Automatically generate a debugging configuration for the active environment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Demo&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;A good example of this feature will be &lt;a href=&quot;https://github.com/MarlinFirmware/Marlin&quot; target=&quot;_blank&quot;&gt;Marlin&lt;/a&gt; project, an optimized firmware for RepRap 3D printers. Developers can now easily switch between pre-configured settings:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/project-environment-switcher.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-75&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/project-environment-switcher.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;new-installer&quot;&gt;New Installer&lt;/h3&gt;
-
-&lt;p&gt;PlatformIO IDE installer was rewritten from the scratch. It now is based on the cross-platform and portable &lt;a href=&quot;https://github.com/platformio/platformio-core-installer&quot; target=&quot;_blank&quot;&gt;get-platformio.py&lt;/a&gt; installer script. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get-platformio.py&lt;/code&gt; can also be used for &lt;a href=&quot;https://docs.platformio.org/en/latest/core/installation.html#integration-with-custom-applications-extensions-plugins&quot;&gt;integration with custom applications or plugins&lt;/a&gt;. It automatically installs PlatformIO Core into the isolated Python environment with the rest dependencies.&lt;/p&gt;
-
-&lt;p&gt;The next major improvement is &lt;strong&gt;installation progress&lt;/strong&gt;. The new installer will show detailed information about each step:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/new-ide-installer.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-75&quot; src=&quot;/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/new-ide-installer.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Requires PlatformIO Core 5.0 or above&lt;/strong&gt;
-&lt;strong&gt;Requires VSCode 1.44 or above&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Please navigate to “VSCode &amp;gt; View &amp;gt; Extensions” and click “Update”.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html">We are happy to announce the major release of PlatformIO IDE 2.0 for Microsoft Visual Studio Code (VSCode) that brings “Task Explorer”, “Project Environment Switcher”, and a new installer!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-09-10-platformio-ide-2-0-for-vscode-released/platformio-ide-for-vscode.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Zephyr RTOS is a promising project with a long list of supported hardware. The active community, permissive license, comprehensive documentation, rich set of features, focus on security all this makes Zephyr a great choice for modern embedded development.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="engineering" /><summary type="html">In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application. Table of Contents</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
