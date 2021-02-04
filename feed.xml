@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-01-28T19:33:49+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 5.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.1 🚀" /><published>2021-01-28T00:00:00+02:00</published><updated>2021-01-28T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-1-released.html">&lt;p&gt;We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-02-04T15:10:13+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2021-02-04T00:00:00+02:00</published><updated>2021-02-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2021-updates.html">&lt;p&gt;Welcome to the January 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-january-news.jpg&quot; alt=&quot;PlatformIO Open Source January Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During January, we have released a new version of PlatformIO Core, published a new RISC-V based development platform, added support for ESP-IDF v4.2, rolled out updates for the Espressif32 and Microchip SAM/megaAVR platforms, fixed a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-core-51&quot; id=&quot;markdown-toc-platformio-core-51&quot;&gt;PlatformIO Core 5.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#esp-idf-v42&quot; id=&quot;markdown-toc-esp-idf-v42&quot;&gt;ESP-IDF v4.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#openhw-risc-v-dev-platform&quot; id=&quot;markdown-toc-openhw-risc-v-dev-platform&quot;&gt;OpenHW RISC-V dev-platform&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#espressif32-dev-platform-v30&quot; id=&quot;markdown-toc-espressif32-dev-platform-v30&quot;&gt;Espressif32 dev-platform v3.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-megaavr-dev-platform-v14&quot; id=&quot;markdown-toc-atmel-megaavr-dev-platform-v14&quot;&gt;Atmel megaAVR dev-platform v1.4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-sam-dev-platform-v511&quot; id=&quot;markdown-toc-atmel-sam-dev-platform-v511&quot;&gt;Atmel SAM dev-platform v5.1.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-core-51&quot;&gt;PlatformIO Core 5.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is the heart of the whole PlatformIO ecosystem and we are excited to announce the next v5.1.0 release. This milestone we again received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Boosted &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; performance thanks to migrating the codebase to the pure Python 3 Asynchronous I/O stack&lt;/li&gt;
+      &lt;li&gt;Added a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--session-id&lt;/code&gt; option to &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_home.html&quot;&gt;pio home&lt;/a&gt; command that helps to keep PlatformIO Home isolated from other instances and protect from 3rd party access (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3397&quot;&gt;issue #3397&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Build System&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Upgraded build engine to the SCons 4.1 (&lt;a href=&quot;https://scons.org/scons-410-is-available.html&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Refactored a workaround for a maximum command line character limitation (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3792&quot;&gt;issue #3792&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed an issue with Python 3.8+ on Windows when a network drive is used (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3417&quot;&gt;issue #3417&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Package Management&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;New options for &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/system/cmd_prune.html&quot;&gt;pio system prune&lt;/a&gt; command:
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--dry-run&lt;/code&gt; option to show data that will be removed&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--core-packages&lt;/code&gt; option to remove unnecessary core packages&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--platform-packages&lt;/code&gt; option to remove unnecessary development platform packages (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/923&quot;&gt;issue #923&lt;/a&gt;)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Added new &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_settings.html#check-prune-system-threshold&quot;&gt;check_prune_system_threshold&lt;/a&gt; setting&lt;/li&gt;
+      &lt;li&gt;Disabled automatic removal of unnecessary development platform packages (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3708&quot;&gt;issue #3708&lt;/a&gt;, &lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3770&quot;&gt;issue #3770&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed an issue when unnecessary packages were removed in  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update --dry-run&lt;/code&gt; mode (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3809&quot;&gt;issue #3809&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed a “ValueError: Invalid simple block” when uninstalling a package with a custom name and external source (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3816&quot;&gt;issue #3816&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Debugging&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Configure a custom debug adapter speed using a new &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_env_debug.html#debug-speed&quot;&gt;debug_speed&lt;/a&gt; option (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3799&quot;&gt;issue #3799&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Handle debugging server’s “ready_pattern” in “stderr” output&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Miscellaneous&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Improved listing of &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/device/cmd_list.html&quot;&gt;multicast DNS services&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Fixed a “UnicodeDecodeError: ‘utf-8’ codec can’t decode byte” when using J-Link for firmware uploading on Linux (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3804&quot;&gt;issue #3804&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed an issue with a compiler driver for “.ccls” language server (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3808&quot;&gt;issue #3808&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed an issue when &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmdoption-pio-device-monitor-eol&quot;&gt;pio device monitor –eol&lt;/a&gt; and “send_on_enter” filter do not work properly (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3787&quot;&gt;issue #3787&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
+
+&lt;h2 id=&quot;esp-idf-v42&quot;&gt;ESP-IDF v4.2&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for the latest stable &lt;strong&gt;ESP-IDF v4.2&lt;/strong&gt; - the official development framework for the ESP32 and ESP32-S Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in the latest release:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP32-S2&lt;/code&gt; SoC&lt;/li&gt;
+  &lt;li&gt;Support of Bluetooth 5.0 for ESP32&lt;/li&gt;
+  &lt;li&gt;Improvements to the Wi-Fi stack&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More information on project configuration for ESP-IDF can be found &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for ESP-IDF&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/espressif/esp-idf/releases/tag/v4.2&quot;&gt;Release notes for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v4.2&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html&quot;&gt;Documentation for ESP-IDF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;openhw-risc-v-dev-platform&quot;&gt;OpenHW RISC-V dev-platform&lt;/h2&gt;
+
+&lt;p&gt;OpenHW Group is a not-for-profit, global organization that provides an infrastructure for hosting high quality open-source HW developments in line with industry best practices. The OpenHW CV32E40P RISC-V core is the first open-source core for high-volume chips verified with the state-of-the-art process required for high-integrity, commercial SoCs.&lt;/p&gt;
+
+&lt;p&gt;The first release of the OpenHW dev-platform includes basic functionality for uploading pregenerated bitstreams to FPGA boards, developing and debugging applications based on the PULP SDK.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-openhw/releases/tag/v0.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for OpenHW dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/openhw.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-openhw/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;espressif32-dev-platform-v30&quot;&gt;Espressif32 dev-platform v3.0&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/espressif32&quot;&gt;Espressif 32&lt;/a&gt; dev-platform comes with new boards including the new ESP32-S2 SoC, support for ESP-IDF v4.2 and several improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/featheresp32-s2.html&quot;&gt;Adafruit ESP32-S2 Feather Development Board&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/esp32-s2-kaluga-1.html&quot;&gt;Espressif ESP32-S2-Kaluga-1 Kit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/esp32-s2-saola-1.html&quot;&gt;Espressif ESP32-S2-Saola-1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/nscreen-32.html&quot;&gt;YeaCreate NSCREEN-32&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP-IDF&lt;/code&gt; to the latest stable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.2&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Added support for the new &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/section_env_debug.html#debug-speed&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug_speed&lt;/code&gt;&lt;/a&gt; option&lt;/li&gt;
+  &lt;li&gt;Default Arduino partitions moved to a separate section&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-megaavr-dev-platform-v14&quot;&gt;Atmel megaAVR dev-platform v1.4&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/atmelmegaavr&quot;&gt;Atmel megaAVR&lt;/a&gt; includes initial support for megaTinyCore - a lightweight Arduino core for the tinyAVR 0-series and 1-series chips, a lot of new generic boards, updated Arduino packages, and several minor updates:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New board manifests for the following generic MCUs: &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1604.html&quot;&gt;ATtiny1604&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1606.html&quot;&gt;ATtiny1606&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1607.html&quot;&gt;ATtiny1607&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1614.html&quot;&gt;ATtiny1614&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1616.html&quot;&gt;ATtiny1616&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1617.html&quot;&gt;ATtiny1617&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny202.html&quot;&gt;ATtiny202&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny204.html&quot;&gt;ATtiny204&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny212.html&quot;&gt;ATtiny212&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny214.html&quot;&gt;ATtiny214&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3216.html&quot;&gt;ATtiny3216&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3217.html&quot;&gt;ATtiny3217&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny402.html&quot;&gt;ATtiny402&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny404.html&quot;&gt;ATtiny404&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny406.html&quot;&gt;ATtiny406&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny412.html&quot;&gt;ATtiny412&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny414.html&quot;&gt;ATtiny414&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny416.html&quot;&gt;ATtiny416&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny417.html&quot;&gt;ATtiny417&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny804.html&quot;&gt;ATtiny804&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega64.html&quot;&gt;ATmega64&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny806.html&quot;&gt;ATtiny806&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny817.html&quot;&gt;ATtiny817&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Initial support for &lt;a href=&quot;https://github.com/SpenceKonde/megaTinyCore&quot;&gt;megaTinyCore&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Updated megaAVR Arduino core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.7&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-megaavr/releases/tag/1.8.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated MegaCoreX to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.0.7&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MegaCoreX/releases/tag/v1.0.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Improvements to fuses and bootloader programming process&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/releases/tag/v1.4.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Atmel megaAVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-sam-dev-platform-v511&quot;&gt;Atmel SAM dev-platform v5.1.1&lt;/h2&gt;
+
+&lt;p&gt;The new &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; v5.1.1 is mostly a maintenance release that comes with updated Arduino core and minor fixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Adafruit SAMD core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.11&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.11&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelsam/releases/tag/v5.1.1&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the January 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 5.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.1 🚀" /><published>2021-01-28T00:00:00+02:00</published><updated>2021-01-28T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-1-released.html">&lt;p&gt;We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -530,7 +691,7 @@ We had a lot of discussion around this case, and the best solution was to allow 
 
 &lt;h2 id=&quot;nordic-nrf52-dev-platform-v60&quot;&gt;Nordic nRF52 dev-platform v6.0&lt;/h2&gt;
 
-&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform comes with new boards and updated Arduino nRF5 core:&lt;/p&gt;
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/nordicnrf52&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform comes with new boards and updated Arduino nRF5 core:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Added new boards:
@@ -1136,261 +1297,4 @@ PlatformIO Labs is a great example of a company with a strong commitment to the 
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the October 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Enabling PlatformIO and Zephyr on custom hardware</title><link href="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html" rel="alternate" type="text/html" title="Enabling PlatformIO and Zephyr on custom hardware" /><published>2020-10-12T00:00:00+03:00</published><updated>2020-10-12T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware</id><content type="html" xml:base="https://piolabs.com/blog/engineering/platformio-zephyr-custom-hardware.html">&lt;p&gt;In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application.&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-is-the-zephyr-project&quot; id=&quot;markdown-toc-what-is-the-zephyr-project&quot;&gt;What is the Zephyr Project?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#getting-started&quot; id=&quot;markdown-toc-getting-started&quot;&gt;Getting Started&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#installing-nordic-nrf52-dev-platform&quot; id=&quot;markdown-toc-installing-nordic-nrf52-dev-platform&quot;&gt;Installing Nordic nRF52 dev-platform&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#project-setup&quot; id=&quot;markdown-toc-project-setup&quot;&gt;Project setup&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#adding-a-custom-board-to-zephyr&quot; id=&quot;markdown-toc-adding-a-custom-board-to-zephyr&quot;&gt;Adding a custom board to Zephyr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#adding-a-custom-board-to-platformio&quot; id=&quot;markdown-toc-adding-a-custom-board-to-platformio&quot;&gt;Adding a custom board to PlatformIO&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#compile-and-upload&quot; id=&quot;markdown-toc-compile-and-upload&quot;&gt;Compile and Upload&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#debugging&quot; id=&quot;markdown-toc-debugging&quot;&gt;Debugging&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;p&gt;This article uses the following components:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot;&gt;VSCode with installed PlatformIO IDE extension&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Any board based on &lt;a href=&quot;https://www.nordicsemi.com/Products/Low-power-short-range-wireless/nRF52833&quot;&gt;Nordic nRF52833 SoC&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Any &lt;a href=&quot;https://www.segger.com/products/debug-probes/j-link/&quot;&gt;JLink probe&lt;/a&gt; (used for uploading and debugging)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-is-the-zephyr-project&quot;&gt;What is the Zephyr Project?&lt;/h2&gt;
-
-&lt;p&gt;The Zephyr Project is a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with security in mind.&lt;/p&gt;
-
-&lt;p&gt;The Zephyr Project is perfect for building simple connected sensors, LED wearables, up to modems and small IoT wireless gateways. Because the Zephyr RTOS is modular and supports multiple architectures, developers are able to easily come up with optimal applications to meet their needs. As a true open source project, the community can evolve the project to support new hardware, developer tools, sensors, and device drivers. Enhancements in security, device management capabilities, connectivity stacks, and file systems can be easily implemented.&lt;/p&gt;
-
-&lt;p&gt;Zephyr RTOS has several great features that make it a good choice for developing embedded applications. The Zephyr RTOS’s goal is to establish a neutral project where silicon vendors, OEMs, ODMs, ISVs, and OSVs can contribute technology to reduce the cost and accelerate time to market for developing the billions of devices that will make up the majority of the Internet of Things. The operating system itself also has a number of powerful features, including a device model, symmetric multiprocess support, and rich networking and Bluetooth stacks.&lt;/p&gt;
-
-&lt;p&gt;Zephyr RTOS is open source under the Apache 2.0 license and the source code is available on &lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
-
-&lt;h3 id=&quot;installing-nordic-nrf52-dev-platform&quot;&gt;Installing Nordic nRF52 dev-platform&lt;/h3&gt;
-
-&lt;p&gt;PlatformIO dev-platforms contain a lot of required information about supported packages (toolchains, SDKs, uploaders, etc), configurations for popular development boards/kits, examples. Also, all dev-platforms include predefined build scripts that help you compile, upload, and debug embedded applications. The platform can be installed automatically when you run your project the first time we can use &lt;a href=&quot;https://docs.platformio.org/en/latest/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; directly in the IDE.&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-2.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-2.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Alternatively, you can install the platform manually from CLI using the following command:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;platformio platform &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nordicnrf52
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;project-setup&quot;&gt;Project setup&lt;/h3&gt;
-
-&lt;p&gt;Once the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nordicnrf52&lt;/code&gt; dev-platform is installed, we have everything to start developing for the Zephyr RTOS. The platform already contains a BLE beacon example that we can use as a boilerplate for our project. To import the example, open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PlatformIO Home&lt;/code&gt; page and press the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Examples&lt;/code&gt; button in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Quick Access&lt;/code&gt; menu, type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr-ble-beacon&lt;/code&gt; in the input field and push the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Import&lt;/code&gt; button:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-3.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;After the successful import you should see a typical PlatformIO project with a bunch of folders and a special &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;project_dir
-├── include
-├── lib
-├── src
-│    └── main.c
-├── test
-├── zephyr
-│    ├── prj.conf
-│    └── CMakeLists.txt
-└── platformio.ini
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Besides files and folders related to PlatformIO, there is a special folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; that contains Zephyr-specific files &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeLists.txt&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prj.conf&lt;/code&gt;, a rough description of these files is the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeLists.txt&lt;/code&gt;: tells the build system where to find the other application files, and links the application directory with Zephyr’s build system. This link provides features supported by Zephyr’s build system, such as board-specific kernel configuration files, the ability to run and debug compiled binaries on real or emulated hardware, and more.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prj.conf&lt;/code&gt;: describes application-specific values for one or more kernel configuration options. These application settings are merged with board-specific settings to produce a kernel configuration.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Since PlatformIO is able to generate CMake-based projects for certain IDEs, Zephyr-specific files are moved to a separate folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; in order to avoid conflicts between CMakeLists.txt files. That requires users to specify relative paths to source files in already existing projects. After adding Zephyr-specific files, our project should look like this:&lt;/p&gt;
-
-&lt;p&gt;If you need more information about configuration steps, please go through the official PlatformIO &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html&quot;&gt;configuration guide&lt;/a&gt; for the Zephyr project.&lt;/p&gt;
-
-&lt;h3 id=&quot;adding-a-custom-board-to-zephyr&quot;&gt;Adding a custom board to Zephyr&lt;/h3&gt;
-
-&lt;p&gt;Since our board is neither directly supported by Zephyr nor by PlatformIO, we need to create the required board files manually. First, let’s add support for our board to Zephyr. There is comprehensive &lt;a href=&quot;https://docs.zephyrproject.org/latest/application/index.html#custom-board-definition&quot;&gt;official Zephyr documentation&lt;/a&gt; on how to integrate out-of-tree board definitions. In a nutshell, the structure needed to support an out-of-tree board or SoC development is similar to how boards and SoCs are maintained in the official Zephyr tree.&lt;/p&gt;
-
-&lt;p&gt;Fortunately, our board uses the Nordic nRF52833 SoC that’s already supported and used in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf52833dk_nrf52833&lt;/code&gt; board. We can use that board as boilerplate, so we just need to copy and modify the board files according to our needs. Adding a custom board is usually done using the following structure &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boards/&amp;lt;architecture&amp;gt;/&amp;lt;board_name&amp;gt;&lt;/code&gt;. Files in this folder extend the SoC configuration, apply the pin-muxing settings, and much more. A special file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;board_name&amp;gt;_defconfig&lt;/code&gt; defines which SoC and basic features and interfaces are included.&lt;/p&gt;
-
-&lt;p&gt;Navigate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PLATFORMIO_PACKAGES_DIR/framework-zephyr/boards/arm/nrf52833dk_nrf52833&lt;/code&gt; where &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/section_platformio.html?highlight=core_dir#packages-dir&quot;&gt;PLATFORMIO_PACKAGES_DIR&lt;/a&gt; is a special folder with all installed PlatformIO packages. Copy all files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nrf52833dk_nrf52833&lt;/code&gt; folder to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr&lt;/code&gt; folder in our project so the final path will look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zephyr/boards/arm/ble_beacon_nrf52833&lt;/code&gt;. Then rename the files according to our board name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833&lt;/code&gt;, the final files should look like the following:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;board.cmake
-Kconfig
-Kconfig.board
-Kconfig.defconfig
-ble_beacon_nrf52833_defconfig
-ble_beacon_nrf52833.dts
-ble_beacon_nrf52833.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After that we need to fix values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kconfig.board&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kconfig.defconfig&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833.yaml&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833_defconfig&lt;/code&gt; so the Zephyr build system will be able to generate configuration and C definitions for our board.&lt;/p&gt;
-
-&lt;p&gt;Once the board structure is ready, we need to specify the location of our custom board information with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BOARD_ROOT&lt;/code&gt; parameter to the CMake build system. The easiest way is to specify this path at the top of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CMakeList.txt&lt;/code&gt; file like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-cmake highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Path to out-of-tree boards definitions&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;BOARD_ROOT &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CMAKE_CURRENT_SOURCE_DIR&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;cmake_minimum_required&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;VERSION 3.13.1&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;$ENV{ZEPHYR_BASE}/cmake/app/boilerplate.cmake NO_POLICY_SCOPE&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;custom-board&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;target_sources&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;app PRIVATE ../src/main.c&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;adding-a-custom-board-to-platformio&quot;&gt;Adding a custom board to PlatformIO&lt;/h3&gt;
-
-&lt;p&gt;The next step is to add support for our board to the PlatformIO &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nordicnrf52&lt;/code&gt; dev-platform. The easiest and most portable way to do it is to create a new folder &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boards&lt;/code&gt; in the root of our project and add a special JSON manifest file with the name of our board &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ble_beacon_nrf52833.json&lt;/code&gt; and with the following contents:&lt;/p&gt;
-
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;cpu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cortex-m4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;f_cpu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;64000000L&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;mcu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nrf52833&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;zephyr&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-         &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;variant&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ble_beacon_nrf52833&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;connectivity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bluetooth&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;debug&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;jlink_device&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nRF52833_xxAA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;svd_path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nrf52.svd&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;frameworks&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;zephyr&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BLE Beacon nRF52833&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;upload&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;maximum_ram_size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;131072&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;maximum_size&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;524288&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;protocol&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jlink&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;protocols&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jlink&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vendor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Vendor Name&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s briefly go through the main parts of the above configuration:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;build&lt;/code&gt; section contains information about CPU architecture, framework configurations, MCU name, etc. As the variant for Zephyr, we specified the same name as the board name used in the Zephyr configuration files&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug&lt;/code&gt; section sets the configuration for debug tools and the path SVD file. Since we plan to use a JLink probe, we need to specify the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink_device&lt;/code&gt; name used for connecting to our board. The list of supported JLink devices can be found on &lt;a href=&quot;https://www.segger.com/downloads/supported-devices.php&quot;&gt;the official JLink website&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;framework&lt;/code&gt; represents is a list of supported frameworks/SDKs which can be used with our board. We plan to use only Zephyr, so we specified only one framework.&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;upload&lt;/code&gt; section specifies maximum memory sizes and available upload protocols. We specified &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink&lt;/code&gt; as the protocol since we plan to use the debug probe to upload firmware to the device.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Other sections are not mandatory, but they might be useful if we decide to push our board manifest to the upstream repository to make the board publicly available for other users.
-More detailed information about the JSON structure of board manifests can be found in the &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/creating_board.html#json-structure&quot;&gt;PlatformIO Docs&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The final project structure should like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;project_dir
-├── boards
-│     └── ble_beacon_nrf52833.json
-├── include
-├── lib
-├── src
-│    └── main.c
-├── test
-├── zephyr
-│    ├── boards
-│    │     └── arm
-│    │          └── ble_beacon_nrf52833
-│    ├── prj.conf
-│    └── CMakeLists.txt
-└── platformio.ini
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After that we can use the new board in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:ble_beacon_nrf52833]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nordicnrf52&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;zephyr&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ble_beacon_nrf52833&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;; Use the debug probe for uploading
-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;upload_protocol&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Note that we need to specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jlink&lt;/code&gt; as the upload method to force PlatformIO to use the debug probe for uploading.&lt;/p&gt;
-
-&lt;h3 id=&quot;compile-and-upload&quot;&gt;Compile and Upload&lt;/h3&gt;
-
-&lt;p&gt;After the previous configuration steps, we are ready to compile the project. It can be done using the CLI command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run&lt;/code&gt; or via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build&lt;/code&gt; button on the Toolbar:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-4.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If everything went well, we should see a successful result message in the terminal window:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-5.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Uploading the code to the board varies across hardware platforms. As for this article, the board is connected to the computer via a JLink debug probe so it will be used to flash the firmware. Just make sure your board is connected to the computer and run the CLI command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio run -t upload&lt;/code&gt; or use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Upload&lt;/code&gt; button on the Toolbar:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-6.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If everything went well, we can open any desktop/mobile application which is able to show near BLE devices, for example here is how the device is showed in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nRF Connect&lt;/code&gt; tool:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-7.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-7.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;/h3&gt;
-
-&lt;p&gt;The PlatformIO dev-platforms already have predefined configurations for popular debug probes, including the JLink probe used in this article. All we need is to specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug_tool&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:ble_beacon_nrf52833]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nordicnrf52&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;zephyr&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ble_beacon_nrf52833&lt;/span&gt;
-
-&lt;span class=&quot;py&quot;&gt;upload_protocol&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;debug_tool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jlink&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and push the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Debug&lt;/code&gt; button. PlatformIO will do all the heavy lifting for us:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-8.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-8.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;In this post, we went over:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;An introduction to the Zephyr project&lt;/li&gt;
-  &lt;li&gt;Setup and installation steps&lt;/li&gt;
-  &lt;li&gt;Adding a custom board to Zephyr and PlatformIO&lt;/li&gt;
-  &lt;li&gt;Compiling and uploading a simple BLE example&lt;/li&gt;
-  &lt;li&gt;Debugging the application using a JLink probe&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Zephyr RTOS is a promising project with a long list of supported hardware. The active community, permissive license, comprehensive documentation, rich set of features, focus on security all this makes Zephyr a great choice for modern embedded development.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="engineering" /><summary type="html">In this post, we will create a simple BLE beacon that broadcasts its name as the payload. We will use the Zephyr RTOS on a custom board based on the Nordic nRF52833 SoC. A JLink debug probe will be used for uploading and debugging our application. Table of Contents</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-10-12-platformio-zephyr-custom-hardware/platformio-zephyr-custom-hardware-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the October 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
