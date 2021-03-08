@@ -1,4 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-03-04T15:02:51+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source February Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-february-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source February Updates" /><published>2021-03-04T00:00:00+02:00</published><updated>2021-03-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-february-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-february-2021-updates.html">&lt;p&gt;Welcome to the February 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-03-08T17:17:20+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html" rel="alternate" type="text/html" title="PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training" /><published>2021-03-08T00:00:00+02:00</published><updated>2021-03-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg&quot; alt=&quot;PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RISC-V has been described as the “open silicon” of the technology revolution spurred by open hardware and open software. The ability to understand and innovate upon computer architectures has been a weak element of academic research and collaborative professional communities due to the typical proprietary nature of chip designs. Now open architectures can be combined with open hardware and software to provide unique and advanced solutions to tackle problems in our rapidly growing and complex technological world.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Due to the increasing popularity of RISC-V within the semiconductor industry, Imagination Technologies and Western Digital have teamed up to sponsor the development of new RISC-V centered coursework, designed by academics, for academics. The goal of this coursework is to provide top quality materials and an equity of opportunity to learn from them to students globally. PlatformIO Labs was chosen to support this coursework because of its open source tooling that provides best-of-breed quality for the embedded hardware industry, because of it being easy to use, because it seamlessly integrates with modern development editors such as VS Code.&lt;/p&gt;
+
+&lt;p&gt;More and more companies have announced or have already extended their portfolio with new RISC-V products. Popular commercial and open source Real-Time Operating Systems (RTOS), debuggers, and compilers are adding support for cutting-edge RISC-V hardware. The RISC-V ISA is open source, vendor agnostic, and flexible enough to satisfy the growing demand for complex embedded systems. Because of these qualities, the RISC-V ISA is a perfect choice for FPGA soft processor designs, which will further enable RISC-V to gain increased adoption within the embedded systems industry and academic community.&lt;/p&gt;
+
+&lt;p&gt;This growing adoption fuels the need for approachable and in-depth educational materials, especially to satisfy the increasing need and global benefits available through remote learning. It’s crucial for the RISC-V community to collaborate with universities and other academic partners to develop comprehensive curricula so undergraduates will have a deep fundamental knowledge of modern real-world computer architectures.&lt;/p&gt;
+
+&lt;p&gt;While RISC-V adoption is on the rise, one challenge is the currently arduous development environment associated with the architecture. When working with FPGAs, developers rely on convoluted instruments simply to evaluate and interact with their RISC-V designs on real hardware. Working with FPGAs can be a daunting task even for seasoned developers, not to mention students and newly graduated specialists. The industry needs an open-source and easy-to-use development environment that covers all sets of common tasks (debugging, testing, simulating, etc.) that engineers perform on a daily basis when working with deployed designs.&lt;/p&gt;
+
+&lt;p&gt;PlatformIO satisfies this need to bring top quality development tools to the RISC-V community, without being vendor-specific, without a hefty financial barrier, and without being locked behind the wall of a proprietary software license.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-imagination-university-programme&quot;&gt;About Imagination University Programme&lt;/h2&gt;
+
+&lt;p&gt;Imagination Technologies offers a complete course on RISC-V computer architecture titled “RVfpga: Understanding Computer Architecture”. It includes a rich set of teaching materials and practical exercises to help students understand the key elements of processor architecture, including IP cores, and how to modify a RISC-V core and its microarchitectures.&lt;/p&gt;
+
+&lt;p&gt;The initial course consists of 10 labs with detailed instructions, examples, short questions, and hands-on exercises with solutions, giving teachers the flexibility to choose between a practical and an exam-based structure for the course. The course uses the Chips Alliance’s SweRVolf SoC, which is based on Western Digital’s RISC-V SweRV EH1 core. SweRV is one of the most developed cores in the RISC-V market that’s fully verified and ready for production.&lt;/p&gt;
+
+&lt;p&gt;The RVfpga course was created by Dr. Sarah Harris, Associate Professor of Electrical and Computer Engineering at University of Nevada, co-author of the popular “Digital Design &amp;amp; Computer Architecture” textbook, and Dr. Daniel Chaver-Martínez, Associate Professor of Department of Computer Architecture and System Engineering at Universidad Complutense de Madrid (Spain). The course engaged several widely reputed sponsors and supporters who have given outstanding support to this large and complex project. Key contributors are listed below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-2.jpg&quot; alt=&quot;The sponsors and supporters of Imagination University Programme&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;platormio-labs-contribution&quot;&gt;PlatormIO Labs’ Contribution&lt;/h2&gt;
+
+&lt;p&gt;One of the main missions of PlatformIO Labs is to bring together academics, developers, and silicon vendors, and to help them leverage modern open source software and hardware on anything from simple prototypes to truly groundbreaking projects, developed at any scale. We believe that when technology is open from top to bottom, that the collaboration afforded within such a community is the perfect place to explore new ideas and opens up tremendous opportunities. Our team is proud to be an active participant in this venture.&lt;/p&gt;
+
+&lt;p&gt;The RVfpga course uses PlatformIO — the open-source core of our Technology as a Service (TaaS) platform — for collaborative embedded development. PlatformIO’s development ecosystem integrates both hardware and software aspects of the course. Its open source license and flexible design are constantly being adapted to keep up with industry advancements. Students can avoid the burden of setting up unique, expensive, or vendor-specific tooling, and instead easily jump right in with a proper development environment and proceed directly to interacting with their RISC-V soft processors.&lt;/p&gt;
+
+&lt;p&gt;The main contributions of our work are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Powerful Unified Debugger&lt;/strong&gt;. The integrated debugger supports both real hardware and hardware simulators (Whisper-ISS, Verilator), so that students can easily switch to a mixed-mode disassembly view to evaluate symbols, registers, and complex expressions, in watch windows.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Trusted Package Registry&lt;/strong&gt;. The registry quickly and securely delivers pre-built packages to students and professionals worldwide. Just-in-time, only what is needed, and fully automated downloads of dependent packages is an essential feature when it comes to online delivery of the curriculum, and ease of getting started for the students.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;In-depth Memory Analysis&lt;/strong&gt;. A user-friendly UI allows students to access memory stores and get deeper insight into the internal application structure.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;. Like a welcoming dashboard, the PlatformIO Home page makes it easy for anyone to get started. It provides easy access to a comprehensive set of documentation and examples that were created specifically for this course, together with the main authors.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;a-quick-tutorial&quot;&gt;A Quick Tutorial&lt;/h2&gt;
+
+&lt;p&gt;To demonstrate PlatformIO Labs’ contribution to this course and to show how PlatformIO reduces the usual complexity of executing ASM/C/C++ code in the RVfpga course, we are providing a short tutorial below. This tutorial shows how to import a project example, starting from the PlatformIO Home page, and how to run it even without hardware, by using an Instruction Set Simulator (ISS) called Whisper. This brief tutorial assumes you have already installed the PlatformIO IDE extension for Visual Studio Code. If you do not have the PlatformIO IDE installed, please follow &lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html#installation&quot;&gt;these instructions&lt;/a&gt; before continuing with the tutorial.&lt;/p&gt;
+
+&lt;h3 id=&quot;installing-chips-alliance-development-platform&quot;&gt;Installing CHIPS Alliance Development Platform&lt;/h3&gt;
+
+&lt;p&gt;To start developing for the SweRV core you first need to install the CHIPS Alliance dev-platform from PlatformIO Home. Click on the icons near the numbers highlighted in orange, from 1 to 4. Note that at step 3 you will need to input “CHIPS Alliance” into the search string.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The above procedure shows how easy it is to set up a RISC-V development environment. PlatformIO will do all the heavy lifting for us by installing everything that is needed (toolchains, frameworks, etc.) automatically. When the one-click “Install” method is complete, a dialog window will pop up to tell you that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chipsalliance&lt;/code&gt; platform has been successfully installed.&lt;/p&gt;
+
+&lt;h3 id=&quot;importing-and-compiling-an-example&quot;&gt;Importing and Compiling an Example&lt;/h3&gt;
+
+&lt;p&gt;For the sake of simplicity, we will import one of the readily available examples prepared by the authors of the course. From the PlatformIO Home page, under the heading “Quick Access”, select the “Project Examples” button and select “rtosal-freertos” within the CHIPS Alliance platform, as shown in the image below.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-4.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To build the project we can invoke different options, some of which are highlighted by an orange rectangle in the screenshot below. Simply use the method that feels most comfortable to you.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build&lt;/code&gt; option under the PlatformIO &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Tasks&lt;/code&gt; menu on the left navigation column&lt;/li&gt;
+  &lt;li&gt;Click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;✓&lt;/code&gt; icon  (next to the home icon) toward the left side of the bottom blue PlatformIO Toolbar&lt;/li&gt;
+  &lt;li&gt;From the VS Code top header menu, select and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;View: Command Palette... &amp;gt; PlatformIO: Build&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;From the VS Code top header menu, select and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Terminal: Run Build Task... &amp;gt; PlatformIO: Build&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Using the hot keys for your OS: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd-alt-b / ctrl-alt-b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;From a terminal prompt at the command line by typing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio run&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-5.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If everything went well, we should see the successful result in the terminal window.&lt;/p&gt;
+
+&lt;h3 id=&quot;debugging-experience&quot;&gt;Debugging Experience&lt;/h3&gt;
+
+&lt;p&gt;As we mentioned in the beginning of this tutorial, we will be using the Whisper ISS to debug the example. Configuring Whisper as the debug tool is as simple as adding one line to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file (which is located in the top level of the project folder, that you can find and open by clicking on it in the project file Explorer view):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;platform = chipsalliance
+framework = wd-riscv-sdk, freertos
+board = swervolf_nexys
+debug_tool = whisper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To start a debug session we can use one of the following options (the first two are highlighted in an orange rectangle in the screenshot):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;VS Code menu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Run &amp;gt; Start Debugging&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start Debugging&lt;/code&gt; option from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PlatformIO &amp;gt; Quick Access &amp;gt; Debug menu&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F5&lt;/code&gt; hotkey&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-6.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once the debug session is started we can walk through the code using control buttons, set breakpoints, and add variables to the Watch window:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-7.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-7.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: this introductory tutorial only shows how to get started and execute a simple example using ISS as part of the RVfpga course. To understand the SweRV core in greater depth, please refer to the &lt;a href=&quot;https://university.imgtec.com/&quot;&gt;Imagination University Programme&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO Labs is proud to partner with Imagination Technologies and Western Digital on the development and deployment of the RISC-V educational curriculum, as we firmly believe in the importance of collaboration between industry and academia. We are happy to see how our modern development instruments can enable an improved experience around these important educational materials. We hope that developers and students appreciate our efforts to support this combination of the RISC-V ISA, comprehensive teaching materials, and the opportunity to study the SweRVolf SoC. It’s even more fun to know that we are providing a more pleasant RISC-V learning experience for the academic community all around the world. We encourage all educational institutions to participate in the future growth of the RISC-V ecosystem.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-imagination-technologies&quot;&gt;About Imagination Technologies&lt;/h2&gt;
+
+&lt;p&gt;Imagination was founded in 1985 and is one of the UK’s leading success stories as a developer of highly advanced intellectual property (IP) that creates considerable value in the electronic systems value chain, and ultimately improves the user experience in many different consumer electronic devices, including games consoles, mobile phones, and cars. Imagination Technologies has over 25 years of experience in designing and licensing market-leading processor solutions for graphics and vision &amp;amp; AI processing that offer strong differentiation compared to competing solutions for our customers.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">RISC-V has been described as the “open silicon” of the technology revolution spurred by open hardware and open software. The ability to understand and innovate upon computer architectures has been a weak element of academic research and collaborative professional communities due to the typical proprietary nature of chip designs. Now open architectures can be combined with open hardware and software to provide unique and advanced solutions to tackle problems in our rapidly growing and complex technological world.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source February Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-february-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source February Updates" /><published>2021-03-04T00:00:00+02:00</published><updated>2021-03-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-february-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-february-2021-updates.html">&lt;p&gt;Welcome to the February 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -1250,81 +1370,4 @@ PlatformIO Labs is a great example of a company with a strong commitment to the 
 
 &lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
 
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">A free, modern software development ecosystem is the perfect complement to support open hardware communities. November 23, 2020, PlatformIO Labs, an independent provider of next-generation technology for the embedded systems industry, joins the OpenHW Group to bring its extensive expertise in the development and design of modern embedded development environments to the open hardware community.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 1. Intro and basic analysis</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-1.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 1. Intro and basic analysis" /><published>2020-11-16T00:00:00+02:00</published><updated>2020-11-16T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-1</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-1.html">&lt;p&gt;Nowadays, microcontrollers are becoming more powerful and efficient, but at the same time, embedded applications are getting even more sophisticated. That complexity requires additional RAM and Flash memory to support all expected features.&lt;!-- more --&gt;  Besides, if a device needs additional memory to perform over-the-air updates then the memory requirements become even more crucial.&lt;/p&gt;
-
-&lt;p&gt;This blog post is the first part of a series on how to analyze the memory footprint in the PlatformIO ecosystem. We will start by analyzing the default memory report after the successful compilation, in the next posts we’ll try more advanced PlatformIO instruments which help analyze application memory usage more precisely and comprehensively.&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#executables&quot; id=&quot;markdown-toc-executables&quot;&gt;Executables&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#memory-layout&quot; id=&quot;markdown-toc-memory-layout&quot;&gt;Memory layout&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#real-world-example&quot; id=&quot;markdown-toc-real-world-example&quot;&gt;Real-world Example&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;executables&quot;&gt;Executables&lt;/h2&gt;
-
-&lt;p&gt;Typically the process of creating an executable consists of several steps and uses a few tools from an appropriate toolchain package. After source files are compiled, the corresponding relocatable object files and additional libraries are linked together into an executable file by a special tool called “linker”. The linker knows where to place the data from object files and libraries by reading linker scripts that describe the actual memory structure specific to the hardware and a use case.&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-1.png&quot; alt=&quot;Compilation and linking process&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Linking process
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Describing the compilation process is outside the scope of this article. If you are interested in the understanding of compilation and linking processes, here is &lt;a href=&quot;https://blog.feabhas.com/2012/06/the-c-build-process/&quot; target=&quot;_blank&quot;&gt;a great introduction&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;memory-layout&quot;&gt;Memory layout&lt;/h2&gt;
-
-&lt;p&gt;There are several formats of binary files, one of the most used is &lt;a href=&quot;https://en.wikipedia.org/wiki/Executable_and_Linkable_Format&quot; target=&quot;_blank&quot;&gt;Executable and Linkable Format&lt;/a&gt; (ELF) which is quite widespread among different platforms. To move further to the next steps, we need to get acquainted with the most important memory sections. Typically, an application contains the following commonly known sections:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; - contains data that can be modified by the application at runtime (statically initialized global and local variables without the default value). Usually, the system initializes this data with zeros before the program begins to run.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.data&lt;/code&gt; - contains data that can be modified by the application at runtime (statically initialized global and local variables with the default value)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.rodata&lt;/code&gt; - a read-only section for constant data (e.g. numeric constants, strings, etc)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.text&lt;/code&gt; - a read-only section that contains the executable instructions.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;An approximate memory layout for a hypothetical target might be organized in the following way:&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png&quot; alt=&quot;Memory layout of a simple embedded binary&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Memory layout of a simple embedded binary
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;As shown on the figure above, the free memory area between the end of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; section and the lowest address in the stack can be be used for dynamic memory allocations.&lt;/p&gt;
-
-&lt;h2 id=&quot;real-world-example&quot;&gt;Real-world Example&lt;/h2&gt;
-
-&lt;p&gt;Let’s try to run a simple &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Blink&lt;/code&gt; example based on the &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/stm32cube.html&quot; target=&quot;_blank&quot;&gt;STM32Cube&lt;/a&gt; framework on any supported board, in this article &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html&quot; target=&quot;_blank&quot;&gt;ST Nucleo-F401RE&lt;/a&gt; is used.&lt;/p&gt;
-
-&lt;p&gt;First, we need to install the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ST STM32&lt;/code&gt; platform by following instructions on &lt;a href=&quot;https://platformio.org/platforms/ststm32/installation&quot; target=&quot;_blank&quot;&gt;this page&lt;/a&gt;. Once the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ststm32&lt;/code&gt; dev-platform is installed, we can import a basic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STM32Cube&lt;/code&gt; example and compile it:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-3.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;As shown on the image above, after the successful compilation PlatformIO reported basic information about Flash and RAM usage. In our case, it’s 44 bytes of RAM and 1244 bytes of Flash memory. This approximate information should be enough for most cases when developers just need to verify that new changes to the code base don’t introduce unnecessary memory overhead. But if such overhead has occurred, it might be useful to compile the project in verbose mode and see what exact sections are using up the largest part of the memory:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-4.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In this case, we see the memory footprint per section and their addresses in the decimal format. The most interesting of them were already described in the previous chapter, so let’s focus on a few new items (keep in mind that the full format of the ELF contains many more items):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;._user_heap_stack&lt;/code&gt; - an auxiliary section specified in the linker script that checks whether there is enough RAM left&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ARM.attributes&lt;/code&gt; - a section for hardware-specific attributes&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.comment&lt;/code&gt; - a section that holds version control information&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.debug_frame&lt;/code&gt; - additional debug information (part of the DWARF standard)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.isr_section&lt;/code&gt; - interrupt vector table at the start of the Flash memory&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.init_array&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.fini_array&lt;/code&gt; - sections that hold arrays of pointers to functions that will be called on application initialization and termination accordingly&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;As it turned out, memory analysis is not that hard and even the default build information contains enough data to help estimate the memory footprint. In the next article, we’ll run through advanced PlatformIO instruments that show different ways of optimizing embedded applications by generating more comprehensive reports on memory usage.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">Nowadays, microcontrollers are becoming more powerful and efficient, but at the same time, embedded applications are getting even more sophisticated. That complexity requires additional RAM and Flash memory to support all expected features.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-16-memory-analysis-part-1/memory-analysis-part-1-2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">A free, modern software development ecosystem is the perfect complement to support open hardware communities. November 23, 2020, PlatformIO Labs, an independent provider of next-generation technology for the embedded systems industry, joins the OpenHW Group to bring its extensive expertise in the development and design of modern embedded development environments to the open hardware community.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
