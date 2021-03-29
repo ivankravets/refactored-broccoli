@@ -1,4 +1,134 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-03-08T17:31:05+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html" rel="alternate" type="text/html" title="PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training" /><published>2021-03-08T00:00:00+02:00</published><updated>2021-03-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg&quot; alt=&quot;PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-03-29T13:36:00+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Unit Testing with PlatformIO: Part 2. Running tests on an embedded target</title><link href="https://piolabs.com/blog/insights/unit-testing-part-2.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 2. Running tests on an embedded target" /><published>2021-03-29T00:00:00+03:00</published><updated>2021-03-29T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-2.html">&lt;p&gt;In most cases, testing in a host environment is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an application, but it is not the same as testing on the real hardware.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;A different compiler, endianness, or even unpredictable hardware issues can greatly affect the correctness of the code.&lt;/p&gt;
+
+&lt;p&gt;This is the second part of a 3-part blog series where we set up a testing environment for embedded development. In the &lt;a href=&quot;/blog/insights/unit-testing-part-1.html&quot; target=&quot;_blank&quot;&gt;first post&lt;/a&gt;, we briefly went through the basics of testing within the PlatformIO ecosystem, created a useful data structure called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circular buffer&lt;/code&gt; and tested it on the host machine.&lt;/p&gt;
+
+&lt;p&gt;In this post, we will continue to set up a convenient testing environment for our project. We will be using &lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; - a low-cost RISC-V board based on &lt;a href=&quot;https://sifive.cdn.prismic.io/sifive%2F9ecbb623-7c7f-4acc-966f-9bb10ecdb62e_fe310-g002.pdf&quot; target=&quot;_blank&quot;&gt;FE310-G002&lt;/a&gt; microcontroller from SiFive.&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#adding-a-new-environment&quot; id=&quot;markdown-toc-adding-a-new-environment&quot;&gt;Adding a New Environment&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#adding-custom-test-transport&quot; id=&quot;markdown-toc-adding-custom-test-transport&quot;&gt;Adding Custom Test Transport&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot; target=&quot;_blank&quot;&gt;VSCode with installed PlatformIO IDE extension&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; board&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;adding-a-new-environment&quot;&gt;Adding a New Environment&lt;/h2&gt;
+
+&lt;p&gt;In this part we’ll continue to work with the project from the previous post.
+Adding new hardware is as easy as adding several new lines to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:native]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;native&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[env:hifive1-revb]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sifive&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;freedom-e-sdk&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hifive1-revb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The configuration file is pretty simple, first two lines we already discussed in the previous post, the new environment &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hifive1-revb&lt;/code&gt; includes general information about the platform, framework, board and describes the new embedded target on which we want to run our tests (no need to install the &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/sifive.html&quot; target=&quot;_blank&quot;&gt;sifive&lt;/a&gt; dev-platform manually, PlatformIO will do it automatically before the first compilation).&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-custom-test-transport&quot;&gt;Adding Custom Test Transport&lt;/h2&gt;
+
+&lt;p&gt;Usually, the test sequence on a target device consists of compiling and deploying a test executable, starting it on the embedded side, and collecting the test results via some sort of communication channel. After that, the host machine analyzes logs and provides a detailed report.&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-2.png&quot; alt=&quot;Compilation and linking process&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Communication between the host and the embedded device
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;PlatformIO Unit Testing Engine supports several transports for popular frameworks/SDKs. But, for this article, we deliberately used a unsupported low-level framework to show you how easy it is to add a custom communication transport for collecting testing results.&lt;/p&gt;
+
+&lt;p&gt;Adding a custom transport boils down to implementing the following interface:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The only mandatory function is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unittest_uart_putchar&lt;/code&gt; which is responsible for redirecting the test output to a proper channel. Fortunately, the board used in this article has an on-board debug probe that also acts as a virtual COM port. The &lt;a href=&quot;https://docs.platformio.org/page/frameworks/freedom-e-sdk.html&quot; target=&quot;_blank&quot;&gt;Freedom SDK&lt;/a&gt; framework is configured to redirect &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt; output to that virtual COM port which greatly simplifies the implementation of the custom test transport for our case:&lt;/p&gt;
+
+&lt;p&gt;The header file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unit_test_transport.h&lt;/code&gt; with function declarations:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef UNITEST_TRANSPORT_H
+#define UNITEST_TRANSPORT_H
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#ifdef __cplusplus
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#ifdef __cplusplus
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#endif // UNITEST_TRANSPORT_H
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And the accompanying source file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unit_test_transport.c&lt;/code&gt; with the implementation:&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &quot;unittest_transport.h&quot;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In our case, we’ve only implemented one function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unittest_uart_putchar&lt;/code&gt; that redirects the test output to the virtual COM port via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt; function.
+In the last step we need to specify that we want to use a custom test transport:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:native]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;native&lt;/span&gt;
+
+&lt;span class=&quot;nn&quot;&gt;[env:hifive1-revb]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sifive&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;freedom-e-sdk&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hifive1-revb&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;; Select custom test transport
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;test_transport&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;custom&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we are ready to run our test on the real hardware. After connecting the board and validating that it’s visible to our OS, we can select our environment on the PlatformIO toolbar and run the tests:&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-3.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it! Now, you can run on the real board and if everything worked well, you should see successful results:&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;When developing software for an embedded device, testing only on the host machine is usually not sufficient enough to cover all possible issues. Ideally, the development environment should be able to run tests on the host machine as well as on the real hardware out of the box. Usually, creating a proper communication channel between the host and target device and representing test results in an easy-to-view form require a lot of manual work from developers.&lt;/p&gt;
+
+&lt;p&gt;In this article, we explored how PlatformIO solves that problem by abstracting away all heavy lifting. We looked into the process of running tests directly on the embedded device by implementing a custom test transport for collecting results from the &lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; board on the fly.&lt;/p&gt;
+
+&lt;p&gt;In the next article, we will explore how to run the tests on a CI service on both native and embedded sides by utilizing an advanced PlatformIO solution called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Remote&lt;/code&gt;.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">In most cases, testing in a host environment is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an application, but it is not the same as testing on the real hardware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html" rel="alternate" type="text/html" title="PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training" /><published>2021-03-08T00:00:00+02:00</published><updated>2021-03-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg&quot; alt=&quot;PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;RISC-V has been described as the “open silicon” of the technology revolution spurred by open hardware and open software. The ability to understand and innovate upon computer architectures has been a weak element of academic research and collaborative professional communities due to the typical proprietary nature of chip designs. Now open architectures can be combined with open hardware and software to provide unique and advanced solutions to tackle problems in our rapidly growing and complex technological world.&lt;/p&gt;
 
@@ -1322,52 +1452,4 @@ PlatformIO Labs is a great example of a company with a strong commitment to the 
 
 &lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
 
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">Modern software and new standards enable more developers to tackle the embedded systems and IoT markets Open, flexible, and neutral ecosystem tools improve growth for hardware and toolchain providers December 1, 2020, PlatformIO Labs, the corporate sponsor of the beloved PlatformIO.Org next-generation, professional collaborative platform for embedded development, today announces joining the Eclipse Foundation as a contributing member to introduce a tighter integration with the Eclipse ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs joins OpenHW Group</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-joins-openhw-group.html" rel="alternate" type="text/html" title="PlatformIO Labs joins OpenHW Group" /><published>2020-11-23T00:00:00+02:00</published><updated>2020-11-23T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-joins-openhw-group</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-joins-openhw-group.html">&lt;ul&gt;
-  &lt;li&gt;A free, modern software development ecosystem is the perfect complement to support open hardware communities.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;November 23, 2020&lt;/strong&gt;, &lt;a href=&quot;https://piolabs.com/&quot;&gt;PlatformIO Labs&lt;/a&gt;, an independent provider of next-generation technology for the embedded systems industry, joins the &lt;a href=&quot;https://www.openhwgroup.org/&quot; target=&quot;_blank&quot;&gt;OpenHW Group&lt;/a&gt; to bring its extensive expertise in the development and design of modern embedded development environments to the open hardware community. &lt;!-- more --&gt; PlatformIO tooling supports developers at various complexity levels from newcomers to avid professionals. Built-in platform-specific examples yield quick success and encourage developers to adopt open hardware while accelerating the time to market of new products.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg&quot; alt=&quot;PlatformIO Labs joins OpenHW Group&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Established just a year ago, the OpenHW group has already achieved significant results by engaging world-class partners and releasing the CORE-V family of open-source RISC-V cores. This family of high-quality core IP is in line with industry best practices in both silicon and FPGA optimized implementations. CORE-V IP collaboration among members drives faster innovation for all.&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;blockquote class=&quot;blockquote&quot;&gt;
-&lt;p class=&quot;h2 mb-5 mb-md-7 text-center text-primary&quot;&gt;
-&quot;We are happy to welcome PlatformIO Labs as a new member in the OpenHW Group and look forward to their contributions. The community will greatly benefit from their broad expertise to boost further adoption of the CORE-V family of open-source RISC-V cores.&quot;
-&lt;/p&gt;
-&lt;footer class=&quot;text-center&quot;&gt;
-  &lt;p class=&quot;h4 mb-0&quot;&gt;Rick O’Connor&lt;/p&gt;
-  &lt;p class=&quot;fs-sm text-muted mb-0&quot;&gt;President &amp;amp; CEO of the OpenHW Group&lt;/p&gt;
-&lt;/footer&gt;
-&lt;/blockquote&gt;
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;p&gt;PlatformIO Labs provides customers with a flexible and completely vendor-neutral development ecosystem. PlatformIO’s modular and modern design supports the integration of semiconductors and software needed to create new products. Developers enjoy a simplified process that is easier to debug, is reproducible, and that speeds their delivery of embedded products. The partnership underscores PlatformIO Labs’ goal to provide highly customizable and robust development instruments to the RISC-V ecosystem and the OpenHW Group community.&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;blockquote class=&quot;blockquote&quot;&gt;
-&lt;p class=&quot;h2 mb-5 mb-md-7 text-center text-primary&quot;&gt;
-&quot;Having already supported RISC-V cores since the earliest days, we are excited to become a member of the OpenHW Group and continue to improve our vendor-agnostic tools for CORE-V IP. We look forward to collaborating with industry leaders in the OpenHW Group to accelerate the RISC-V industry towards modern and flexible open-source development tools.&quot;
-&lt;/p&gt;
-&lt;footer class=&quot;text-center&quot;&gt;
-  &lt;p class=&quot;h4 mb-0&quot;&gt;Ivan Kravets&lt;/p&gt;
-  &lt;p class=&quot;fs-sm text-muted mb-0&quot;&gt;Founder and CEO of PlatformIO Labs&lt;/p&gt;
-&lt;/footer&gt;
-&lt;/blockquote&gt;
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;h2 id=&quot;about-openhw-group&quot;&gt;About OpenHW Group&lt;/h2&gt;
-
-&lt;p&gt;OpenHW Group is a not-for-profit, global organization driven by its members and individual contributors where hardware and software designers collaborate in the development of open-source cores, related IP, tools and software. OpenHW provides an infrastructure for hosting high-quality open-source HW developments in line with industry best practices.&lt;/p&gt;
-
-&lt;p&gt;CORE-V is a series of RISC-V based open-source cores with associated processor subsystem IP, tools and software for electronic system designers. The CORE-V family provides quality core IP in line with industry best practices. The IP is available in both silicon and FPGA optimized implementations. These cores can be used to facilitate rapid design innovation and ensure effective manufacturability of high-volume production SoCs.&lt;/p&gt;
-
-&lt;p&gt;To learn more, visit &lt;a href=&quot;https://www.openhwgroup.org/&quot; target=&quot;_blank&quot;&gt;OpenHWGroup.org&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">A free, modern software development ecosystem is the perfect complement to support open hardware communities. November 23, 2020, PlatformIO Labs, an independent provider of next-generation technology for the embedded systems industry, joins the OpenHW Group to bring its extensive expertise in the development and design of modern embedded development environments to the open hardware community.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-11-23-platformio-labs-joins-openhw-group/piolabs-joins-openhw.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">Modern software and new standards enable more developers to tackle the embedded systems and IoT markets Open, flexible, and neutral ecosystem tools improve growth for hardware and toolchain providers December 1, 2020, PlatformIO Labs, the corporate sponsor of the beloved PlatformIO.Org next-generation, professional collaborative platform for embedded development, today announces joining the Eclipse Foundation as a contributing member to introduce a tighter integration with the Eclipse ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
