@@ -1,4 +1,165 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-03-29T14:20:38+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Unit Testing with PlatformIO: Part 2. Running tests on an embedded target</title><link href="https://piolabs.com/blog/insights/unit-testing-part-2.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 2. Running tests on an embedded target" /><published>2021-03-29T00:00:00+03:00</published><updated>2021-03-29T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-2.html">&lt;p&gt;In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-04-01T15:39:58+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2021-04-01T00:00:00+03:00</published><updated>2021-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html">&lt;p&gt;Welcome to the March 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-march-news.jpg&quot; alt=&quot;PlatformIO Open Source March Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During March, we released a new version of PlatformIO IDE for Visual Studio Code, added support for the latest Mbed OS, rolled out major updates for Espressif32, STMicroelectronics STM32, Nordic nRF52 dev-platforms and fixed a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-ide-for-visual-studio-code-v23&quot; id=&quot;markdown-toc-platformio-ide-for-visual-studio-code-v23&quot;&gt;PlatformIO IDE for Visual Studio Code v2.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#mbed-os-v69&quot; id=&quot;markdown-toc-mbed-os-v69&quot;&gt;Mbed OS v6.9&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#espressif32-dev-platform-v32&quot; id=&quot;markdown-toc-espressif32-dev-platform-v32&quot;&gt;Espressif32 dev-platform v3.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stmicroelectronics-stm32-dev-platform-v121&quot; id=&quot;markdown-toc-stmicroelectronics-stm32-dev-platform-v121&quot;&gt;STMicroelectronics STM32 dev-platform v12.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nordic-nrf52-dev-platform-v71&quot; id=&quot;markdown-toc-nordic-nrf52-dev-platform-v71&quot;&gt;Nordic nRF52 dev-platform v7.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-avr-dev-platform-v33&quot; id=&quot;markdown-toc-atmel-avr-dev-platform-v33&quot;&gt;Atmel AVR dev-platform v3.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-ide-for-visual-studio-code-v23&quot;&gt;PlatformIO IDE for Visual Studio Code v2.3&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot;&gt;&lt;img class=&quot;figure-img img-fluid&quot; src=&quot;/assets/posts/oss-updates/platformio-ide-for-vscode-laptop.png&quot; alt=&quot;PlatformIO IDE for VSCode&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We are pleased to announce a new release &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.3&lt;/code&gt; of PlatformIO IDE for &lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot;&gt;Visual Studio Code&lt;/a&gt; that brings new functionality for project management, new settings and several bugfixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project management:
+    &lt;ul&gt;
+      &lt;li&gt;Show active project in the status bar (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2276&quot;&gt;#2276&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Automatically switch to the latest project on restart (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2365&quot;&gt;#2365&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Automatically restore the latest project environment (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2344&quot;&gt;#2344&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Allowed passing custom base URL of the Python Package Index using new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;customPyPiIndexUrl&lt;/code&gt; setting&lt;/li&gt;
+  &lt;li&gt;Open &lt;a href=&quot;https://docs.platformio.org/page/projectconf/index.html&quot;&gt;“platformio.ini” configuration file&lt;/a&gt; from newly added project (if there are no other active editors) (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2263&quot;&gt;#2263&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Added protection for infinite IntelliSense index rebuilding (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2363&quot;&gt;#2363&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Added “OpenAPI (Swagger) Editor” extension to the conflicted list (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2324&quot;&gt;#2324&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Added a new setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio-ide.autoOpenPlatformIOIniFile&lt;/code&gt; to control an automatic opening of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file from a project when no other editors are opened (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2419&quot;&gt;#2419&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Added a new setting &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio-ide.activateProjectOnTextEditorChange&lt;/code&gt; to enable automatic project activation depending on an active opened text editor (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2410&quot;&gt;#2410&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Automatically activate project environment opened via “PIO Home &amp;gt; New Project / Open Project” (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2414&quot;&gt;#2414&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Do not show “Default” environment when a project does not have any build environments (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2450&quot;&gt;#2450&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed issues when the “Upload and Monitor” command didn’t terminate the running task and didn’t reopen a monitor with delay (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2266&quot;&gt;#2266&lt;/a&gt;, issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2319&quot;&gt;#2319&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue with broken IntelliSense index rebuilding or tasks loading for big projects (issue &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/issues/2321&quot;&gt;#2321&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed an issue when a debug breakpoint was not allowed for Assembly files&lt;/li&gt;
+  &lt;li&gt;Fixed an issue “Failed to load symbols from executable file” when debugging native/desktop application&lt;/li&gt;
+  &lt;li&gt;PlatformIO IDE Installer
+    &lt;ul&gt;
+      &lt;li&gt;Updated PlatformIO Core installer to v1.0.1&lt;/li&gt;
+      &lt;li&gt;Rebuild project index only when the environment changes&lt;/li&gt;
+      &lt;li&gt;Fixed an issue “The ‘path’ argument must be of type string. Received undefined”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-vscode-ide/releases/tag/v2.3.1&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h2 id=&quot;mbed-os-v69&quot;&gt;Mbed OS v6.9&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for the latest &lt;strong&gt;Mbed OS 6&lt;/strong&gt; - an open source embedded operating system designed specifically for the Internet of Things. It includes all the features you need to develop a connected product based on an Arm Cortex-M microcontroller, including security, connectivity, an RTOS and drivers for sensors and I/O devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in the latest releases:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Support for the TF-M reference software v1.2 by the Trusted Firmware project&lt;/li&gt;
+  &lt;li&gt;Extended BLE functionality&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More information on project configuration for Mbed OS can be found &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Mbed OS&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.9.0&quot;&gt;Release notes for v6.9.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.8.0&quot;&gt;Release notes for v6.8.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.7.0&quot;&gt;Release notes for v6.7.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html&quot;&gt;Documentation for Mbed OS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html#platforms&quot;&gt;Supported development platforms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/mbed.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;espressif32-dev-platform-v32&quot;&gt;Espressif32 dev-platform v3.2&lt;/h2&gt;
+
+&lt;p&gt;The latest revision of the &lt;a href=&quot;https://platformio.org/platforms/espressif32&quot;&gt;Espressif 32&lt;/a&gt; dev-platform brings support for the latest Arduino core v1.0.6 and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new board  &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_kit_32_v2.html&quot;&gt;Heltec Wifi Kit 32 V2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Updated Arduino framework to 1.0.6 (&lt;a href=&quot;https://github.com/espressif/arduino-esp32/releases/tag/1.0.6&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated default upload speed for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m5stack-atom&lt;/code&gt; board&lt;/li&gt;
+  &lt;li&gt;Preparations for updated debug configuration process in upcoming PlatformIO Core 5.2+&lt;/li&gt;
+  &lt;li&gt;Fixed variant name for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ttgo-t-beam&lt;/code&gt; board&lt;/li&gt;
+  &lt;li&gt;Fixed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;buildfs&lt;/code&gt; target declaration to be used with pre/post actions&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Espressif32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/espressif32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-espressif32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stmicroelectronics-stm32-dev-platform-v121&quot;&gt;STMicroelectronics STM32 dev-platform v12.1&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/ststm32&quot;&gt;ST STM32&lt;/a&gt; platform comes with initial support for mbed-based Arduino core, improvements for STM32Cube integration and several minor fixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added a new board &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/portenta_h7_m4.html&quot;&gt;Arduino Portenta H7&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Added initial support for Arduino core for mbed enabled boards&lt;/li&gt;
+  &lt;li&gt;Updated Mbed OS6 to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v6.9.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.9.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Better handling of the pregenerated STM32Cube configuration file&lt;/li&gt;
+  &lt;li&gt;Fixed dynamic configuration of serverless debug probes&lt;/li&gt;
+  &lt;li&gt;Fixed RAM size for STM32F407VG&lt;/li&gt;
+  &lt;li&gt;Nucleo-Gxxx boards now support uploading and debugging via on-board STLink probes&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the ST STM32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-ststm32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nordic-nrf52-dev-platform-v71&quot;&gt;Nordic nRF52 dev-platform v7.1&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/nordicnrf52&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform brings updated Arduino core &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.3.2&lt;/code&gt; for mbed-enabled devices, several minor bugfixes and improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Mbed OS6 to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v6.9.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/ARMmbed/mbed-os/releases/tag/mbed-os-6.9.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.3.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/1.3.2&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Fixed dynamic configuration of serverless debug probes&lt;/li&gt;
+  &lt;li&gt;Fixed RAM size for &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/bbcmicrobit_v2.html&quot;&gt;BBC Micro:Bit v2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Nordic nRF52 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-avr-dev-platform-v33&quot;&gt;Atmel AVR dev-platform v3.3&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/atmelavr&quot;&gt;Atmel AVR&lt;/a&gt; v3.3.0 comes with updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ATTinyCore&lt;/code&gt; v1.5.2 and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ATTinyCore&lt;/code&gt; to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.5.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/SpenceKonde/ATTinyCore/releases/tag/1.5.2&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Removed unnecessary wrapping quotes from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;avrdude&lt;/code&gt; upload command&lt;/li&gt;
+  &lt;li&gt;Minor improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Atmel AVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the March 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Unit Testing with PlatformIO: Part 2. Running tests on an embedded target</title><link href="https://piolabs.com/blog/insights/unit-testing-part-2.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 2. Running tests on an embedded target" /><published>2021-03-29T00:00:00+03:00</published><updated>2021-03-29T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-2.html">&lt;p&gt;In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1404,52 +1565,4 @@ _Min_Stack_Size = 0x400;     /* required amount of stack */
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the November 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs joins Eclipse Foundation</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html" rel="alternate" type="text/html" title="PlatformIO Labs joins Eclipse Foundation" /><published>2020-12-01T00:00:00+02:00</published><updated>2020-12-01T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-joins-eclipse-foundation.html">&lt;ul&gt;
-  &lt;li&gt;Modern software and new standards enable more developers to tackle the embedded systems and IoT markets&lt;/li&gt;
-  &lt;li&gt;Open, flexible, and neutral ecosystem tools improve growth for hardware and toolchain providers&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;December 1, 2020&lt;/strong&gt;, &lt;a href=&quot;https://piolabs.com/&quot;&gt;PlatformIO Labs&lt;/a&gt;, the corporate sponsor of the beloved &lt;a href=&quot;https://platformio.org/&quot; target=&quot;_blank&quot;&gt;PlatformIO.Org&lt;/a&gt; next-generation, professional collaborative platform for embedded development, today announces joining the &lt;a href=&quot;https://www.eclipse.org/&quot; target=&quot;_blank&quot;&gt;Eclipse Foundation&lt;/a&gt; as a contributing member to introduce a tighter integration with the Eclipse ecosystem.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg&quot; alt=&quot;PlatformIO Labs joins Eclipse Foundation&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The Eclipse ecosystem has been remarkably successful and has established the Eclipse Foundation as a leading Integrated Development Environment (IDE) platform provider. The Eclipse IDE gained popularity because of its support for cross-platform development and flexible plug-in architecture, which addresses challenges faced by developers creating complex products involving real-time operating systems and resource-constrained embedded hardware.&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;blockquote class=&quot;blockquote&quot;&gt;
-&lt;p class=&quot;h2 mb-5 mb-md-7 text-center text-primary&quot;&gt;
-“We are excited to welcome PlatformIO Labs as a member of the Eclipse Foundation.
-PlatformIO Labs is a great example of a company with a strong commitment to the open-source community. We look forward to them contributing their expertise and collaborating on shaping the future evolution of development tools for embedded systems.”
-&lt;/p&gt;
-&lt;footer class=&quot;text-center&quot;&gt;
-  &lt;p class=&quot;h4 mb-0&quot;&gt;Mike Milinkovich&lt;/p&gt;
-  &lt;p class=&quot;fs-sm text-muted mb-0&quot;&gt;Executive director of the Eclipse Foundation&lt;/p&gt;
-&lt;/footer&gt;
-&lt;/blockquote&gt;
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;p&gt;PlatformIO Labs technology and expertise complements the Eclipse ecosystem. It also provides customers with tools that are cross-platform and completely vendor-agnostic. Its modular architecture enables developers to access a best-of-breed integrated development environment, by combining their favorite editor with a choice of SDKs frameworks, and enjoying the ease by which PlatformIO’s modern and powerful features speed up yet simplify the creation and delivery of embedded products. Dependencies are automatically taken care of, advanced debugging and editing support is integrated, and all the top features found in more cumbersome, proprietary, and expensive-to-license tools are freely available. Joining the Eclipse Foundation strengthens PlatformIO Labs’ commitment to open-source software and opens up new opportunities for hardware platform vendors by improving interoperability between both hardware and supporting software technologies.&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;blockquote class=&quot;blockquote&quot;&gt;
-&lt;p class=&quot;h2 mb-5 mb-md-7 text-center text-primary&quot;&gt;
-&quot;We are focused on improving the lives of everyday engineers with free, open-source, and next-generation instruments that enhance professional development productivity. We're honored to become a new member of the Eclipse Foundation, an organization that shares similar values of industry collaboration and transparency. By working closely together with the Eclipse community on integrating some of our products, we can further develop and improve open-source tools that benefit the embedded systems market.&quot;
-&lt;/p&gt;
-&lt;footer class=&quot;text-center&quot;&gt;
-  &lt;p class=&quot;h4 mb-0&quot;&gt;Ivan Kravets&lt;/p&gt;
-  &lt;p class=&quot;fs-sm text-muted mb-0&quot;&gt;Founder and CEO of PlatformIO Labs&lt;/p&gt;
-&lt;/footer&gt;
-&lt;/blockquote&gt;
-&lt;hr class=&quot;hr-md my-7&quot; /&gt;
-
-&lt;h2 id=&quot;about-eclipse-foundation&quot;&gt;About Eclipse Foundation&lt;/h2&gt;
-
-&lt;p&gt;The Eclipse Foundation provides individuals and organizations with a business-friendly environment for open source software collaboration and innovation. The Foundation is home to the Eclipse IDE, Jakarta EE, and over 375 projects, including runtimes, tools, and frameworks for cloud and edge applications, IoT, AI, automotive, systems engineering, distributed ledger technologies, open processor designs, and more. The Foundation is an international non-profit association supported by over 300 members, including industry leaders who value open source as a key enabler for their business strategies. Learn more at &lt;a href=&quot;https://www.eclipse.org/&quot; target=&quot;_blank&quot;&gt;eclipse.org&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">Modern software and new standards enable more developers to tackle the embedded systems and IoT markets Open, flexible, and neutral ecosystem tools improve growth for hardware and toolchain providers December 1, 2020, PlatformIO Labs, the corporate sponsor of the beloved PlatformIO.Org next-generation, professional collaborative platform for embedded development, today announces joining the Eclipse Foundation as a contributing member to introduce a tighter integration with the Eclipse ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-12-01-platformio-labs-joins-eclipse-foundation/piolabs-joins-eclipse-foundation.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the November 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
