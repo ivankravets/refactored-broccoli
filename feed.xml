@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-05-06T15:40:09+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2021-05-06T00:00:00+03:00</published><updated>2021-05-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2021-updates.html">&lt;p&gt;Welcome to the April 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-06-03T17:15:26+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2021-06-03T00:00:00+03:00</published><updated>2021-06-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2021-updates.html">&lt;p&gt;Welcome to the May 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-may-news.jpg&quot; alt=&quot;PlatformIO Open Source May Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During May, we have mostly focused on our thriving Arduino community. Besides updating support for the latest stable ESP-IDF v4.2.1, we updated Arduino cores for ESP8266, ST STM32, Adafruit, and mbed-enabled devices. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#espressif-8266-dev-platform-v30&quot; id=&quot;markdown-toc-espressif-8266-dev-platform-v30&quot;&gt;Espressif 8266 dev-platform v3.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stmicroelectronics-stm32-dev-platform-v140&quot; id=&quot;markdown-toc-stmicroelectronics-stm32-dev-platform-v140&quot;&gt;STMicroelectronics STM32 dev-platform v14.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#microchip-atmelsam-dev-platform-v61&quot; id=&quot;markdown-toc-microchip-atmelsam-dev-platform-v61&quot;&gt;Microchip AtmelSAM dev-platform v6.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#esp-idf-v421&quot; id=&quot;markdown-toc-esp-idf-v421&quot;&gt;ESP-IDF v4.2.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arduino-core-for-mbed-enabled-devices-v21&quot; id=&quot;markdown-toc-arduino-core-for-mbed-enabled-devices-v21&quot;&gt;Arduino Core for mbed-enabled devices v2.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;espressif-8266-dev-platform-v30&quot;&gt;Espressif 8266 dev-platform v3.0&lt;/h2&gt;
+
+&lt;p&gt;The latest revision of the &lt;a href=&quot;https://platformio.org/platforms/espressif8266&quot;&gt;Espressif 8266&lt;/a&gt; dev-platform brings support for the latest Arduino core v3.0.0 together with the latest GCC toolchain v10.2 and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New board &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/espressif8266/agruminolemon.html&quot;&gt;Lifely Agrumino Lemon v4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v3.0.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/esp8266/Arduino/releases/tag/3.0.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated toolchain packages to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v10.2.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Minor improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;breaking-changes&quot;&gt;Breaking changes&lt;/h4&gt;
+
+&lt;p&gt;The latest Arduino Core &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v3.0.0&lt;/code&gt; is a major release that brings several breaking changes including removed and significantly changed APIs. Many popular libraries are not synchronized with these changes which may lead to non-obvious compilation and linker errors. Please thoroughly examine the summary of the changes in the &lt;a href=&quot;https://github.com/esp8266/Arduino/releases/tag/3.0.0&quot;&gt;release notes&lt;/a&gt; before updating the platform. In case your projects are not compilable after the update, you can always roll back to the previous version of the platform, for example:&lt;/p&gt;
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:espresso_lite_v2]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;espressif8266@^2&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;arduino&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;espresso_lite_v2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;mmu-configuration&quot;&gt;MMU configuration&lt;/h4&gt;
+
+&lt;p&gt;This release introduces new configuration defines that allow adjusting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ICACHE&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IRAM&lt;/code&gt; ratio, for example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:espresso_lite_v2]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;espressif8266&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;arduino&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;espresso_lite_v2&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;build_flags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;; 16KB Cache + 48KB IRAM and 2nd Heap (shared)
+&lt;/span&gt;    &lt;span class=&quot;err&quot;&gt;-DPIO_FRAMEWORK_ARDUINO_MMU_CACHE16_IRAM48_SECHEAP_SHARED&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Espressif 8266 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/espressif8266.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-espressif8266/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stmicroelectronics-stm32-dev-platform-v140&quot;&gt;STMicroelectronics STM32 dev-platform v14.0&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/ststm32&quot;&gt;ST STM32&lt;/a&gt; platform comes with a bunch of new boards and dev-kits, support for the latest major release of Arduino core v2.0 and updated SVD files for better debugging experience:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/disco_b_g431b_esc1.html&quot;&gt;ST B-G431B-ESC1 Discovery&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/disco_l4s5i_iot01a.html&quot;&gt;ST STM32L4+ Discovery kit IoT Node&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/elektor_f072c8.html&quot;&gt;Elektor LoRa Node Core F072C8 (64 kB)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/elektor_f072cb.html&quot;&gt;Elektor LoRa Node Core F072C8 (128 kB)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/nucleo_g031k8.html&quot;&gt;ST Nucleo G031K8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/nucleo_l552ze_q.html&quot;&gt;ST Nucleo L552ZE-Q&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/olimexino_stm32f3.html&quot;&gt;Olimex OLIMEXINO-STM32F3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/ststm32/vccgnd_f407zg_mini.html&quot;&gt;VCCGND F407ZGT6 Mini&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated STM32 Arduino Core to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.0.0&quot;&gt;relase notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.1.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.1.0&quot;&gt;relase notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated OpenOCD to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v0.11.0&lt;/code&gt; (&lt;a href=&quot;http://openocd.org/2021/03/openocd-0-11-0-released/&quot;&gt;relase notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated SVD files&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;note&quot;&gt;Note&lt;/h4&gt;
+
+&lt;p&gt;The latest STM32 Arduino Core &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.0.0&lt;/code&gt; is a major release with refactored variant structure. These changes may break custom board manifests which used previous variant names. In case your projects are not compilable after the update, you can always roll back to the previous version of the platform, for example:&lt;/p&gt;
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:nucleo_f072rb]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ststm32@^13.0.0&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;arduino&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nucleo_f072rb&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the ST STM32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-ststm32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;microchip-atmelsam-dev-platform-v61&quot;&gt;Microchip AtmelSAM dev-platform v6.1&lt;/h2&gt;
+
+&lt;p&gt;The latest release of the &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; v6.1.0 brings support for new boards, updated Arduino Adafruit core and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_neokeytrinkey_m0.html&quot;&gt;Adafruit NeoKey Trinkey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_neotrinkey_m0.html&quot;&gt;Adafruit NeoPixel Trinkey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_proxlighttrinkey_m0.html&quot;&gt;Adafruit ProxLight Trinkey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_rotarytrinkey_m0.html&quot;&gt;Adafruit Rotary Trinkey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelsam/adafruit_slidetrinkey_m0.html&quot;&gt;Adafruit Slide Trinkey&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Adafruit Arduino Core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.7.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.7.2&quot;&gt;relase notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;esp-idf-v421&quot;&gt;ESP-IDF v4.2.1&lt;/h2&gt;
+
+&lt;p&gt;The latest version of the &lt;a href=&quot;https://platformio.org/platforms/espressif32&quot;&gt;Espressif32&lt;/a&gt; platform now supports the latest stable &lt;strong&gt;ESP-IDF v4.2.1&lt;/strong&gt; - the official development framework for the ESP32 and ESP32-S Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in the latest release:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improvements to the Bluetooth Controller (reduced IRAM consumption, support for BLE Authorization)&lt;/li&gt;
+  &lt;li&gt;Minor optimizations to the Wi-Fi stack&lt;/li&gt;
+  &lt;li&gt;Many fixes and improvements to the Peripheral Drivers, Core and Power Management systems&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for ESP-IDF&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/espressif/esp-idf/releases/tag/v4.2.1&quot;&gt;Release notes for v4.2.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html&quot;&gt;Documentation for ESP-IDF&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;arduino-core-for-mbed-enabled-devices-v21&quot;&gt;Arduino Core for mbed-enabled devices v2.1&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;ST STM32&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Nordic nRF52&lt;/a&gt; and &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/raspberrypi.html&quot;&gt;Raspberry Pi RP2040&lt;/a&gt; dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v2.1. According to the release notes, v2.1 brings a lot of bugfixes and improvements in core and accompanying libraries.&lt;/p&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the May 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2021-05-06T00:00:00+03:00</published><updated>2021-05-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2021-updates.html">&lt;p&gt;Welcome to the April 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -1394,125 +1536,4 @@ We had a lot of discussion around this case, and the best solution was to allow 
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the December 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector</title><link href="https://piolabs.com/blog/insights/memory-analysis-part-2.html" rel="alternate" type="text/html" title="Analyze your firmware footprint with PlatformIO: Part 2. Project Inspector" /><published>2020-12-14T00:00:00+02:00</published><updated>2020-12-14T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/memory-analysis-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/memory-analysis-part-2.html">&lt;p&gt;Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;In the &lt;a href=&quot;/blog/insights/memory-analysis-part-1.html&quot;&gt;previous post&lt;/a&gt;, we briefly looked into general aspects of the memory layout of executable files. In this post, we will go deeper into the ELF file structure and memory analysis using a very useful PlatformIO tool called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt; which allows analyzing application memory usage or to answer specific questions about which memory section a variable or function is placed in or what file this symbol is located in.&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#running-analysis&quot; id=&quot;markdown-toc-running-analysis&quot;&gt;Running Analysis&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#inspecting-results&quot; id=&quot;markdown-toc-inspecting-results&quot;&gt;Inspecting Results&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#project-statistics&quot; id=&quot;markdown-toc-project-statistics&quot;&gt;Project Statistics&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#project-explorer&quot; id=&quot;markdown-toc-project-explorer&quot;&gt;Project Explorer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#symbol-table&quot; id=&quot;markdown-toc-symbol-table&quot;&gt;Symbol Table&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#memory-sections&quot; id=&quot;markdown-toc-memory-sections&quot;&gt;Memory Sections&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;running-analysis&quot;&gt;Running Analysis&lt;/h2&gt;
-
-&lt;p&gt;We already installed the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ststm32&lt;/code&gt; platform and imported a basic example in the previous blog post. Let’s analyze the same project, but this time via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt;. On the PlatformIO Home page, navigate to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inspect&lt;/code&gt; tab, select your project and environment, press the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Inspect&lt;/code&gt; button:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-2.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-2.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;inspecting-results&quot;&gt;Inspecting Results&lt;/h2&gt;
-
-&lt;h3 id=&quot;project-statistics&quot;&gt;Project Statistics&lt;/h3&gt;
-
-&lt;p&gt;Once the analysis is done, PlatformIO will show a detailed report on memory usage. The first &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Statistics&lt;/code&gt; tab displays general information about used hardware, a graphical representation of the percentage of used memory, Top-5 files with the most significant contribution to the memory footprint, along with Top-5 largest symbols defined in the firmware:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-3.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For example, in our case, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stm32f4xx_hal_gpio.c&lt;/code&gt; file has the highest memory consumption of 428 bytes.&lt;/p&gt;
-
-&lt;p&gt;As we can see, the report from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Inspector&lt;/code&gt; a bit differs from the regular information reported after each build step. In this case, the differences can be explained by a different calculation method of memory consumption. Project Inspector also takes into account the memory section which was allocated for the stack and heap. Usually, it’s done in the project linker script and used to ensure that there is enough free memory left for the stack and heap to fit into the RAM. In code  such verification may look like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;_Min_Heap_Size = 0x200;      /* required amount of heap  */
-_Min_Stack_Size = 0x400;     /* required amount of stack */
-...
-._user_heap_stack :
-{
-    . = ALIGN(4);
-    PROVIDE ( end = . );
-    PROVIDE ( _end = . );
-    . = . + _Min_Heap_Size;
-    . = . + _Min_Stack_Size;
-    . = ALIGN(4);
-} &amp;gt;RAM
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;._user_heap_stack&lt;/code&gt; (or similar name) is exactly the section that declares the memory area that could be allocated at runtime.&lt;/p&gt;
-
-&lt;h3 id=&quot;project-explorer&quot;&gt;Project Explorer&lt;/h3&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Explorer&lt;/code&gt; tab provides a convenient way for navigating through project source files while displaying used RAM and Flash memory for each file. By clicking on any particular file we can see a detailed report on symbols defined in this file and their size:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-4.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;symbol-table&quot;&gt;Symbol Table&lt;/h3&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Symbols&lt;/code&gt; page lists the most memory-consuming symbols in the entire project. Besides the information about size, address, and the memory segment where that symbols are located, there are also two additional columns that provide extra information:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-5.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt; column describes the specific type of each symbol. The most interesting for us are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STT_OBJECT&lt;/code&gt; - This symbol is associated with a data object, such as a variable, an array, and so on.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STT_FUNC&lt;/code&gt; - This symbol indicates that this symbol represents a function or other executable code.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bind&lt;/code&gt; column shows symbol binding type. For most applications, symbol types fall into the following three categories:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_LOCAL&lt;/code&gt; - Local symbols that are not visible outside the object file containing their definition. Local symbols with the same name may exist in multiple files without interfering with each other.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_GLOBAL&lt;/code&gt; - Global symbols. These symbols are visible to all object files being combined.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STB_WEAK&lt;/code&gt; - Weak symbols resemble global symbols, but their definitions have lower precedence.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We can also click on the magnifier icon on the right to the symbol name to open the corresponding source file and highlight the line where that symbol was defined.&lt;/p&gt;
-
-&lt;h3 id=&quot;memory-sections&quot;&gt;Memory Sections&lt;/h3&gt;
-
-&lt;p&gt;The last tab &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Sections&lt;/code&gt; is similar to the memory report after the verbose build, but shows extra information like section types and attributes:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-6.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Type&lt;/code&gt; column categorizes the section contents and semantics. A short description of the possible values:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_PROGBITS&lt;/code&gt; - The section holds information defined by the program, includes executable code and data&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_NOBITS&lt;/code&gt; - A section of this type occupies no space in the file but otherwise resembles &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_PROGBITS&lt;/code&gt; (for example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bss&lt;/code&gt; section)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_STRTAB&lt;/code&gt; - The section holds the string table&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SHT_SYMTAB&lt;/code&gt; - The section holds the symbol table&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flags&lt;/code&gt; column describes miscellaneous section attributes The most interesting for us are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;W (SHF_WRITE)&lt;/code&gt; - The section contains data that should be writable during process execution.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A (SHF_ALLOC)&lt;/code&gt; - The section occupies memory during process execution (used to attribute control sections that don’t reside in the memory image of an object file).&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X (SHF_EXECINSTR)&lt;/code&gt; - The section contains executable machine instructions.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you are interested in more detailed information about the structure of ELF files, here is a great &lt;a href=&quot;https://man7.org/linux/man-pages/man5/elf.5.html&quot; target=&quot;_blank&quot;&gt;man page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Advanced analysis tools are becoming more useful as the modern firmware in embedded systems is getting highly complicated. Such tools enable developers to better understand how optimization flags, standard libraries, or even coding style affect memory consumption. Dismissive attitude towards optimization may lead to nonrecoverable software failures after deployment, especially on embedded systems where code space is a very constrained resource.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">Have you ever wondered how the linker is assigning physical memory, where your code is placed in Flash, or how much RAM is used by an OS or peripheral drivers?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2020-12-14-memory-analysis-part-2/memory-analysis-part-2-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the December 2020 updates of PlatformIO Open Source professional collaborative platform for embedded development. There are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
