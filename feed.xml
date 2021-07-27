@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-07-12T20:36:07+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2021-07-01T00:00:00+03:00</published><updated>2021-07-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html">&lt;p&gt;Welcome to the June 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-07-27T20:22:01+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2021-07-01T00:00:00+03:00</published><updated>2021-07-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html">&lt;p&gt;Welcome to the June 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -430,7 +430,81 @@ This month we received a lot of helpful feedback from our community, which let u
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the April 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2021-04-01T00:00:00+03:00</published><updated>2021-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html">&lt;p&gt;Welcome to the March 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the April 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OpenHW TV S2 E04: Software Task Group Project Updates</title><link href="https://piolabs.com/blog/news/openhw-tv-s2e04.html" rel="alternate" type="text/html" title="OpenHW TV S2 E04: Software Task Group Project Updates" /><published>2021-04-23T00:00:00+03:00</published><updated>2021-04-23T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/openhw-tv-s2e04</id><content type="html" xml:base="https://piolabs.com/blog/news/openhw-tv-s2e04.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg&quot; alt=&quot;OpenHW TV S2 E04: Software Task Group Project Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;OpenHW TV S2 E04 was held on 22nd April 2021 in the usual format of a Zoom webinar with a live Q&amp;amp;A session. This event was solely dedicated to the several key projects led by the OpenHW Software Task Group. It’s worth mentioning that the SW TG not only develops the key software elements that are needed, but it also encourages the growth of a thriving commercial community that can develop and maintain this software for the long term.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&quot;meeting-details&quot;&gt;Meeting Details&lt;/h2&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-meeting-details.png&quot; alt=&quot;Meeting Participants&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Agenda and Participants
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In this webinar, led by Jeremy Bennett (Embecosm), guests and participants learned about projects run by the Software Task Group including the details on IDE projects from Ivan Kravets (PlatformIO Labs) and Alexander Fedorov (Arsysop/Eclipse), CORE-V FreeRTOS project featuring a demo from Robert Balas (ETH Zürich) and Shteryana Shopova (Embecosm). Updates about the GCC and Clang/LLVM compiler toolchains were presented by Philipp Krones and Jessica Mills (Embecosm).&lt;/p&gt;
+
+&lt;h2 id=&quot;platormio-labs-contribution&quot;&gt;PlatormIO Labs’ Contribution&lt;/h2&gt;
+
+&lt;p&gt;One of the main priorities of PlatformIO Labs is to improve the lives of everyday engineers with comprehensive, open-source, and next-generation tools that enhance professional development productivity and provide an enjoyable experience. We believe that researchers, developers and silicon vendors should leverage open-source software and hardware to launch truly groundbreaking projects.&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-platformio-benefits.png&quot; alt=&quot;Accelerate adoption of CORE-V IP&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    PlatformIO Labs TaaS Benefits
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;PlatformIO Labs contributed and adapted their Technology as a Service (TaaS) platform that greatly reduces the usual complexity of developing ASM/C/C++ code for an embedded target. Developers can avoid the complex steps of setting up a proper development environment and can proceed directly to interacting with their CORE-V processors. The main contributions of our work are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Trusted Package Registry&lt;/strong&gt;. The registry quickly and securely delivers pre-built packages to developers worldwide.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;In-depth Memory Analysis&lt;/strong&gt;. A user-friendly UI allows developers to quickly analyze memory footprints and get deeper insight into the internal application structure.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;. Like a welcoming dashboard, the PlatformIO Home page makes it easy for anyone to get started. It provides easy access to a comprehensive set of documentation and examples.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The major part of the functionality includes:&lt;/p&gt;
+
+&lt;figure class=&quot;figure mb-7&quot;&gt;
+  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-corev-functionality.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
+  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
+    Demo of PlatformIO IDE for CORE-V IP Cores
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;A full recording of the event is available to watch below:&lt;/p&gt;
+
+&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
+
+&lt;!-- Youtube video --&gt;
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;ytSrc&amp;quot;: &amp;quot;HkJw8HcwBOA&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-yt-preview.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;OpenHW TV S2 E04: Software Task Group Project Updates&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
+
+&lt;p class=&quot;text-center&quot;&gt;
+  The slides from the webinar are available on &lt;a href=&quot;TODO&quot; target=&quot;_blank&quot;&gt;SlideShare&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+
+&lt;p&gt;Our team is proud to be an active participant in the OpenHW Group. We are happy to see how our highly customizable and robust instruments further boost the adoption of the CORE-V family open-source RISC-V cores by providing an improved developer experience. We hope that the OpenHW Group community from all around the world appreciates our efforts to support the future growth of the CORE-V ecosystem.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-openhw-group&quot;&gt;About OpenHW Group&lt;/h2&gt;
+
+&lt;p&gt;OpenHW Group is a not-for-profit, global organization driven by its members and individual contributors where hardware and software designers collaborate in the development of open-source cores, related IP, tools and software. OpenHW provides an infrastructure for hosting high-quality open-source HW developments in line with industry best practices.&lt;/p&gt;
+
+&lt;p&gt;CORE-V is a series of RISC-V based open-source cores with associated processor subsystem IP, tools and software for electronic system designers. The CORE-V family provides quality core IP in line with industry best practices. The IP is available in both silicon and FPGA optimized implementations. These cores can be used to facilitate rapid design innovation and ensure effective manufacturability of high-volume production SoCs.&lt;/p&gt;
+
+&lt;p&gt;To learn more, visit &lt;a href=&quot;https://www.openhwgroup.org/&quot; target=&quot;_blank&quot;&gt;OpenHWGroup.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">OpenHW TV S2 E04 was held on 22nd April 2021 in the usual format of a Zoom webinar with a live Q&amp;amp;A session. This event was solely dedicated to the several key projects led by the OpenHW Software Task Group. It’s worth mentioning that the SW TG not only develops the key software elements that are needed, but it also encourages the growth of a thriving commercial community that can develop and maintain this software for the long term.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2021-04-01T00:00:00+03:00</published><updated>2021-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2021-updates.html">&lt;p&gt;Welcome to the March 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -1164,113 +1238,4 @@ The beginning of the year can often take off with a slow start for any project, 
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the January 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 5.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.1 🚀" /><published>2021-01-28T00:00:00+02:00</published><updated>2021-01-28T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-1-released.html">&lt;p&gt;We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png&quot; alt=&quot;PlatformIO Core 5.1 🚀&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#platformio-home&quot; id=&quot;markdown-toc-platformio-home&quot;&gt;PlatformIO Home&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#build-system&quot; id=&quot;markdown-toc-build-system&quot;&gt;Build System&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#package-management&quot; id=&quot;markdown-toc-package-management&quot;&gt;Package Management&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#debugging&quot; id=&quot;markdown-toc-debugging&quot;&gt;Debugging&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#stay-tuned&quot; id=&quot;markdown-toc-stay-tuned&quot;&gt;Stay tuned&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
-
-&lt;p&gt;In this section, we are going to highlight the most important changes and features introduced in PlatformIO Core 5.1.
-Please visit &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.1.0&quot; target=&quot;_blank&quot;&gt;PlatformIO 5.1.0 Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;h3 id=&quot;platformio-home&quot;&gt;PlatformIO Home&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; is a powerful, modern, and interactive user interface (UI) for PlatformIO collaborative platform.
-It’s powered by &lt;a href=&quot;/technology/modern-ui-toolkit.html&quot;&gt;PlatformIO Labs’ Modern UI Toolkit&lt;/a&gt; and contains the following key instruments:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Project Management&lt;/li&gt;
-  &lt;li&gt;Library Management&lt;/li&gt;
-  &lt;li&gt;Development Platforms, frameworks, and boards Management&lt;/li&gt;
-  &lt;li&gt;Device Management (serial, logical, and multicast DNS services)&lt;/li&gt;
-  &lt;li&gt;Static Code Analysis&lt;/li&gt;
-  &lt;li&gt;Firmware File Explorer&lt;/li&gt;
-  &lt;li&gt;Firmware Memory Inspection&lt;/li&gt;
-  &lt;li&gt;Firmware Sections &amp;amp; Symbols Viewer.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;PlatformIO Core 5.1 brings significantly boosted performance to PlatformIO Home by migrating the codebase to the pure Python 3 Asynchronous I/O stack.
-This approach solves previous issues caused by the Twisted engine that depends on operating system libraries and 3rd-party Python packages.&lt;/p&gt;
-
-&lt;h3 id=&quot;build-system&quot;&gt;Build System&lt;/h3&gt;
-
-&lt;h4 id=&quot;scons-41&quot;&gt;SCons 4.1&lt;/h4&gt;
-
-&lt;p&gt;The PlatformIO Core 5.1 build engine has been upgraded to the latest &lt;a href=&quot;https://scons.org/&quot; target=&quot;_blank&quot;&gt;SCons 4.1 - a next-generation software construction tool&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html&quot;&gt;Configuration files are Python scripts&lt;/a&gt; – use the power of a real programming language to solve build problems&lt;/li&gt;
-  &lt;li&gt;Built-in reliable and automatic dependency analysis&lt;/li&gt;
-  &lt;li&gt;Improved support for parallel builds&lt;/li&gt;
-  &lt;li&gt;Ability to &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_platformio.html#projectconf-pio-cache-dir&quot;&gt;share built files in a cache&lt;/a&gt; to speed up multiple builds.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;command-line-character-limitation&quot;&gt;Command-line character limitation&lt;/h4&gt;
-
-&lt;p&gt;Operating systems have their own default command-line character limitations. Windows OS is limited to 8192 characters where most Unix OSes to 131072.
-These limitations lead to build issues caused by development frameworks that pass multiple “include” flags or dependent libraries per one command.&lt;/p&gt;
-
-&lt;p&gt;PlatformIO Core 5.1 was switched to the SCons TempFileMunge that automatically handles long commands and moves flags to a temporary file.&lt;/p&gt;
-
-&lt;h3 id=&quot;package-management&quot;&gt;Package Management&lt;/h3&gt;
-
-&lt;p&gt;Starting with PlatformIO Core 5.1, the package management system does not cleanup unnecessary packages automatically.
-We had a lot of discussion around this case, and the best solution was to allow users to personally maintain PlatformIO System.&lt;/p&gt;
-
-&lt;p&gt;Hence, PlatformIO Core 5.1 introduces updated &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/system/cmd_prune.html&quot;&gt;pio system prune&lt;/a&gt; command with new options:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--dry-run&lt;/code&gt; option to show data that will be removed&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--core-packages&lt;/code&gt; option to remove unnecessary core packages&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--platform-packages&lt;/code&gt; option to remove unnecessary development platform packages&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Please note that PlatformIO Core 5.1 will monitor PlatformIO installation and inform you about unnecessary data when their size on disk crosses a value set in &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_settings.html#check-prune-system-threshold&quot;&gt;check_prune_system_threshold&lt;/a&gt; setting. A default value is set to 1024Mb (1Gb).&lt;/p&gt;
-
-&lt;p&gt;To list unnecessary data without pruning, please use the following command – &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio system prune --dry-run&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;/h3&gt;
-
-&lt;p&gt;The initial debug adapter speed is an important setting that greatly affects the overall debugging experience. This new option will help users to more easily tune that value directly from their project configuration file regardless of what debug server is used. Here are some typical examples:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:custom_debug_speed_examples]&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;; fixed speed in kHz
-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;500&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;; automatic speed (only J-Link)
-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;auto&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;; adaptive clocking instead of fixed JTAG speed (only J-Link)
-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_speed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;adaptive&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Please note that not all dev-platforms support this feature at the moment, but we’ll gradually implement this functionality in all eligible platforms. Stay tuned!&lt;/p&gt;
-
-&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;stay-tuned&quot;&gt;Stay tuned&lt;/h2&gt;
-
-&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the next release of PlatformIO Core with the boosted performance for PlatformIO Home, support for SCons 4.1, and the improved package management system!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-01-28-platformio-core-5-1-released/platformio-core-5-1-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the January 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
