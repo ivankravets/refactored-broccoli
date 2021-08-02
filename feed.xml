@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-07-28T14:38:08+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2021-07-01T00:00:00+03:00</published><updated>2021-07-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html">&lt;p&gt;Welcome to the June 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-08-02T13:58:52+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source July Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-july-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source July Updates" /><published>2021-08-02T00:00:00+03:00</published><updated>2021-08-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-july-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-july-2021-updates.html">&lt;p&gt;Welcome to the July 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-july-news.jpg&quot; alt=&quot;PlatformIO Open Source July Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During July, we added support for Zephyr v2.6.0, rolled out updates for the STMicroelectronics STM32, Nordic nRF52, Teensy and Espressif32 development platforms, resolved a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management&quot; id=&quot;markdown-toc-zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management&quot;&gt;Zephyr v2.6.0: New dev-kits, refactored logging subsystem and improved power management&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#st-stm32-dev-platform-v141&quot; id=&quot;markdown-toc-st-stm32-dev-platform-v141&quot;&gt;ST STM32 dev-platform v14.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nordic-nrf52-dev-platform-v82&quot; id=&quot;markdown-toc-nordic-nrf52-dev-platform-v82&quot;&gt;Nordic nRF52 dev-platform v8.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#teensy-dev-platform-v413&quot; id=&quot;markdown-toc-teensy-dev-platform-v413&quot;&gt;Teensy dev-platform v4.13&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#espressif32-dev-platform-v331&quot; id=&quot;markdown-toc-espressif32-dev-platform-v331&quot;&gt;Espressif32 dev-platform v3.3.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arduino-core-for-mbed-enabled-devices-v23&quot; id=&quot;markdown-toc-arduino-core-for-mbed-enabled-devices-v23&quot;&gt;Arduino Core for mbed-enabled devices v2.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management&quot;&gt;Zephyr v2.6.0: New dev-kits, refactored logging subsystem and improved power management&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for a new release v2.6.0 of Zephyr Project - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in v2.6.0:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Overhauled Logging subsystem&lt;/li&gt;
+  &lt;li&gt;Overhauled Tracing subsystem including expansion for tracing points&lt;/li&gt;
+  &lt;li&gt;Improvements to device runtime power management&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Zephyr framework&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0&quot;&gt;Release notes for v2.6.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html&quot;&gt;Documentation for Zephyr framework&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms&quot;&gt;Supported development platforms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;st-stm32-dev-platform-v141&quot;&gt;ST STM32 dev-platform v14.1&lt;/h2&gt;
+
+&lt;p&gt;The latest release of the &lt;a href=&quot;https://platformio.org/platforms/ststm32&quot;&gt;ST STM32&lt;/a&gt; platform comes with several new boards and dev-kits, support for the latest Zephyr v2.6.0 and Arduino-mbed core v2.3:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/disco_g071rb.html&quot;&gt;ST STM32G071B Discovery&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_h753zi.html&quot;&gt;ST Nucleo H753ZI&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_wl55jc.html&quot;&gt;ST Nucleo WL55JC&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.6.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.3.1&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the ST STM32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-ststm32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nordic-nrf52-dev-platform-v82&quot;&gt;Nordic nRF52 dev-platform v8.2&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/nordicnrf52&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform brings support for Zephyr 2.6.0, updated Arduino cores and several minor bugfixes and improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.6.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.3.1&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Adafruit core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v0.24.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/0.24.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Switched to a standalone &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adafruit-nrfutil&lt;/code&gt; package from PlatformIO Registry&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Nordic nRF52 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;teensy-dev-platform-v413&quot;&gt;Teensy dev-platform v4.13&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/teensy&quot;&gt;Teensy&lt;/a&gt; dev-platform comes with support for the latest Teensyduino v1.54 with a new development board:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;New board &lt;a href=&quot;https://docs.platformio.org/en/latest/boards/teensy/teensymm.html&quot;&gt;SparkFun MicroMod Teensy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Updated Teensyduino to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.54&lt;/code&gt; (&lt;a href=&quot;https://github.com/PaulStoffregen/cores/releases/tag/1.54&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Teensy dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/teensy.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-teensy/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;espressif32-dev-platform-v331&quot;&gt;Espressif32 dev-platform v3.3.1&lt;/h2&gt;
+
+&lt;p&gt;The latest &lt;a href=&quot;https://platformio.org/platforms/ststm32&quot;&gt;Espressif32&lt;/a&gt; v3.3.1 is mostly a maintenance release that brings several important bugfixes and improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated the OpenOCD package to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v0.10.0-esp32-20210721&lt;/code&gt; (&lt;a href=&quot;https://github.com/espressif/openocd-esp32/releases/tag/v0.10.0-esp32-20210721&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Esp32ExceptionDecoder&lt;/code&gt; now supports uppercase hex addresses in backtraces (#582)&lt;/li&gt;
+  &lt;li&gt;Better handling of ESP-IDF configuration files (#588)&lt;/li&gt;
+  &lt;li&gt;Removed dynamic reconfiguration of SPI Flash mode for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;esptoolpy&lt;/code&gt; (#584)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Espressif32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/espressif32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-espressif32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;arduino-core-for-mbed-enabled-devices-v23&quot;&gt;Arduino Core for mbed-enabled devices v2.3&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;ST STM32&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Nordic nRF52&lt;/a&gt; and &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/raspberrypi.html&quot;&gt;Raspberry Pi RP2040&lt;/a&gt; dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v2.3. According to the &lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1&quot;&gt;release notes&lt;/a&gt;, v2.3 brings a lot of bugfixes and improvements in core and bundled libraries.&lt;/p&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the July 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2021-07-01T00:00:00+03:00</published><updated>2021-07-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2021-updates.html">&lt;p&gt;Welcome to the June 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -1077,165 +1201,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the February 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2021-02-04T00:00:00+02:00</published><updated>2021-02-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2021-updates.html">&lt;p&gt;Welcome to the January 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
-The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-january-news.jpg&quot; alt=&quot;PlatformIO Open Source January Updates&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;During January, we have released a new version of PlatformIO Core, published a new RISC-V based development platform, added support for ESP-IDF v4.2, rolled out updates for the Espressif32 and Microchip SAM/megaAVR platforms, fixed a lot of issues. Some of the key highlights include:&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#platformio-core-51&quot; id=&quot;markdown-toc-platformio-core-51&quot;&gt;PlatformIO Core 5.1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#esp-idf-v42&quot; id=&quot;markdown-toc-esp-idf-v42&quot;&gt;ESP-IDF v4.2&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#openhw-risc-v-dev-platform&quot; id=&quot;markdown-toc-openhw-risc-v-dev-platform&quot;&gt;OpenHW RISC-V dev-platform&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#espressif32-dev-platform-v30&quot; id=&quot;markdown-toc-espressif32-dev-platform-v30&quot;&gt;Espressif32 dev-platform v3.0&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#atmel-megaavr-dev-platform-v14&quot; id=&quot;markdown-toc-atmel-megaavr-dev-platform-v14&quot;&gt;Atmel megaAVR dev-platform v1.4&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#atmel-sam-dev-platform-v511&quot; id=&quot;markdown-toc-atmel-sam-dev-platform-v511&quot;&gt;Atmel SAM dev-platform v5.1.1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;platformio-core-51&quot;&gt;PlatformIO Core 5.1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is the heart of the whole PlatformIO ecosystem and we are excited to announce the next v5.1.0 release. This milestone we again received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Boosted &lt;a href=&quot;https://docs.platformio.org/page/home/index.html&quot;&gt;PlatformIO Home&lt;/a&gt; performance thanks to migrating the codebase to the pure Python 3 Asynchronous I/O stack&lt;/li&gt;
-      &lt;li&gt;Added a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--session-id&lt;/code&gt; option to &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_home.html&quot;&gt;pio home&lt;/a&gt; command that helps to keep PlatformIO Home isolated from other instances and protect from 3rd party access (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3397&quot;&gt;issue #3397&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Build System&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Upgraded build engine to the SCons 4.1 (&lt;a href=&quot;https://scons.org/scons-410-is-available.html&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Refactored a workaround for a maximum command line character limitation (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3792&quot;&gt;issue #3792&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fixed an issue with Python 3.8+ on Windows when a network drive is used (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3417&quot;&gt;issue #3417&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Package Management&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;New options for &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/system/cmd_prune.html&quot;&gt;pio system prune&lt;/a&gt; command:
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--dry-run&lt;/code&gt; option to show data that will be removed&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--core-packages&lt;/code&gt; option to remove unnecessary core packages&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--platform-packages&lt;/code&gt; option to remove unnecessary development platform packages (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/923&quot;&gt;issue #923&lt;/a&gt;)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Added new &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/cmd_settings.html#check-prune-system-threshold&quot;&gt;check_prune_system_threshold&lt;/a&gt; setting&lt;/li&gt;
-      &lt;li&gt;Disabled automatic removal of unnecessary development platform packages (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3708&quot;&gt;issue #3708&lt;/a&gt;, &lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3770&quot;&gt;issue #3770&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fixed an issue when unnecessary packages were removed in  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;update --dry-run&lt;/code&gt; mode (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3809&quot;&gt;issue #3809&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fixed a “ValueError: Invalid simple block” when uninstalling a package with a custom name and external source (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3816&quot;&gt;issue #3816&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Debugging&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Configure a custom debug adapter speed using a new &lt;a href=&quot;https://docs.platformio.org/page/projectconf/section_env_debug.html#debug-speed&quot;&gt;debug_speed&lt;/a&gt; option (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3799&quot;&gt;issue #3799&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Handle debugging server’s “ready_pattern” in “stderr” output&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Miscellaneous&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Improved listing of &lt;a href=&quot;https://docs.platformio.org/page/core/userguide/device/cmd_list.html&quot;&gt;multicast DNS services&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Fixed a “UnicodeDecodeError: ‘utf-8’ codec can’t decode byte” when using J-Link for firmware uploading on Linux (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3804&quot;&gt;issue #3804&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fixed an issue with a compiler driver for “.ccls” language server (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3808&quot;&gt;issue #3808&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fixed an issue when &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmdoption-pio-device-monitor-eol&quot;&gt;pio device monitor –eol&lt;/a&gt; and “send_on_enter” filter do not work properly (&lt;a href=&quot;https://github.com/platformio/platformio-core/issues/3787&quot;&gt;issue #3787&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
-
-&lt;h2 id=&quot;esp-idf-v42&quot;&gt;ESP-IDF v4.2&lt;/h2&gt;
-
-&lt;p&gt;We’re happy to announce updated support for the latest stable &lt;strong&gt;ESP-IDF v4.2&lt;/strong&gt; - the official development framework for the ESP32 and ESP32-S Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Major enhancements in the latest release:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP32-S2&lt;/code&gt; SoC&lt;/li&gt;
-  &lt;li&gt;Support of Bluetooth 5.0 for ESP32&lt;/li&gt;
-  &lt;li&gt;Improvements to the Wi-Fi stack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;More information on project configuration for ESP-IDF can be found &lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Related resources for ESP-IDF&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/espressif/esp-idf/releases/tag/v4.2&quot;&gt;Release notes for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v4.2&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html&quot;&gt;Documentation for ESP-IDF&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/espidf.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;openhw-risc-v-dev-platform&quot;&gt;OpenHW RISC-V dev-platform&lt;/h2&gt;
-
-&lt;p&gt;OpenHW Group is a not-for-profit, global organization that provides an infrastructure for hosting high quality open-source HW developments in line with industry best practices. The OpenHW CV32E40P RISC-V core is the first open-source core for high-volume chips verified with the state-of-the-art process required for high-integrity, commercial SoCs.&lt;/p&gt;
-
-&lt;p&gt;The first release of the OpenHW dev-platform includes basic functionality for uploading pregenerated bitstreams to FPGA boards, developing and debugging applications based on the PULP SDK.&lt;/p&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-openhw/releases/tag/v0.1.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Related resources for OpenHW dev-platform&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/openhw.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-openhw/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;espressif32-dev-platform-v30&quot;&gt;Espressif32 dev-platform v3.0&lt;/h2&gt;
-
-&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/espressif32&quot;&gt;Espressif 32&lt;/a&gt; dev-platform comes with new boards including the new ESP32-S2 SoC, support for ESP-IDF v4.2 and several improvements:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Added new boards:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/featheresp32-s2.html&quot;&gt;Adafruit ESP32-S2 Feather Development Board&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/esp32-s2-kaluga-1.html&quot;&gt;Espressif ESP32-S2-Kaluga-1 Kit&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/esp32-s2-saola-1.html&quot;&gt;Espressif ESP32-S2-Saola-1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/espressif32/nscreen-32.html&quot;&gt;YeaCreate NSCREEN-32&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Updated &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ESP-IDF&lt;/code&gt; to the latest stable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4.2&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Added support for the new &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/section_env_debug.html#debug-speed&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug_speed&lt;/code&gt;&lt;/a&gt; option&lt;/li&gt;
-  &lt;li&gt;Default Arduino partitions moved to a separate section&lt;/li&gt;
-  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;atmel-megaavr-dev-platform-v14&quot;&gt;Atmel megaAVR dev-platform v1.4&lt;/h2&gt;
-
-&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/atmelmegaavr&quot;&gt;Atmel megaAVR&lt;/a&gt; includes initial support for megaTinyCore - a lightweight Arduino core for the tinyAVR 0-series and 1-series chips, a lot of new generic boards, updated Arduino packages, and several minor updates:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;New board manifests for the following generic MCUs: &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1604.html&quot;&gt;ATtiny1604&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1606.html&quot;&gt;ATtiny1606&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1607.html&quot;&gt;ATtiny1607&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1614.html&quot;&gt;ATtiny1614&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1616.html&quot;&gt;ATtiny1616&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1617.html&quot;&gt;ATtiny1617&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny202.html&quot;&gt;ATtiny202&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny204.html&quot;&gt;ATtiny204&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny212.html&quot;&gt;ATtiny212&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny214.html&quot;&gt;ATtiny214&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3216.html&quot;&gt;ATtiny3216&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3217.html&quot;&gt;ATtiny3217&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny402.html&quot;&gt;ATtiny402&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny404.html&quot;&gt;ATtiny404&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny406.html&quot;&gt;ATtiny406&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny412.html&quot;&gt;ATtiny412&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny414.html&quot;&gt;ATtiny414&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny416.html&quot;&gt;ATtiny416&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny417.html&quot;&gt;ATtiny417&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny804.html&quot;&gt;ATtiny804&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATmega64.html&quot;&gt;ATmega64&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny806.html&quot;&gt;ATtiny806&lt;/a&gt;, &lt;a href=&quot;http://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny817.html&quot;&gt;ATtiny817&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Initial support for &lt;a href=&quot;https://github.com/SpenceKonde/megaTinyCore&quot;&gt;megaTinyCore&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Updated megaAVR Arduino core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.7&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-megaavr/releases/tag/1.8.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Updated MegaCoreX to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.0.7&lt;/code&gt; (&lt;a href=&quot;https://github.com/MCUdude/MegaCoreX/releases/tag/v1.0.7&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Improvements to fuses and bootloader programming process&lt;/li&gt;
-  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/releases/tag/v1.4.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Related resources for Atmel megaAVR dev-platform&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;atmel-sam-dev-platform-v511&quot;&gt;Atmel SAM dev-platform v5.1.1&lt;/h2&gt;
-
-&lt;p&gt;The new &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; v5.1.1 is mostly a maintenance release that comes with updated Arduino core and minor fixes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Updated Adafruit SAMD core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.8.11&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.11&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
-  &lt;li&gt;Minor bugfixes and improvements&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platform-atmelsam/releases/tag/v5.1.1&quot;&gt;Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
-
-&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
-
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the January 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. The beginning of the year can often take off with a slow start for any project, but we managed to prepare several great updates. As usual, we’d like to walk you through everything that’s new across the PlatformIO ecosystem.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the February 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
