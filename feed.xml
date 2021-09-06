@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-09-01T12:52:30+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2021-09-01T00:00:00+03:00</published><updated>2021-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2021-updates.html">&lt;p&gt;Welcome to the August 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-09-06T15:36:59+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Microsoft leverages PlatformIO for its course “IoT for Beginners”</title><link href="https://piolabs.com/blog/news/microsoft-leverages-platformio.html" rel="alternate" type="text/html" title="Microsoft leverages PlatformIO for its course “IoT for Beginners”" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/microsoft-leverages-platformio</id><content type="html" xml:base="https://piolabs.com/blog/news/microsoft-leverages-platformio.html">&lt;p&gt;IoT — the Internet of Things — is one of the biggest growth areas in technology, and one that, to me, is very exciting. You start with a device like a microcontroller, sprinkle some sensors, dust with code, mix in some cloud services and poof! You have smart cities, self-driving cars, automated farming, robotic supermarkets, or devices that can clean your toilet after you shout at Alexa for the third time.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-1.png&quot; alt=&quot;PlatformIO lowers the barriers to entry the IoT market as much as possible&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In my day job at Microsoft, I often get asked how to get started with IoT. Not just “how do I connect my device to the cloud”, but really get started with understanding devices, sensors, actuators, and writing those all-important first lines of code.&lt;/p&gt;
+
+&lt;p&gt;This is why a few of us spent a number of months putting together &lt;a href=&quot;https://github.com/microsoft/IoT-For-Beginners&quot; target=&quot;_blank&quot;&gt;IoT for beginners&lt;/a&gt;, a 24-lesson curriculum designed for teachers, students and learners of all types who want to learn IoT. This curriculum uses project-guided learning, built around the journey of food from farm to table, covering digital agriculture, logistics, manufacturing, retail, and consumer products.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png&quot; alt=&quot;PlatformIO featured in Microsoft course IoT for Beginners&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We wanted to make sure we covered a range of hardware choices – Arduino for those interested in microcontrollers, and Raspberry Pis for those interested in single-board computers. When using this hardware, we also wanted to lower the barriers to entry as much as possible. We needed to pick an ecosystem for components to reduce the need to solder and understand electronics, and we needed to ensure the software we recommended worked to support the learner, not be another hurdle to overcome.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-2.png&quot; alt=&quot;PlatformIO is the preferred tool for Microsoft IoT curriculum&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It was an easy decision to pick PlatformIO as our development tool of choice for microcontroller development. Although other tools are available, such as Arduino’s own IDE, PlatformIO is our preferred tool for this curriculum for several reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Visual Studio Code integration&lt;/strong&gt; – VS Code is an incredibly powerful developer text editor, with an extension model that supports many different languages and tools. Using PlatformIO meant learners can use the same tool to not only program their microcontrollers, but also to build the cloud services that make up modern IoT applications. One tool for C++ on the device, Python in cloud-based serverless functions, and JavaScript and HTML for data visualization web sites.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Integration with the Microsoft C/C++ language tooling&lt;/strong&gt; – The language tooling for C/C++ in VS Code is incredibly powerful, providing the intellisense, code completion, navigation, and other features that modern developers expect from their tools. All this comes for free when developing Arduino applications in C/C++.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Library management&lt;/strong&gt; – Arduino library management can be confusing, especially for beginners. Knowing which libraries to add to your project, setting up additional library paths, and managing library versions are all complexities that beginners don’t want to handle, they just want the code to work. Being able to manage these from a single project configuration file removes these complexities, and allows developers to just grab some code, compile it and go, rather than have to know what libraries are needed and manually work to install them.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;All in one tooling&lt;/strong&gt; – Developing for embedded devices can mean a headache of installing different tools, sometimes breaking your existing tooling for other platforms. PlatformIO takes this headache away by installing everything you need in an isolated way. We knew we could instruct learners to install PlatformIO and pick their board, and it wouldn’t break anything they already have installed, and wouldn’t limit what they could do in the future with different hardware.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Multi-platform support&lt;/strong&gt; – PlatformIO and VS Code can run on Windows, macOS, Linux and even on Raspberry Pi OS, meaning most developers can get started using it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Preparing learners for the future&lt;/strong&gt; – Although our IoT for beginners course only focuses on Arduino for microcontroller development with the Wio Terminal, we wanted to ensure the skills they learned transfer to other boards and frameworks. By using PlatformIO they would be able to continue their IoT journey using the same tools, and not have to start their learning again outside of their comfort zone.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Grab your microcontroller and some &lt;a href=&quot;https://www.seeedstudio.com/IoT-for-beginners-with-Seeed-and-Microsoft-Wio-Terminal-Starter-Kit-p-5006.html&quot; target=&quot;_blank&quot;&gt;sensors from our friends at Seeed Studio&lt;/a&gt;, fire up VS Code, install PlatformIO and get learning.&lt;/p&gt;
+
+&lt;p&gt;Without further ado, please meet &lt;a href=&quot;https://github.com/microsoft/IoT-For-Beginners&quot; target=&quot;_blank&quot;&gt;IoT For Beginners: A Curriculum&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-roadmap.jpg&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-roadmap.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;about-microsoft&quot;&gt;About Microsoft&lt;/h2&gt;
+
+&lt;p&gt;Microsoft Corporation was founded in 1975 and is a leading global vendor of computer software and hardware that develops, licenses and supports a wide range of products, services, devices, and solutions, with a mission to empower every person and every organization on the planet to achieve more.&lt;/p&gt;
+
+&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
+
+&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Jim Bennett</name></author><category term="blog" /><category term="news" /><summary type="html">IoT — the Internet of Things — is one of the biggest growth areas in technology, and one that, to me, is very exciting. You start with a device like a microcontroller, sprinkle some sensors, dust with code, mix in some cloud services and poof! You have smart cities, self-driving cars, automated farming, robotic supermarkets, or devices that can clean your toilet after you shout at Alexa for the third time.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2021-09-01T00:00:00+03:00</published><updated>2021-09-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2021-updates.html">&lt;p&gt;Welcome to the August 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -1066,124 +1119,4 @@ In the last step we need to specify that we want to use a custom test transport:
 
 &lt;p&gt;In this article, we explored how PlatformIO solves that problem by abstracting away all heavy lifting. We looked into the process of running tests directly on the embedded device by implementing a custom test transport for collecting results from the &lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; board on the fly.&lt;/p&gt;
 
-&lt;p&gt;In the next article, we will explore how to run the tests on a CI service on both native and embedded sides by utilizing an advanced PlatformIO feature called &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/pio-remote.html&quot;&gt;Remote&lt;/a&gt;.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training</title><link href="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html" rel="alternate" type="text/html" title="PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training" /><published>2021-03-08T00:00:00+02:00</published><updated>2021-03-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/platformio-labs-helps-imagination-technologies.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg&quot; alt=&quot;PlatformIO Labs Helps Imagination Technologies Improve RISC-V Computer Architecture Training&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;RISC-V has been described as the “open silicon” of the technology revolution spurred by open hardware and open software. The ability to understand and innovate upon computer architectures has been a weak element of academic research and collaborative professional communities due to the typical proprietary nature of chip designs. Now open architectures can be combined with open hardware and software to provide unique and advanced solutions to tackle problems in our rapidly growing and complex technological world.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Due to the increasing popularity of RISC-V within the semiconductor industry, Imagination Technologies and Western Digital have teamed up to sponsor the development of new RISC-V centered coursework, designed by academics, for academics. The goal of this coursework is to provide top quality materials and an equity of opportunity to learn from them to students globally. PlatformIO Labs was chosen to support this coursework because of its open source tooling that provides best-of-breed quality for the embedded hardware industry, because of it being easy to use, because it seamlessly integrates with modern development editors such as VS Code.&lt;/p&gt;
-
-&lt;p&gt;More and more companies have announced or have already extended their portfolio with new RISC-V products. Popular commercial and open source Real-Time Operating Systems (RTOS), debuggers, and compilers are adding support for cutting-edge RISC-V hardware. The RISC-V ISA is open source, vendor agnostic, and flexible enough to satisfy the growing demand for complex embedded systems. Because of these qualities, the RISC-V ISA is a perfect choice for FPGA soft processor designs, which will further enable RISC-V to gain increased adoption within the embedded systems industry and academic community.&lt;/p&gt;
-
-&lt;p&gt;This growing adoption fuels the need for approachable and in-depth educational materials, especially to satisfy the increasing need and global benefits available through remote learning. It’s crucial for the RISC-V community to collaborate with universities and other academic partners to develop comprehensive curricula so undergraduates will have a deep fundamental knowledge of modern real-world computer architectures.&lt;/p&gt;
-
-&lt;p&gt;While RISC-V adoption is on the rise, one challenge is the currently arduous development environment associated with the architecture. When working with FPGAs, developers rely on convoluted instruments simply to evaluate and interact with their RISC-V designs on real hardware. Working with FPGAs can be a daunting task even for seasoned developers, not to mention students and newly graduated specialists. The industry needs an open-source and easy-to-use development environment that covers all sets of common tasks (debugging, testing, simulating, etc.) that engineers perform on a daily basis when working with deployed designs.&lt;/p&gt;
-
-&lt;p&gt;PlatformIO satisfies this need to bring top quality development tools to the RISC-V community, without being vendor-specific, without a hefty financial barrier, and without being locked behind the wall of a proprietary software license.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-imagination-university-programme&quot;&gt;About Imagination University Programme&lt;/h2&gt;
-
-&lt;p&gt;Imagination Technologies offers a complete course on RISC-V computer architecture titled &lt;a href=&quot;https://university.imgtec.com/rvfpga/&quot; target=&quot;_blank&quot;&gt;“RVfpga: Understanding Computer Architecture”&lt;/a&gt;. It includes a rich set of teaching materials and practical exercises to help students understand the key elements of processor architecture, including IP cores, and how to modify a RISC-V core and its microarchitectures.&lt;/p&gt;
-
-&lt;p&gt;The initial course consists of 10 labs with detailed instructions, examples, short questions, and hands-on exercises with solutions, giving teachers the flexibility to choose between a practical and an exam-based structure for the course. The course uses the Chips Alliance’s SweRVolf SoC, which is based on Western Digital’s RISC-V SweRV EH1 core. SweRV is one of the most developed cores in the RISC-V market that’s fully verified and ready for production.&lt;/p&gt;
-
-&lt;p&gt;The RVfpga course was created by Dr. Sarah Harris, Associate Professor of Electrical and Computer Engineering at University of Nevada, co-author of the popular “Digital Design &amp;amp; Computer Architecture” textbook, and Dr. Daniel Chaver-Martínez, Associate Professor of Department of Computer Architecture and System Engineering at Universidad Complutense de Madrid (Spain). The course engaged several widely reputed sponsors and supporters who have given outstanding support to this large and complex project. Key contributors are listed below.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-2.jpg&quot; alt=&quot;The sponsors and supporters of Imagination University Programme&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;platormio-labs-contribution&quot;&gt;PlatormIO Labs’ Contribution&lt;/h2&gt;
-
-&lt;p&gt;One of the main missions of PlatformIO Labs is to bring together academics, developers, and silicon vendors, and to help them leverage modern open source software and hardware on anything from simple prototypes to truly groundbreaking projects, developed at any scale. We believe that when technology is open from top to bottom, that the collaboration afforded within such a community is the perfect place to explore new ideas and opens up tremendous opportunities. Our team is proud to be an active participant in this venture.&lt;/p&gt;
-
-&lt;p&gt;The RVfpga course uses PlatformIO — the open-source core of our Technology as a Service (TaaS) platform — for collaborative embedded development. PlatformIO’s development ecosystem integrates both hardware and software aspects of the course. Its open source license and flexible design are constantly being adapted to keep up with industry advancements. Students can avoid the burden of setting up unique, expensive, or vendor-specific tooling, and instead easily jump right in with a proper development environment and proceed directly to interacting with their RISC-V soft processors.&lt;/p&gt;
-
-&lt;p&gt;The main contributions of our work are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Powerful Unified Debugger&lt;/strong&gt;. The integrated debugger supports both real hardware and hardware simulators (Whisper-ISS, Verilator), so that students can easily switch to a mixed-mode disassembly view to evaluate symbols, registers, and complex expressions, in watch windows.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Trusted Package Registry&lt;/strong&gt;. The registry quickly and securely delivers pre-built packages to students and professionals worldwide. Just-in-time, only what is needed, and fully automated downloads of dependent packages is an essential feature when it comes to online delivery of the curriculum, and ease of getting started for the students.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;In-depth Memory Analysis&lt;/strong&gt;. A user-friendly UI allows students to access memory stores and get deeper insight into the internal application structure.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;. Like a welcoming dashboard, the PlatformIO Home page makes it easy for anyone to get started. It provides easy access to a comprehensive set of documentation and examples that were created specifically for this course, together with the main authors.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;a-quick-tutorial&quot;&gt;A Quick Tutorial&lt;/h2&gt;
-
-&lt;p&gt;To demonstrate PlatformIO Labs’ contribution to this course and to show how PlatformIO reduces the usual complexity of executing ASM/C/C++ code in the RVfpga course, we are providing a short tutorial below. This tutorial shows how to import a project example, starting from the PlatformIO Home page, and how to run it even without hardware, by using an Instruction Set Simulator (ISS) called Whisper. This brief tutorial assumes you have already installed the PlatformIO IDE extension for Visual Studio Code. If you do not have the PlatformIO IDE installed, please follow &lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html#installation&quot;&gt;these instructions&lt;/a&gt; before continuing with the tutorial.&lt;/p&gt;
-
-&lt;h3 id=&quot;installing-chips-alliance-development-platform&quot;&gt;Installing CHIPS Alliance Development Platform&lt;/h3&gt;
-
-&lt;p&gt;To start developing for the SweRV core you first need to install the CHIPS Alliance dev-platform from PlatformIO Home. Click on the icons near the numbers highlighted in orange, from 1 to 4. Note that at step 3 you will need to input “CHIPS Alliance” into the search string.&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-3.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;The above procedure shows how easy it is to set up a RISC-V development environment. PlatformIO will do all the heavy lifting for us by installing everything that is needed (toolchains, frameworks, etc.) automatically. When the one-click “Install” method is complete, a dialog window will pop up to tell you that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chipsalliance&lt;/code&gt; platform has been successfully installed.&lt;/p&gt;
-
-&lt;h3 id=&quot;importing-and-compiling-an-example&quot;&gt;Importing and Compiling an Example&lt;/h3&gt;
-
-&lt;p&gt;For the sake of simplicity, we will import one of the readily available examples prepared by the authors of the course. From the PlatformIO Home page, under the heading “Quick Access”, select the “Project Examples” button and select “rtosal-freertos” within the CHIPS Alliance platform, as shown in the image below.&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-4.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-4.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;To build the project we can invoke different options, some of which are highlighted by an orange rectangle in the screenshot below. Simply use the method that feels most comfortable to you.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Build&lt;/code&gt; option under the PlatformIO &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Project Tasks&lt;/code&gt; menu on the left navigation column&lt;/li&gt;
-  &lt;li&gt;Click the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;✓&lt;/code&gt; icon  (next to the home icon) toward the left side of the bottom blue PlatformIO Toolbar&lt;/li&gt;
-  &lt;li&gt;From the VS Code top header menu, select and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;View: Command Palette... &amp;gt; PlatformIO: Build&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;From the VS Code top header menu, select and run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Terminal: Run Build Task... &amp;gt; PlatformIO: Build&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Using the hot keys for your OS: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cmd-alt-b / ctrl-alt-b&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;From a terminal prompt at the command line by typing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio run&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-5.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-5.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If everything went well, we should see the successful result in the terminal window.&lt;/p&gt;
-
-&lt;h3 id=&quot;debugging-experience&quot;&gt;Debugging Experience&lt;/h3&gt;
-
-&lt;p&gt;As we mentioned in the beginning of this tutorial, we will be using the Whisper ISS to debug the example. Configuring Whisper as the debug tool is as simple as adding one line to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file (which is located in the top level of the project folder, that you can find and open by clicking on it in the project file Explorer view):&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;platform = chipsalliance
-framework = wd-riscv-sdk, freertos
-board = swervolf_nexys
-debug_tool = whisper
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To start a debug session we can use one of the following options (the first two are highlighted in an orange rectangle in the screenshot):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;VS Code menu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Run &amp;gt; Start Debugging&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start Debugging&lt;/code&gt; option from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PlatformIO &amp;gt; Quick Access &amp;gt; Debug menu&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F5&lt;/code&gt; hotkey&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-6.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-6.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Once the debug session is started we can walk through the code using control buttons, set breakpoints, and add variables to the Watch window:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-7.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-7.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Note: this introductory tutorial only shows how to get started and execute a simple example using ISS as part of the RVfpga course. To understand the SweRV core in greater depth, please refer to the &lt;a href=&quot;https://university.imgtec.com/&quot;&gt;Imagination University Programme&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Labs is proud to partner with Imagination Technologies and Western Digital on the development and deployment of the RISC-V educational curriculum, as we firmly believe in the importance of collaboration between industry and academia. We are happy to see how our modern development instruments can enable an improved experience around these important educational materials. We hope that developers and students appreciate our efforts to support this combination of the RISC-V ISA, comprehensive teaching materials, and the opportunity to study the SweRVolf SoC. It’s even more fun to know that we are providing a more pleasant RISC-V learning experience for the academic community all around the world. We encourage all educational institutions to participate in the future growth of the RISC-V ecosystem.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-imagination-technologies&quot;&gt;About Imagination Technologies&lt;/h2&gt;
-
-&lt;p&gt;Imagination was founded in 1985 and is one of the UK’s leading success stories as a developer of highly advanced intellectual property (IP) that creates considerable value in the electronic systems value chain, and ultimately improves the user experience in many different consumer electronic devices, including games consoles, mobile phones, and cars. Imagination Technologies has over 25 years of experience in designing and licensing market-leading processor solutions for graphics and vision &amp;amp; AI processing that offer strong differentiation compared to competing solutions for our customers.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html">RISC-V has been described as the “open silicon” of the technology revolution spurred by open hardware and open software. The ability to understand and innovate upon computer architectures has been a weak element of academic research and collaborative professional communities due to the typical proprietary nature of chip designs. Now open architectures can be combined with open hardware and software to provide unique and advanced solutions to tackle problems in our rapidly growing and complex technological world.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-08-platformio-labs-helps-imagination-technologies/platformio-labs-helps-imagination-technologies-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;In the next article, we will explore how to run the tests on a CI service on both native and embedded sides by utilizing an advanced PlatformIO feature called &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/pio-remote.html&quot;&gt;Remote&lt;/a&gt;.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
