@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-09-09T18:42:08+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Microsoft leverages PlatformIO for its course “IoT for Beginners”</title><link href="https://piolabs.com/blog/news/microsoft-leverages-platformio.html" rel="alternate" type="text/html" title="Microsoft leverages PlatformIO for its course “IoT for Beginners”" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/microsoft-leverages-platformio</id><content type="html" xml:base="https://piolabs.com/blog/news/microsoft-leverages-platformio.html">&lt;p&gt;IoT — the Internet of Things — is one of the biggest growth areas in technology, and one that, to me, is very exciting. You start with a device like a microcontroller, sprinkle some sensors, dust with code, mix in some cloud services and poof! You have smart cities, self-driving cars, automated farming, robotic supermarkets, or devices that can clean your toilet after you shout at Alexa for the third time.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-09-13T19:34:12+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 5.2 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-2-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.2 🚀" /><published>2021-09-13T00:00:00+03:00</published><updated>2021-09-13T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-2-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-2-released.html">&lt;p&gt;We are happy to announce the next release of PlatformIO Core with the boosted PlatformIO Debugging performance, support for the latest SCons 4.2, improved package management system, and many other minor fixes and improvements.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png&quot; alt=&quot;PlatformIO Core 5.2 🚀&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Table of Contents&lt;/h3&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-new&quot; id=&quot;markdown-toc-what-is-new&quot;&gt;What is New&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#debugging&quot; id=&quot;markdown-toc-debugging&quot;&gt;Debugging&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#build-system&quot; id=&quot;markdown-toc-build-system&quot;&gt;Build System&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#package-management&quot; id=&quot;markdown-toc-package-management&quot;&gt;Package Management&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#static-code-analysis&quot; id=&quot;markdown-toc-static-code-analysis&quot;&gt;Static Code Analysis&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#upgrade&quot; id=&quot;markdown-toc-upgrade&quot;&gt;Upgrade&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-tuned&quot; id=&quot;markdown-toc-stay-tuned&quot;&gt;Stay tuned&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-is-new&quot;&gt;What is New&lt;/h2&gt;
+
+&lt;p&gt;In this section, we are going to highlight the most important changes and features introduced in PlatformIO Core 5.2.
+Please visit &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.2.0&quot; target=&quot;_blank&quot;&gt;PlatformIO 5.2.0 Release Notes&lt;/a&gt; for more detailed information.&lt;/p&gt;
+
+&lt;h3 id=&quot;debugging&quot;&gt;Debugging&lt;/h3&gt;
+
+&lt;p&gt;In our ongoing effort to improve the debugging experience in PlatformIO, we’ve managed to prepare several great new features and enhancements that will help developers debug their projects in a much faster and effective way.&lt;/p&gt;
+
+&lt;h4 id=&quot;boosted-performance&quot;&gt;Boosted Performance&lt;/h4&gt;
+
+&lt;p&gt;PlatformIO Core 5.2 brings significantly boosted debugging performance by migrating the codebase to the pure Python 3 Asynchronous I/O stack. This approach solves previous issues caused by the Twisted engine that depends on operating system libraries and 3rd-party Python packages. Thanks to these improvements, developers can get a blazingly fast and responsive debugging experience even in CLI mode!&lt;/p&gt;
+
+&lt;!-- Youtube video --&gt;
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;ytSrc&amp;quot;: &amp;quot;NngpaA2klAY&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-debug-demo-cover.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;PlatformIO Core 5.2 🚀&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;unit-tests-debugging&quot;&gt;Unit Tests Debugging&lt;/h4&gt;
+
+&lt;p&gt;It’s an incredibly frustrating situation when a test fails for no obvious reason. Printing variables to the console while trying to find where your test is misbehaving can take a significant amount of time and patience. On the other hand, a full-featured debug session with the ability to step through the code of your unit tests can give all the necessary information to hunt down and isolate bugs in your codebase. PlatformIO Core 5.2 makes debugging tests incredibly easy simply by adding a &lt;a href=&quot;https://docs.platformio.org/en/latest/projectconf/section_env_debug.html#debug-test&quot;&gt;single line&lt;/a&gt; your configuration file:&lt;/p&gt;
+
+&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:debug_unit_tests]&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ststm32&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;arduino&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nucleo_f401re&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;; Use a test file located in the test directory as the entry point
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;debug_test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-unit-tests.gif&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-unit-tests.gif&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;debugger-for-native-platform&quot;&gt;Debugger for Native Platform&lt;/h4&gt;
+
+&lt;p&gt;Even though PlatformIO was created to help develop embedded projects, it’s always handy to be able to run and debug projects locally without the need to upload the code to an embedded target. Starting with PlatformIO Core 5.2, embedded developers can debug their applications on host machines using the same usual workflow.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-native.gif&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-native.gif&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;debugging-in-cli-mode-on-windows&quot;&gt;Debugging in CLI Mode on Windows&lt;/h4&gt;
+
+&lt;p&gt;Another commonly requested feature implemented in PlatformIO Core 5.2 is debugging projects on Windows OS via the command-line interface. Although the CLI might not be as user-friendly as a feature-rich IDE, it’s still a great instrument to quickly and efficiently find bugs in your codebase.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-windows-cli.gif&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-windows-cli.gif&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;build-system&quot;&gt;Build System&lt;/h3&gt;
+
+&lt;h4 id=&quot;scons-42&quot;&gt;SCons 4.2&lt;/h4&gt;
+
+&lt;p&gt;The PlatformIO Core 5.2 build engine has been upgraded to the latest &lt;a href=&quot;https://scons.org/&quot; target=&quot;_blank&quot;&gt;SCons 4.2 - a next-generation software construction tool&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/projectconf/advanced_scripting.html&quot;&gt;Configuration files are Python scripts&lt;/a&gt; – use the power of a real programming language to solve build problems&lt;/li&gt;
+  &lt;li&gt;Built-in reliable and automatic dependency analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;package-management&quot;&gt;Package Management&lt;/h3&gt;
+
+&lt;p&gt;PlatformIO Core 5.2 introduces the updated package management system with a more error-proof and intuitive package publishing process. Now, any package manifest is validated on the client side and its metadata is shown in a readable format before publishing it to the PlatformIO Trusted Registry.&lt;/p&gt;
+
+&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-09-13-platformio-core-5-2-released/package-management-updates.gif&amp;quot;}&quot; href=&quot;#&quot;&gt;
+  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-09-13-platformio-core-5-2-released/package-management-updates.gif&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Improved checks for conflicting names and duplicates will catch accidental errors and typos in package manifests and won’t allow developers to publish erroneous packages to the PlatformIO Trusted Registry.&lt;/p&gt;
+
+&lt;p&gt;Additionally, a new CLI option &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--non-interactive&lt;/code&gt; might come in handy for automated uploads directly from CI/CD services in your deployment pipeline.&lt;/p&gt;
+
+&lt;h3 id=&quot;static-code-analysis&quot;&gt;Static Code Analysis&lt;/h3&gt;
+
+&lt;p&gt;We’ve updated backend static analysis tools to the latest available versions. Now developers can identify even more potential bugs, vulnerabilities and security threats.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/plus/check-tools/clang-tidy.html&quot;&gt;Clang-Tidy&lt;/a&gt; v12.0.1 with new modules and extended checks list&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/plus/check-tools/cppcheck.html&quot;&gt;Cppcheck&lt;/a&gt; v2.5.0 with improved code analysis and MISRA improvements&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/plus/check-tools/pvs-studio.html&quot;&gt;PVS-Studio&lt;/a&gt; v7.14 with support for intermodular analysis, improved MISRA support and new diagnostics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;upgrade&quot;&gt;Upgrade&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;PlatformIO IDE&lt;/strong&gt;: Left Sidebar &amp;gt; PlatformIO (icon) &amp;gt; Quick Access &amp;gt; Upgrade PlatformIO Core&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Terminal&lt;/strong&gt;: Please run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pio upgrade&lt;/code&gt; command in terminal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stay-tuned&quot;&gt;Stay tuned&lt;/h2&gt;
+
+&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">We are happy to announce the next release of PlatformIO Core with the boosted PlatformIO Debugging performance, support for the latest SCons 4.2, improved package management system, and many other minor fixes and improvements.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Microsoft leverages PlatformIO for its course “IoT for Beginners”</title><link href="https://piolabs.com/blog/news/microsoft-leverages-platformio.html" rel="alternate" type="text/html" title="Microsoft leverages PlatformIO for its course “IoT for Beginners”" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/microsoft-leverages-platformio</id><content type="html" xml:base="https://piolabs.com/blog/news/microsoft-leverages-platformio.html">&lt;p&gt;IoT — the Internet of Things — is one of the biggest growth areas in technology, and one that, to me, is very exciting. You start with a device like a microcontroller, sprinkle some sensors, dust with code, mix in some cloud services and poof! You have smart cities, self-driving cars, automated farming, robotic supermarkets, or devices that can clean your toilet after you shout at Alexa for the third time.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -534,6 +646,12 @@ This month we received a lot of helpful feedback from our community, which let u
 
 &lt;p&gt;Writing good and comprehensive tests is a complex task, and we’ve barely scratched the surface. The overall goal of this three-part series was to create a convenient and automated development environment that allows developers to concentrate on writing code instead of wrestling with boring, complicated tools and configurations.&lt;/p&gt;
 
+&lt;p&gt;If you liked this series, you are sure to enjoy our series on other topics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/insights/memory-analysis-part-1.html&quot;&gt;Analyze your firmware footprint with PlatformIO&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
 &lt;p&gt;We hope you found this series useful and that you can now appreciate the power of unit testing. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">In recent years Continuous Integration (CI) has become a standard for software development and embedded projects are no exception. Continuous integration allows developers to build an application and run tests in an automated way. Whenever new changes are committed to the repository, the CI system executes predefined tasks to make sure that the project works as expected and no regression was introduced. Besides compiling and running tests, we also can perform additional actions like static code analysis, applying code formatting, etc.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-06-09-unit-testing-part-3/unit-testing-part-3-1.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-06-09-unit-testing-part-3/unit-testing-part-3-1.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2021-06-03T00:00:00+03:00</published><updated>2021-06-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2021-updates.html">&lt;p&gt;Welcome to the May 2021 updates of the &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
@@ -989,134 +1107,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the March 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Unit Testing with PlatformIO: Part 2. Running tests on an embedded target</title><link href="https://piolabs.com/blog/insights/unit-testing-part-2.html" rel="alternate" type="text/html" title="Unit Testing with PlatformIO: Part 2. Running tests on an embedded target" /><published>2021-03-29T00:00:00+03:00</published><updated>2021-03-29T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/unit-testing-part-2</id><content type="html" xml:base="https://piolabs.com/blog/insights/unit-testing-part-2.html">&lt;p&gt;In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;A different compiler, endianness, or even unpredictable hardware issues can greatly affect the correctness of the code.&lt;/p&gt;
-
-&lt;p&gt;This is the second part of a three-part blog series where we’re setting up a testing environment for embedded development. In the &lt;a href=&quot;/blog/insights/unit-testing-part-1.html&quot; target=&quot;_blank&quot;&gt;first post&lt;/a&gt;, we briefly went through the basics of testing within the PlatformIO ecosystem, created a useful data structure called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circular buffer&lt;/code&gt; and tested it on a host machine.&lt;/p&gt;
-
-&lt;p&gt;In this post, we will continue to set up a convenient testing environment for our project. We will be using &lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; - a low-cost RISC-V board based on &lt;a href=&quot;https://sifive.cdn.prismic.io/sifive%2F9ecbb623-7c7f-4acc-966f-9bb10ecdb62e_fe310-g002.pdf&quot; target=&quot;_blank&quot;&gt;FE310-G002&lt;/a&gt; microcontroller from SiFive.&lt;/p&gt;
-
-&lt;h3&gt;Table of Contents&lt;/h3&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#prerequisites&quot; id=&quot;markdown-toc-prerequisites&quot;&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#adding-a-new-environment&quot; id=&quot;markdown-toc-adding-a-new-environment&quot;&gt;Adding a New Environment&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#adding-custom-test-transport&quot; id=&quot;markdown-toc-adding-custom-test-transport&quot;&gt;Adding Custom Test Transport&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#summary&quot; id=&quot;markdown-toc-summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/integration/ide/vscode.html&quot; target=&quot;_blank&quot;&gt;VSCode with installed PlatformIO IDE extension&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; board&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;adding-a-new-environment&quot;&gt;Adding a New Environment&lt;/h2&gt;
-
-&lt;p&gt;In this part, we’ll carry on working with the project from the previous post.
-Adding new hardware is as easy as adding several new lines to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;platformio.ini&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:native]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;native&lt;/span&gt;
-
-&lt;span class=&quot;nn&quot;&gt;[env:hifive1-revb]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sifive&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;freedom-e-sdk&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hifive1-revb&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The configuration file is pretty simple, the first two lines we already discussed in the previous post, the new environment &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hifive1-revb&lt;/code&gt; includes general information about the platform, framework, board and describes the new embedded target on which we want to run our tests (no need to install the &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/sifive.html&quot; target=&quot;_blank&quot;&gt;sifive&lt;/a&gt; dev-platform manually, PlatformIO will do it automatically before the first compilation).&lt;/p&gt;
-
-&lt;h2 id=&quot;adding-custom-test-transport&quot;&gt;Adding Custom Test Transport&lt;/h2&gt;
-
-&lt;p&gt;Usually, the test sequence consists of compiling and deploying a test executable from a host machine, starting it on the embedded side, and collecting the test results via some sort of communication channel. After that, the host machine analyzes the logs and provides a detailed report.&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-2.png&quot; alt=&quot;Compilation and linking process&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Communication between the host and the embedded device
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;PlatformIO Unit Testing Engine supports several transports for popular frameworks/SDKs. But, for this article, we deliberately used an unsupported low-level framework to show you how easy it is to add a custom communication transport for collecting testing results.&lt;/p&gt;
-
-&lt;p&gt;Adding a custom transport boils down to implementing the following interface:&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The only mandatory function is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unittest_uart_putchar&lt;/code&gt; which is responsible for redirecting the test output to a proper channel. Fortunately, the board used in this article has an on-board debug probe that also acts as a virtual COM port. The &lt;a href=&quot;https://docs.platformio.org/page/frameworks/freedom-e-sdk.html&quot; target=&quot;_blank&quot;&gt;Freedom SDK&lt;/a&gt; framework is configured to redirect the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt; output to that virtual COM port which greatly simplifies the implementation of the custom test transport for our case:&lt;/p&gt;
-
-&lt;p&gt;The header file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unit_test_transport.h&lt;/code&gt; with function declarations:&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#ifndef UNITEST_TRANSPORT_H
-#define UNITEST_TRANSPORT_H
-&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#ifdef __cplusplus
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-
-&lt;span class=&quot;cp&quot;&gt;#ifdef __cplusplus
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif
-&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;#endif // UNITEST_TRANSPORT_H
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;And the accompanying source file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unit_test_transport.c&lt;/code&gt; with the implementation:&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-#include &quot;unittest_transport.h&quot;
-&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_putchar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unittest_uart_end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In our case, we needed to implement only one function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unittest_uart_putchar&lt;/code&gt; that redirects the test output to the virtual COM port via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt; function.
-In the last step we need to specify that we want to use a custom test transport:&lt;/p&gt;
-
-&lt;div class=&quot;language-ini highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[env:native]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;native&lt;/span&gt;
-
-&lt;span class=&quot;nn&quot;&gt;[env:hifive1-revb]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;platform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;sifive&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;framework&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;freedom-e-sdk&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;hifive1-revb&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;; Select custom test transport
-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;test_transport&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;custom&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now we are ready to run our test on the real hardware. After connecting the board and validating that it’s visible to our OS, we can select our environment on the PlatformIO toolbar and run the tests:&lt;/p&gt;
-
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;imgSrc&amp;quot;: &amp;quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-3.png&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img class=&quot;img-fluid screenshot mw-md-100&quot; src=&quot;/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-3.png&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it! Now, we can run tests on the real board as well.&lt;/p&gt;
-
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;When developing software for an embedded device, testing only on a host machine is usually not sufficient enough to cover all possible issues. Ideally, a development environment should be capable of running tests on both ends: a host machine and a target device. Besides, creating a proper communication channel to represent test results on a host machine may turn out to be a tedious task that requires a lot of manual work from developers.&lt;/p&gt;
-
-&lt;p&gt;In this article, we explored how PlatformIO solves that problem by abstracting away all heavy lifting. We looked into the process of running tests directly on the embedded device by implementing a custom test transport for collecting results from the &lt;a href=&quot;https://docs.platformio.org/page/boards/sifive/hifive1-revb.html#board-sifive-hifive1-revb&quot; target=&quot;_blank&quot;&gt;SiFive HiFive-RevB&lt;/a&gt; board on the fly.&lt;/p&gt;
-
-&lt;p&gt;In the next article, we will explore how to run the tests on a CI service on both native and embedded sides by utilizing an advanced PlatformIO feature called &lt;a href=&quot;https://docs.platformio.org/en/latest/plus/pio-remote.html&quot;&gt;Remote&lt;/a&gt;.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html">In most cases, testing on a host machine is enough to find almost all sorts of typical programming errors (integer overflow, off-by-one error, etc) in the business logic of an embedded application, but it is not the same as testing on the real hardware.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-03-29-unit-testing-part-2/unit-testing-part-2-1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;We hope this summary has been useful. Please &lt;a href=&quot;https://www.linkedin.com/company/platformio/&quot; target=&quot;_blank&quot;&gt;follow us on LinkedIn&lt;/a&gt; to keep up to date with all our activity.&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the March 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
