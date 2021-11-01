@@ -1,4 +1,153 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-10-26T22:57:02+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Debugging with PlatformIO: Part 1. Back to the Basics</title><link href="https://piolabs.com/blog/insights/debugging-introduction.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 1. Back to the Basics" /><published>2021-09-20T00:00:00+03:00</published><updated>2021-09-20T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/debugging-introduction</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-introduction.html">&lt;p&gt;Debugging is an inseparable part of the development process. People make mistakes, so our code doesn’t do what we expect once in a while. Often such problems happen at the worst possible time. That’s why it’s a good idea to master debugging techniques and skills to more precisely isolate the source code of a problem and fix it in a timely manner.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2021-11-01T17:10:06+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by over a million embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source October Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-october-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source October Updates" /><published>2021-11-01T00:00:00+02:00</published><updated>2021-11-01T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-october-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-october-2021-updates.html">&lt;p&gt;Welcome to the October 2021 updates of &lt;a href=&quot;https://platformio.org/&quot;&gt;PlatformIO Open Source&lt;/a&gt; professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded&quot; src=&quot;/assets/posts/oss-updates/platformio-oss-october-news.jpg&quot; alt=&quot;PlatformIO Open Source October Updates&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;During October, we have released a new version of PlatformIO Core, added support for Zephyr v2.7.0, rolled out updates for the STMicroelectronics STM32, Nordic nRF52, Teensy and several other development platforms, resolved a lot of issues. Some of the key highlights include:&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#platformio-core-52&quot; id=&quot;markdown-toc-platformio-core-52&quot;&gt;PlatformIO Core 5.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#zephyr-rtos-version-270-lts2&quot; id=&quot;markdown-toc-zephyr-rtos-version-270-lts2&quot;&gt;Zephyr RTOS version 2.7.0 (LTS2)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#st-stm32-dev-platform-v150&quot; id=&quot;markdown-toc-st-stm32-dev-platform-v150&quot;&gt;ST STM32 dev-platform v15.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#nordic-nrf52-dev-platform-v90&quot; id=&quot;markdown-toc-nordic-nrf52-dev-platform-v90&quot;&gt;Nordic nRF52 dev-platform v9.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#atmel-sam-dev-platform-v70&quot; id=&quot;markdown-toc-atmel-sam-dev-platform-v70&quot;&gt;Atmel SAM dev-platform v7.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#teensy-dev-platform-v414&quot; id=&quot;markdown-toc-teensy-dev-platform-v414&quot;&gt;Teensy dev-platform v4.14&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#arduino-core-for-mbed-enabled-devices-v252&quot; id=&quot;markdown-toc-arduino-core-for-mbed-enabled-devices-v252&quot;&gt;Arduino Core for mbed-enabled devices v2.5.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#stay-in-touch-with-us&quot; id=&quot;markdown-toc-stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;platformio-core-52&quot;&gt;PlatformIO Core 5.2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/core/index.html&quot;&gt;PlatformIO Core&lt;/a&gt; is the heart of the whole PlatformIO ecosystem and we are excited to announce the next v5.2 release. This milestone we again received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Boosted Debugging Performance&lt;/strong&gt;. The Unified Debugger codebase has been migrated to the pure Python 3 Asynchronous I/O stack which allowed us to significantly improve the overall debugging experience even in CLI mode!&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Unit Tests Debugging&lt;/strong&gt;. Debugging tests is now as easy as adding a single line to your configuration file.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Debugger for Native Platform&lt;/strong&gt;. Embedded developers can now debug their applications on host machines using the same usual workflow.&lt;/li&gt;
+  &lt;li&gt;The PlatformIO build engine has been upgraded to the latest SCons 4.2.&lt;/li&gt;
+  &lt;li&gt;Updated package management system with a more error-proof and intuitive package publishing process.&lt;/li&gt;
+  &lt;li&gt;Updated static analysis tools to the latest available versions. Now developers can identify even more potential bugs, vulnerabilities, and security threats.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/platformio/platformio-core/releases/tag/v5.2.0&quot;&gt;Release Notes&lt;/a&gt; for more detailed information and use &lt;a href=&quot;https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html&quot;&gt;pio upgrade&lt;/a&gt; command to update to the latest version.&lt;/p&gt;
+
+&lt;h2 id=&quot;zephyr-rtos-version-270-lts2&quot;&gt;Zephyr RTOS version 2.7.0 (LTS2)&lt;/h2&gt;
+
+&lt;p&gt;We’re happy to announce updated support for a new release v2.7.0 of Zephyr Project - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Major enhancements in v2.7.0:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bluetooth Audio, Direction Finding, and Mesh improvements&lt;/li&gt;
+  &lt;li&gt;New Action-based Power Management API&lt;/li&gt;
+  &lt;li&gt;Improved thread safety&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for Zephyr framework&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.7.0&quot;&gt;Release notes for v2.7.0&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html&quot;&gt;Documentation for Zephyr framework&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms&quot;&gt;Supported development platforms&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards&quot;&gt;Supported boards&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;st-stm32-dev-platform-v150&quot;&gt;ST STM32 dev-platform v15.0&lt;/h2&gt;
+
+&lt;p&gt;The latest release of the &lt;a href=&quot;https://platformio.org/platforms/ststm32&quot;&gt;ST STM32&lt;/a&gt; platform comes with several new boards and dev-kits, support for the latest Zephyr v2.7.0, updated Arduino cores and several minor improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added new boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/bw_swan_r5.html&quot;&gt;BluesWireless Swan R5&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/disco_b_u585i_iot02a.html&quot;&gt;ST B-U585I-IOT02A Discovery&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/disco_h735ig.html&quot;&gt;STM32H735G-DK Discovery kit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_g0b1re.html&quot;&gt;ST Nucleo G0B1RE&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_l010rb.html&quot;&gt;ST Nucleo L010RB&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/nucleo_u575zi_q.html&quot;&gt;ST Nucleo U575ZI-Q&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/ststm32/storm32_v1_31_rc.html&quot;&gt;STorM32 BGC v1.31 RC&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.7.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.7.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated STM32 Arduino Core to the latest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.1.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.1.0&quot;&gt;relase notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.5.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.5.2&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated the OpenOCD package to the latest v0.11&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements (#569, #570, #574)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the ST STM32 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-ststm32/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nordic-nrf52-dev-platform-v90&quot;&gt;Nordic nRF52 dev-platform v9.0&lt;/h2&gt;
+
+&lt;p&gt;The new release of &lt;a href=&quot;https://platformio.org/platforms/nordicnrf52&quot;&gt;Nordic nRF52&lt;/a&gt; dev-platform brings support for Zephyr 2.7.0, updated Arduino cores and several minor bufixes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;New boards:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/adafruit_ledglasses_nrf52840.html&quot;&gt;Adafruit LED Glasses Driver nRF52840&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/boards/nordicnrf52/nicla_sense_me.html&quot;&gt;Arduino Nicla Sense ME&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.7.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.7.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Core for mbed enabled devices to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.5.2&lt;/code&gt; (&lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.5.2&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Adafruit core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.1.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/1.1.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated the OpenOCD package to the latest v0.11&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements (#128)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Nordic nRF52 dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-nordicnrf52/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atmel-sam-dev-platform-v70&quot;&gt;Atmel SAM dev-platform v7.0&lt;/h2&gt;
+
+&lt;p&gt;The latest &lt;a href=&quot;https://platformio.org/platforms/atmelsam&quot;&gt;Atmel SAM&lt;/a&gt; v3.3.1 is mostly a maintenance release that brings several important bugfixes and improvements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Zephyr framework to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v2.7.0&lt;/code&gt; (&lt;a href=&quot;https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.7.0&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated Arduino Adafruit core to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.7.5&lt;/code&gt; (&lt;a href=&quot;https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.7.5&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updated the OpenOCD package to the latest v0.11&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the atmelsam dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/atmelsam.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-atmelsam/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;teensy-dev-platform-v414&quot;&gt;Teensy dev-platform v4.14&lt;/h2&gt;
+
+&lt;p&gt;The new release of the &lt;a href=&quot;https://platformio.org/platforms/teensy&quot;&gt;Teensy&lt;/a&gt; dev-platform comes with support for the latest Teensyduino:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Updated Teensyduino to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;v1.55&lt;/code&gt; (&lt;a href=&quot;https://github.com/PaulStoffregen/cores/releases/tag/1.55&quot;&gt;release notes&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Minor fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Related resources for the Teensy dev-platform&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/teensy.html&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/platformio/platform-teensy/tree/develop/examples&quot;&gt;Project Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;arduino-core-for-mbed-enabled-devices-v252&quot;&gt;Arduino Core for mbed-enabled devices v2.5.2&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/ststm32.html&quot;&gt;ST STM32&lt;/a&gt;, &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/nordicnrf52.html&quot;&gt;Nordic nRF52&lt;/a&gt; and &lt;a href=&quot;https://docs.platformio.org/en/latest/platforms/raspberrypi.html&quot;&gt;Raspberry Pi RP2040&lt;/a&gt; dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v2.5.2. According to the &lt;a href=&quot;https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.5.2&quot;&gt;release notes&lt;/a&gt;, v2.5.2 brings a lot of bugfixes and improvements in core and bundled libraries.&lt;/p&gt;
+
+&lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
+
+&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the October 2021 updates of PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Debugging with PlatformIO: Part 1. Back to the Basics</title><link href="https://piolabs.com/blog/insights/debugging-introduction.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 1. Back to the Basics" /><published>2021-09-20T00:00:00+03:00</published><updated>2021-09-20T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/debugging-introduction</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-introduction.html">&lt;p&gt;Debugging is an inseparable part of the development process. People make mistakes, so our code doesn’t do what we expect once in a while. Often such problems happen at the worst possible time. That’s why it’s a good idea to master debugging techniques and skills to more precisely isolate the source code of a problem and fix it in a timely manner.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -1101,78 +1250,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 &lt;h2 id=&quot;stay-in-touch-with-us&quot;&gt;Stay in touch with us&lt;/h2&gt;
 
-&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the April 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">OpenHW TV S2 E04: Software Task Group Project Updates</title><link href="https://piolabs.com/blog/news/openhw-tv-s2e04.html" rel="alternate" type="text/html" title="OpenHW TV S2 E04: Software Task Group Project Updates" /><published>2021-04-23T00:00:00+03:00</published><updated>2021-04-23T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/openhw-tv-s2e04</id><content type="html" xml:base="https://piolabs.com/blog/news/openhw-tv-s2e04.html">&lt;p&gt;&lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg&quot; alt=&quot;OpenHW TV S2 E04: Software Task Group Project Updates&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;OpenHW TV S2 E04 was held on 22nd April 2021 in the usual format of a Zoom webinar with a live Q&amp;amp;A session. This event was solely dedicated to the several key projects led by the OpenHW Software Task Group. It’s worth mentioning that the SW TG not only develops the key software elements that are needed, but it also encourages the growth of a thriving commercial community that can develop and maintain this software for the long term.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id=&quot;meeting-details&quot;&gt;Meeting Details&lt;/h2&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-meeting-details.png&quot; alt=&quot;Meeting Participants&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Agenda and Participants
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;In this webinar, led by Jeremy Bennett (Embecosm), guests and participants learned about projects run by the Software Task Group including the details on IDE projects from Ivan Kravets (PlatformIO Labs) and Alexander Fedorov (Arsysop/Eclipse), CORE-V FreeRTOS project featuring a demo from Robert Balas (ETH Zürich) and Shteryana Shopova (Embecosm). Updates about the GCC and Clang/LLVM compiler toolchains were presented by Philipp Krones and Jessica Mills (Embecosm).&lt;/p&gt;
-
-&lt;h2 id=&quot;platormio-labs-contribution&quot;&gt;PlatormIO Labs’ Contribution&lt;/h2&gt;
-
-&lt;p&gt;One of the main priorities of PlatformIO Labs is to improve the lives of everyday engineers with comprehensive, open-source, and next-generation tools that enhance professional development productivity and provide an enjoyable experience. We believe that researchers, developers and silicon vendors should leverage open-source software and hardware to launch truly groundbreaking projects.&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-platformio-benefits.png&quot; alt=&quot;Accelerate adoption of CORE-V IP&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    PlatformIO Labs TaaS Benefits
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;PlatformIO Labs contributed and adapted their Technology as a Service (TaaS) platform that greatly reduces the usual complexity of developing ASM/C/C++ code for an embedded target. Developers can avoid the complex steps of setting up a proper development environment and can proceed directly to interacting with their CORE-V processors. The main contributions of our work are the following:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Trusted Package Registry&lt;/strong&gt;. The registry quickly and securely delivers pre-built packages to developers worldwide.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;In-depth Memory Analysis&lt;/strong&gt;. A user-friendly UI allows developers to quickly analyze memory footprints and get deeper insight into the internal application structure.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;PlatformIO Home&lt;/strong&gt;. Like a welcoming dashboard, the PlatformIO Home page makes it easy for anyone to get started. It provides easy access to a comprehensive set of documentation and examples.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The major part of the functionality includes:&lt;/p&gt;
-
-&lt;figure class=&quot;figure mb-7&quot;&gt;
-  &lt;img class=&quot;figure-img img-fluid rounded lift lift-lg&quot; src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-corev-functionality.png&quot; alt=&quot;Parties interested in IDE solutions&quot; /&gt;
-  &lt;figcaption class=&quot;figure-caption text-center&quot;&gt;
-    Demo of PlatformIO IDE for CORE-V IP Cores
-  &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;A full recording of the event is available to watch below:&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
-
-&lt;!-- Youtube video --&gt;
-&lt;p&gt;&lt;a data-bigpicture=&quot;{&amp;quot;ytSrc&amp;quot;: &amp;quot;HkJw8HcwBOA&amp;quot;}&quot; href=&quot;#&quot;&gt;
-  &lt;img src=&quot;/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-yt-preview.jpg&quot; class=&quot;img-fluid&quot; alt=&quot;OpenHW TV S2 E04: Software Task Group Project Updates&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr class=&quot;hr-md mb-7&quot; /&gt;
-
-&lt;p class=&quot;text-center&quot;&gt;
-  The slides from the webinar are available on &lt;a href=&quot;https://www.slideshare.net/ivankravets/openhw-tv-s2-e04-software-task-group-project-updates&quot; target=&quot;_blank&quot;&gt;SlideShare&lt;/a&gt;.
-&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-
-&lt;p&gt;Our team is proud to be an active participant in the OpenHW Group. We are happy to see how our highly customizable and robust instruments further boost the adoption of the CORE-V family open-source RISC-V cores by providing an improved developer experience. We hope that the OpenHW Group community from all around the world appreciates our efforts to support the future growth of the CORE-V ecosystem.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-openhw-group&quot;&gt;About OpenHW Group&lt;/h2&gt;
-
-&lt;p&gt;OpenHW Group is a not-for-profit, global organization driven by its members and individual contributors where hardware and software designers collaborate in the development of open-source cores, related IP, tools and software. OpenHW provides an infrastructure for hosting high-quality open-source HW developments in line with industry best practices.&lt;/p&gt;
-
-&lt;p&gt;CORE-V is a series of RISC-V based open-source cores with associated processor subsystem IP, tools and software for electronic system designers. The CORE-V family provides quality core IP in line with industry best practices. The IP is available in both silicon and FPGA optimized implementations. These cores can be used to facilitate rapid design innovation and ensure effective manufacturability of high-volume production SoCs.&lt;/p&gt;
-
-&lt;p&gt;To learn more, visit &lt;a href=&quot;https://www.openhwgroup.org/&quot; target=&quot;_blank&quot;&gt;OpenHWGroup.org&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;about-platformio-labs&quot;&gt;About PlatformIO Labs&lt;/h2&gt;
-
-&lt;p&gt;PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;amp;D branch in Ukraine. To learn more, follow them on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt;, Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt;, or visit &lt;a href=&quot;https://piolabs.com/&quot;&gt;piolabs.com&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html">OpenHW TV S2 E04 was held on 22nd April 2021 in the usual format of a Zoom webinar with a live Q&amp;amp;A session. This event was solely dedicated to the several key projects led by the OpenHW Software Task Group. It’s worth mentioning that the SW TG not only develops the key software elements that are needed, but it also encourages the growth of a thriving commercial community that can develop and maintain this software for the long term.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-04-23-openhw-tv-s2e04/openhw-tv-s2e04-cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Stay tuned to this blog or follow us on &lt;a href=&quot;https://www.linkedin.com/company/platformio&quot; target=&quot;_blank&quot;&gt;LinkedIn&lt;/a&gt; and Twitter &lt;a href=&quot;https://twitter.com/PlatformIO_Org&quot; target=&quot;_blank&quot;&gt;@PlatformIO_Org&lt;/a&gt; to keep up to date with the latest news, articles and tips!&lt;/p&gt;</content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html">Welcome to the April 2021 updates of the PlatformIO Open Source professional collaborative platform for embedded development. This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so let’s go through the updates pushed in this month.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
