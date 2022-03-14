@@ -1,4 +1,303 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-02-19T19:37:47+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2022-02-07T00:00:00+02:00</published><updated>2022-02-07T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2022-updates.html"><![CDATA[<p>Welcome to the January 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-03-14T15:18:23+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Debugging with PlatformIO: Part 3. PlatformIO Unified Debugger in CLI mode</title><link href="https://piolabs.com/blog/insights/debugging-cli.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 3. PlatformIO Unified Debugger in CLI mode" /><published>2022-03-14T00:00:00+02:00</published><updated>2022-03-14T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/debugging-cli</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-cli.html"><![CDATA[<p>Previously in this series we discussed the debugging workflow of desktop and embedded applications using the graphical facilities of VSCode. IDEs can provide the necessary functionality in many cases, but what to do when there isn’t any graphical frontend that can provide you all the tools and buttons to step through code and examine the execution process?</p>
+
+<!-- more -->
+
+<p>This is the third part (<a href="/blog/insights/debugging-introduction.html" target="_blank">Part 1</a>, <a href="/blog/insights/debugging-embedded.html" target="_blank">Part 2</a>) of a series where we’re exploring the capabilities of <a href="https://docs.platformio.org/en/latest/plus/debugging.html">PlatformIO Unified Debugger</a>. In this post we will cover the essential functionality in CLI mode that is extremely useful in cases when we don’t have the luxury of using a full-featured development environment. This post will give you a set of essential recommendations so that you can hunt down bugs much efficiently even without an IDE at hand.</p>
+
+<p>Throughout this post, we will be using the <a href="https://docs.platformio.org/en/latest/boards/sifive/hifive1-revb.html">SiFive HiFive1 Rev B</a> board and <a href="https://docs.platformio.org/en/latest/frameworks/freedom-e-sdk.html">Freedom E SDK</a> as the development framework, but the techniques described here can be used with pretty much any target.</p>
+
+<p>If you are new to the series, you may find the <a href="/blog/insights/debugging-introduction.html">Debugging with PlatformIO: Part 1. Back to the Basics</a> a useful starting point.</p>
+
+<h3>Table of Contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
+  <li><a href="#unified-debugger-in-cli-mode" id="markdown-toc-unified-debugger-in-cli-mode">Unified Debugger in CLI Mode</a>    <ul>
+      <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
+      <li><a href="#essential-commands" id="markdown-toc-essential-commands">Essential Commands</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>This article uses the following components:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/core/installation.html#installation-methods">PlatformIO Core</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/boards/sifive/hifive1-revb.html">SiFive HiFive1 Rev B</a></li>
+</ul>
+
+<h2 id="unified-debugger-in-cli-mode">Unified Debugger in CLI Mode</h2>
+
+<p>In previous articles we reviewed all essential components of the debugging process. One last piece that remained undefined is PlatformIO Unified Debugger itself. During several last years we’ve been looking into the problem of the enormous complexity of the usual embedded software development tasks. As it turned out, setting all parts of the debug process is quite a challenge. That’s why we’ve developed a unique instrument that abstracts away all the complexity of actual low-level debugging tasks like compiling firmware with debug symbols, setting up a debug server, configuring a target to reset the chip, and halt it at a specific line of code, etc. PlatformIO takes care of all these complex configuration steps behind the scenes and provides a rich command-line interface, so developers can focus solely on the debugging process. A huge additional benefit of this approach is that developers can conveniently switch among a huge range of debug frontends (IDEs, editors, etc.), debug probes, and debug servers while keeping the same unified configuration.</p>
+
+<p>Let’s go deeper into the usual workflow and essential commands used when we run PlatformIO Unified Debugger in the CLI mode.</p>
+
+<h3 id="getting-started">Getting Started</h3>
+
+<p>As we outlined earlier, we are using the <code class="language-plaintext highlighter-rouge">HiFive RevB</code> board in this post. First, let’s install the <code class="language-plaintext highlighter-rouge">SiFive</code> development platform:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pio platform <span class="nb">install </span>sifive
+</code></pre></div></div>
+
+<p>PlatformIO will do all the heavy lifting for us by installing everything that is needed (toolchains, frameworks, etc.) automatically.
+For the sake of simplicity, let’s get started by compiling the <code class="language-plaintext highlighter-rouge">freedom-e-sdk_sifive-welcome</code> example shipped together with the platform:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Navigate to the project folder</span>
+<span class="nv">$ </span><span class="nb">cd</span> /home/&lt;user&gt;/.platformio/platforms/sifive/examples/freedom-e-sdk_sifive-welcome
+<span class="c"># Build example for the sifive-hifive1-revb environment</span>
+<span class="nv">$ </span>pio run <span class="nt">-e</span> sifive-hifive1-revb
+</code></pre></div></div>
+
+<p>If everything went well, we should see the successful result in the terminal window.</p>
+
+<p>We compiled our project example, now let’s move to the debugging. We can start a new debug session in the CLI mode using the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pio debug <span class="nt">--interface</span><span class="o">=</span>gdb <span class="nt">-x</span> .pioinit
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">--interface</code> option specifies the name of the underlying debugger (in our case it’s GNU Debugger) and <code class="language-plaintext highlighter-rouge">.pioinit</code> is a pregenerated file with the default configuration for the current target. More info on the available flags can be found in the <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_debug.html">docs</a> for the <code class="language-plaintext highlighter-rouge">debug</code> command.</p>
+
+<p>Once the initialization is completed, the output should look something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) PlatformIO: Resume the execution to `debug_init_break = tbreak main`
+Setting breakpoint @ address 0x200115BA, Size = 2, BPHandle = 0x0001
+Starting target CPU...
+...Breakpoint reached @ address 0x200115BA
+Reading all registers
+Removing breakpoint @ address 0x200115BA, Size = 2
+Temporary breakpoint 1, main () at src/sifive-welcome.c:84
+84      {
+(gdb)
+</code></pre></div></div>
+
+<p>Starting from this point we can type commands directly in the terminal.</p>
+
+<h3 id="essential-commands">Essential Commands</h3>
+
+<p>A thorough overview of all available commands is out of the scope for this post, but let’s review some fundamental commands for effective debugging in the CLI mode.</p>
+
+<h4 id="basic-navigation">Basic Navigation</h4>
+
+<p>Navigation in the code is essential functionality required to carefully examine the program’s state and behavior. The workflow is pretty much similar to the control actions available in any IDE. We can inspect the code line-by-line, step into functions or run the program until a breakpoint is reached. Here are the most common and often-used commands and their shortcuts for controlling the execution flow:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Continue execution
+</span><span class="err">(gdb)</span> <span class="nn">[c]</span><span class="err">ontinue</span>
+<span class="c"># Step one line of code (steps into function calls).
+</span><span class="err">(gdb)</span> <span class="nn">[s]</span><span class="err">tep</span>
+<span class="c"># Step one line of code (steps over function calls).
+</span><span class="err">(gdb)</span> <span class="nn">[n]</span><span class="err">ext</span>
+<span class="c"># Run until a source line past the current line
+</span><span class="err">frame,</span> <span class="err">is</span> <span class="err">reached.</span>
+<span class="err">(gdb)</span> <span class="nn">[u]</span><span class="err">ntil</span>
+<span class="c"># Run until the current function returns.
+</span><span class="err">(gdb)</span> <span class="nn">[f]</span><span class="err">inish</span>
+</code></pre></div></div>
+
+<p>A typical scenario for using stepping is to set a breakpoint in your program where a bug is supposedly located, run your program until it stops at that breakpoint, and then step through the code, checking the most relevant variables, until the problem occurs.</p>
+
+<h4 id="breakpoints">Breakpoints</h4>
+
+<p>As we discussed in the previous post, breakpoints is an extremely useful technique when we want to check the program’s state in a specific situation or condition. We can set breakpoints on a function name, a line number, or an instruction located at a particular address. The syntax for setting breakpoints is the following:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[b]</span><span class="err">reak</span> <span class="err">&lt;line</span> <span class="err">|</span> <span class="err">function</span> <span class="err">|</span> <span class="err">filename:line</span> <span class="err">|</span> <span class="err">filename:function</span> <span class="err">|</span> <span class="err">*memory</span> <span class="err">address&gt;</span>
+</code></pre></div></div>
+
+<p>When we create a new breakpoint, the debugger will assign a number to it. For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set a breakpoint at a function name</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">break </span>metal_led_get_rgb
+Read 2 bytes @ address 0x20013F18
+Breakpoint 6 at 0x20013f18: file src/led.c, line 8.
+</code></pre></div></div>
+
+<p>If we need to put a breakpoint somewhere in the middle of a function, we can specify a line number. To break in a different file, we need to specify the file name followed by a colon and the line number:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set a temporary breakpoint at a line in the current file</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">break </span>5
+<span class="c"># or a specific line in a file</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">break </span>led.c:13
+</code></pre></div></div>
+
+<p>We also can set a temporary breakpoint which will be deleted after the first time it’s hit:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set a temporary breakpoint at a function name</span>
+<span class="o">(</span>gdb<span class="o">)</span> tbreak main
+<span class="c"># or a specific address</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">break</span> <span class="k">*</span>0x20013f18
+</code></pre></div></div>
+
+<p>To control breakpoints (enable/disable/delete) we can use the following commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enable/disable a breakpoint using its number</span>
+<span class="o">(</span>gdb<span class="o">)</span> disable 2
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">enable </span>2
+<span class="c"># Clear all breakpoints in a function</span>
+<span class="o">(</span>gdb<span class="o">)</span> clear metal_led_get_rgb
+<span class="c"># Clear all breakpoints at a given line</span>
+<span class="o">(</span>gdb<span class="o">)</span> clear led.c:18
+<span class="c"># Delete specific breakpoints</span>
+<span class="o">(</span>gdb<span class="o">)</span> delete 5 6
+</code></pre></div></div>
+
+<h5 id="conditional-breakpoints">Conditional Breakpoints</h5>
+
+<p>Sometimes, we need to stop the execution not only at a specific location but also when a certain condition is met. Conditional breakpoints can help with this by allowing more precise control of the reason for the program to stop. If the execution reaches the conditional breakpoint and the expression evaluates to false, then the debugger will automatically skip the breakpoint and let the program continue without notifying the user. A conditional breakpoint can be created by combining the usual breakpoint command with a specific condition:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[b]</span><span class="err">reak</span> <span class="err">&lt;line</span> <span class="err">|</span> <span class="err">function</span> <span class="err">|</span> <span class="err">filename:line</span> <span class="err">|</span> <span class="err">filename:function</span> <span class="err">|</span> <span class="err">*memory</span> <span class="err">address&gt;</span> <span class="err">&lt;condition&gt;</span>
+</code></pre></div></div>
+<p>Here are a few examples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Set a breakpoint at a function name with a condition</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">break </span>wait_for_timer <span class="k">if </span>timer_isr_flag <span class="o">==</span> 0
+<span class="c"># Set a temporary breakpoint when a specific value in a CPU register</span>
+<span class="o">(</span>gdb<span class="o">)</span> tbreak sifive_gpio-leds.c:58 <span class="k">if</span> <span class="nv">$a6</span> <span class="o">==</span> 0x80000f90
+</code></pre></div></div>
+
+<h4 id="watchpoints">Watchpoints</h4>
+
+<p>Watchpoints are very similar to breakpoints which we discussed above. Unlike breakpoints which are set for functions or lines of code, watchpoints are set on expressions. Simply put, a watchpoint is just a special kind of breakpoint that stops the execution when the value of an expression changes without having to predict a specific location where this may happen. Watchpoints can monitor a simple variable or more complex expressions:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Watch a variable</span>
+<span class="o">(</span>gdb<span class="o">)</span> watch rc
+<span class="c"># Watch an address in memory</span>
+<span class="o">(</span>gdb<span class="o">)</span> watch <span class="k">*</span><span class="o">(</span>uint8_t <span class="k">*</span><span class="o">)</span>0x10012000
+<span class="c"># Watch a complex expression</span>
+<span class="o">(</span>gdb<span class="o">)</span> watch <span class="o">(</span>rc <span class="o">!=</span> 0<span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>counter <span class="o">&gt;</span> 100<span class="o">)</span>
+</code></pre></div></div>
+
+<p>We can manage watchpoints like any other breakpoint: enable, disable, and delete using the same commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Enable/disable a watchpoint using its number</span>
+<span class="o">(</span>gdb<span class="o">)</span> disable 2
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">enable </span>2
+<span class="c"># Delete a specific watchpoint</span>
+<span class="o">(</span>gdb<span class="o">)</span> delete 2
+</code></pre></div></div>
+
+<p>For example, in our project we can set a watchpoint to detect when the <code class="language-plaintext highlighter-rouge">timer_isr_flag</code> variable changes its value:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> watch timer_isr_flag
+Read 4 bytes @ address 0x80000BB4 <span class="o">(</span>Data <span class="o">=</span> 0x00000000<span class="o">)</span>
+Read 4 bHardware watchpoint 5: timer_isr_flag
+Hardware watchpoint 6: timer_isr_flag
+<span class="o">(</span>gdb<span class="o">)</span> <span class="k">continue
+</span>Hardware watchpoint 8: timer_isr_flag
+Old value <span class="o">=</span> 0
+New value <span class="o">=</span> 1
+0x20011418 <span class="k">in </span>timer_isr <span class="o">(</span><span class="nb">id</span><span class="o">=</span>&lt;optimized out&gt;, <span class="nv">data</span><span class="o">=</span>&lt;optimized out&gt;<span class="o">)</span>
+    at src/sifive-welcome.c:57
+57          timer_isr_flag <span class="o">=</span> 1<span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="viewing-variables-memory-and-disassembly">Viewing Variables, Memory and Disassembly</h4>
+
+<p>When there is a pause in the execution (after the <code class="language-plaintext highlighter-rouge">next</code> or <code class="language-plaintext highlighter-rouge">step</code> commands, any type of breakpoint, etc.) we can print the values of all local and global variables using the <code class="language-plaintext highlighter-rouge">print</code> command:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">(gdb)</span> <span class="nn">[p]</span><span class="err">rint</span> <span class="err">&lt;expression&gt;</span>
+</code></pre></div></div>
+
+<p>It is possible to print complicated expressions, type casts, call functions, etc. Here are a few examples:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Print a variable</span>
+<span class="o">(</span>gdb<span class="o">)</span> print wait_for_timer
+<span class="c"># Print the value in hexadecimal format</span>
+<span class="o">(</span>gdb<span class="o">)</span> print /x <span class="k">*</span>0x80000ad0
+<span class="c"># Print the first three elements of an array</span>
+<span class="o">(</span>gdb<span class="o">)</span> print <span class="k">*</span>array@3
+</code></pre></div></div>
+
+<p>GDB also provides a handy command called <code class="language-plaintext highlighter-rouge">printf</code> for formatted printing. It supports most of the standard C conversion specifications:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Formatted printing</span>
+<span class="o">(</span>gdb<span class="o">)</span> <span class="nb">printf</span> <span class="s2">"led0_green size = %d, address = %p</span><span class="se">\n</span><span class="s2">"</span>, sizeof<span class="o">(</span>led0_green<span class="o">)</span>, <span class="o">((</span>void<span class="k">*</span><span class="o">)</span><span class="k">*</span>led0_green<span class="o">)</span>
+Read 4 bytes @ address 0x80000ACC <span class="o">(</span>Data <span class="o">=</span> 0x20011288<span class="o">)</span>
+led0_green size <span class="o">=</span> 4, address <span class="o">=</span> 0x20011288
+</code></pre></div></div>
+
+<p>Another option is the <code class="language-plaintext highlighter-rouge">display</code> command. It takes the same arguments as <code class="language-plaintext highlighter-rouge">print</code>, but prints the specified item every time the program stops:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> display led0_blue
+1: led0_blue <span class="o">=</span> <span class="o">(</span>struct metal_led <span class="k">*</span><span class="o">)</span> 0x80000ad0 &lt;__metal_dt_led_2&gt;
+<span class="o">(</span>gdb<span class="o">)</span> next
+Performing single step...
+150             wait_for_timer<span class="o">(</span>led0_red<span class="o">)</span><span class="p">;</span>
+1: led0_blue <span class="o">=</span> <span class="o">(</span>struct metal_led <span class="k">*</span><span class="o">)</span> 0x80000ad0 &lt;__metal_dt_led_2&gt;
+</code></pre></div></div>
+
+<p>It’s also possible to print the values of all the local variables in the current stack frame by invoking the <code class="language-plaintext highlighter-rouge">info locals</code> command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> info locals
+rc <span class="o">=</span> 0
+led0_red <span class="o">=</span> 0x80000ac8 &lt;__metal_dt_led_0&gt;
+led0_green <span class="o">=</span> 0x80000acc &lt;__metal_dt_led_1&gt;
+led0_blue <span class="o">=</span> 0x80000ad0 &lt;__metal_dt_led_2&gt;
+</code></pre></div></div>
+
+<h5 id="examining-memory">Examining Memory</h5>
+
+<p>GDB offers a convenient way of inspecting memory regions using the <code class="language-plaintext highlighter-rouge">x</code> command. The functionality is very similar to what we have in any IDE. The syntax is the following:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x/nfu</span> <span class="err">&lt;address&gt;</span>
+</code></pre></div></div>
+
+<p>Where <code class="language-plaintext highlighter-rouge">nfu</code> are optional parameters that are responsible for how much data to show and how to format it. It supports various styles, including binary, decimal, hex, or even strings. Here is the memory dump for the region where the main function is located:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> x/64i main
+0x200115ba &lt;main&gt;:      0x39    0x71    0x06    0xde    0x22    0xdc    0x26    0xda
+0x200115c2 &lt;main+8&gt;:    0x4a    0xd8    0x4e    0xd6    0xb7    0x05    0x01    0x20
+0x200115ca &lt;main+16&gt;:   0x93    0x85    0xc5    0x71    0x37    0x09    0x01    0x20
+0x200115d2 &lt;main+24&gt;:   0x13    0x05    0x09    0x72    0xef    0x20    0x10    0x14
+0x200115da &lt;main+32&gt;:   0x2a    0x84    0xb7    0x05    0x01    0x20    0x93    0x85
+0x200115e2 &lt;main+40&gt;:   0x45    0x72    0x13    0x05    0x09    0x72    0xef    0x20
+0x200115ea &lt;main+48&gt;:   0xf0    0x12    0xaa    0x84    0xb7    0x05    0x01    0x20
+</code></pre></div></div>
+
+<h5 id="disassembly">Disassembly</h5>
+
+<p>GDB has built-in support for printing machine code for any function or a range of memory. We can quickly do that using the <code class="language-plaintext highlighter-rouge">disassemble</code> command:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[disas]</span><span class="err">semble</span> <span class="err">&lt;function</span> <span class="err">|</span> <span class="err">address1,</span> <span class="err">address2&gt;</span>
+</code></pre></div></div>
+<p>This command disassembles any function into assembly instructions, shows the address, name, and operands of each instruction:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> disassemble wait_for_timer
+Dump of assembler code <span class="k">for function </span>wait_for_timer:
+   0x2001155a &lt;+0&gt;:     addi    sp,sp,-16
+   0x2001155c &lt;+2&gt;:     sw      ra,12<span class="o">(</span>sp<span class="o">)</span>
+   0x2001155e &lt;+4&gt;:     sw      s0,8<span class="o">(</span>sp<span class="o">)</span>
+   ...
+</code></pre></div></div>
+<p>It can also provide a mixed view of disassembly together with source code by specifying the <code class="language-plaintext highlighter-rouge">/s</code> modifier. The <code class="language-plaintext highlighter-rouge">/r</code> modifier can be used to print the raw instructions in hex. Here is an example that prints the disassembly for a range of addresses:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>gdb<span class="o">)</span> disassemble/sr 0x200115c2, 0x200115cd
+Dump of assembler code from 0x200115c2 to 0x200115cd:
+src/sifive-welcome.c:
+84      <span class="o">{</span>
+   0x200115c2 &lt;main+8&gt;:         4a d8   sw      s2,48<span class="o">(</span>sp<span class="o">)</span>
+   0x200115c4 &lt;main+10&gt;:        4e d6   sw      s3,44<span class="o">(</span>sp<span class="o">)</span>
+
+85          int rc<span class="p">;</span>
+86          struct metal_led <span class="k">*</span>led0_red, <span class="k">*</span>led0_green, <span class="k">*</span>led0_blue<span class="p">;</span>
+87
+88          // This demo will toggle LEDs colors so we define them here
+89          led0_red <span class="o">=</span> metal_led_get_rgb<span class="o">(</span><span class="s2">"LD0"</span>, <span class="s2">"red"</span><span class="o">)</span><span class="p">;</span>
+   0x200115c6 &lt;main+12&gt;:        b7 05 01 20     lui     a1,0x20010
+   0x200115ca &lt;main+16&gt;:        93 85 c5 71     addi    a1,a1,1820 <span class="c"># 0x2001071c</span>
+End of assembler dump.
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>In this post, we continued to explore the debugging capabilities of the PlatformIO ecosystem. Although the command-line interface might not be as user-friendly as a feature-rich IDE, it’s still a great instrument to quickly and efficiently hunt down bugs in your code base. The fact that CLI needs much fewer resources gives us the ability to debug applications even in a headless OS while keeping the same level of functionality.</p>
+
+<p>In the next article, we will explore a very useful technique called “semihosting” used for communicating I/O requests from application code to a host computer running a debugger.</p>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[In this post, we will cover the essential functionality in CLI mode which is extremely useful in cases when we don't have the luxury of using a full-featured development environment.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-03-14-debugging-cli/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-03-14-debugging-cli/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2022-02-07T00:00:00+02:00</published><updated>2022-02-07T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2022-updates.html"><![CDATA[<p>Welcome to the January 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
 
 <p>We hope you enjoyed your holidays and had some quality time with your family and friends. Although some people like to reflect about the year gone by, others look forward to the new year and new beginnings and we are one of them! There are plenty of updates pushed in this month to help you move into working mode.</p>
 
@@ -311,7 +610,7 @@ With a rich set of analog, timing, and communications peripherals, they cater to
 
 <p>Debugging is an unavoidable part of the development process and embedded software is no exception. Debugging can consume a considerable amount of time and that’s why developers should take advantage of modern instruments to accelerate the debugging process and make it significantly easier to more precisely track down and diagnose errors in their codebase.</p>
 
-<p>In this post, we continued to explore the debugging capabilities of the PlatformIO ecosystem. Powerful features like the Peripherals, Memory, and Disassembly views are extremely useful when we need to take a deeper look at the low-level state of the target. In the next part, we’ll review advanced best practices, tips and tricks for efficient debugging, including PlatformIO Unified Debugger in CLI mode.</p>
+<p>In this post, we continued to explore the debugging capabilities of the PlatformIO ecosystem. Powerful features like the Peripherals, Memory, and Disassembly views are extremely useful when we need to take a deeper look at the low-level state of the target. In the <a href="/blog/insights/debugging-cli.html">next part</a>, we’ll review advanced best practices, tips and tricks for efficient debugging, including PlatformIO Unified Debugger in CLI mode.</p>
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
@@ -1176,128 +1475,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards & dev-kits, Support for the latest STM32Cube packages, Updated Arduino Cores for Espressif 8266, Microchip AVR, Nordic nRF52 and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source July Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-july-2021-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source July Updates" /><published>2021-08-02T00:00:00+03:00</published><updated>2021-08-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-july-2021-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-july-2021-updates.html"><![CDATA[<p>Welcome to the July 2021 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-july-news.jpg" alt="PlatformIO Open Source July Updates" /></p>
-
-<p>During July, we added support for Zephyr v2.6.0, rolled out updates for the STMicroelectronics STM32, Nordic nRF52, Teensy and Espressif32 development platforms, resolved a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management" id="markdown-toc-zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management">Zephyr v2.6.0: New dev-kits, refactored logging subsystem and improved power management</a></li>
-  <li><a href="#st-stm32-dev-platform-v141" id="markdown-toc-st-stm32-dev-platform-v141">ST STM32 dev-platform v14.1</a></li>
-  <li><a href="#nordic-nrf52-dev-platform-v82" id="markdown-toc-nordic-nrf52-dev-platform-v82">Nordic nRF52 dev-platform v8.2</a></li>
-  <li><a href="#teensy-dev-platform-v413" id="markdown-toc-teensy-dev-platform-v413">Teensy dev-platform v4.13</a></li>
-  <li><a href="#espressif32-dev-platform-v331" id="markdown-toc-espressif32-dev-platform-v331">Espressif32 dev-platform v3.3.1</a></li>
-  <li><a href="#arduino-core-for-mbed-enabled-devices-v23" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v23">Arduino Core for mbed-enabled devices v2.3</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="zephyr-v260-new-dev-kits-refactored-logging-subsystem-and-improved-power-management">Zephyr v2.6.0: New dev-kits, refactored logging subsystem and improved power management</h2>
-
-<p>We’re happy to announce updated support for a new release v2.6.0 of Zephyr Project - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.</p>
-
-<p><strong>Major enhancements in v2.6.0:</strong></p>
-
-<ul>
-  <li>Overhauled Logging subsystem</li>
-  <li>Overhauled Tracing subsystem including expansion for tracing points</li>
-  <li>Improvements to device runtime power management</li>
-</ul>
-
-<p><strong>Related resources for Zephyr framework</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0">Release notes for v2.6.0</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html">Documentation for Zephyr framework</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms">Supported development platforms</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="st-stm32-dev-platform-v141">ST STM32 dev-platform v14.1</h2>
-
-<p>The latest release of the <a href="https://platformio.org/platforms/ststm32">ST STM32</a> platform comes with several new boards and dev-kits, support for the latest Zephyr v2.6.0 and Arduino-mbed core v2.3:</p>
-
-<ul>
-  <li>Added new boards:
-    <ul>
-      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/disco_g071rb.html">ST STM32G071B Discovery</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_h753zi.html">ST Nucleo H753ZI</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_wl55jc.html">ST Nucleo WL55JC</a></li>
-    </ul>
-  </li>
-  <li>Updated Zephyr framework to <code class="language-plaintext highlighter-rouge">v2.6.0</code> (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0">release notes</a>)</li>
-  <li>Updated Arduino Core for mbed enabled devices to <code class="language-plaintext highlighter-rouge">v2.3.1</code> (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1">release notes</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="nordic-nrf52-dev-platform-v82">Nordic nRF52 dev-platform v8.2</h2>
-
-<p>The new release of <a href="https://platformio.org/platforms/nordicnrf52">Nordic nRF52</a> dev-platform brings support for Zephyr 2.6.0, updated Arduino cores and several minor bugfixes and improvements:</p>
-
-<ul>
-  <li>Updated Zephyr framework to <code class="language-plaintext highlighter-rouge">v2.6.0</code> (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/zephyr-v2.6.0">release notes</a>)</li>
-  <li>Updated Arduino Core for mbed enabled devices to <code class="language-plaintext highlighter-rouge">v2.3.1</code> (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1">release notes</a>)</li>
-  <li>Updated Arduino Adafruit core to <code class="language-plaintext highlighter-rouge">v0.24.0</code> (<a href="https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/0.24.0">release notes</a>)</li>
-  <li>Switched to a standalone <code class="language-plaintext highlighter-rouge">adafruit-nrfutil</code> package from PlatformIO Registry</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p><strong>Related resources for the Nordic nRF52 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/nordicnrf52.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-nordicnrf52/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="teensy-dev-platform-v413">Teensy dev-platform v4.13</h2>
-
-<p>The new release of the <a href="https://platformio.org/platforms/teensy">Teensy</a> dev-platform comes with support for the latest Teensyduino v1.54 with a new development board:</p>
-
-<ul>
-  <li>New board <a href="https://docs.platformio.org/en/latest/boards/teensy/teensymm.html">SparkFun MicroMod Teensy</a></li>
-  <li>Updated Teensyduino to <code class="language-plaintext highlighter-rouge">v1.54</code> (<a href="https://github.com/PaulStoffregen/cores/releases/tag/1.54">release notes</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p><strong>Related resources for the Teensy dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/teensy.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-teensy/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v331">Espressif32 dev-platform v3.3.1</h2>
-
-<p>The latest <a href="https://platformio.org/platforms/espressif32">Espressif32</a> v3.3.1 is mostly a maintenance release that brings several important bugfixes and improvements:</p>
-
-<ul>
-  <li>Updated the OpenOCD package to the latest <code class="language-plaintext highlighter-rouge">v0.10.0-esp32-20210721</code> (<a href="https://github.com/espressif/openocd-esp32/releases/tag/v0.10.0-esp32-20210721">release notes</a>)</li>
-  <li><code class="language-plaintext highlighter-rouge">Esp32ExceptionDecoder</code> now supports uppercase hex addresses in backtraces (#582)</li>
-  <li>Better handling of ESP-IDF configuration files (#588)</li>
-  <li>Removed dynamic reconfiguration of SPI Flash mode for <code class="language-plaintext highlighter-rouge">esptoolpy</code> (#584)</li>
-</ul>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="arduino-core-for-mbed-enabled-devices-v23">Arduino Core for mbed-enabled devices v2.3</h2>
-
-<p>The <a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">ST STM32</a>, <a href="https://docs.platformio.org/en/latest/platforms/nordicnrf52.html">Nordic nRF52</a> and <a href="https://docs.platformio.org/en/latest/platforms/raspberrypi.html">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v2.3. According to the <a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/2.3.1">release notes</a>, v2.3 brings a lot of bugfixes and improvements in core and bundled libraries.</p>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards & dev-kits, Support for Zephyr v2.6.0 and Teensyduino v1.54, Updated Arduino Cores for Nordic nRF52 and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards & dev-kits, Support for the latest STM32Cube packages, Updated Arduino Cores for Espressif 8266, Microchip AVR, Nordic nRF52 and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
