@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-05-02T14:06:42+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2022-05-02T00:00:00+03:00</published><updated>2022-05-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2022-updates.html"><![CDATA[<p>Welcome to the April 2022 updates of the <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-05-16T17:01:27+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 6.0 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-0-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.0 🚀" /><published>2022-05-16T00:00:00+03:00</published><updated>2022-05-16T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-0-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-0-released.html"><![CDATA[<p>We are happy to announce the major release of PlatformIO Core with unified
+Package Management CLI and a new generation of PlatformIO Unit Testing solution
+that brings advanced instruments and new opportunities for test-driven embedded
+development.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/2022-05-16-platformio-core-6-0-released/platformio-core-6-0-released.png" alt="PlatformIO Core 6.0 🚀" /></p>
+
+<h3>Table of Contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#what-is-new" id="markdown-toc-what-is-new">What is new</a>    <ul>
+      <li><a href="#package-management" id="markdown-toc-package-management">Package Management</a>        <ul>
+          <li><a href="#run-package-command" id="markdown-toc-run-package-command">Run package command</a></li>
+          <li><a href="#virtual-symbolic-links" id="markdown-toc-virtual-symbolic-links">Virtual symbolic links</a></li>
+        </ul>
+      </li>
+      <li><a href="#unit-testing" id="markdown-toc-unit-testing">Unit Testing</a>        <ul>
+          <li><a href="#test-driven-development" id="markdown-toc-test-driven-development">Test-driven development</a></li>
+          <li><a href="#hardware-less-development" id="markdown-toc-hardware-less-development">Hardware-less development</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#migration" id="markdown-toc-migration">Migration</a></li>
+  <li><a href="#upgrade" id="markdown-toc-upgrade">Upgrade</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="what-is-new">What is new</h2>
+
+<p>In this section, we are going to highlight the most important changes and
+features introduced in PlatformIO Core 6.0. Please visit
+<a href="https://docs.platformio.org/en/latest/core/history.html">PlatformIO Core 6.0 Release Notes</a>
+for more detailed information.</p>
+
+<h3 id="package-management">Package Management</h3>
+
+<p>The PlatformIO Core 6.0 brings a powerful solution to manage libraries,
+platforms and tools using the unified
+<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/index.html">Package Management CLI</a>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html">pio pkg install</a> - install the project dependencies or custom packages</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_list.html">pio pkg list</a> - list installed packages</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_outdated.html">pio pkg outdated</a> - check for project outdated packages</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_search.html">pio pkg search</a> - search for packages</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_show.html">pio pkg show</a> - show package information</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_uninstall.html">pio pkg uninstall</a> uninstall the project dependencies or custom packages</li>
+  <li><a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_update.html">pio pkg update</a> - update the project dependencies or custom packages.</li>
+</ul>
+
+<p>There are no more global packages that could lead to potential issues.
+The new package management solution allows developers to use a modern declarative approach
+for safety-critical embedded development. Using the Semantic
+<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html#cmd-pkg-install-requirements">Version Requirements</a>
+guarantees the full project reproducibility on any supported host machine for decades.</p>
+
+<p>The new Package Management CLI operates in accordance with the active (working) project. The
+<a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html">pio pkg install</a>
+command will install all required project dependencies.
+The <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_list.html">pio pkg list</a>
+command allows listing not only dependent libraries but also
+development platforms and their packages.</p>
+
+<p>The notable addition is the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_outdated.html">pio pkg outdated</a>
+command. It allows developers to check for outdated project packages and list version
+information for all dependencies. There are three color legends to help developers
+easily identify which updates are backward-incompatible.</p>
+
+<h4 id="run-package-command">Run package command</h4>
+
+<p><a href="https://registry.platformio.org/">PlatformIO Registry</a> contains a rich set of popular
+toolchains and other useful tools. The <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_exec.html#cmd-pkg-exec">pio pkg exec</a>
+command allows developers to run an arbitrary command from the specified package. If the package
+requirement is specified using the <code class="language-plaintext highlighter-rouge">pio pkg exec --package</code> option, PlatformIO will ensure that
+the package is installed before running any command.</p>
+
+<p>Practical use cases include running debugging servers, uploaders or
+special tools from a toolchain. A few examples of how to leverage the
+new <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_exec.html#cmd-pkg-exec">pio pkg exec</a> command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Ensure JLink tool is installed and start GDB server</span>
+<span class="o">&gt;</span> pio pkg <span class="nb">exec</span> <span class="nt">--package</span><span class="o">=</span>tool-jlink <span class="nt">--</span> JLinkGDBServer <span class="nt">-singlerun</span> <span class="nt">-if</span> JTAG <span class="nt">-select</span> USB <span class="nt">-jtagconf</span> <span class="nt">-1</span>,-1 <span class="nt">-device</span> EFR32BG22CxxxF512 <span class="nt">-port</span> 2331
+
+<span class="c"># Run Espressif SoC serial bootloader utility and erase a flash from the target device</span>
+<span class="o">&gt;</span> pio pkg <span class="nb">exec</span> <span class="nt">--</span> esptool.py erase_flash
+
+<span class="c"># Disassembly AVR ELF file</span>
+<span class="o">&gt;</span> pio pkg <span class="nb">exec</span> <span class="nt">--</span> avr-objdump <span class="nt">-d</span> <span class="nt">-m</span> avr2 .pio/build/uno/firmware.elf
+</code></pre></div></div>
+
+<h4 id="virtual-symbolic-links">Virtual symbolic links</h4>
+
+<p>The most requested feature from the library maintainers was the ability to link
+the existing package with the project without hard copying (duplicating). As a
+workaround, developers used a Unix-native symlink solution and hence it was not possible
+to declare a symlinked dependency in the
+<a href="https://docs.platformio.org/en/latest/projectconf/index.html">“platformio.ini” (Project Configuration File)</a>.</p>
+
+<p>The PlatformIO 6.0 introduces cross-platform virtual symbolic links without
+any dependencies on the host OS. PlatformIO <code class="language-plaintext highlighter-rouge">symlink://</code> resources do not
+require any specific OS permissions. They are portable between different
+host machines.</p>
+
+<p>See <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html#cmd-pkg-install-specifications">Package Specifications</a>
+for the “Local Folder”.</p>
+
+<h3 id="unit-testing">Unit Testing</h3>
+
+<p>It’s been <a href="https://github.com/platformio/platformio-core/commit/bb22a1297bc2e4c3131530f15a2b4b3914836560" target="_blank">six years</a>
+since we added support for unit testing and Unity was the only available testing framework.
+We didn’t expect that the <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/index.html">PlatformIO Unit Testing</a>
+solution will gain broad popularity, especially when it comes to using it on native (host) machines.</p>
+
+<p>So, the time has come to refresh our view on PlatformIO Unit Testing with taking into account
+<a href="https://github.com/platformio/platformio-core/issues?q=is%3Aissue+label%3A%22unit+testing%22+is%3Aclosed+milestone%3A6.0" target="_blank">your feedback and feature requests</a>.</p>
+
+<h4 id="test-driven-development">Test-driven development</h4>
+
+<p>The PlatformIO Core 6.0 introduces an absolutely new workflow for
+<a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">test-driven development</a>
+in the embedded systems industry.
+Thanks to the rich set of supported <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/index.html">Unit Testing Frameworks</a>
+and the ability to organize tests in groups using the <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/structure.html#unit-testing-test-hierarchy">Test Hierarchy</a>,
+developers can create hybrid projects and benefit from multiple testing
+frameworks depending on the project requirements simultaneously. See a simple example of
+the hybrid configuration:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:native]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">native</span>
+<span class="py">test_framework</span> <span class="p">=</span> <span class="s">googletest</span>
+<span class="py">test_filter</span> <span class="p">=</span>
+  <span class="err">common/*</span>
+  <span class="err">native/*</span>
+
+<span class="nn">[env:embedded]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">...</span>
+<span class="py">framework</span> <span class="p">=</span> <span class="s">...</span>
+<span class="py">test_framework</span> <span class="p">=</span> <span class="s">unity</span>
+<span class="py">test_filter</span> <span class="p">=</span>
+  <span class="err">common/*</span>
+  <span class="err">embedded/*</span>
+</code></pre></div></div>
+
+<p>Use more advanced C++ testing frameworks with Mocking support such as
+<a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/googletest.html">GoogleTest</a>
+in pair with the <a href="https://docs.platformio.org/en/latest/platforms/native.html">Native</a>
+development platform to run desktop tests on the host machine and a lightweight
+framework, such as <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/unity.html#unit-testing-frameworks-unity">Unity</a>,
+for running tests on the target embedded device with constrained resources.</p>
+
+<h4 id="hardware-less-development">Hardware-less development</h4>
+
+<p>It’s hard to imagine today a next-gen project development workflow that does
+not benefit from <a href="https://docs.platformio.org/en/latest/integration/ci/index.html">Continuous Integration</a> systems.
+PlatformIO already provides multiple solutions to improve code quality
+including <a href="https://docs.platformio.org/en/latest/plus/pio-check.html">Static Code Analysis</a>.
+In addition to the testing frameworks that allow developers to mock objects and simulate the
+behavior of real objects, the PlatformIO Core 6.0 adds support for the
+<a href="https://docs.platformio.org/en/latest/advanced/unit-testing/simulators/index.html">Simulators</a>.</p>
+
+<p>The combination of simulation tools and testing frameworks allow developers to simulate hardware systems
+and run unit tests in virtual environments. Simulators can significantly
+accelerate project development, especially when used in pair
+with <a href="https://docs.platformio.org/en/latest/integration/ci/index.html">Continuous Integration</a>.</p>
+
+<p>Integration of any simulator tool to the PlatformIO :ref:<code class="language-plaintext highlighter-rouge">unit_testing</code>
+is very simple and does not require any extra software or code writing.
+Please take a look at the example below how easy it is to integrate
+the  <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/simulators/renode.html#unit-testing-simulators-renode">Renode</a>
+simulation framework:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:hifive1-revb]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">sifive</span>
+<span class="py">framework</span> <span class="p">=</span> <span class="s">zephyr</span>
+<span class="py">board</span> <span class="p">=</span> <span class="s">hifive1-revb</span>
+
+<span class="py">platform_packages</span> <span class="p">=</span>
+    <span class="err">platformio/tool-renode</span>
+<span class="py">test_testing_command</span> <span class="p">=</span>
+    <span class="err">${platformio.packages_dir}/tool-renode/renode</span>
+    <span class="err">--disable-xwt</span>
+    <span class="err">-e</span> <span class="err">include</span> <span class="err">@scripts/single-node/sifive_fe310.resc</span>
+    <span class="err">-e</span> <span class="err">showAnalyzer</span> <span class="err">uart1</span>
+    <span class="err">-e</span> <span class="err">sysbus</span> <span class="err">LoadELF</span> <span class="err">@${platformio.build_dir}/${this.__env__}/firmware.elf</span>
+    <span class="err">-e</span> <span class="err">start</span>
+</code></pre></div></div>
+
+<h2 id="migration">Migration</h2>
+
+<p>PlatformIO Core 6.0 is fully backward compatible with PlatformIO 5.0 projects.</p>
+
+<p>See <a href="https://docs.platformio.org/en/latest/core/migration.html">migration guide from 5.x to 6.0</a> for the further details.</p>
+
+<h2 id="upgrade">Upgrade</h2>
+
+<ul>
+  <li><strong>PlatformIO IDE</strong>: Left Sidebar &gt; PlatformIO (icon) &gt; Quick Access &gt; Upgrade PlatformIO Core</li>
+  <li><strong>Terminal</strong>: Please run <code class="language-plaintext highlighter-rouge">pio upgrade</code> command in terminal.</li>
+</ul>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.0 is out with unified Package Management CLI and a new generation of PlatformIO Unit Testing solution that brings advanced instruments and new opportunities for test-driven embedded development]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-05-16-platformio-core-6-0-released/platformio-core-6-0-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-05-16-platformio-core-6-0-released/platformio-core-6-0-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2022-05-02T00:00:00+03:00</published><updated>2022-05-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2022-updates.html"><![CDATA[<p>Welcome to the April 2022 updates of the <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
 
 <!-- more -->
 
@@ -124,7 +329,13 @@
   <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
   <li><a href="#unified-debugger-in-cli-mode" id="markdown-toc-unified-debugger-in-cli-mode">Unified Debugger in CLI Mode</a>    <ul>
       <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
-      <li><a href="#essential-commands" id="markdown-toc-essential-commands">Essential Commands</a></li>
+      <li><a href="#essential-commands" id="markdown-toc-essential-commands">Essential Commands</a>        <ul>
+          <li><a href="#basic-navigation" id="markdown-toc-basic-navigation">Basic Navigation</a></li>
+          <li><a href="#breakpoints" id="markdown-toc-breakpoints">Breakpoints</a></li>
+          <li><a href="#watchpoints" id="markdown-toc-watchpoints">Watchpoints</a></li>
+          <li><a href="#viewing-variables-memory-and-disassembly" id="markdown-toc-viewing-variables-memory-and-disassembly">Viewing Variables, Memory and Disassembly</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
@@ -1071,7 +1282,14 @@ This month we received a lot of helpful feedback from our community, which let u
   <li><a href="#platformio-unified-debugger" id="markdown-toc-platformio-unified-debugger">PlatformIO Unified Debugger</a></li>
   <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
   <li><a href="#working-with-debugger" id="markdown-toc-working-with-debugger">Working with Debugger</a>    <ul>
-      <li><a href="#debug-view" id="markdown-toc-debug-view">Debug View</a></li>
+      <li><a href="#debug-view" id="markdown-toc-debug-view">Debug View</a>        <ul>
+          <li><a href="#controlling-the-program-execution" id="markdown-toc-controlling-the-program-execution">Controlling the program execution</a></li>
+          <li><a href="#managing-breakpoints" id="markdown-toc-managing-breakpoints">Managing Breakpoints</a></li>
+          <li><a href="#call-stack" id="markdown-toc-call-stack">Call Stack</a></li>
+          <li><a href="#working-with-variables" id="markdown-toc-working-with-variables">Working with Variables</a></li>
+          <li><a href="#watch-expressions" id="markdown-toc-watch-expressions">Watch Expressions</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
@@ -1290,8 +1508,17 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <ul id="markdown-toc">
   <li><a href="#what-is-new" id="markdown-toc-what-is-new">What is New</a>    <ul>
-      <li><a href="#debugging" id="markdown-toc-debugging">Debugging</a></li>
-      <li><a href="#build-system" id="markdown-toc-build-system">Build System</a></li>
+      <li><a href="#debugging" id="markdown-toc-debugging">Debugging</a>        <ul>
+          <li><a href="#boosted-performance" id="markdown-toc-boosted-performance">Boosted Performance</a></li>
+          <li><a href="#unit-tests-debugging" id="markdown-toc-unit-tests-debugging">Unit Tests Debugging</a></li>
+          <li><a href="#debugger-for-native-platform" id="markdown-toc-debugger-for-native-platform">Debugger for Native Platform</a></li>
+          <li><a href="#debugging-in-cli-mode-on-windows" id="markdown-toc-debugging-in-cli-mode-on-windows">Debugging in CLI Mode on Windows</a></li>
+        </ul>
+      </li>
+      <li><a href="#build-system" id="markdown-toc-build-system">Build System</a>        <ul>
+          <li><a href="#scons-42" id="markdown-toc-scons-42">SCons 4.2</a></li>
+        </ul>
+      </li>
       <li><a href="#package-management" id="markdown-toc-package-management">Package Management</a></li>
       <li><a href="#static-code-analysis" id="markdown-toc-static-code-analysis">Static Code Analysis</a></li>
     </ul>
@@ -1392,57 +1619,4 @@ Please visit <a href="https://github.com/platformio/platformio-core/releases/tag
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[PlatformIO Core 5.2 is out with boosted PlatformIO Debugging performance, support for SCons 4.2, and improved package management system]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Microsoft leverages PlatformIO for its course “IoT for Beginners”</title><link href="https://piolabs.com/blog/news/microsoft-leverages-platformio.html" rel="alternate" type="text/html" title="Microsoft leverages PlatformIO for its course “IoT for Beginners”" /><published>2021-09-06T00:00:00+03:00</published><updated>2021-09-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/microsoft-leverages-platformio</id><content type="html" xml:base="https://piolabs.com/blog/news/microsoft-leverages-platformio.html"><![CDATA[<p>IoT — the Internet of Things — is one of the biggest growth areas in technology, and one that, to me, is very exciting. You start with a device like a microcontroller, sprinkle some sensors, dust with code, mix in some cloud services and poof! You have smart cities, self-driving cars, automated farming, robotic supermarkets, or devices that can clean your toilet after you shout at Alexa for the third time.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-1.png" alt="PlatformIO lowers the barriers to entry the IoT market as much as possible" /></p>
-
-<p>In my day job at Microsoft, I often get asked how to get started with IoT. Not just “how do I connect my device to the cloud”, but really get started with understanding devices, sensors, actuators, and writing those all-important first lines of code.</p>
-
-<p>This is why a few of us spent a number of months putting together <a href="https://github.com/microsoft/IoT-For-Beginners" target="_blank">IoT for beginners</a>, a 24-lesson curriculum designed for teachers, students and learners of all types who want to learn IoT. This curriculum uses project-guided learning, built around the journey of food from farm to table, covering digital agriculture, logistics, manufacturing, retail, and consumer products.</p>
-
-<p><img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png" alt="PlatformIO featured in Microsoft course IoT for Beginners" /></p>
-
-<p>We wanted to make sure we covered a range of hardware choices – Arduino for those interested in microcontrollers, and Raspberry Pis for those interested in single-board computers. When using this hardware, we also wanted to lower the barriers to entry as much as possible. We needed to pick an ecosystem for components to reduce the need to solder and understand electronics, and we needed to ensure the software we recommended worked to support the learner, not be another hurdle to overcome.</p>
-
-<p><img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-2.png" alt="PlatformIO is the preferred tool for Microsoft IoT curriculum" /></p>
-
-<p>It was an easy decision to pick PlatformIO as our development tool of choice for microcontroller development. Although other tools are available, such as Arduino’s own IDE, PlatformIO is our preferred tool for this curriculum for several reasons:</p>
-
-<ul>
-  <li>
-    <p><strong>Visual Studio Code integration</strong> – VS Code is an incredibly powerful developer text editor, with an extension model that supports many different languages and tools. Using PlatformIO meant learners can use the same tool to not only program their microcontrollers, but also to build the cloud services that make up modern IoT applications. One tool for C++ on the device, Python in cloud-based serverless functions, and JavaScript and HTML for data visualization web sites.</p>
-  </li>
-  <li>
-    <p><strong>Integration with the Microsoft C/C++ language tooling</strong> – The language tooling for C/C++ in VS Code is incredibly powerful, providing the intellisense, code completion, navigation, and other features that modern developers expect from their tools. All this comes for free when developing Arduino applications in C/C++.</p>
-  </li>
-  <li>
-    <p><strong>Library management</strong> – Arduino library management can be confusing, especially for beginners. Knowing which libraries to add to your project, setting up additional library paths, and managing library versions are all complexities that beginners don’t want to handle, they just want the code to work. Being able to manage these from a single project configuration file removes these complexities, and allows developers to just grab some code, compile it and go, rather than have to know what libraries are needed and manually work to install them.</p>
-  </li>
-  <li>
-    <p><strong>All in one tooling</strong> – Developing for embedded devices can mean a headache of installing different tools, sometimes breaking your existing tooling for other platforms. PlatformIO takes this headache away by installing everything you need in an isolated way. We knew we could instruct learners to install PlatformIO and pick their board, and it wouldn’t break anything they already have installed, and wouldn’t limit what they could do in the future with different hardware.</p>
-  </li>
-  <li>
-    <p><strong>Multi-platform support</strong> – PlatformIO and VS Code can run on Windows, macOS, Linux and even on Raspberry Pi OS, meaning most developers can get started using it.</p>
-  </li>
-  <li>
-    <p><strong>Preparing learners for the future</strong> – Although our IoT for beginners course only focuses on Arduino for microcontroller development with the Wio Terminal, we wanted to ensure the skills they learned transfer to other boards and frameworks. By using PlatformIO they would be able to continue their IoT journey using the same tools, and not have to start their learning again outside of their comfort zone.</p>
-  </li>
-</ul>
-
-<p>Grab your microcontroller and some <a href="https://www.seeedstudio.com/IoT-for-beginners-with-Seeed-and-Microsoft-Wio-Terminal-Starter-Kit-p-5006.html" target="_blank">sensors from our friends at Seeed Studio</a>, fire up VS Code, install PlatformIO and get learning.</p>
-
-<p>Without further ado, please meet <a href="https://github.com/microsoft/IoT-For-Beginners" target="_blank">IoT For Beginners: A Curriculum</a>!</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-roadmap.jpg&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-roadmap.jpg" />
-</a></p>
-
-<h2 id="about-microsoft">About Microsoft</h2>
-
-<p>Microsoft Corporation was founded in 1975 and is a leading global vendor of computer software and hardware that develops, licenses and supports a wide range of products, services, devices, and solutions, with a mission to empower every person and every organization on the planet to achieve more.</p>
-
-<h2 id="about-platformio-labs">About PlatformIO Labs</h2>
-
-<p>PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;D branch in Ukraine. To learn more, follow them on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a>, Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a>, or visit <a href="https://piolabs.com/">piolabs.com</a>.</p>]]></content><author><name>Jim Bennett</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Learn the Internet of things in a 24-lesson curriculum designed for teachers, students and learners of all types who want to explore IoT with VS Code and PlatformIO]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-06-microsoft-leverages-platformio/iot-for-beginners-logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[PlatformIO Core 5.2 is out with boosted PlatformIO Debugging performance, support for SCons 4.2, and improved package management system]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
