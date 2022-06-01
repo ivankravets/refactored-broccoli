@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-05-17T19:00:42+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 6.0 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-0-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.0 🚀" /><published>2022-05-16T00:00:00+03:00</published><updated>2022-05-16T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-0-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-0-released.html"><![CDATA[<p>We are happy to announce the major release of PlatformIO Core with unified
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-06-01T16:09:21+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2022-06-01T00:00:00+03:00</published><updated>2022-06-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html"><![CDATA[<p>Welcome to the May 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-may-news.jpg" alt="PlatformIO Open Source May Updates" /></p>
+
+<p>During May, we have released a new major feature-packed version of PlatformIO Core, rolled out updates for the Espressif32, Microchip MegaAVR and several other development platforms, resolved a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#platformio-core-60" id="markdown-toc-platformio-core-60">PlatformIO Core 6.0</a></li>
+  <li><a href="#espressif32-v43" id="markdown-toc-espressif32-v43">Espressif32 v4.3</a></li>
+  <li><a href="#microchip-megaavr-dev-platform-v16" id="markdown-toc-microchip-megaavr-dev-platform-v16">Microchip megaAVR dev-platform v1.6</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v31" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v31">Arduino Core for mbed-enabled devices v3.1</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="platformio-core-60">PlatformIO Core 6.0</h2>
+
+<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next major v6.0 release. This milestone we received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements. Major enhancements include the following:</p>
+
+<ul>
+  <li><strong>Revamped Unit Testing Engine</strong>. An absolutely new workflow for test-driven development in the embedded systems industry.
+A rich list of supported <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/index.html">Unit Testing Frameworks</a>
+and ability to run tests in virtual environments via simulation tools makes PlatformIO a perfect choice for developing complex embedded
+projects that require sophisticated testing workflows even without real hardware at hand.</li>
+  <li><strong>Renovated Package Management</strong>. The new package management solution allows developers to use a modern declarative approach
+for safety-critical embedded development. Using the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html#cmd-pkg-install-requirements">Semantic Version Requirements</a>
+guarantees the full project reproducibility on any supported host machine for decades.</li>
+  <li><strong>Cross-platform Virtual symbolic links</strong>. The most requested feature that brings the ability to link existing packages
+with any project in an easy and unified way without hard copying (duplicating) the files.</li>
+</ul>
+
+<p>See the full <a href="https://github.com/platformio/platformio-core/releases/tag/v6.0.0">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
+
+<h2 id="espressif32-v43">Espressif32 v4.3</h2>
+
+<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform comes with a lot of new boards, the latest stable Arduino core v2.0.3 and a lot of fixes and improvements:</p>
+
+<ul>
+  <li>Added new boards: <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32s3.html">Adafruit Feather ESP32-S3 No PSRAM</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32_v2.html">Adafruit Feather ESP32 V2</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32.html">Adafruit QT Py ESP32</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32c3.html">Adafruit QT Py ESP32-C3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32s3.html">Adafruit QT Py ESP32-S3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/airm2m_core_esp32c3.json.html">AirM2M CORE ESP32C3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/deneyapkart1A.json.html">Deneyap Kart 1A</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32-s3-devkitc-1.html">Espressif ESP32-S3-DevKitC-1</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32s3box.json.html">Espressif ESP32-S3-Box</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32s3camlcd.json.html">ESP32S3 CAM LCD</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_c3_mini.html">WEMOS LOLIN C3 Mini</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s2_mini.json.html">WEMOS LOLIN S2 Mini</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s2_pico.json.html">WEMOS LOLIN S2 PICO</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/trueverit-iot-driver-mk3.html">Trueverit ESP32 Universal IoT Driver MK III</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_feathers3.html">Unexpected Maker FeatherS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_pros3.html">Unexpected Maker PROS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_rmp.html">Unexpected Maker RMP</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_tinys3.html">Unexpected Maker TinyS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/watchy.html">SQFMI Watchy v2.0</a></li>
+  <li>Added support for Arduino v2.0.3 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.3">release notes</a>)</li>
+  <li>Refactored processing of IDF linker fragments <a href="https://github.com/platformio/platform-espressif32/issues/760">#760</a></li>
+  <li>Fixed an issue with improper optimization level for IDF bootloader that caused bootloop in debug mode <a href="https://github.com/platformio/platform-espressif32/issues/793">#739</a></li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-megaavr-dev-platform-v16">Microchip megaAVR dev-platform v1.6</h2>
+
+<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelmegaavr">megaAVR</a> platform comes with several new boards and generic MCUs, support for the latest Arduino cores and several minor improvements:</p>
+
+<ul>
+  <li>New board manifests for the following boards and generic MCUs: <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/curiosity_nano_da.html">Curiosity Nano AVR128DA48</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/curiosity_nano_db.html">Curiosity Nano AVR128DB48</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1624.html">ATtiny1624</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1626.html">ATtiny1626</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1627.html">ATtiny1627</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3224.html">ATtiny3224</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3226.html">ATtiny3226</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3227.html">ATtiny3227</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny424.html">ATtiny424</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny426.html">ATtiny426</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny427.html">ATtiny427</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny824.html">ATtiny824</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny826.html">ATtiny826</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny827.html">ATtiny827</a></li>
+  <li>Added support for Arduino DxCore (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/19">#19</a>)</li>
+  <li>Updated MegaTinyCore to v2.5.11 (<a href="https://github.com/SpenceKonde/megaTinyCore/releases/tag/2.5.11">release notes</a>)</li>
+  <li>Updated MegaCoreX to v1.0.10 (<a href="https://github.com/MCUdude/MegaCoreX/releases/tag/v1.0.10">release notes</a>)</li>
+  <li>Better handling of the bootloader path in AVRDUDE upload flags (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/33">#33</a>)</li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/20">#20</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/31">#31</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/37">#37</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/39">#39</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Microchip megaAVR dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v31">Arduino Core for mbed-enabled devices v3.1</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v3.1 According to the release notes, v3.1 brings a lot of bugfixes and improvements in core and accompanying libraries.</p>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.0, New boards & dev-kits, Support for the latest Arduino ESP32 core v2.0.3, Updated Arduino Cores for Microchip MegaAVR and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 6.0 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-0-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.0 🚀" /><published>2022-05-16T00:00:00+03:00</published><updated>2022-05-16T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-0-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-0-released.html"><![CDATA[<p>We are happy to announce the major release of PlatformIO Core with unified
 Package Management CLI and a new generation of PlatformIO Unit Testing solution
 that brings advanced instruments and new opportunities for test-driven embedded
 development.</p>
@@ -1498,125 +1577,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><category term="featured" /><summary type="html"><![CDATA[Debugging is an inseparable part of the development process. The first part provides a brief introduction to the debugging concept and covers the basics of debugging process used in the PlatformIO IDE for VSCode.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 5.2 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-5-2-released.html" rel="alternate" type="text/html" title="PlatformIO Core 5.2 🚀" /><published>2021-09-13T00:00:00+03:00</published><updated>2021-09-13T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-5-2-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-5-2-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with the boosted PlatformIO Debugging performance, support for the latest SCons 4.2, improved package management system, and many other minor fixes and improvements.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" alt="PlatformIO Core 5.2 🚀" /></p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#what-is-new" id="markdown-toc-what-is-new">What is New</a>    <ul>
-      <li><a href="#debugging" id="markdown-toc-debugging">Debugging</a>        <ul>
-          <li><a href="#boosted-performance" id="markdown-toc-boosted-performance">Boosted Performance</a></li>
-          <li><a href="#unit-tests-debugging" id="markdown-toc-unit-tests-debugging">Unit Tests Debugging</a></li>
-          <li><a href="#debugger-for-native-platform" id="markdown-toc-debugger-for-native-platform">Debugger for Native Platform</a></li>
-          <li><a href="#debugging-in-cli-mode-on-windows" id="markdown-toc-debugging-in-cli-mode-on-windows">Debugging in CLI Mode on Windows</a></li>
-        </ul>
-      </li>
-      <li><a href="#build-system" id="markdown-toc-build-system">Build System</a>        <ul>
-          <li><a href="#scons-42" id="markdown-toc-scons-42">SCons 4.2</a></li>
-        </ul>
-      </li>
-      <li><a href="#package-management" id="markdown-toc-package-management">Package Management</a></li>
-      <li><a href="#static-code-analysis" id="markdown-toc-static-code-analysis">Static Code Analysis</a></li>
-    </ul>
-  </li>
-  <li><a href="#upgrade" id="markdown-toc-upgrade">Upgrade</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="what-is-new">What is New</h2>
-
-<p>In this section, we are going to highlight the most important changes and features introduced in PlatformIO Core 5.2.
-Please visit <a href="https://github.com/platformio/platformio-core/releases/tag/v5.2.0" target="_blank">PlatformIO 5.2.0 Release Notes</a> for more detailed information.</p>
-
-<h3 id="debugging">Debugging</h3>
-
-<p>In our ongoing effort to improve the debugging experience in PlatformIO, we’ve managed to prepare several great new features and enhancements that will help developers debug their projects in a much faster and effective way.</p>
-
-<h4 id="boosted-performance">Boosted Performance</h4>
-
-<p>PlatformIO Core 5.2 brings significantly boosted debugging performance by migrating the codebase to the pure Python 3 Asynchronous I/O stack. This approach solves previous issues caused by the Twisted engine that depends on operating system libraries and 3rd-party Python packages. Thanks to these improvements, developers can get a blazingly fast and responsive debugging experience even in CLI mode!</p>
-
-<!-- Youtube video -->
-<p><a data-bigpicture="{&quot;ytSrc&quot;: &quot;NngpaA2klAY&quot;}" href="#">
-  <img src="/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-debug-demo-cover.jpg" class="img-fluid" alt="PlatformIO Core 5.2 🚀" />
-</a></p>
-
-<h4 id="unit-tests-debugging">Unit Tests Debugging</h4>
-
-<p>It’s an incredibly frustrating situation when a test fails for no obvious reason. Printing variables to the console while trying to find where your test is misbehaving can take a significant amount of time and patience. On the other hand, a full-featured debug session with the ability to step through the code of your unit tests can give all the necessary information to hunt down and isolate bugs in your codebase. PlatformIO Core 5.2 makes debugging tests incredibly easy simply by adding a <a href="https://docs.platformio.org/en/latest/projectconf/section_env_debug.html#debug-test">single line</a> your configuration file:</p>
-
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:debug_unit_tests]</span>
-<span class="py">platform</span> <span class="p">=</span> <span class="s">ststm32</span>
-<span class="py">framework</span> <span class="p">=</span> <span class="s">arduino</span>
-<span class="py">board</span> <span class="p">=</span> <span class="s">nucleo_f401re</span>
-<span class="c">; Use a test file located in the test directory as the entry point
-</span><span class="py">debug_test</span> <span class="p">=</span> <span class="s">*</span>
-</code></pre></div></div>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-unit-tests.gif&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-13-platformio-core-5-2-released/debug-unit-tests.gif" />
-</a></p>
-
-<h4 id="debugger-for-native-platform">Debugger for Native Platform</h4>
-
-<p>Even though PlatformIO was created to help develop embedded projects, it’s always handy to be able to run and debug projects locally without the need to upload the code to an embedded target. Starting with PlatformIO Core 5.2, embedded developers can debug their applications on host machines using the same usual workflow.</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-native.gif&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-13-platformio-core-5-2-released/debug-native.gif" />
-</a></p>
-
-<h4 id="debugging-in-cli-mode-on-windows">Debugging in CLI Mode on Windows</h4>
-
-<p>Another commonly requested feature implemented in PlatformIO Core 5.2 is debugging projects on Windows OS via the command-line interface. Although the CLI might not be as user-friendly as a feature-rich IDE, it’s still a great instrument to quickly and efficiently find bugs in your codebase.</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-13-platformio-core-5-2-released/debug-windows-cli.gif&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-13-platformio-core-5-2-released/debug-windows-cli.gif" />
-</a></p>
-
-<h3 id="build-system">Build System</h3>
-
-<h4 id="scons-42">SCons 4.2</h4>
-
-<p>The PlatformIO Core 5.2 build engine has been upgraded to the latest <a href="https://scons.org/" target="_blank">SCons 4.2 - a next-generation software construction tool</a>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/page/projectconf/advanced_scripting.html">Configuration files are Python scripts</a> – use the power of a real programming language to solve build problems</li>
-  <li>Built-in reliable and automatic dependency analysis</li>
-</ul>
-
-<h3 id="package-management">Package Management</h3>
-
-<p>PlatformIO Core 5.2 introduces the updated package management system with a more error-proof and intuitive package publishing process. Now, any package manifest is validated on the client side and its metadata is shown in a readable format before publishing it to the PlatformIO Trusted Registry.</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-13-platformio-core-5-2-released/package-management-updates.gif&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-13-platformio-core-5-2-released/package-management-updates.gif" />
-</a></p>
-
-<p>Improved checks for conflicting names and duplicates will catch accidental errors and typos in package manifests and won’t allow developers to publish erroneous packages to the PlatformIO Trusted Registry.</p>
-
-<p>Additionally, a new CLI option <code class="language-plaintext highlighter-rouge">--non-interactive</code> might come in handy for automated uploads directly from CI/CD services in your deployment pipeline.</p>
-
-<h3 id="static-code-analysis">Static Code Analysis</h3>
-
-<p>We’ve updated backend static analysis tools to the latest available versions. Now developers can identify even more potential bugs, vulnerabilities and security threats.</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/page/plus/check-tools/clang-tidy.html">Clang-Tidy</a> v12.0.1 with new modules and extended checks list</li>
-  <li><a href="https://docs.platformio.org/page/plus/check-tools/cppcheck.html">Cppcheck</a> v2.5.0 with improved code analysis and MISRA improvements</li>
-  <li><a href="https://docs.platformio.org/page/plus/check-tools/pvs-studio.html">PVS-Studio</a> v7.14 with support for intermodular analysis, improved MISRA support and new diagnostics</li>
-</ul>
-
-<h2 id="upgrade">Upgrade</h2>
-
-<ul>
-  <li><strong>PlatformIO IDE</strong>: Left Sidebar &gt; PlatformIO (icon) &gt; Quick Access &gt; Upgrade PlatformIO Core</li>
-  <li><strong>Terminal</strong>: Please run <code class="language-plaintext highlighter-rouge">pio upgrade</code> command in terminal.</li>
-</ul>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[PlatformIO Core 5.2 is out with boosted PlatformIO Debugging performance, support for SCons 4.2, and improved package management system]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-13-platformio-core-5-2-released/platformio-core-5-2-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><category term="featured" /><summary type="html"><![CDATA[Debugging is an inseparable part of the development process. The first part provides a brief introduction to the debugging concept and covers the basics of debugging process used in the PlatformIO IDE for VSCode.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
