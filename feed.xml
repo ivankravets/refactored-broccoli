@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-06-01T16:09:21+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2022-06-01T00:00:00+03:00</published><updated>2022-06-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html"><![CDATA[<p>Welcome to the May 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-06-06T18:11:00+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Espressif Systems Leverages PlatformIO Labs Next-Gen Technology for its Software Products</title><link href="https://piolabs.com/blog/press-releases/espressif-leverages-platformio-labs-technology.html" rel="alternate" type="text/html" title="Espressif Systems Leverages PlatformIO Labs Next-Gen Technology for its Software Products" /><published>2022-06-06T00:00:00+03:00</published><updated>2022-06-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/press-releases/espressif-leverages-platformio-labs-technology</id><content type="html" xml:base="https://piolabs.com/blog/press-releases/espressif-leverages-platformio-labs-technology.html"><![CDATA[<p>The Internet of Things is continually evolving and becoming increasingly complex. Taking into account the ever-changing market needs and short product development cycles, proper development tooling is crucial for creating IoT products. It also plays an important role when developers are trying to achieve efficiency, performance, and low power consumption in their products. Professionals care deeply about the quality of the available software development tools and that’s why their everyday instruments should be considered as one of the most significant components of any IoT product.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" alt="Espressif Systems Leverages PlatformIO Labs Next-Gen Technology for its Software Products" /></p>
+
+<p>Over the years, <a href="https://www.espressif.com/" target="_blank">Espressif Systems</a> has been driving the IoT industry by providing highly sophisticated wireless SoC designs optimized for high-end IoT applications. Espressif, as a truly innovative company, clearly understands that successful IoT implementations require a robust ecosystem of software and development tools. To address this challenge, Espressif offers its customers high-quality open-source instruments to make professional software development a more productive and enjoyable experience.</p>
+
+<hr class="hr-md my-7" />
+
+<blockquote class="blockquote">
+<p class="h2 mb-5 mb-md-7 text-center text-primary">
+“PlatformIO Labs is a well-known expert in the development environment solutions for the embedded systems industry with a deep commitment to the open-source community. We are excited to welcome PlatformIO Labs as our partner. Together with our own IoT operating system, ESP-IDF, we look forward to providing more choices to developers, and creating a better user experience for them.”
+</p>
+<footer class="text-center">
+  <p class="h4 mb-0">Ivan Grokhotkov</p>
+  <p class="fs-sm text-muted mb-0">VP of Software Platforms, Espressif</p>
+</footer>
+</blockquote>
+<hr class="hr-md my-7" />
+
+<p>PlatformIO Labs’ <a href="/technology/next-generation-ide-framework.html">Technology-as-a-Service</a> perfectly complements Espressif’s ecosystem. It provides developers with cross-platform and feature-rich instruments that deliver a superior developer experience. Its modular architecture enables developers to access a best-of-breed integrated development environment, by combining their favorite editor with a choice of operating systems, frameworks, SDKs, and enjoying the ease by which PlatformIO’s modern and powerful features speed up yet simplify the creation and delivery of embedded products.</p>
+
+<p>Fast and global distribution of software packages is a growing trend in many industries, driving a need for the rapid development of new connected devices. PlatformIO Labs’ <a href="/technology/trusted-package-registry.html">Trusted Package Registry</a> provides Espressif Systems with a powerful turn-key storage solution developed for convenient and flexible package management with built-in fine-grained access control. It helps Espressif Systems to quickly and securely deliver pre-built packages to developers, teams, and hardware manufacturers worldwide via a secure and reliable distribution channel at scale.</p>
+
+<hr class="hr-md my-7" />
+
+<blockquote class="blockquote">
+<p class="h2 mb-5 mb-md-7 text-center text-primary">
+“We are pleased to take part in the evolution of Espressif Systems' ecosystem and bring powerful embedded software development tools to their customers and developers. By working closely together with Espressif Systems on integrating their products, we can further drive the industry to create improved open-source IoT solutions for consumers.”
+</p>
+<footer class="text-center">
+  <p class="h4 mb-0">Ivan Kravets</p>
+  <p class="fs-sm text-muted mb-0">Founder and CEO of PlatformIO Labs</p>
+</footer>
+</blockquote>
+<hr class="hr-md my-7" />
+
+<p>This partnership reaffirms PlatformIO Labs’ long-standing commitment to driving innovations through open-source collaborations and demonstrates progress toward its stated goal of establishing the PlatformIO development ecosystem as the future de-facto standard for embedded development. We hope that Espressif’s community will enjoy a more pleasant developer experience based on this win-win collaboration.</p>
+
+<h2 id="about-espressif-systems">About Espressif Systems</h2>
+
+<p>Espressif Systems (688018.SH) is a public multinational, fabless semiconductor company established in 2008, with offices in China, the Czech Republic, India, Singapore and Brazil. They have a passionate team of engineers and scientists from all over the world, focused on developing cutting-edge wireless communication, low-power, AIoT solutions. They have created the popular ESP8266, ESP32, ESP32-S, ESP32-C and ESP32-H series of chips, modules and development boards. By leveraging wireless computing, they provide green, versatile and cost-effective chipsets. They are committed to offering solutions that are secure, robust and power-efficient. At the same time, by open-sourcing our technology and solutions, they aim to enable developers to use Espressif’s solutions globally and build their own smart-connected devices.</p>
+
+<h2 id="about-platformio-labs">About PlatformIO Labs</h2>
+
+<p>PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;D branch in Ukraine. To learn more, follow them on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a>, Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a>, or visit <a href="https://piolabs.com/">piolabs.com</a>.</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html"><![CDATA[The two companies begin wide-ranging collaboration on providing a next-generation development ecosystem for IoT solutions to drive the embedded systems industry]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2022-06-01T00:00:00+03:00</published><updated>2022-06-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html"><![CDATA[<p>Welcome to the May 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
 <!-- more -->
@@ -1334,247 +1380,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 5.2, New boards & dev-kits, Support for Zephyr v2.7.0 and Teensyduino v1.55, Updated Arduino Cores for Microchip SAM, ST STM32, Nordic nRF52 and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Debugging with PlatformIO: Part 1. Back to the Basics</title><link href="https://piolabs.com/blog/insights/debugging-introduction.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 1. Back to the Basics" /><published>2021-09-20T00:00:00+03:00</published><updated>2021-09-20T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/debugging-introduction</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-introduction.html"><![CDATA[<p>Debugging is an inseparable part of the development process. People make mistakes, so our code doesn’t do what we expect once in a while. Often such problems happen at the worst possible time. That’s why it’s a good idea to master debugging techniques and skills to more precisely isolate the source code of a problem and fix it in a timely manner.</p>
-
-<!-- more -->
-
-<p>In the <strong>Debugging with PlatformIO</strong> series, we will be exploring the debugging capabilities of the PlatformIO ecosystem. This series will walk you through the core concepts of the debug workflow implemented in <a href="https://docs.platformio.org/en/latest/plus/debugging.html">PlatformIO Unified Debugger</a>. In each part, we will explore new features and techniques which can greatly help us out when we bump into a thorny problem in a real project.</p>
-
-<p>This series will cover a broad range of topics, starting from the basics like debugging a simple application running on your machine up to advanced topics like debugging a suite of unit tests on a remote embedded target. In each following post, we will use a new combination of debug probes and targets to show how easy it’s to switch between hardware simply by changing several lines in the PlatformIO configuration file. For your reference, below is a list of the articles in this series:</p>
-
-<ul>
-  <li>Part 1. Back to the Basics (this article)</li>
-  <li><a href="/blog/insights/debugging-embedded.html">Part 2. Debugging an Embedded Target</a></li>
-  <li><a href="/blog/insights/debugging-cli.html">Part 3. PlatformIO Unified Debugger in CLI mode</a></li>
-  <li>Part 4. Using Semihosting on ARM Targets (coming soon).</li>
-</ul>
-
-<p>Although throughout this series we will be using the PlatformIO IDE for VScode, PlatformIO Unified Debugger supports many other Desktop and Cloud development environments, including <a href="https://docs.platformio.org/en/latest/integration/ide/eclipse.html">Eclipse</a> and <a href="https://docs.platformio.org/en/latest/integration/ide/clion.html">JetBrains CLion</a>.</p>
-
-<p>The first part provides a brief introduction to the debugging concept and gives a basic overview of debugging process used in the PlatformIO IDE for VSCode without any reference to the embedded software development. Setting breakpoints, adding watch expressions, and other essential features of the debugger are covered in this part.</p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
-  <li><a href="#basic-principles" id="markdown-toc-basic-principles">Basic Principles</a></li>
-  <li><a href="#platformio-unified-debugger" id="markdown-toc-platformio-unified-debugger">PlatformIO Unified Debugger</a></li>
-  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
-  <li><a href="#working-with-debugger" id="markdown-toc-working-with-debugger">Working with Debugger</a>    <ul>
-      <li><a href="#debug-view" id="markdown-toc-debug-view">Debug View</a>        <ul>
-          <li><a href="#controlling-the-program-execution" id="markdown-toc-controlling-the-program-execution">Controlling the program execution</a></li>
-          <li><a href="#managing-breakpoints" id="markdown-toc-managing-breakpoints">Managing Breakpoints</a></li>
-          <li><a href="#call-stack" id="markdown-toc-call-stack">Call Stack</a></li>
-          <li><a href="#working-with-variables" id="markdown-toc-working-with-variables">Working with Variables</a></li>
-          <li><a href="#watch-expressions" id="markdown-toc-watch-expressions">Watch Expressions</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="prerequisites">Prerequisites</h2>
-
-<p>This article uses the following components:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">VSCode with installed PlatformIO IDE extension</a></li>
-  <li><a href="https://registry.platformio.org/platforms/platformio/native">Native Development Platform</a></li>
-</ul>
-
-<h2 id="basic-principles">Basic Principles</h2>
-
-<p>Modern software may be extremely complex, and sooner or later, we’ll find ourselves in a situation when some part of the code doesn’t work as expected. It’s not always clear what causes our code to behave incorrectly or even crash, so we need to get involved and figure out why and where an error occurs in our program. That process of finding and fixing such errors (so-called “bugs”) is called <em>Debugging</em>. Even though debugging is mostly a unique experience, a few general debugging principles can be picked out:</p>
-
-<ul>
-  <li>Reproduce the problem reliably</li>
-  <li>Locate the source of the problem</li>
-  <li>Understand the root cause of the problem</li>
-  <li>Find a solution for the problem</li>
-  <li>Apply the solution and test the fix</li>
-</ul>
-
-<p>While in simple projects we can make do with printing messages directly to the debug console as the code executes (commonly known as “Print Debugging”), it’s definitely a waste of time when it comes to reasonably complex projects. In such cases, we need more advanced and comprehensive instruments to better understand what actually is happening inside our code. Such tools are called <em>debuggers</em>. In general, debuggers allow working with the code interactively, controlling the execution line-by-line, examining CPU registers, inspecting variables, etc.</p>
-
-<p>It’s also worth mentioning that to make use of a debugger we need to compile our code with debugging information (e.g. function locations). In general, such information is inserted by a compiler through the use of debugging symbols. An executable with debugging symbols can be executed as a regular binary, but it may be a slightly bigger size and run a bit slower due to disabled optimizations.</p>
-
-<h2 id="platformio-unified-debugger">PlatformIO Unified Debugger</h2>
-
-<p>Bringing up a debug configuration might be a daunting task. Developers need to get through complex UI windows just to configure a debugger before a debug session can be launched.</p>
-
-<p>PlatformIO Unified Debugger is a user-friendly and extensible unified debugging environment with a set of advanced instruments, providing modern and powerful features to speed up, yet simplify, the creation and delivery of modern applications. A zero debugging configuration with support for the most popular debugging probes and compatibility between IDEs/OSes allowed to simplify the debugging process.</p>
-
-<p>Developers can finally forget about complex UI windows which they need to pre-configure before a simple “Hello World!” debug session. No need to know any aspects about the debugging server or how to configure it because PlatformIO Unified Debugger does all the heavy lifting behind the scenes.</p>
-
-<h2 id="getting-started">Getting Started</h2>
-
-<p>First, we need to install the <code class="language-plaintext highlighter-rouge">native</code> development platform. PlatformIO doesn’t install any toolchains automatically for the native dev-platform and uses the toolchain (preferably based on GCC) native for your OS (on Windows it’s recommended to install MinGW and make it available via the <code class="language-plaintext highlighter-rouge">PATH</code> variable). Let’s install the native dev-platform via PlatformIO Home:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-1.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-1.png" />
-</a></p>
-
-<p>For the sake of simplicity, let’s write a simple application that sorts an array of integers using the <a href="https://en.wikipedia.org/wiki/Quicksort">Quicksort</a> algorithm. Instead of creating our project from scratch, we can import a “Hello World” example using the PlatformIO Home page:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-2.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-2.png" />
-</a></p>
-
-<p>Then simply replace the default code in <code class="language-plaintext highlighter-rouge">main.c</code> with the following code:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span>
-<span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">xp</span><span class="p">,</span> <span class="kt">int</span><span class="o">*</span> <span class="n">yp</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="o">*</span><span class="n">xp</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">xp</span> <span class="o">=</span> <span class="o">*</span><span class="n">yp</span><span class="p">;</span>
-    <span class="o">*</span><span class="n">yp</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">sort</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">array</span><span class="p">,</span> <span class="kt">int</span> <span class="n">first</span><span class="p">,</span> <span class="kt">int</span> <span class="n">last</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">first</span> <span class="o">&lt;</span> <span class="n">last</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">first</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">last</span><span class="p">,</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">array</span><span class="p">[(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">];</span>
-        <span class="k">do</span>
-        <span class="p">{</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">middle</span><span class="p">)</span> <span class="n">left</span><span class="o">++</span><span class="p">;</span>
-            <span class="k">while</span> <span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">middle</span><span class="p">)</span> <span class="n">right</span><span class="o">--</span><span class="p">;</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">right</span><span class="p">]);</span>
-                <span class="n">left</span><span class="o">++</span><span class="p">;</span>
-                <span class="n">right</span><span class="o">--</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">left</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">);</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
-        <span class="n">sort</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">last</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">puts</span><span class="p">(</span><span class="s">"Getting started with PlatformIO Unified Debugger!</span><span class="se">\r\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">input_array</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">86</span> <span class="p">};</span>
-    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">input_array</span><span class="p">)</span><span class="o">/</span><span class="k">sizeof</span><span class="p">(</span><span class="n">input_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="n">sort</span><span class="p">(</span><span class="n">input_array</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>If we try to build the imported project, we should see the successful result:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-3.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-3.png" />
-</a></p>
-
-<p>Please note that the goal of this post is to focus on the debug workflow, so don’t rely on the code presented above in real projects.</p>
-
-<h2 id="working-with-debugger">Working with Debugger</h2>
-
-<p>Now we are ready to start debugging! To launch a new debug session we can use the following options:</p>
-
-<ul>
-  <li>Debug: Start debugging from the top menu</li>
-  <li>Start Debugging option from the <code class="language-plaintext highlighter-rouge">Quick Access</code> menu</li>
-  <li>Hotkey button <code class="language-plaintext highlighter-rouge">F5</code>:</li>
-</ul>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-4.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-4.png" />
-</a></p>
-
-<p>Our program will start executing and then stop at the first breakpoint. Keep in mind that, by default, PlatformIO instructs the debugger to stop at the <code class="language-plaintext highlighter-rouge">main</code> function. Let’s take a closer look at our project using the debugger and its features.</p>
-
-<h3 id="debug-view">Debug View</h3>
-
-<p>When we start a debug session, the IDE switches to the “Debug View” with several panes which provide easy access to the debugger’s functionality:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-5.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-5.png" />
-</a></p>
-
-<p>Let’s look around and examine the most important elements.</p>
-
-<h4 id="controlling-the-program-execution">Controlling the program execution</h4>
-
-<p>The Debugger View provides complete control of the debugging process. You can access most of the essential control actions such as:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-6.png" alt="Debug Control Actions" />
-  <figcaption class="figure-caption text-center">
-    Control Actions
-  </figcaption>
-</figure>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Continue/Pause (F5)</code> runs the program until it locates a breakpoint and then stops.</li>
-  <li><code class="language-plaintext highlighter-rouge">Step Over (F10)</code> executes the current statement and all functions that the statement calls and doesn’t suspend the execution until functions return.</li>
-  <li><code class="language-plaintext highlighter-rouge">Step Into (F11)</code> advances the execution to the next statement. If the current statement is a function call, then the debugger steps into that function.</li>
-  <li><code class="language-plaintext highlighter-rouge">Step Out (Shift+F11)</code> moves the execution out of the current function and back to the statement where the function was called.</li>
-  <li><code class="language-plaintext highlighter-rouge">Restart (Ctrl+Shift+F5)</code> is a convenient shortcut for two operations: stopping the debug session and restarting the debugger.</li>
-  <li><code class="language-plaintext highlighter-rouge">Stop (Shift+F5)</code> stops the debug session and terminates the program.</li>
-</ul>
-
-<h4 id="managing-breakpoints">Managing Breakpoints</h4>
-
-<p>Breakpoints are one of the most important features of the debugging process. A breakpoint is a mechanism to suspend the execution of an application to inspect the state of variables with the ability to modify them to figure out why a problem is occurring. Usually, breakpoints are shown as red-filled circles in the editor margin.</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-7.png" alt="Breakpoints Window" />
-  <figcaption class="figure-caption text-center">
-    Breakpoints Window
-  </figcaption>
-</figure>
-
-<p>We can toggle breakpoints directly in the editor pane by clicking on the left margin next to the current line or using the <code class="language-plaintext highlighter-rouge">F9</code> hotkey. A more precise configuration like group enabling, disabling, or setting breakpoint conditions can be done in the <code class="language-plaintext highlighter-rouge">Breakpoints</code> section. In the next posts in this series, we will take a deeper look at more advanced breakpoint configuration, including conditional and data breakpoints.</p>
-
-<h4 id="call-stack">Call Stack</h4>
-
-<p>Each time when the debugger pauses the execution (due to a breakpoint or during stepping), the sequence of function calls is displayed in the “Call Stack” window:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-8.png" alt="Call Stack Window" />
-  <figcaption class="figure-caption text-center">
-    Call Stack Window
-  </figcaption>
-</figure>
-
-<p>The “Call Stack” window is useful when we need to examine the actual execution flow of an application. It shows the name of each called function, its address in memory, the file name and the line number where the function is defined. We can jump between stack frames and the debugger will automatically update the variables and registers. A green line will show where the execution pointer is currently located according to the selected stack frame.</p>
-
-<h4 id="working-with-variables">Working with Variables</h4>
-
-<p>The examination of variables is one of the essential steps for understanding why an application operates incorrectly. When the debugger is suspended, the “Variables” window allows us to inspect and modify the variables available in the context where an application is paused:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-9.png" alt="Variables Window" />
-  <figcaption class="figure-caption text-center">
-    Variables Window
-  </figcaption>
-</figure>
-
-<p>If we double-click the value for a variable, we can edit its value. It may be useful when there is a need to verify how an application would work in a certain condition at runtime.</p>
-
-<h4 id="watch-expressions">Watch Expressions</h4>
-
-<p>The Watch window allows us to specify a variable (or an expression) that will be reevaluated and displayed every time the debugger stops:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-09-20-debugging-introduction/debugging-introduction-10.png" alt="Watch Window" />
-  <figcaption class="figure-caption text-center">
-    Watch Window
-  </figcaption>
-</figure>
-
-<p>To add a new watch expression click the <code class="language-plaintext highlighter-rouge">+</code> button in the top right corner of the panel, type the expression into the text field, and press Enter to save it. The expression will be evaluated each time when the code hits a breakpoint or when we step through the code. Unlike the frame-specific “Variables” window, the “Watch” window always shows the variables that we’ve added.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>All developers make mistakes, and as a result, bugs show up. Learning how to debug effectively takes time, but in the long run, it can make the development process less stressful when an unexpected side effect happens. A debugger in any programming language is an essential instrument for tracking down problems in code, especially in a large and complex codebase.</p>
-
-<p>In this post, we only scratched the surface of capabilities available in PlatformIO Unified Debugger. There is a lot of useful functionality we didn’t cover in this post which can greatly help us in real projects. The <a href="/blog/insights/debugging-embedded.html">next post</a> will be more embedded-specific, we’ll look at some more advanced features, such as peripheral and disassembly views, advanced breakpoints, and much more!</p>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><category term="featured" /><summary type="html"><![CDATA[Debugging is an inseparable part of the development process. The first part provides a brief introduction to the debugging concept and covers the basics of debugging process used in the PlatformIO IDE for VSCode.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-09-20-debugging-introduction/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 5.2, New boards & dev-kits, Support for Zephyr v2.7.0 and Teensyduino v1.55, Updated Arduino Cores for Microchip SAM, ST STM32, Nordic nRF52 and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-october-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
