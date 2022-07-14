@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-07-14T14:56:52+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 6.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.1 🚀" /><published>2022-07-14T00:00:00+03:00</published><updated>2022-07-14T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-1-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with refactored Device Monitor,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-07-14T16:47:30+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 6.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.1 🚀" /><published>2022-07-14T00:00:00+03:00</published><updated>2022-07-14T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-1-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with refactored Device Monitor,
 Pre &amp; Post Actions for library authors, Stringification helpers,
-and improved PlatformIO Unit Testing solution for test-driven embedded development.</p>
+and an improved PlatformIO Unit Testing solution for test-driven embedded development.</p>
 
 <!-- more -->
 
@@ -35,9 +35,9 @@ for more detailed information.</p>
 
 <h3 id="device-monitor">Device Monitor</h3>
 
-<p>Today, it is difficult to imagine modern embedded development without a serial port monitor.
-The PlatformIO Core comes with an advanced <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">Device Monitor</a>
-that is packed with rich features and supports multiple data sources including RFC 2217 remote serial ports and raw sockets.</p>
+<p>Today, it is difficult to imagine modern embedded development without a proper serial port monitor.
+PlatformIO Core comes with an advanced <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">Device Monitor</a>
+packed with rich features and supports multiple data sources, including the RFC 2217 remote serial ports and raw sockets.</p>
 
 <p>It is noteworthy that as distinct from the classic serial port monitors, PlatformIO’s Device Monitor
 allows developers to apply custom filters to the INPUT/OUTPUT streams.
@@ -47,11 +47,11 @@ See the list with <a href="https://docs.platformio.org/en/latest/core/userguide/
 
 <h4 id="automatic-reconnection">Automatic reconnection</h4>
 
-<p>Automatic device reconnection was the most requested feature by a PlatformIO Community. The PlatformIO Core 6.1 comes
-with automatic reconnection of the Device Monitor if a connection fails. This feature can be disabled with
+<p>Automatic device reconnection was the most requested feature by the PlatformIO Community. PlatformIO Core 6.1 comes
+with automatic reconnection of the Device Monitor if a connection fails. This feature can be disabled with the
 <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmdoption-pio-device-monitor-no-reconnect">pio device monitor --no-reconnect</a> option.</p>
 
-<p>A screencast below demonstrates the usage of the <code class="language-plaintext highlighter-rouge">time</code> filter and automatic reconnection:</p>
+<p>The screencast below demonstrates the usage of the <code class="language-plaintext highlighter-rouge">time</code> filter and automatic reconnection:</p>
 
 <p><img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-07-14-platformio-core-6-1-released/device-monitor-reconnecting.gif" /></p>
 
@@ -62,7 +62,7 @@ using the <a href="https://docs.platformio.org/en/latest/core/userguide/device/c
 In this mode, the Device Monitor does not apply any filters and outputs data in the raw format.</p>
 
 <p>A good use case for the <code class="language-plaintext highlighter-rouge">raw</code> option is controlling a terminal (cursor location, color, font styling, etc.) using ANSI escape sequences.
-An example below uses the <code class="language-plaintext highlighter-rouge">raw</code> mode and <a href="https://registry.platformio.org/libraries/robtillaart/ANSI">robtillaart/ANSI</a> library
+The example below uses the <code class="language-plaintext highlighter-rouge">raw</code> mode and the <a href="https://registry.platformio.org/libraries/robtillaart/ANSI">robtillaart/ANSI</a> library
 to send ANSI escape sequences from the embedded device.</p>
 
 <p><img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-07-14-platformio-core-6-1-released/device-monitor-ansi-demo.gif" /></p>
@@ -71,13 +71,13 @@ to send ANSI escape sequences from the embedded device.</p>
 
 <h4 id="pre--post-actions">Pre &amp; Post Actions</h4>
 
-<p>The PlatformIO Core 6.1 received significantly improved support for <a href="https://docs.platformio.org/en/latest/scripting/actions.html">Pre &amp; Post Actions</a>.
-They can be now used in <a href="https://docs.platformio.org/en/latest/scripting/launch_types.html">PRE-type scripts</a>
+<p>PlatformIO Core 6.1 received significantly improved support for <a href="https://docs.platformio.org/en/latest/scripting/actions.html">Pre &amp; Post Actions</a>.
+They can now be used in <a href="https://docs.platformio.org/en/latest/scripting/launch_types.html">PRE-type scripts</a>
 for the targets even if they are not available at the declaration time.</p>
 
-<p>Library authors also can benefit from this new feature. The Pre &amp; Post Actions are allowed now in
+<p>Library authors also can benefit from this new feature. The Pre &amp; Post Actions are now allowed in
 the <a href="https://docs.platformio.org/en/latest/manifests/library-json/fields/build/extrascript.html">extraScript</a>
-when using <a href="https://docs.platformio.org/en/latest/manifests/library-json/index.html">library.json</a> manifest.</p>
+when using the <a href="https://docs.platformio.org/en/latest/manifests/library-json/index.html">library.json</a> manifest.</p>
 
 <p><strong>library.json</strong>:</p>
 
@@ -105,15 +105,15 @@ when using <a href="https://docs.platformio.org/en/latest/manifests/library-json
 
 <h4 id="stringification">Stringification</h4>
 
-<p>Passing a macro flag (<code class="language-plaintext highlighter-rouge">-D</code>) to the compiler command whose value is a string always was a pain.
+<p>Passing a macro flag (<code class="language-plaintext highlighter-rouge">-D</code>) with a string value to the compiler command has always been a pain.
 This process requires special escaping of the shell symbols and macro-expansion to the valid C String constant
 (<a href="https://docs.platformio.org/en/latest/projectconf/section_env_build.html#stringification">Stringification</a>) in the source code.</p>
 
-<p>The PlatformIO Core 6.1 extends the Build System API with a new <code class="language-plaintext highlighter-rouge">env.StringifyMacro(value)</code> helper function that
-automatically escapes macro argument. It is very useful for passing dynamic data such as program version,
-Wi-Fi credentials, or user’s data (<a href="https://docs.platformio.org/en/latest/scripting/examples/asking_for_input.html">Asking for input (prompts)</a>).</p>
+<p>PlatformIO Core 6.1 extends the Build System API with a new <code class="language-plaintext highlighter-rouge">env.StringifyMacro(value)</code> helper function that
+automatically escapes macro arguments. It is very useful for passing dynamic data such as program version,
+Wi-Fi credentials, or user data (<a href="https://docs.platformio.org/en/latest/scripting/examples/asking_for_input.html">Asking for input (prompts)</a>).</p>
 
-<p>An example below demonstrates how to read a user name and pass it as a string using the <code class="language-plaintext highlighter-rouge">USER_NAME</code> macro:</p>
+<p>The example below demonstrates how to read a username and pass it as a string using the <code class="language-plaintext highlighter-rouge">USER_NAME</code> macro:</p>
 
 <p><strong>platformio.ini</strong>:</p>
 
