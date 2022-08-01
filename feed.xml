@@ -1,4 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-07-14T16:47:30+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Core 6.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.1 🚀" /><published>2022-07-14T00:00:00+03:00</published><updated>2022-07-14T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-1-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with refactored Device Monitor,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2022-08-01T14:48:15+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source July Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-july-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source July Updates" /><published>2022-08-01T00:00:00+03:00</published><updated>2022-08-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-july-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-july-2022-updates.html"><![CDATA[<p>Welcome to the July 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-july-news.jpg" alt="PlatformIO Open Source July Updates" /></p>
+
+<p>During July, we have released a new version of PlatformIO Core, rolled out updates for the Espressif32 and Teensy platforms, resolved a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#platformio-core-61" id="markdown-toc-platformio-core-61">PlatformIO Core 6.1</a></li>
+  <li><a href="#espressif32-v51" id="markdown-toc-espressif32-v51">Espressif32 v5.1</a></li>
+  <li><a href="#teensy-dev-platform-v417" id="markdown-toc-teensy-dev-platform-v417">Teensy dev-platform v4.17</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="platformio-core-61">PlatformIO Core 6.1</h2>
+
+<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next minor v6.1 release. This milestone we received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements. Major enhancements include the following:</p>
+
+<ul>
+  <li><strong>Renovated Device Monitor</strong>. PlatformIO Core v6.1 brings the improved <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">Device Monitor</a>
+packed with a lot of new features. The new Device Monitor comes with support for multiple data sources (including the RFC 2217 remote serial ports and raw sockets), automatic reconnection and ANSI escape codes.</li>
+  <li><strong>Build System API Upgrades</strong>. New helper functions and significant improvements to the <a href="https://docs.platformio.org/en/latest/scripting/actions.html">Pre &amp; Post Actions</a> will greatly simplify the lives of library developers by allowing them to control their build environment even more precisely.</li>
+</ul>
+
+<p>See the full <a href="https://github.com/platformio/platformio-core/releases/tag/v6.1.0">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
+
+<h2 id="espressif32-v51">Espressif32 v5.1</h2>
+
+<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform comes with a bunch of new boards and dev-kits, the latest stable Arduino core v2.0.4 and a lot of fixes and improvements:</p>
+
+<ul>
+  <li>Added new boards:
+    <ul>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32s3_tft.html">Adafruit Feather ESP32-S3 TFT</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32s3_nopsram.html">Adafruit Feather ESP32-S3 No PSRAM</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/cnrs_aw2eth.html">CNRS AW2ETH</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/connaxio_espoir.html">Connaxio’s Espoir</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/dfrobot_beetle_esp32c3.html">DFRobot Beetle ESP32-C3</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/dfrobot_firebeetle2_esp32s3.html">DFRobot Firebeetle 2 ESP32-S3</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/seeed_xiao_esp32c3.html">Seeed Studio XIAO ESP32C3</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/wemos_d1_uno32.html">WEMOS D1 R32</a></li>
+    </ul>
+  </li>
+  <li>Added support for Arduino v2.0.4 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.4">release notes</a>)</li>
+  <li>Updated OpenOCD package to v0.11.0-esp32-20220706 (<a href="https://github.com/espressif/openocd-esp32/releases/tag/v0.11.0-esp32-20220706">release notes</a>)</li>
+  <li>Arduino build flags now propagated to the global scope for mixed IDF/Arduino projects <a href="https://github.com/platformio/platform-espressif32/issues/848">#848</a></li>
+  <li>Fixed flash memory size for <code class="language-plaintext highlighter-rouge">adafruit_feather_esp32s3</code> <a href="https://github.com/platformio/platform-espressif32/issues/836">#836</a></li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-espressif32/issues/829">#829</a>, <a href="https://github.com/platformio/platform-espressif32/issues/853">#853</a>, <a href="https://github.com/platformio/platform-espressif32/issues/863">#863</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="teensy-dev-platform-v417">Teensy dev-platform v4.17</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/teensy">Teensy</a> dev-platform brings support for the latest Teensyduino v1.57:</p>
+
+<ul>
+  <li>Updated Teensyduino to <code class="language-plaintext highlighter-rouge">v1.57</code> (<a href="https://github.com/PaulStoffregen/cores/releases/tag/1.57">release notes</a>)</li>
+  <li>Added HWIDs for Teensy 4</li>
+  <li>Added missing <code class="language-plaintext highlighter-rouge">USB_MTPDISK_SERIAL</code> USB macro (#91)</li>
+</ul>
+
+<p><strong>Related resources for the Teensy dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/teensy.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-teensy/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1, New boards & dev-kits, Support for the latest Arduino ESP32 core v2.0.4 and Teensyduino v1.57]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 6.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.1 🚀" /><published>2022-07-14T00:00:00+03:00</published><updated>2022-07-14T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-1-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with refactored Device Monitor,
 Pre &amp; Post Actions for library authors, Stringification helpers,
 and an improved PlatformIO Unit Testing solution for test-driven embedded development.</p>
 
@@ -1177,151 +1255,4 @@ With a rich set of analog, timing, and communications peripherals, they cater to
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[The highlights of the major milestones and achievements of PlatformIO Labs in 2021]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-12-31-platformio-year-in-review-2021/platformio_year_in_review_2022.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-12-31-platformio-year-in-review-2021/platformio_year_in_review_2022.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Debugging with PlatformIO: Part 2. Debugging an Embedded Target</title><link href="https://piolabs.com/blog/insights/debugging-embedded.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 2. Debugging an Embedded Target" /><published>2021-12-13T00:00:00+02:00</published><updated>2021-12-13T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/debugging-embedded</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-embedded.html"><![CDATA[<p>Embedded systems are becoming more complex, more autonomous, and more intelligent. The rise of the ML and AI technologies fuels the complexity of embedded software even further. It’s getting increasingly difficult to hunt down and isolate errors in the code, but at the same time, the demand for reliability continues to grow as well. With this increased complexity comes a need for more advanced and efficient debug instruments that will help to prevent bugs in production and find issues much easier.</p>
-
-<!-- more -->
-
-<p>This is the second part of a four-part blog series where we’re exploring the debugging workflow implemented in <a href="https://docs.platformio.org/en/latest/plus/debugging.html">PlatformIO Unified Debugger</a>. In the <a href="/blog/insights/debugging-introduction.html">first post</a>, we briefly went through the fundamental concepts of the debugging process, learned how to control the execution flow of an application, and reviewed the essential components of the “Debug” perspective.</p>
-
-<p>In this article, we will focus on how to apply that knowledge to debugging an embedded target. This part also aims at providing a brief overview of how debugging of an embedded system works behind the scenes and what advanced instruments may be helpful for efficient debugging.</p>
-
-<p>Throughout this post, we will be using the <a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html">ST Nucleo-F401RE</a> board and <a href="https://docs.platformio.org/en/latest/frameworks/stm32cube.html">STM32Cube</a> as the development framework.</p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
-  <li><a href="#introduction-to-debugging-embedded-targets" id="markdown-toc-introduction-to-debugging-embedded-targets">Introduction to Debugging Embedded Targets</a>    <ul>
-      <li><a href="#debug-interfaces" id="markdown-toc-debug-interfaces">Debug Interfaces</a></li>
-      <li><a href="#debug-probes" id="markdown-toc-debug-probes">Debug Probes</a></li>
-      <li><a href="#debug-servers" id="markdown-toc-debug-servers">Debug Servers</a></li>
-    </ul>
-  </li>
-  <li><a href="#advanced-instruments" id="markdown-toc-advanced-instruments">Advanced Instruments</a>    <ul>
-      <li><a href="#registers-and-peripherals" id="markdown-toc-registers-and-peripherals">Registers and Peripherals</a></li>
-      <li><a href="#memory-window" id="markdown-toc-memory-window">Memory Window</a></li>
-      <li><a href="#disassembly-window" id="markdown-toc-disassembly-window">Disassembly Window</a></li>
-    </ul>
-  </li>
-  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="prerequisites">Prerequisites</h2>
-
-<p>This article uses the following components:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">VSCode with installed PlatformIO IDE extension</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html">ST Nucleo-F401RE</a></li>
-</ul>
-
-<h2 id="introduction-to-debugging-embedded-targets">Introduction to Debugging Embedded Targets</h2>
-
-<p>Most of the time, debugging an embedded system is not very different from debugging a desktop application. Usually, the host machine, where our development environment is running, doesn’t have any facilities to access the state of external hardware. That’s why we need to configure an additional set of hardware and software components so we can translate the commands sent from the debugger on a host machine to a target device using some sort of communication channel. Before we dive into the details of the debugging workflow, let’s take a quick look at a typical setup for debugging an embedded target.</p>
-
-<figure class="figure mb-7">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-07-05-debugging-embedded/debug-setup.jpg" alt="Compilation and linking process" />
-  <figcaption class="figure-caption text-center">
-    Debug setup for an embedded target
-  </figcaption>
-</figure>
-
-<p>Let’s go through the main components of the configuration depicted above.</p>
-
-<h3 id="debug-interfaces">Debug Interfaces</h3>
-
-<p>Nowadays there are two prevalent interfaces used for debugging embedded systems: JTAG and Serial Wire Debug (SWD). The classic JTAG was developed in the ’80s by the Joint Test Access Group as a standard for verifying designs and testing printed circuit boards after manufacture. Today, JTAG is widely adopted by the semiconductor industry and frequently used for programming, testing and debugging embedded systems. The main disadvantage of the JTAG interface is that it requires at least four pins (TRST is optional) for normal functioning. This might be a problem when we are using small package ICs with a limited number of pins.</p>
-
-<p>There is a simplified alternative interface called Serial Wire Debug (SWD) developed by Arm. It replaces the JTAG interface with two signals - a single bi-directional data line (SWDIO) and clock (SWCLK), providing all the usual debug and test functionality with higher performance compared  JTAG. Although a lot of modern microcontrollers support both JTAG and SWD interfaces, SWD is a proprietary interface and can be used mostly within the Arm ecosystem.</p>
-
-<h3 id="debug-probes">Debug Probes</h3>
-
-<p>We can describe debug probes as hardware mediators between the host machine and the debug port of the target embedded system. The main task of any debug probe is to convert commands from the debugger into signals understandable to the target device. Usually, debug probes are connected to the host via USB, but there are also more exotic variations with Ethernet or Wi-Fi connectivity allowing developers to debug devices even remotely from anywhere in the world.</p>
-
-<p>There is a plenty of debug adapters available in the market, starting from open-source and vendor-agnostic probes (<a href="https://docs.platformio.org/en/latest/plus/debug-tools/blackmagic.html">Black Magic Probe</a>) up to proprietary solutions from both silicon vendors (<a href="https://docs.platformio.org/en/latest/plus/debug-tools/atmel-ice.html">Atmel-ICE</a>, <a href="https://docs.platformio.org/en/latest/plus/debug-tools/stlink.html">ST-Link</a>) and independent commercial companies (<a href="https://docs.platformio.org/en/latest/plus/debug-tools/jlink.html">Segger J-Link</a>). Some vendors also offer development kits (<a href="https://docs.platformio.org/en/latest/boards/nordicnrf52/nrf52_dk.html">Nordic nRF52-DK</a>, <a href="https://docs.platformio.org/en/latest/boards/nxpimxrt/mimxrt1010_evk.html">NXP i.MX RT1010</a>) with an onboard debug probe so developers can start debugging without any additional hardware.</p>
-
-<p>It’s worth mentioning that PlatformIO Unified Debugger is highly configurable and can be used with a wide variety of debug probes, it also provides a huge set of predefined configurations for development kits that have built-in debug circuitry. It means that developers don’t need any debug configuration, just connect your board and start a new debug session.</p>
-
-<h3 id="debug-servers">Debug Servers</h3>
-
-<p>Simply put, a debug server is a piece of software running on the host machine that acts as a bridge between the debugger and the debug probe connected to the target device. <a href="http://openocd.org">OpenOCD</a> is one of the best examples of free and open-source debug servers. It’s a community-driven project with a huge number of supported debug probes and target devices. Another example is <a href="https://github.com/pyocd/pyOCD">pyOCD</a> - an open-source package for programming and debugging Arm Cortex-M microcontrollers. On the other hand, there are companies like Segger that offer their own set of tools (including debug servers) that better utilizes the capabilities of their J-Link debug probes. There are also debug probes that don’t need any intermediary host software at all (e.g. Black Magic Probe) and can interact with debuggers directly by mimicking a debug server over a serial port.</p>
-
-<h2 id="advanced-instruments">Advanced Instruments</h2>
-
-<p>In addition to the basic components of the Debug View reviewed in the previous part, let’s take a look at the instruments that might be useful when debugging an embedded target. For the sake of simplicity, let’s get started by importing the <code class="language-plaintext highlighter-rouge">stm32cube-hal-blink</code> example directly from the PlatformIO Home page:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-07-05-debugging-embedded/debugging-example-1.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-1.png" />
-</a></p>
-
-<p>This example contains a lot of environments, but we need to select <code class="language-plaintext highlighter-rouge">nucleo_f401re</code> according to the board used in this post:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-07-05-debugging-embedded/debugging-example-2.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-2.png" />
-</a></p>
-
-<p>Now we are ready to start debugging! To launch a new debug session we can use the following options:</p>
-
-<ul>
-  <li>Debug: Start debugging from the top menu</li>
-  <li>Start Debugging option from the <code class="language-plaintext highlighter-rouge">Quick Access</code> menu</li>
-  <li>Hotkey button <code class="language-plaintext highlighter-rouge">F5</code>:</li>
-</ul>
-
-<p>Once a new debug session is started we can open the advanced panes of the Debug View:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2021-07-05-debugging-embedded/debugging-example-3.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-3.png" />
-</a></p>
-
-<p>Let’s examine them in greater detail.</p>
-
-<h3 id="registers-and-peripherals">Registers and Peripherals</h3>
-
-<p>These windows show the current state of the processor and peripheral registers:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-regs-periphs.png" alt="Registers and Peripherals windows" />
-  <figcaption class="figure-caption text-center">
-    Registers and Peripherals windows
-  </figcaption>
-</figure>
-
-<p>The Registers and Peripherals windows are especially useful for finding out the root cause of fault-related exceptions that occurred during the normal execution flow. Additionally, if we combine these windows with the Disassembly view discussed below we can get a powerful environment for very low-level debugging in cases when there is no actual source code available to step through. Note that the Registers and Peripherals windows are platform-specific, so a different target might have a different set of registers.</p>
-
-<h3 id="memory-window">Memory Window</h3>
-
-<p>In contrast to the “Variables” and “Watch” panes, the “Memory” window shows the raw contents of memory at a specific address:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-memory-view.png" alt="Memory Window" />
-  <figcaption class="figure-caption text-center">
-    Memory Window
-  </figcaption>
-</figure>
-
-<p>This window is useful for examining large chunks of memory that can’t be displayed in a meaningful manner in other panes. It displays everything in the selected memory area, including code, constants and even random garbage in uninitialized memory. You can open several instances of the “Memory” windows if you want to monitor several different memory areas simultaneously.</p>
-
-<h3 id="disassembly-window">Disassembly Window</h3>
-
-<p>This window shows assembler instructions mixed with source code for the application being debugged:</p>
-
-<figure class="figure mb-4" align="center">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2021-07-05-debugging-embedded/debugging-example-disasm.png" alt="Disassembly Window" />
-  <figcaption class="figure-caption text-center">
-    Disassembly Window
-  </figcaption>
-</figure>
-
-<p>The “Disassembly” allows you to carry out all the normal debug actions including single-stepping and setting breakpoints on the level of individual assembly instructions generated by the compiler. Note that this window automatically appears if there is no source code available.</p>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Debugging is an unavoidable part of the development process and embedded software is no exception. Debugging can consume a considerable amount of time and that’s why developers should take advantage of modern instruments to accelerate the debugging process and make it significantly easier to more precisely track down and diagnose errors in their codebase.</p>
-
-<p>In this post, we continued to explore the debugging capabilities of the PlatformIO ecosystem. Powerful features like the Peripherals, Memory, and Disassembly views are extremely useful when we need to take a deeper look at the low-level state of the target. In the <a href="/blog/insights/debugging-cli.html">next part</a>, we’ll review advanced best practices, tips and tricks for efficient debugging, including PlatformIO Unified Debugger in CLI mode.</p>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[This part aims at providing a brief overview of how debugging of an embedded system works behind the scenes and what advanced instruments may be helpful for efficient debugging.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-07-05-debugging-embedded/nucleo.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-07-05-debugging-embedded/nucleo.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[The highlights of the major milestones and achievements of PlatformIO Labs in 2021]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2021-12-31-platformio-year-in-review-2021/platformio_year_in_review_2022.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2021-12-31-platformio-year-in-review-2021/platformio_year_in_review_2022.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
