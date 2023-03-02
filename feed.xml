@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-02-28T10:13:15-07:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO IDE 3.0 for VSCode 🚀</title><link href="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html" rel="alternate" type="text/html" title="PlatformIO IDE 3.0 for VSCode 🚀" /><published>2023-02-06T00:00:00-07:00</published><updated>2023-02-06T00:00:00-07:00</updated><id>https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html"><![CDATA[<p>PlatformIO Labs is dedicated to delivering the most advanced and innovative embedded development solutions on the market. With PlatformIO IDE, developers can take their embedded software development to the next level and achieve maximum productivity and efficiency.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-03-02T09:26:08-07:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source February Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-february-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source February Updates" /><published>2023-03-02T00:00:00-07:00</published><updated>2023-03-02T00:00:00-07:00</updated><id>https://piolabs.com/blog/news/platformio-oss-february-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-february-2023-updates.html"><![CDATA[<p>Welcome to the February 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+
+<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-february-news.jpg" alt="PlatformIO Open Source February Updates" /></p>
+
+<p>During February, we published a major release of PlatformIO IDE for VSCode, rolled out updates for the ST STM32 and Microchip AVR/megaAVR development platforms, resolved a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#platformio-ide-30-for-visual-studio-code" id="markdown-toc-platformio-ide-30-for-visual-studio-code">PlatformIO IDE 3.0 for Visual Studio Code</a></li>
+  <li><a href="#st-stm32-v155" id="markdown-toc-st-stm32-v155">ST STM32 v15.5</a></li>
+  <li><a href="#microchip-avr-dev-platform-v41" id="markdown-toc-microchip-avr-dev-platform-v41">Microchip AVR dev-platform v4.1</a></li>
+  <li><a href="#microchip-megaavr-dev-platform-v17" id="markdown-toc-microchip-megaavr-dev-platform-v17">Microchip megaAVR dev-platform v1.7</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v354" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v354">Arduino Core for mbed-enabled devices v3.5.4</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="platformio-ide-30-for-visual-studio-code">PlatformIO IDE 3.0 for Visual Studio Code</h2>
+
+<p>We are pleased to announce a stable release of PlatformIO IDE 3.0 for <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">Visual Studio Code</a> with significant improvements to boost developer effectiveness. The major enhancements include the following:</p>
+
+<ul>
+  <li>New streamlined onboarding with comprehensive walkthroughs</li>
+  <li>Renovated project management with intellisense for project configuration files</li>
+  <li>Native integration of the PlatformIO Unit Testing solution and VSCode Testing UI.</li>
+</ul>
+
+<p>Take a look at <a href="https://community.platformio.org/t/platformio-ide-3-0-preview-for-vscode-we-want-your-feedback">the detailed overview</a> of the new features and improvements on the community forum.</p>
+
+<h2 id="st-stm32-v155">ST STM32 v15.5</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">Microchip megaAVR</a> v15.5.0 comes with new boards, updated Arduino cores and several minor improvements</p>
+
+<ul>
+  <li>New boards:
+    <ul>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/opta.html">Arduino Opta</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/acsip_s76s.html">AcSIP S76S</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/agafia_sg0.html">Sigma IC AGAFIA SG0</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/btt_ebb42_v1_1.html">Big Tree Tech EBB42 V1.1</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_g070rb.html">Nucleo G070RB</a></li>
+    </ul>
+  </li>
+  <li>Updated Arduino core to v2.4.0 (<a href="https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.4.0">release notes</a>)</li>
+  <li>Updated Arduino-mbed core to v3.5.4 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/3.5.4">release notes</a>)</li>
+  <li>Minor fixes and improvements</li>
+</ul>
+
+<h2 id="microchip-avr-dev-platform-v41">Microchip AVR dev-platform v4.1</h2>
+
+<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelavr">Microchip AVR</a> v4.1.0 brings support for the ATmegaxx5/xx50 and ATmegaxx9/xx90 chip families and updates for highly customizable Arduino cores by MCUdude:</p>
+
+<ul>
+  <li>Add support for ATmegaxx5/xx50 and ATmegaxx9/xx90 chip families (#287):
+<a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega165.html">ATmega165</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega165P.html">ATmega165P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega169A.html">ATmega169A</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega169P.html">ATmega169P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega325.html">ATmega325</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega3250.html">ATmega3250</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega3250P.html">ATmega3250P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega325P.html">ATmega325P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega329.html">ATmega329</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega3290.html">ATmega3290</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega3290P.html">ATmega3290P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega329P.html">ATmega329P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega645.html">ATmega645</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega6450.html">ATmega6450</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega6450P.html">ATmega6450P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega649.html">ATmega649</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega645P.html">ATmega645P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega649.html">ATmega649</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega6490.html">ATmega6490</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega6490P.html">ATmega6490P</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelavr/ATmega649P.html">ATmega649P</a>,</li>
+  <li>Updated MCUdude’s cores (#302):
+    <ul>
+      <li>MajorCore <code class="language-plaintext highlighter-rouge">v2.2.1</code> (<a href="https://github.com/MCUdude/MajorCore/releases/tag/v2.2.1">release notes</a>)</li>
+      <li>MegaCore <code class="language-plaintext highlighter-rouge">v2.2.2</code> (<a href="https://github.com/MCUdude/MegaCore/releases/tag/v2.2.2">release notes</a>)</li>
+      <li>MightyCore <code class="language-plaintext highlighter-rouge">v2.2.1</code> (<a href="https://github.com/MCUdude/MightyCore/releases/tag/v2.2.1">release notes</a>)</li>
+      <li>MiniCore <code class="language-plaintext highlighter-rouge">v2.2.1</code> (<a href="https://github.com/MCUdude/MiniCore/releases/tag/v2.2.1">release notes</a>)</li>
+    </ul>
+  </li>
+  <li>MCUdude cores switched to AVRDUDE v7.1</li>
+</ul>
+
+<p><strong>Related resources for the Microchip AVR dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelavr.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelavr/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-megaavr-dev-platform-v17">Microchip megaAVR dev-platform v1.7</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/atmelmegaavr">Microchip megaAVR</a> v1.7.0 comes with updated Arduino cores and several minor improvements:</p>
+
+<ul>
+  <li>Updated <code class="language-plaintext highlighter-rouge">MegaCoreX</code> to v2.6.5 (<a href="https://github.com/MCUdude/MegaCoreX/releases/tag/v1.1.1">release notes</a>)</li>
+  <li>Updated <code class="language-plaintext highlighter-rouge">megatinycore</code> to v2.6.5 (<a href="https://github.com/SpenceKonde/megaTinyCore/releases/tag/2.6.5">release notes</a>)</li>
+  <li>MegaCoreX and megatinycore switched to AVRDUDE v7.1</li>
+  <li>Fixed incorrect programmer name for the <code class="language-plaintext highlighter-rouge">avr_iot_wg</code> and <code class="language-plaintext highlighter-rouge">curiosity_nano_4809</code> boards (#52)</li>
+  <li>Minor fixes and improvements (#50)</li>
+</ul>
+
+<p><strong>Related resources for the Microchip megaAVR dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v354">Arduino Core for mbed-enabled devices v3.5.4</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v3.5.4. According to the release notes, v3.5.4 brings a lot of bugfixes and improvements in core and accompanying libraries.</p>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Major update of PlatformIO IDE, New boards & dev-kits, Updated Arduino cores for STMicroelectronics, Microchip AVR/megaAVR and mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO IDE 3.0 for VSCode 🚀</title><link href="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html" rel="alternate" type="text/html" title="PlatformIO IDE 3.0 for VSCode 🚀" /><published>2023-02-06T00:00:00-07:00</published><updated>2023-02-06T00:00:00-07:00</updated><id>https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html"><![CDATA[<p>PlatformIO Labs is dedicated to delivering the most advanced and innovative embedded development solutions on the market. With PlatformIO IDE, developers can take their embedded software development to the next level and achieve maximum productivity and efficiency.</p>
 
 <!-- more -->
 
@@ -1063,83 +1163,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 id="about-platformio-labs">About PlatformIO Labs</h2>
 
-<p>PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;D branch in Ukraine. To learn more, follow them on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a>, Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a>, or visit <a href="https://piolabs.com/">piolabs.com</a>.</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html"><![CDATA[The two companies begin wide-ranging collaboration on providing a next-generation development ecosystem for IoT solutions to drive the embedded systems industry]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2022-06-01T00:00:00-06:00</published><updated>2022-06-01T00:00:00-06:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2022-updates.html"><![CDATA[<p>Welcome to the May 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-may-news.jpg" alt="PlatformIO Open Source May Updates" /></p>
-
-<p>During May, we have released a new major feature-packed version of PlatformIO Core, rolled out updates for the Espressif32, Microchip MegaAVR and several other development platforms, resolved a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#platformio-core-60" id="markdown-toc-platformio-core-60">PlatformIO Core 6.0</a></li>
-  <li><a href="#espressif32-v43" id="markdown-toc-espressif32-v43">Espressif32 v4.3</a></li>
-  <li><a href="#microchip-megaavr-dev-platform-v16" id="markdown-toc-microchip-megaavr-dev-platform-v16">Microchip megaAVR dev-platform v1.6</a></li>
-  <li><a href="#arduino-core-for-mbed-enabled-devices-v31" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v31">Arduino Core for mbed-enabled devices v3.1</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="platformio-core-60">PlatformIO Core 6.0</h2>
-
-<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next major v6.0 release. This milestone we received helpful feedback from our community, which let us identify and tackle many issues and prepare a lot of great improvements. Major enhancements include the following:</p>
-
-<ul>
-  <li><strong>Revamped Unit Testing Engine</strong>. An absolutely new workflow for test-driven development in the embedded systems industry.
-A rich list of supported <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/index.html">Unit Testing Frameworks</a>
-and ability to run tests in virtual environments via simulation tools makes PlatformIO a perfect choice for developing complex embedded
-projects that require sophisticated testing workflows even without real hardware at hand.</li>
-  <li><strong>Renovated Package Management</strong>. The new package management solution allows developers to use a modern declarative approach
-for safety-critical embedded development. Using the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html#cmd-pkg-install-requirements">Semantic Version Requirements</a>
-guarantees the full project reproducibility on any supported host machine for decades.</li>
-  <li><strong>Cross-platform Virtual symbolic links</strong>. The most requested feature that brings the ability to link existing packages
-with any project in an easy and unified way without hard copying (duplicating) the files.</li>
-</ul>
-
-<p>See the full <a href="https://github.com/platformio/platformio-core/releases/tag/v6.0.0">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
-
-<h2 id="espressif32-v43">Espressif32 v4.3</h2>
-
-<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform comes with a lot of new boards, the latest stable Arduino core v2.0.3 and a lot of fixes and improvements:</p>
-
-<ul>
-  <li>Added new boards: <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32s3.html">Adafruit Feather ESP32-S3 No PSRAM</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32_v2.html">Adafruit Feather ESP32 V2</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32.html">Adafruit QT Py ESP32</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32c3.html">Adafruit QT Py ESP32-C3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_qtpy_esp32s3.html">Adafruit QT Py ESP32-S3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/airm2m_core_esp32c3.json.html">AirM2M CORE ESP32C3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/deneyapkart1A.json.html">Deneyap Kart 1A</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32-s3-devkitc-1.html">Espressif ESP32-S3-DevKitC-1</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32s3box.json.html">Espressif ESP32-S3-Box</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32s3camlcd.json.html">ESP32S3 CAM LCD</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_c3_mini.html">WEMOS LOLIN C3 Mini</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s2_mini.json.html">WEMOS LOLIN S2 Mini</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s2_pico.json.html">WEMOS LOLIN S2 PICO</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/trueverit-iot-driver-mk3.html">Trueverit ESP32 Universal IoT Driver MK III</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_feathers3.html">Unexpected Maker FeatherS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_pros3.html">Unexpected Maker PROS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_rmp.html">Unexpected Maker RMP</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/um_tinys3.html">Unexpected Maker TinyS3</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/watchy.html">SQFMI Watchy v2.0</a></li>
-  <li>Added support for Arduino v2.0.3 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.3">release notes</a>)</li>
-  <li>Refactored processing of IDF linker fragments <a href="https://github.com/platformio/platform-espressif32/issues/760">#760</a></li>
-  <li>Fixed an issue with improper optimization level for IDF bootloader that caused bootloop in debug mode <a href="https://github.com/platformio/platform-espressif32/issues/793">#739</a></li>
-</ul>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="microchip-megaavr-dev-platform-v16">Microchip megaAVR dev-platform v1.6</h2>
-
-<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelmegaavr">megaAVR</a> platform comes with several new boards and generic MCUs, support for the latest Arduino cores and several minor improvements:</p>
-
-<ul>
-  <li>New board manifests for the following boards and generic MCUs: <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/curiosity_nano_da.html">Curiosity Nano AVR128DA48</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/curiosity_nano_db.html">Curiosity Nano AVR128DB48</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1624.html">ATtiny1624</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1626.html">ATtiny1626</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny1627.html">ATtiny1627</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3224.html">ATtiny3224</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3226.html">ATtiny3226</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny3227.html">ATtiny3227</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny424.html">ATtiny424</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny426.html">ATtiny426</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny427.html">ATtiny427</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny824.html">ATtiny824</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny826.html">ATtiny826</a>, <a href="https://docs.platformio.org/en/latest/boards/atmelmegaavr/ATtiny827.html">ATtiny827</a></li>
-  <li>Added support for Arduino DxCore (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/19">#19</a>)</li>
-  <li>Updated MegaTinyCore to v2.5.11 (<a href="https://github.com/SpenceKonde/megaTinyCore/releases/tag/2.5.11">release notes</a>)</li>
-  <li>Updated MegaCoreX to v1.0.10 (<a href="https://github.com/MCUdude/MegaCoreX/releases/tag/v1.0.10">release notes</a>)</li>
-  <li>Better handling of the bootloader path in AVRDUDE upload flags (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/33">#33</a>)</li>
-  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-atmelmegaavr/issues/20">#20</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/31">#31</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/37">#37</a>, <a href="https://github.com/platformio/platform-atmelmegaavr/issues/39">#39</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Microchip megaAVR dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="arduino-core-for-mbed-enabled-devices-v31">Arduino Core for mbed-enabled devices v3.1</h2>
-
-<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v3.1 According to the release notes, v3.1 brings a lot of bugfixes and improvements in core and accompanying libraries.</p>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.0, New boards & dev-kits, Support for the latest Arduino ESP32 core v2.0.3, Updated Arduino Cores for Microchip MegaAVR and Mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>PlatformIO Labs is the corporate sponsor behind the PlatformIO open-source project. PlatformIO is a next-generation, professional collaborative platform for embedded development that enables customers to save resources and time by vastly reducing the expenses and labor associated with creating and maintaining product software. Its modern architecture is unmatched in the embedded tools market, and the result benefits developers everywhere by simplifying complexity and increasing productivity. PlatformIO Labs is a privately-held company headquartered in Tallinn, Estonia and with an R&amp;D branch in Ukraine. To learn more, follow them on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a>, Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a>, or visit <a href="https://piolabs.com/">piolabs.com</a>.</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="press-releases" /><summary type="html"><![CDATA[The two companies begin wide-ranging collaboration on providing a next-generation development ecosystem for IoT solutions to drive the embedded systems industry]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-06-06-espressif-leverages-platformio-labs-technology/piolabs-espressif-partnership.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
