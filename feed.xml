@@ -1,4 +1,221 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-04-03T11:08:54+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2023-04-03T00:00:00+03:00</published><updated>2023-04-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2023-updates.html"><![CDATA[<p>Welcome to the March 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-04-17T13:28:19+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests</title><link href="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html" rel="alternate" type="text/html" title="Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests" /><published>2023-04-17T00:00:00+03:00</published><updated>2023-04-17T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/test-coverage-on-unit-testing</id><content type="html" xml:base="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html"><![CDATA[<p>In the world of software development, it’s essential to ensure that the code being written is not only functional but also maintainable and easily testable. One way to measure the effectiveness of testing is to analyze the code coverage to identify areas of the code that are not adequately tested. In this article, we’ll delve into the concept of source code coverage analysis, its importance, and some tools available for performing the analysis.</p>
+
+<!-- more -->
+
+<p>One of the crucial components of proper code coverage analysis is testing, and having a comprehensive test suite is essential to achieving high code coverage. Testing is well supported in PlatformIO and I only refer to the <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/index.html">PlatformIO Unit Testing documentation</a> and to some getting started blog-posts <a href="/blog/insights/unit-testing-part-1.html">Unit Testing with PlatformIO: Part 1. The Basics</a>. If you have never done unit testing, get this working first, then come back for the code coverage.</p>
+
+<h3>Table of Contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
+  <li><a href="#what-is-code-coverage" id="markdown-toc-what-is-code-coverage">What is Code Coverage?</a></li>
+  <li><a href="#preparing-demo-project" id="markdown-toc-preparing-demo-project">Preparing Demo Project</a></li>
+  <li><a href="#preparing-code-coverage-data-files" id="markdown-toc-preparing-code-coverage-data-files">Preparing Code Coverage Data Files</a></li>
+  <li><a href="#visualizing-results" id="markdown-toc-visualizing-results">Visualizing Results</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>This article uses the following components:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">VSCode with installed PlatformIO IDE extension</a></li>
+  <li><a href="https://registry.platformio.org/platforms/platformio/native">Native dev-platform</a></li>
+</ul>
+
+<div class="alert alert-secondary" role="alert">
+  Note: PlatformIO does not automatically install any toolchains for the "native" dev-platform. Instead, it uses the toolchain native to your OS, preferably based on GCC. If you are using Windows, it is recommended that you install MinGW and make it available via the <b>PATH</b> variable. Additionally, the code coverage extension used in this article requires Gcov ≥ 9, so please ensure that your system has an updated toolchain.
+</div>
+
+<h2 id="what-is-code-coverage">What is Code Coverage?</h2>
+
+<p>Code coverage analysis provides developers with valuable insights into how thoroughly their tests are exercising the code, highlighting areas that may need additional testing to increase the overall quality of your code.</p>
+
+<p>There are various types of code coverage analysis, including statement coverage, branch coverage, and path coverage. Statement coverage measures how many statements in the code have been executed during testing, while branch coverage measures how many branches in the code have been executed. Path coverage is the most comprehensive form of code coverage analysis, measuring how many unique paths through the code have been executed during testing.</p>
+
+<h2 id="preparing-demo-project">Preparing Demo Project</h2>
+
+<p>For the demo, I am going to take a small and simple piece of code, so you won’t waste your time trying to understand the code. The complete project used in this article is available on Github <a href="https://github.com/Strooom/demoTestCoverage">Strooom/demoTestCoverage: How to do test coverage on PlatformIO</a>.
+You can import it directly from the VSCode Welcome Page:</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image1.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image1.png" />
+</a></p>
+
+<p>Let’s take a closer look at the <code class="language-plaintext highlighter-rouge">lib/key</code> module that we’ll be testing in this post:</p>
+
+<p>The functionality of the module is described in the <code class="language-plaintext highlighter-rouge">key.h</code> header file:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma once
+#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">key</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">toUpperCase</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">);</span>            <span class="c1">// convert a character to upper case</span>
+    <span class="k">static</span> <span class="kt">bool</span> <span class="n">isHexCharacter</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">);</span>            <span class="c1">// check if a character is a valid hex character, ie. 0-9 or A-F - assuming upper case</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">);</span>  <span class="c1">// convert a hex character to a value, ie. 'A' -&gt; 10</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aValue</span><span class="p">);</span>      <span class="c1">// convert a value to a hex character, ie. 10 -&gt; 'A'</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The implementation is located in the accompanying <code class="language-plaintext highlighter-rouge">key.cpp</code>:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">"key.h"</span><span class="cp">
+</span>
+<span class="kt">uint8_t</span> <span class="n">key</span><span class="o">::</span><span class="n">toUpperCase</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">aCharacter</span> <span class="o">&gt;=</span> <span class="sc">'a'</span> <span class="o">&amp;&amp;</span> <span class="n">aCharacter</span> <span class="o">&lt;=</span> <span class="sc">'z'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">aCharacter</span> <span class="o">=</span> <span class="n">aCharacter</span> <span class="o">-</span> <span class="sc">'a'</span> <span class="o">+</span> <span class="sc">'A'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">aCharacter</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span> <span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">aCharacter</span> <span class="o">&gt;=</span> <span class="sc">'A'</span> <span class="o">&amp;&amp;</span> <span class="n">aCharacter</span> <span class="o">&lt;=</span> <span class="sc">'F'</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">aCharacter</span> <span class="o">&gt;=</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">aCharacter</span> <span class="o">&lt;=</span> <span class="sc">'9'</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">uint8_t</span> <span class="n">key</span><span class="o">::</span><span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aCharacter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">aCharacter</span> <span class="o">&gt;=</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">aCharacter</span> <span class="o">&lt;=</span> <span class="sc">'9'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">aCharacter</span> <span class="o">-</span> <span class="sc">'0'</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">aCharacter</span> <span class="o">&gt;=</span> <span class="sc">'A'</span> <span class="o">&amp;&amp;</span> <span class="n">aCharacter</span> <span class="o">&lt;=</span> <span class="sc">'F'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">aCharacter</span> <span class="o">-</span> <span class="sc">'A'</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>        <span class="c1">// in case the character is not a hex character, return 0 as value</span>
+<span class="p">}</span>
+
+<span class="kt">uint8_t</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">aValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">aValue</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">aValue</span> <span class="o">+</span> <span class="sc">'0'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">aValue</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">aValue</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">+</span> <span class="sc">'A'</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span>
+        <span class="k">return</span> <span class="sc">'?'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>To test these 4 member functions, I have created a test application using Unity as the unit testing framework. You can find the test application at test/test_key/test.cpp.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;unity.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">"key.h"</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">setUp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{}</span>           <span class="c1">// before test</span>
+<span class="kt">void</span> <span class="n">tearDown</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{}</span>        <span class="c1">// after test</span>
+
+<span class="kt">void</span> <span class="n">test_toUpperCase</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">toUpperCase</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">toUpperCase</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'0'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">toUpperCase</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'0'</span><span class="p">)));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">test_isHexCharacter</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'0'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'9'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'F'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'-'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'O'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">key</span><span class="o">::</span><span class="n">isHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'a'</span><span class="p">)));</span>        <span class="c1">// we assume uppercase, so lowercase should fail...</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">test_valueFromHexCharacter</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="mi">0U</span><span class="p">,</span> <span class="n">key</span><span class="o">::</span><span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'0'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="mi">9U</span><span class="p">,</span> <span class="n">key</span><span class="o">::</span><span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'9'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="mi">10U</span><span class="p">,</span> <span class="n">key</span><span class="o">::</span><span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">)));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="mi">15U</span><span class="p">,</span> <span class="n">key</span><span class="o">::</span><span class="n">valueFromHexCharacter</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'F'</span><span class="p">)));</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">test_hexCharacterFromValue</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'0'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="mi">0U</span><span class="p">));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'9'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="mi">9U</span><span class="p">));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'A'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="mi">10U</span><span class="p">));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'F'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="mi">15U</span><span class="p">));</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT8</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">'?'</span><span class="p">),</span> <span class="n">key</span><span class="o">::</span><span class="n">hexCharacterFromValue</span><span class="p">(</span><span class="mi">16U</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">UNITY_BEGIN</span><span class="p">();</span>
+    <span class="n">RUN_TEST</span><span class="p">(</span><span class="n">test_toUpperCase</span><span class="p">);</span>
+    <span class="n">RUN_TEST</span><span class="p">(</span><span class="n">test_isHexCharacter</span><span class="p">);</span>
+    <span class="n">RUN_TEST</span><span class="p">(</span><span class="n">test_valueFromHexCharacter</span><span class="p">);</span>
+    <span class="c1">// RUN_TEST(test_hexCharacterFromValue);</span>
+    <span class="n">UNITY_END</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="alert alert-secondary" role="alert">
+  Note that PlatformIO makes certain assumptions about the location of test files. For instance, it assumes that each test should be in a subdirectory with a name starting with the <b>"test_"</b> prefix.
+</div>
+
+<p>So now we can run the tests. There are two ways to do this: using the PlatformIO test icon in the bottom status bar or via the <strong>Test Explorer</strong> view:</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image2.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image2.png" />
+</a></p>
+
+<p>After processing, we should see a detailed report about the successful testing results:</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image3.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image3.png" />
+</a></p>
+
+<h2 id="preparing-code-coverage-data-files">Preparing Code Coverage Data Files</h2>
+
+<p>Our tests are now running, and we can see which ones pass and which ones fail. Next, let’s take a closer look at the specific parts of the code being tested. To do so, we need to configure the compiler to generate some additional information. This allows us to track which statements are executed while running the code.</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:generic]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">native</span>
+<span class="py">build_flags</span> <span class="p">=</span>
+    <span class="err">-D</span> <span class="err">unitTesting</span>
+    <span class="err">-lgcov</span>
+    <span class="err">--coverage</span>
+    <span class="err">-fprofile-abs-path</span>
+</code></pre></div></div>
+
+<p>Note the 3 extra build flags: <code class="language-plaintext highlighter-rouge">-lgcov, --coverage, -fprofile-abs-path</code>. With these flags, the compiler creates extra files (<code class="language-plaintext highlighter-rouge">.gcda</code>, <code class="language-plaintext highlighter-rouge">.gcdo</code>) to track code execution. You can find them in the <code class="language-plaintext highlighter-rouge">.pio/build/generic</code> folder:</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image4.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image4.png" />
+</a></p>
+
+<p>These files will be used to visualize what parts of the code were executed.</p>
+
+<h2 id="visualizing-results">Visualizing Results</h2>
+
+<p>The only thing missing is a nice visualization of the results. Luckily, for this there is a good VSCode extension called <a href="https://marketplace.visualstudio.com/items?itemName=JacquesLucke.gcov-viewer">Gcov Viewer</a>.</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image5.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image5.png" />
+</a></p>
+
+<p>This extension is controlled via the Command Palette, which is a minor burden but you’ll get used to it quickly.
+<code class="language-plaintext highlighter-rouge">ctrl/cmd-shift-p</code> and type “Gcov”, this will show you all the Gcov commands. The 3 most important are <strong>Show</strong>, <strong>Hide</strong> and <strong>Reset</strong> and they will settle themselves on top with your “recently used” commands:</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image6.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image6.png" />
+</a></p>
+
+<p>Select <strong>“Gcov Show”</strong> and it will create an overlay on your source code files, showing which lines have been executed and which not.
+If you want the non-executed lines to show in red, you need to activate a setting of the Gcov extension <em>“Highlight Missed Lines”</em>. I prefer this, as this way it is more obvious which lines are missed. Several lines of your source code do not translate to executable code and those lines just remain uncolored.</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image7.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image7.png" />
+</a></p>
+
+<p>Note how each line has a color and a number of how many times it has been executed. However, our test misses the edge case where valueFromHexCharacter receives an invalid input, so we need to fix that.</p>
+
+<p>We saw that GCC creates a coverage file for each “.cpp” file in our project. This means that also our test application itself is tracked.
+Look how one of the tests is not being run, because I commented it out in the test-runner main().</p>
+
+<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-04-17-test-coverage-on-unit-testing/image8.png&quot;}" href="#">
+  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-04-17-test-coverage-on-unit-testing/image8.png" />
+</a></p>
+
+<p>When you improve your tests and rerun them, the results will continue to be added to the .gcno and .gcda files that are already present. However, at some point, you may want to reset your results and start over. To do so, you can use the “Gcov Reset” command.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Code coverage analysis is an essential aspect of software development that provides insight into the effectiveness of testing and identifies areas of the code that may need further attention. By using best practices in testing and code coverage analysis, software developers can produce high-quality code that is reliable, maintainable, and robust.</p>]]></content><author><name>Pascal Roobrouck</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[An introduction to the concept of code coverage analysis in the PlatformIO ecosystem]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2023-04-17-test-coverage-on-unit-testing/image7.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2023-04-17-test-coverage-on-unit-testing/image7.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2023-04-03T00:00:00+03:00</published><updated>2023-04-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2023-updates.html"><![CDATA[<p>Welcome to the March 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
 <!-- more -->
@@ -1105,127 +1322,4 @@ Wi-Fi credentials, or user data (<a href="https://docs.platformio.org/en/latest/
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1 is out with refactored Device Monitor, Pre & Post Actions for library authors, Stringification helpers, and improved PlatformIO Unit Testing solution for test-driven embedded development]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2022-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2022-07-04T00:00:00+03:00</published><updated>2022-07-04T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2022-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2022-updates.html"><![CDATA[<p>Welcome to the June 2022 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-june-news.jpg" alt="PlatformIO Open Source June Updates" /></p>
-
-<p>During June, we released a new version of PlatformIO IDE for Visual Studio Code and bugfix release for PlatformIO Core, added support for the latest ESP-IDF v4.4.1 and fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#platformio-ide-for-visual-studio-code-v25" id="markdown-toc-platformio-ide-for-visual-studio-code-v25">PlatformIO IDE for Visual Studio Code v2.5</a></li>
-  <li><a href="#platformio-core-602" id="markdown-toc-platformio-core-602">PlatformIO Core 6.0.2</a></li>
-  <li><a href="#esp-idf-v44" id="markdown-toc-esp-idf-v44">ESP-IDF v4.4</a></li>
-  <li><a href="#espressif32-dev-platform-v50" id="markdown-toc-espressif32-dev-platform-v50">Espressif32 dev-platform v5.0</a></li>
-  <li><a href="#microchip-sam-dev-platform-v810" id="markdown-toc-microchip-sam-dev-platform-v810">Microchip SAM dev-platform v8.1.0</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="platformio-ide-for-visual-studio-code-v25">PlatformIO IDE for Visual Studio Code v2.5</h2>
-
-<p><a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html"><img class="figure-img img-fluid" src="/assets/posts/oss-updates/platformio-ide-for-vscode-laptop.png" alt="PlatformIO IDE for VSCode" /></a></p>
-
-<p>We are pleased to announce a new release <code class="language-plaintext highlighter-rouge">v2.5</code> of PlatformIO IDE for <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">Visual Studio Code</a> that brings new functionality for project tasks, updated installer and several bugfixes:</p>
-
-<ul>
-  <li>Added a new “Dependencies” group to the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html#project-tasks">Project Tasks</a>
-    <ul>
-      <li>List project dependencies</li>
-      <li>Check outdated project dependencies</li>
-      <li>Update project dependencies</li>
-    </ul>
-  </li>
-  <li>Added “Verbose Test” to the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html#project-tasks">Project Tasks</a></li>
-  <li>Added the “Test” button to the <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html#platformio-toolbar">PlatformIO Toolbar</a></li>
-  <li>Switched to the official PlatformIO Core 6.0 public API</li>
-  <li>Updated installer script to <a href="https://github.com/platformio/platformio-core-installer/releases/tag/v1.1.2">v1.1.2</a></li>
-  <li>Ensure that the PlatformIO Core installer script is not corrupted (issue <a href="https://github.com/platformio/platformio-vscode-ide/issues/3084">#3084</a>)</li>
-  <li>Removed deprecated “updates” related command in favor of project dependency management (issue <a href="https://github.com/platformio/platformio-vscode-ide/issues/3219">#3219</a>)</li>
-  <li>Fixed a bug with the handling of package registry mirrors</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platformio-vscode-ide/releases/tag/v2.5.0">Release Notes</a> for more detailed information.</p>
-
-<h2 id="platformio-core-602">PlatformIO Core 6.0.2</h2>
-
-<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next v6.0.2 release with lots of great improvements and bugfixes:</p>
-
-<ul>
-  <li>Control <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/index.html">Unit Testing</a> verbosity with a new multilevel <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_test.html#cmdoption-pio-test-v">pio test -v</a> command option (<a href="https://github.com/platformio/platformio-core/issues/4276">issue #4276</a>)</li>
-  <li>Follow symbolic links during searching for the unit test suites (<a href="https://github.com/platformio/platformio-core/issues/4288">issue #4288</a>)</li>
-  <li>Show a warning when testing an empty project without a test suite (<a href="https://github.com/platformio/platformio-core/issues/4278">issue #4278</a>)</li>
-  <li>Improved support for <a href="https://docs.platformio.org/en/latest/scripting/examples/asking_for_input.html">Asking for input (prompts)</a></li>
-  <li>Fixed an issue when the <a href="https://docs.platformio.org/en/latest/projectconf/section_env_build.html#build-src-flags">build_src_flags</a> option was applied outside the project scope (<a href="https://github.com/platformio/platformio-core/issues/4277">issue #4277</a>)</li>
-  <li>Fixed an issue with debugging assembly files without preprocessor (“.s”)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platformio-core/releases/tag/v6.0.2">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
-
-<h2 id="esp-idf-v44">ESP-IDF v4.4</h2>
-
-<p>We’re happy to announce updated support for the latest stable <strong>ESP-IDF v4.4.1</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
-
-<p><strong>Major enhancements in the latest release:</strong></p>
-
-<ul>
-  <li>Support for ESP32-S3 SoC</li>
-  <li>Added support for OpenThread</li>
-  <li>Updated FreeRTOS to v10.4.3</li>
-  <li>Fixes and improvements to More ESP32-S2 and ESP32-C3 SoCs</li>
-</ul>
-
-<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
-
-<p><strong>Related resources for ESP-IDF</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v4.4">Release notes for v4.4</a></li>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v4.4.1">Release notes for v4.4.1</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v50">Espressif32 dev-platform v5.0</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF, new debug probes and several minor fixes and improvements:</p>
-
-<ul>
-  <li>Added support for the latest ESP-IDF v4.4.1 (<a href="https://github.com/espressif/esp-idf/releases/tag/v4.4.1">release notes</a>)</li>
-  <li>Added ESP-based debug probes <a href="https://github.com/platformio/platform-espressif32/issues/828">#828</a></li>
-  <li>Fixed <code class="language-plaintext highlighter-rouge">esp32_exception_decoder</code> to handle a possible missing whitespace characters</li>
-  <li>Minor fixes and improvements <a href="https://github.com/platformio/platform-espressif32/issues/830">#830</a></li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-espressif32/releases/tag/v5.0.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="microchip-sam-dev-platform-v810">Microchip SAM dev-platform v8.1.0</h2>
-
-<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelsam">Microchip SAM</a> v8.1.0 comes with updated Arduino/Adafruit cores and minor improvements:</p>
-
-<ul>
-  <li>Updated Adafruit Arduino Core to <code class="language-plaintext highlighter-rouge">v1.8.13</code> (<a href="https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.13">release notes</a>)</li>
-  <li>Updated Adafruit Arduino Core to <code class="language-plaintext highlighter-rouge">v1.7.10</code> (<a href="https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.7.10">release notes</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-atmelsam/releases/tag/v8.1.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the Microchip SAM dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelsam.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-atmelsam/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Improved PlatformIO IDE for Microsoft VSCode, PlatformIO Core bugfix release, Support for the latest ESP-IDF, Updated Arduino cores for Microchip SAM]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-june-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-june-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1 is out with refactored Device Monitor, Pre & Post Actions for library authors, Stringification helpers, and improved PlatformIO Unit Testing solution for test-driven embedded development]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
