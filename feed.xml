@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-04-17T13:28:19+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests</title><link href="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html" rel="alternate" type="text/html" title="Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests" /><published>2023-04-17T00:00:00+03:00</published><updated>2023-04-17T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/test-coverage-on-unit-testing</id><content type="html" xml:base="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html"><![CDATA[<p>In the world of software development, it’s essential to ensure that the code being written is not only functional but also maintainable and easily testable. One way to measure the effectiveness of testing is to analyze the code coverage to identify areas of the code that are not adequately tested. In this article, we’ll delve into the concept of source code coverage analysis, its importance, and some tools available for performing the analysis.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-05-01T14:46:47+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2023-05-01T00:00:00+03:00</published><updated>2023-05-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2023-updates.html"><![CDATA[<p>Welcome to the April 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-april-news.jpg" alt="PlatformIO Open Source April Updates" /></p>
+
+<p>During April, we rolled out important updates for Teensy and Espressif32 dev-platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#espressif32-dev-platform-v62" id="markdown-toc-espressif32-dev-platform-v62">Espressif32 dev-platform v6.2</a></li>
+  <li><a href="#teensy-dev-platform-v418" id="markdown-toc-teensy-dev-platform-v418">Teensy dev-platform v4.18</a></li>
+  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
+</ul>
+
+<h2 id="espressif32-dev-platform-v62">Espressif32 dev-platform v6.2</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest Arduino Core, new boards and dev-kits, several minor fixes and improvements:</p>
+
+<ul>
+  <li>Added boards:
+    <ul>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32-c3-devkitc-02.html">Espressif ESP32-C3-DevKitC-02</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s3_mini.html">WEMOS LOLIN S3 Mini</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/m5stack-stamps3.html">M5Stack StampS3</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/seeed_xiao_esp32s3.html">Seeed Studio XIAO ESP32S3</a></li>
+    </ul>
+  </li>
+  <li>Added support for Arduino v2.0.8 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.8">release notes</a>)</li>
+  <li>Updated esptoolpy to v4.5.1 (<a href="https://github.com/espressif/esptool/releases/tag/v4.5.1">release notes</a>)</li>
+  <li>Added local cacert file containing “DST Root CA X3” to certificate bundle (<a href="https://github.com/platformio/platform-espressif32/issues/1066">#1066</a>)</li>
+  <li>Fixed HWID for the <code class="language-plaintext highlighter-rouge">seeed_xiao_esp32c3</code> board</li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-espressif32/issues/1032">#1032</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1055">#1055</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1067">#1067</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1082">#1082</a>)</li>
+</ul>
+
+<p>See <a href="https://github.com/platformio/platform-espressif32/releases/tag/v6.2.0">Release Notes</a> for more detailed information.</p>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="teensy-dev-platform-v418">Teensy dev-platform v4.18</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/teensy">Teensy</a> dev-platform brings support for the latest Teensyduino v1.58 and updated toolchains:</p>
+
+<ul>
+  <li>Updated Teensyduino to v1.58 (<a href="https://github.com/PaulStoffregen/cores/releases/tag/1.58">release notes</a>)</li>
+  <li>Updated toolchain package to v11.3.1 for Arm-based boards</li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-teensy/issues/94">#94</a>, <a href="https://github.com/platformio/platform-teensy/issues/95">#95</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Teensy dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/teensy.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-teensy/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for Teensyduino v1.58, Updated Espressif dev-platform with the latest Arduino Core]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests</title><link href="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html" rel="alternate" type="text/html" title="Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests" /><published>2023-04-17T00:00:00+03:00</published><updated>2023-04-17T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/test-coverage-on-unit-testing</id><content type="html" xml:base="https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html"><![CDATA[<p>In the world of software development, it’s essential to ensure that the code being written is not only functional but also maintainable and easily testable. One way to measure the effectiveness of testing is to analyze the code coverage to identify areas of the code that are not adequately tested. In this article, we’ll delve into the concept of source code coverage analysis, its importance, and some tools available for performing the analysis.</p>
 
 <!-- more -->
 
@@ -1177,149 +1240,4 @@ packed with a lot of new features. The new Device Monitor comes with support for
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1, New boards & dev-kits, Support for the latest Arduino ESP32 core v2.0.4 and Teensyduino v1.57]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Core 6.1 🚀</title><link href="https://piolabs.com/blog/news/platformio-core-6-1-released.html" rel="alternate" type="text/html" title="PlatformIO Core 6.1 🚀" /><published>2022-07-14T00:00:00+03:00</published><updated>2022-07-14T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-core-6-1-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-core-6-1-released.html"><![CDATA[<p>We are happy to announce the next release of PlatformIO Core with refactored Device Monitor,
-Pre &amp; Post Actions for library authors, Stringification helpers,
-and an improved PlatformIO Unit Testing solution for test-driven embedded development.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" alt="PlatformIO Core 6.1 🚀" /></p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#what-is-new" id="markdown-toc-what-is-new">What is new</a>    <ul>
-      <li><a href="#device-monitor" id="markdown-toc-device-monitor">Device Monitor</a>        <ul>
-          <li><a href="#automatic-reconnection" id="markdown-toc-automatic-reconnection">Automatic reconnection</a></li>
-          <li><a href="#ansi-escape-codes" id="markdown-toc-ansi-escape-codes">ANSI escape codes</a></li>
-        </ul>
-      </li>
-      <li><a href="#build-system" id="markdown-toc-build-system">Build System</a>        <ul>
-          <li><a href="#pre--post-actions" id="markdown-toc-pre--post-actions">Pre &amp; Post Actions</a></li>
-          <li><a href="#stringification" id="markdown-toc-stringification">Stringification</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#upgrade" id="markdown-toc-upgrade">Upgrade</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="what-is-new">What is new</h2>
-
-<p>In this section, we are going to highlight the most important changes and
-features introduced in PlatformIO Core 6.1. Please visit
-<a href="https://docs.platformio.org/en/latest/core/history.html">PlatformIO Core 6.1 Release Notes</a>
-for more detailed information.</p>
-
-<h3 id="device-monitor">Device Monitor</h3>
-
-<p>Today, it is difficult to imagine modern embedded development without a proper serial port monitor.
-PlatformIO Core comes with an advanced <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">Device Monitor</a>
-packed with rich features and supports multiple data sources, including the RFC 2217 remote serial ports and raw sockets.</p>
-
-<p>It is noteworthy that as distinct from the classic serial port monitors, PlatformIO’s Device Monitor
-allows developers to apply custom filters to the INPUT/OUTPUT streams.
-The most popular use cases using Device Monitor’s filters are logging data to the physical file,
-adding timestamps with milliseconds for each new line, showing data in the hexadecimal representation, and decoding crash exceptions.
-See the list with <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#filters">built-in filters</a>.</p>
-
-<h4 id="automatic-reconnection">Automatic reconnection</h4>
-
-<p>Automatic device reconnection was the most requested feature by the PlatformIO Community. PlatformIO Core 6.1 comes
-with automatic reconnection of the Device Monitor if a connection fails. This feature can be disabled with the
-<a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmdoption-pio-device-monitor-no-reconnect">pio device monitor --no-reconnect</a> option.</p>
-
-<p>The screencast below demonstrates the usage of the <code class="language-plaintext highlighter-rouge">time</code> filter and automatic reconnection:</p>
-
-<p><img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-07-14-platformio-core-6-1-released/device-monitor-reconnecting.gif" /></p>
-
-<h4 id="ansi-escape-codes">ANSI escape codes</h4>
-
-<p>Another addition to the Device Monitor is the ability to disable encodings and transformations of device output
-using the <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html#cmdoption-pio-device-monitor-raw">--raw</a> option.
-In this mode, the Device Monitor does not apply any filters and outputs data in the raw format.</p>
-
-<p>A good use case for the <code class="language-plaintext highlighter-rouge">raw</code> option is controlling a terminal (cursor location, color, font styling, etc.) using ANSI escape sequences.
-The example below uses the <code class="language-plaintext highlighter-rouge">raw</code> mode and the <a href="https://registry.platformio.org/libraries/robtillaart/ANSI">robtillaart/ANSI</a> library
-to send ANSI escape sequences from the embedded device.</p>
-
-<p><img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-07-14-platformio-core-6-1-released/device-monitor-ansi-demo.gif" /></p>
-
-<h3 id="build-system">Build System</h3>
-
-<h4 id="pre--post-actions">Pre &amp; Post Actions</h4>
-
-<p>PlatformIO Core 6.1 received significantly improved support for <a href="https://docs.platformio.org/en/latest/scripting/actions.html">Pre &amp; Post Actions</a>.
-They can now be used in <a href="https://docs.platformio.org/en/latest/scripting/launch_types.html">PRE-type scripts</a>
-for the targets even if they are not available at the declaration time.</p>
-
-<p>Library authors also can benefit from this new feature. The Pre &amp; Post Actions are now allowed in
-the <a href="https://docs.platformio.org/en/latest/manifests/library-json/fields/build/extrascript.html">extraScript</a>
-when using the <a href="https://docs.platformio.org/en/latest/manifests/library-json/index.html">library.json</a> manifest.</p>
-
-<p><strong>library.json</strong>:</p>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-    <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Foo</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">version</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1.0.0</span><span class="dl">"</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">build</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="dl">"</span><span class="s2">extraScript</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">sign-firmware.py</span><span class="dl">"</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p><strong>sign-firmware.py</strong>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">post_program_action</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">env</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Firmware has been built!"</span><span class="p">)</span>
-    <span class="n">program_path</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">get_abspath</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Program path"</span><span class="p">,</span> <span class="n">program_path</span><span class="p">)</span>
-    <span class="c1"># Use case: sign a firmware, do any manipulations with ELF, etc.
-</span>    <span class="n">env</span><span class="p">.</span><span class="n">Execute</span><span class="p">(</span><span class="sa">f</span><span class="s">"sign --elf </span><span class="si">{</span><span class="n">program_path</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
-
-<span class="n">global_env</span> <span class="o">=</span> <span class="n">DefaultEnvironment</span><span class="p">()</span>
-<span class="n">global_env</span><span class="p">.</span><span class="n">AddPostAction</span><span class="p">(</span><span class="s">"$PROGPATH"</span><span class="p">,</span> <span class="n">post_program_action</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h4 id="stringification">Stringification</h4>
-
-<p>Passing a macro flag (<code class="language-plaintext highlighter-rouge">-D</code>) with a string value to the compiler command has always been a pain.
-This process requires special escaping of the shell symbols and macro-expansion to the valid C String constant
-(<a href="https://docs.platformio.org/en/latest/projectconf/section_env_build.html#stringification">Stringification</a>) in the source code.</p>
-
-<p>PlatformIO Core 6.1 extends the Build System API with a new <code class="language-plaintext highlighter-rouge">env.StringifyMacro(value)</code> helper function that
-automatically escapes macro arguments. It is very useful for passing dynamic data such as program version,
-Wi-Fi credentials, or user data (<a href="https://docs.platformio.org/en/latest/scripting/examples/asking_for_input.html">Asking for input (prompts)</a>).</p>
-
-<p>The example below demonstrates how to read a username and pass it as a string using the <code class="language-plaintext highlighter-rouge">USER_NAME</code> macro:</p>
-
-<p><strong>platformio.ini</strong>:</p>
-
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:my_env]</span>
-<span class="py">platform</span> <span class="p">=</span> <span class="s">...</span>
-<span class="py">extra_scripts</span> <span class="p">=</span> <span class="s">pre:prompt-user-data.py</span>
-</code></pre></div></div>
-
-<p><strong>prompt-user-data.py</strong>:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import</span><span class="p">(</span><span class="s">"env"</span><span class="p">)</span>
-
-<span class="c1"># Ask user name
-</span><span class="k">print</span><span class="p">(</span><span class="s">"Enter your name:"</span><span class="p">)</span>
-<span class="n">user_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="n">env</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span>
-    <span class="n">CPPDEFINES</span><span class="o">=</span><span class="p">[(</span><span class="s">"USER_NAME"</span><span class="p">,</span> <span class="n">env</span><span class="p">.</span><span class="n">StringifyMacro</span><span class="p">(</span><span class="n">user_name</span><span class="p">))],</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<h2 id="upgrade">Upgrade</h2>
-
-<ul>
-  <li><strong>PlatformIO IDE</strong>: Left Sidebar &gt; PlatformIO (icon) &gt; Quick Access &gt; Upgrade PlatformIO Core</li>
-  <li><strong>Terminal</strong>: Please run <code class="language-plaintext highlighter-rouge">pio upgrade</code> command in terminal.</li>
-</ul>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1 is out with refactored Device Monitor, Pre & Post Actions for library authors, Stringification helpers, and improved PlatformIO Unit Testing solution for test-driven embedded development]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core 6.1, New boards & dev-kits, Support for the latest Arduino ESP32 core v2.0.4 and Teensyduino v1.57]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
