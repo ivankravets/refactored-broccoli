@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-05-09T18:36:06+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">A Deep Dive into the ARM Debug Access Port</title><link href="https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port.html" rel="alternate" type="text/html" title="A Deep Dive into the ARM Debug Access Port" /><published>2023-05-09T00:00:00+03:00</published><updated>2023-05-09T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port</id><content type="html" xml:base="https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port.html"><![CDATA[<p><img class="figure-img img-fluid rounded" src="/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" alt="PlatformIO lowers the barriers to entry the IoT market as much as possible" /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-06-05T14:18:52+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2023-06-05T00:00:00+03:00</published><updated>2023-06-05T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2023-updates.html"><![CDATA[<p>Welcome to the May 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+
+<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-may-news.jpg" alt="PlatformIO Open Source May Updates" /></p>
+
+<p>During May, we published a bugfix release for PlatformIO Core, added support for the latest ESP-IDF v5.0.2, rolled out updates for the Espressif32 and Microchip AVR/megaAVR development platforms, resolved a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#platformio-core-617" id="markdown-toc-platformio-core-617">PlatformIO Core 6.1.7</a></li>
+  <li><a href="#esp-idf-v502" id="markdown-toc-esp-idf-v502">ESP-IDF v5.0.2</a></li>
+  <li><a href="#espressif32-dev-platform-v63" id="markdown-toc-espressif32-dev-platform-v63">Espressif32 dev-platform v6.3</a></li>
+  <li><a href="#microchip-avr-dev-platform-v42" id="markdown-toc-microchip-avr-dev-platform-v42">Microchip AVR dev-platform v4.2</a></li>
+  <li><a href="#microchip-megaavr-dev-platform-v19" id="markdown-toc-microchip-megaavr-dev-platform-v19">Microchip megaAVR dev-platform v1.9</a></li>
+</ul>
+
+<h2 id="platformio-core-617">PlatformIO Core 6.1.7</h2>
+
+<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next v6.1.7 release with lots of great improvements and bugfixes:</p>
+
+<ul>
+  <li>Introduced a new <code class="language-plaintext highlighter-rouge">--sample-code</code> option to the <a href="https://docs.platformio.org/en/latest/core/userguide/project/cmd_init.html">pio project init</a> command, which allows users to include sample code in the newly created project</li>
+  <li>Added validation for <a href="https://docs.platformio.org/en/latest/projectconf/sections/env/index.html#working-env-name">project working environment names</a> to ensure that they only contain lowercase letters <code class="language-plaintext highlighter-rouge">a-z</code>, numbers <code class="language-plaintext highlighter-rouge">0-9</code>, and special characters <code class="language-plaintext highlighter-rouge">_</code> (underscore) and <code class="language-plaintext highlighter-rouge">-</code> (hyphen)</li>
+  <li>Added the ability to show a detailed library dependency tree only in <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_run.html#cmdoption-pio-run-v">verbose mode</a>, which can help you understand the relationship between libraries and troubleshoot issues more effectively (<a href="https://github.com/platformio/platformio-core/issues/4517">issue #4517</a>)</li>
+  <li>Added the ability to run only the <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">device monitor</a> when using the <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_run.html">pio run -t monitor</a> command, saving you time and resources by skipping the build process</li>
+  <li>Implemented a new feature to store device monitor logs in the project’s <code class="language-plaintext highlighter-rouge">logs</code> folder, making it easier to access and review device monitor logs for your projects (<a href="https://github.com/platformio/platformio-core/issues/4596">issue #4596</a>)</li>
+  <li>Improved support for projects located on Windows network drives, including Network Shared Folder, Dropbox, OneDrive, Google Drive, and other similar services (<a href="https://github.com/platformio/platformio-core/issues/3417">issue #3417</a>)</li>
+  <li>Improved source file filtering functionality for the <a href="https://docs.platformio.org/en/latest/advanced/static-code-analysis/index.html">Static Code Analysis</a> feature, making it easier to analyze only the code you need to</li>
+  <li>Upgraded the build engine to the latest version of SCons (4.5.2) to improve build performance, reliability, and compatibility with other tools and systems (<a href="https://github.com/SCons/scons/releases/tag/4.5.2">release notes</a>)</li>
+  <li>Implemented a fix for shell injection vulnerabilities when converting INO files to CPP, ensuring your code is safe and secure (<a href="https://github.com/platformio/platformio-core/issues/4532">issue #4532</a>)</li>
+  <li>Restored the project generator for the <a href="https://docs.platformio.org/en/latest/integration/ide/netbeans.html">NetBeans IDE</a>, providing you with more flexibility and options for your development workflow</li>
+  <li>Resolved installation issues with PIO Remote on Raspberry Pi and other small form-factor PCs (<a href="https://github.com/platformio/platformio-core/issues/4425">issue #4425</a>, <a href="https://github.com/platformio/platformio-core/issues/4493">issue #4493</a>, <a href="https://github.com/platformio/platformio-core/issues/4607">issue #4607</a>)</li>
+  <li>Resolved an issue where the <a href="https://docs.platformio.org/en/latest/projectconf/sections/platformio/options/directory/build_cache_dir.html">build_cache_dir</a> setting was not being recognized consistently across multiple environments (<a href="https://github.com/platformio/platformio-core/issues/4574">issue #4574</a>)</li>
+  <li>Resolved an issue where organization details could not be updated using the <a href="https://docs.platformio.org/en/latest/core/userguide/org/cmd_update.html">pio org update</a> command</li>
+  <li>Resolved an issue where the incorrect debugging environment was generated for VSCode in “Auto” mode (<a href="https://github.com/platformio/platformio-core/issues/4597">issue #4597</a>)</li>
+  <li>Resolved an issue where native tests would fail if a custom program name was specified (<a href="https://github.com/platformio/platformio-core/issues/4546">issue #4546</a>)</li>
+  <li>Resolved an issue where the PlatformIO <a href="https://docs.platformio.org/en/latest/plus/debugging.html">Debugging</a> solution was not escaping the tool installation process into MI2 correctly (<a href="https://github.com/platformio/platformio-core/issues/4565">issue #4565</a>)</li>
+  <li>Resolved an issue where multiple targets were not executed sequentially (<a href="https://github.com/platformio/platformio-core/issues/4604">issue #4604</a>)</li>
+  <li>Resolved an issue where upgrading PlatformIO Core fails on Windows with Python 3.11 (<a href="https://github.com/platformio/platformio-core/issues/4540">issue #4540</a>)</li>
+</ul>
+
+<p>See <a href="https://github.com/platformio/platformio-core/releases/tag/v6.1.7">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
+
+<h2 id="esp-idf-v502">ESP-IDF v5.0.2</h2>
+
+<p>We’re happy to announce updated support for the latest patch update of <strong>ESP-IDF v5.0.2</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
+
+<p><strong>Major enhancements in v5.0.2:</strong></p>
+
+<ul>
+  <li>Support BLE privacy by controller</li>
+  <li>Added custom GATT server functionality and encryption</li>
+  <li>Improved the handling of station SA query procedures</li>
+</ul>
+
+<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
+
+<p><strong>Related resources for ESP-IDF</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.0.2">Release notes for v5.0.2</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="espressif32-dev-platform-v63">Espressif32 dev-platform v6.3</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF v5.0.2, updated Arduino core v2.0.9 and several minor fixes and improvements:</p>
+
+<ul>
+  <li>Added support for Arduino v2.0.9 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.9">release notes</a>)</li>
+  <li>Added support for ESP-IDF v5.0.2 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.0.2">release notes</a>)</li>
+  <li>Better handling of macros exported from the IDF build system (<a href="https://github.com/platformio/platform-espressif32/issues/1080">#1080</a>)</li>
+  <li>Improved integration with the upstream version of ESP32 Arduino core (<a href="https://github.com/platformio/platform-espressif32/issues/1092">#1092</a>)</li>
+  <li>Fixed flash memory size for ESP32S3 CAM LCD board (<a href="https://github.com/platformio/platform-espressif32/issues/1095">#1095</a>)</li>
+</ul>
+
+<p>See <a href="https://github.com/platformio/platform-espressif32/releases/tag/v6.3.0">Release Notes</a> for more detailed information.</p>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-avr-dev-platform-v42">Microchip AVR dev-platform v4.2</h2>
+
+<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelavr">Microchip AVR</a> v4.2.0 comes with updates for highly customizable Arduino cores by MCUdude and initial support for the <code class="language-plaintext highlighter-rouge">Urboot</code> bootloader:</p>
+
+<ul>
+  <li>Updated MCUdude’s cores (#302):
+    <ul>
+      <li>MajorCore <code class="language-plaintext highlighter-rouge">v2.2.2</code> (<a href="https://github.com/MCUdude/MajorCore/releases/tag/v2.2.2">release notes</a>)</li>
+      <li>MegaCore <code class="language-plaintext highlighter-rouge">v2.2.3</code> (<a href="https://github.com/MCUdude/MegaCore/releases/tag/v2.2.3">release notes</a>)</li>
+      <li>MightyCore <code class="language-plaintext highlighter-rouge">v2.2.2</code> (<a href="https://github.com/MCUdude/MightyCore/releases/tag/v2.2.2">release notes</a>)</li>
+      <li>MiniCore <code class="language-plaintext highlighter-rouge">v2.2.2</code> (<a href="https://github.com/MCUdude/MiniCore/releases/tag/v2.2.2">release notes</a>)</li>
+      <li>MicroCore <code class="language-plaintext highlighter-rouge">v2.3.0</code> (<a href="https://github.com/MCUdude/MicroCore/releases/tag/v2.3.0">release notes</a>)</li>
+    </ul>
+  </li>
+  <li>Added initial support for the <code class="language-plaintext highlighter-rouge">Urboot</code> bootloader for MicroCore (<a href="https://github.com/platformio/platform-atmelavr/pull/311">#311</a>)</li>
+  <li>Fixed an issue with missing <code class="language-plaintext highlighter-rouge">tool-avrdude</code> package when bootloader target is selected (<a href="https://github.com/platformio/platform-atmelavr/issues/269">#269</a>)</li>
+</ul>
+
+<p>See <a href="https://github.com/platformio/platform-atmelavr/releases/tag/v4.2.0">Release Notes</a> for more detailed information.</p>
+
+<p><strong>Related resources for the Microchip AVR dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelavr.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelavr/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-megaavr-dev-platform-v19">Microchip megaAVR dev-platform v1.9</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/atmelmegaavr">Microchip megaAVR</a> v1.9.0 brings several updated Arduino cores:</p>
+
+<ul>
+  <li>Updated <code class="language-plaintext highlighter-rouge">MegaCoreX</code> to v1.1.2 (<a href="https://github.com/MCUdude/MegaCoreX/releases/tag/v1.1.2">release notes</a>)</li>
+  <li>Updated <code class="language-plaintext highlighter-rouge">megatinycore</code> to v2.6.7 (<a href="https://github.com/SpenceKonde/megaTinyCore/releases/tag/2.6.7">release notes</a>)</li>
+  <li>Updated <code class="language-plaintext highlighter-rouge">Arduino</code> core to v1.8.8 (<a href="https://github.com/arduino/ArduinoCore-megaavr/releases/tag/1.8.8">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Microchip megaAVR dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelmegaavr.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelmegaavr/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, Support for the latest ESP-IDF, Updated Arduino cores Espressif32 and Microchip AVR/megaAVR]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A Deep Dive into the ARM Debug Access Port</title><link href="https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port.html" rel="alternate" type="text/html" title="A Deep Dive into the ARM Debug Access Port" /><published>2023-05-09T00:00:00+03:00</published><updated>2023-05-09T00:00:00+03:00</updated><id>https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port</id><content type="html" xml:base="https://piolabs.com/blog/engineering/diving-into-arm-debug-access-port.html"><![CDATA[<p><img class="figure-img img-fluid rounded" src="/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" alt="PlatformIO lowers the barriers to entry the IoT market as much as possible" /></p>
 
 <p>The ARM Debug Access Port (DAP) is a crucial component of the ARM debugging architecture that allows developers to gain access to and debug embedded systems running on ARM-based processors. The DAP provides a standardized interface for accessing and controlling various debug-related features, including debugging and programming interfaces, trace data, and system registers.<!-- more --> Whether you are a seasoned embedded systems developer or just getting started with ARM-based SoC development, this article will provide valuable insights into the architecture of the ARM Debug Access Port and its functionality.</p>
 
@@ -2005,258 +2139,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core and PlatformIO IDE for Microsoft VSCode bugfix releases, Support for the latest ESP-IDF 4.4.2, Updated Arduino core for Espressif32]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Debugging with PlatformIO: Part 4. Using Semihosting on ARM Targets</title><link href="https://piolabs.com/blog/insights/debugging-semihosting.html" rel="alternate" type="text/html" title="Debugging with PlatformIO: Part 4. Using Semihosting on ARM Targets" /><published>2022-09-19T00:00:00+03:00</published><updated>2022-09-19T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/debugging-semihosting</id><content type="html" xml:base="https://piolabs.com/blog/insights/debugging-semihosting.html"><![CDATA[<p>When developing embedded software, it’s essential to have not only a full-featured debug probe that significantly improves the overall debugging experience but also a convenient way of sending status messages to a debug console on a host machine. This possibility can greatly help to less invasively monitor the behavior of an embedded application without stopping the whole program flow. Just imagine how useful it might be to use the “printf” function on a target device and see the output directly in the debug console on your machine without any additional hardware except a debug probe. It comes especially handy in the early development stages when there are no final I/O facilities available.</p>
-
-<!-- more -->
-
-<p>Nowadays, one of the most commonly used techniques for such tasks is called “Semihosting”. It’s a powerful debug mechanism designed to simplify the tunneling of I/O requests from a target device to a host machine. In the <a href="/blog/insights/debugging-cli.html">previous post</a>, we reviewed the debugging capabilities of the PlatformIO ecosystem in the CLI mode. In this article, we will try to take a deeper look at the semihosting capabilities and configure a simple PlatformIO project to use the I/O facilities of a computer running the PlatformIO IDE.</p>
-
-<p>Throughout this post, we will be using a low-cost ARM-based board <a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html" target="_blank">ST Nucleo-F401RE</a> and <a href="https://docs.platformio.org/en/latest/frameworks/stm32cube.html" target="_blank">STM32Cube</a> as the development framework.</p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#prerequisites" id="markdown-toc-prerequisites">Prerequisites</a></li>
-  <li><a href="#what-is-semihosting" id="markdown-toc-what-is-semihosting">What is Semihosting?</a></li>
-  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a></li>
-  <li><a href="#enabling-semihosting" id="markdown-toc-enabling-semihosting">Enabling Semihosting</a></li>
-  <li><a href="#adding-support-for-floating-point-numbers" id="markdown-toc-adding-support-for-floating-point-numbers">Adding Support for Floating-point Numbers</a></li>
-  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="prerequisites">Prerequisites</h2>
-
-<p>This article uses the following components:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">VSCode with installed PlatformIO IDE extension</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/nucleo_f401re.html">ST Nucleo-F401RE</a></li>
-</ul>
-
-<h2 id="what-is-semihosting">What is Semihosting?</h2>
-
-<p>In the Arm documentation, the term <code class="language-plaintext highlighter-rouge">semihosting</code> is defined as a mechanism for communicating I/O requests from application code to a host computer running a debugger. To put it simply, it means that we can delegate some parts of application functionality (e.g. working with a keyboard, printing on a display, file I/O, etc.) to a host machine. A typical semihosting setup can be visualized as the following:</p>
-
-<figure class="figure mb-7">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-schematic-overview.png" alt="Compilation and linking process" />
-  <figcaption class="figure-caption text-center">
-    Semihosting schematic overview
-  </figcaption>
-</figure>
-
-<p>The implementation of the semihosting mechanism depends on the target architecture. In this article, we use ST Nucleo-F401RE with a Cortex-M4 MCU on-board. In our case, the semihosting implementation utilizes a special <code class="language-plaintext highlighter-rouge">BKPT (0xAB)</code> instruction which forces the CPU to enter the debug state. In this state, the control is transferred to a debugger so it can investigate whether that breakpoint should trigger a semihosting operation. Given that semihosting supports many different operations (<code class="language-plaintext highlighter-rouge">SYS_OPEN</code>, <code class="language-plaintext highlighter-rouge">SYS_SEEK</code>, <code class="language-plaintext highlighter-rouge">SYS_WRITE</code>, etc.), the processor has to specify what operation is requested and what parameters should be passed to the host machine. It’s done via the <code class="language-plaintext highlighter-rouge">R0</code> and <code class="language-plaintext highlighter-rouge">R1</code> registers. The processor stores the semihosting operation type in <code class="language-plaintext highlighter-rouge">R0</code> and prepares other parameters in a memory block pointed by <code class="language-plaintext highlighter-rouge">R1</code>. Once the processor executes the BKPT instruction and enters its debug state, the debugger checks the values in the <code class="language-plaintext highlighter-rouge">R0</code> and <code class="language-plaintext highlighter-rouge">R1</code> registers, executes the requested semihosting operation accordingly, returns the result value in <code class="language-plaintext highlighter-rouge">R0</code>, and skips the BKPT instruction to let the target continue the execution.</p>
-
-<p>It’s also worth mentioning that the semihosting technique cannot offer high-speed I/O operations. Each time a semihosting operation is executed, the processor is simply stopped while the data is being transferred. The required time depends on many aspects including the type of a debug probe, target CPU speed, and even the performance of the host machine, all of that can affect the speed of semihosting operations.</p>
-
-<p>Now that we know how semihosting works behind the scenes, we need to instruct the internal system calls to utilize the mechanism described above. Fortunately, the GNU Arm Embedded toolchain offers a special semihosted version of the syscalls implemented in the library called <code class="language-plaintext highlighter-rouge">rdimon</code>, we just need to properly configure the linker command with several special flags. The following project will show all the steps required to enable semihosting support.</p>
-
-<h2 id="getting-started">Getting Started</h2>
-
-<p>For a quick start, let’s create s basic example that should print the “Hello, World!” string to the debug console. For the sake of brevity, I will assume you already have the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> platform installed in your system.</p>
-
-<p>First of all, let’s create a new project using PlatformIO Home Page:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2022-09-19-debugging-semihosting/semihosting-new-project-1.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-new-project-1.png" />
-</a></p>
-
-<p>As discussed above, we need to select “ST Nucleo-F401RE” as the board and “STM32Cube” as the framework and press the “Finish” button:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2022-09-19-debugging-semihosting/semihosting-new-project-2.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-new-project-2.png" />
-</a></p>
-
-<p>Now, let’s add some actual code that should print the “Hello world!” string. Create a new file <code class="language-plaintext highlighter-rouge">main.c</code> in the <code class="language-plaintext highlighter-rouge">src</code> folder with the following content:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;stm32f4xx_hal.h&gt;</span><span class="cp">
-</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">HAL_Init</span><span class="p">();</span>
-
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Messages are buffered, so "\n" is required</span>
-        <span class="c1">// to flush the internal buffer immediately</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Hello world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">HAL_Delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">SysTick_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">HAL_IncTick</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>If we start a new debug session after this step, then the “Hello world!” string won’t be printed in the debug console. That’s expected behavior because by default STM32Cube-based projects are linked with the <code class="language-plaintext highlighter-rouge">nosys</code> library. This library implements system calls as simple stubs which don’t provide any semihosting support. That’s why we need to slightly modify our project to link appropriate libraries.</p>
-
-<h2 id="enabling-semihosting">Enabling Semihosting</h2>
-
-<p>Let’s go through the steps required to enable semihosting support. First of all, we need to disable the default system calls implementation using the <a href="https://docs.platformio.org/en/latest/projectconf/section_env_build.html#build-unflags">build_unflags</a> option:</p>
-
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:nucleo_f401re]</span>
-<span class="py">platform</span> <span class="p">=</span> <span class="s">ststm32</span>
-<span class="py">framework</span> <span class="p">=</span> <span class="s">stm32cube</span>
-<span class="py">board</span> <span class="p">=</span> <span class="s">nucleo_f401re</span>
-
-<span class="c">; Remove stub implementations
-</span><span class="py">build_unflags</span> <span class="p">=</span>
-    <span class="err">-lnosys</span>
-    <span class="py">--specs</span><span class="p">=</span><span class="s">nosys.specs</span>
-</code></pre></div></div>
-
-<p>In the next step, we need to instruct the linker to use the above-mentioned <code class="language-plaintext highlighter-rouge">rdimon</code> implementations. The easiest way is to create an extra script in the root of the project (for example <code class="language-plaintext highlighter-rouge">enable_semihosting.py</code>) and add the semihosting flags directly to the default build environment:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import</span> <span class="p">(</span><span class="s">"env"</span><span class="p">)</span>
-
-<span class="n">env</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span>
-    <span class="n">LINKFLAGS</span><span class="o">=</span><span class="p">[</span><span class="s">"--specs=rdimon.specs"</span><span class="p">],</span>
-    <span class="n">LIBS</span><span class="o">=</span><span class="p">[</span><span class="s">"rdimon"</span><span class="p">]</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<p>In order to run that script we need to specify it in our <code class="language-plaintext highlighter-rouge">platformio.ini</code> file using the <a href="https://docs.platformio.org/en/latest/projectconf/section_env_advanced.html#extra-scripts">extra-scripts</a> option:</p>
-
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:nucleo_f401re]</span>
-<span class="py">platform</span> <span class="p">=</span> <span class="s">ststm32</span>
-<span class="py">framework</span> <span class="p">=</span> <span class="s">stm32cube</span>
-<span class="py">board</span> <span class="p">=</span> <span class="s">nucleo_f401re</span>
-
-<span class="c">; Remove stub implementations
-</span><span class="py">build_unflags</span> <span class="p">=</span>
-    <span class="err">-lnosys</span>
-    <span class="py">--specs</span><span class="p">=</span><span class="s">nosys.specs</span>
-
-<span class="c">; Add semihosting flags
-</span><span class="py">extra_scripts</span> <span class="p">=</span>
-    <span class="err">enable_semihosting.py</span>
-</code></pre></div></div>
-
-<p>In the third step, we need to configure the debug server so it will redirect the semihosting output to the debug console. It can be done in the <code class="language-plaintext highlighter-rouge">platformio.ini</code> file using the <a href="https://docs.platformio.org/en/latest/projectconf/section_env_debug.html#debug-extra-cmds">debug_extra_cmds</a> option and two special commands:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">monitor arm semihosting enable</code> enables semihosting support</li>
-  <li><code class="language-plaintext highlighter-rouge">monitor arm semihosting_fileio</code> redirects the semihosting I/O to the debug console</li>
-</ul>
-
-<p>After all those steps, the final <code class="language-plaintext highlighter-rouge">platformio.ini</code> file should look like this:</p>
-
-<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:nucleo_f401re]</span>
-<span class="py">platform</span> <span class="p">=</span> <span class="s">ststm32</span>
-<span class="py">framework</span> <span class="p">=</span> <span class="s">stm32cube</span>
-<span class="py">board</span> <span class="p">=</span> <span class="s">nucleo_f401re</span>
-
-<span class="c">; Remove stub implementations
-</span><span class="py">build_unflags</span> <span class="p">=</span>
-    <span class="err">-lnosys</span>
-    <span class="py">--specs</span><span class="p">=</span><span class="s">nosys.specs</span>
-
-<span class="c">; Add semihosting flags
-</span><span class="py">extra_scripts</span> <span class="p">=</span>
-    <span class="err">enable_semihosting.py</span>
-
-<span class="c">; Enable semihosting
-</span><span class="py">debug_extra_cmds</span> <span class="p">=</span>
-    <span class="err">monitor</span> <span class="err">arm</span> <span class="err">semihosting</span> <span class="err">enable</span>
-    <span class="err">monitor</span> <span class="err">arm</span> <span class="err">semihosting_fileio</span> <span class="err">enable</span>
-</code></pre></div></div>
-
-<p>Finally, we need to declare and call a special function <code class="language-plaintext highlighter-rouge">initialise_monitor_handles</code> at the very beginning of the <code class="language-plaintext highlighter-rouge">main</code> function:</p>
-
-<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;stm32f4xx_hal.h&gt;</span><span class="cp">
-</span>
-<span class="k">extern</span> <span class="kt">void</span> <span class="nf">initialise_monitor_handles</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="n">initialise_monitor_handles</span><span class="p">();</span>
-
-    <span class="n">HAL_Init</span><span class="p">();</span>
-
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">"Hello world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-        <span class="n">HAL_Delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">SysTick_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">HAL_IncTick</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Now we can start a new debug session (<code class="language-plaintext highlighter-rouge">F5</code>) and see the output in the debug console:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2022-09-19-debugging-semihosting/semihosting-initial-example.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-initial-example.png" />
-</a></p>
-
-<p>In order to better understand how it works, let’s take a closer look at the assembly listing of an internal system call when the “Hello World!” string is passed to the <code class="language-plaintext highlighter-rouge">printf</code> function:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2022-09-19-debugging-semihosting/semihosting-assembly-listing.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-assembly-listing.png" />
-</a></p>
-
-<p>The listing shows that before executing the BKPT (<code class="language-plaintext highlighter-rouge">0x00ab</code>) instruction, the register <code class="language-plaintext highlighter-rouge">R0</code> is loaded (via <code class="language-plaintext highlighter-rouge">R4</code>) with the value <code class="language-plaintext highlighter-rouge">5</code> which stands for <code class="language-plaintext highlighter-rouge">SYS_WRITE</code>. The register <code class="language-plaintext highlighter-rouge">R1</code> is loaded with a memory address from <code class="language-plaintext highlighter-rouge">R5</code> which was previously populated with the value of the Stack Pointer increased by four. The value in <code class="language-plaintext highlighter-rouge">R1</code> points to a three-word data block that contains the following items:</p>
-
-<ul>
-  <li>Handle to a previously opened stream or file</li>
-  <li>Memory address with the data to write</li>
-  <li>Size in bytes of the data to write</li>
-</ul>
-
-<p>In our case, the value in <code class="language-plaintext highlighter-rouge">R1</code> points to the address <code class="language-plaintext highlighter-rouge">0x20017fc7</code>, so let’s take a closer look at the real example of the data block located at that address:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2022-09-19-debugging-semihosting/semihosting-memory-view.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2022-09-19-debugging-semihosting/semihosting-memory-view.png" />
-</a></p>
-
-<p>By default, the ARM processors use the little-endian order, so all values should be read backward. The first block contains the value <code class="language-plaintext highlighter-rouge">0x01</code> which is the default value for the <code class="language-plaintext highlighter-rouge">STDOUT</code> stream, the second block contains a pointer to the address <code class="language-plaintext highlighter-rouge">0x20000310</code> and if we read the memory at that address we will see our <code class="language-plaintext highlighter-rouge">Hello World!</code> string. The final block contains the value <code class="language-plaintext highlighter-rouge">0x0D</code> which is equal to 13 bytes of the data.</p>
-
-<h2 id="adding-support-for-floating-point-numbers">Adding Support for Floating-point Numbers</h2>
-
-<p>By default, the STM32Cube framework is linked against a special variant of standard libraries called <code class="language-plaintext highlighter-rouge">newlib-nano</code>. It’s an optimized version of the <code class="language-plaintext highlighter-rouge">newlib</code> libraries with simplified logic and without unnecessary features. Additionally, rarely used functionality is declared using the weak symbol technique which greatly helps reduce the memory footprint. The formatted I/O operations with floating-point support are one of those features that are implemented as weak symbols. Fortunately, the process of enabling comes down to adding two flags to the linker command.</p>
-
-<p>The support for floating-point I/O operations can be enabled in the same <code class="language-plaintext highlighter-rouge">enable_semihosting.py</code> file from the “Getting Started” section. Simply add two new flags <code class="language-plaintext highlighter-rouge">-Wl,-u,_printf_float</code> and <code class="language-plaintext highlighter-rouge">-Wl,-u,_printf_scanf</code> which will force the linker to pull those symbols to the final binary:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Import</span> <span class="p">(</span><span class="s">"env"</span><span class="p">)</span>
-
-<span class="n">env</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span>
-    <span class="n">LINKFLAGS</span><span class="o">=</span><span class="p">[</span>
-        <span class="s">"--specs=rdimon.specs"</span><span class="p">,</span>
-        <span class="s">"-Wl,-u,_printf_float"</span><span class="p">,</span>
-        <span class="s">"-Wl,-u,_scanf_float"</span>
-    <span class="p">],</span>
-    <span class="n">LIBS</span><span class="o">=</span><span class="p">[</span><span class="s">"rdimon"</span><span class="p">]</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<h2 id="conclusion">Conclusion</h2>
-
-<p>Semihosting is an extremely useful feature for testing and debugging purposes. Having it in your toolbox can greatly help you out when there are no other communication channels available. But developers should be aware of the several limitations that semihosting may bring:</p>
-
-<ul>
-  <li>Due to implementation trade-offs semihosting may significantly impact the performance of an application that can result in unexpected side effects in hard real-time system applications</li>
-  <li>Semihosting only works during a debug session which means that applications compiled for semihosted development environment won’t run correctly when the target is detached from a debugger</li>
-  <li>Memory-constrained devices may not have enough resources to handle semihosting calls (especially when <code class="language-plaintext highlighter-rouge">printf</code> with floats is used)</li>
-</ul>
-
-<p>It’s also worth mentioning that there are alternatives like retargeting the <code class="language-plaintext highlighter-rouge">printf</code> output via ITM channels or even solutions from commercial companies like <strong>Segger Real-Time Transfer</strong>.</p>
-
-<p>This is the final post in the “Debugging with PlatformIO” series. If you are new to the series, you may find <a href="/blog/insights/debugging-introduction.html">Debugging with PlatformIO: Part 1. Back to the Basics</a> a useful starting point.</p>
-
-<p>If you liked this series, you are sure to enjoy our posts on other topics:</p>
-
-<ul>
-  <li><a href="/blog/insights/memory-analysis-part-1.html">Analyze your firmware footprint with PlatformIO</a></li>
-  <li><a href="/blog/insights/unit-testing-part-1.html">Unit Testing with PlatformIO</a></li>
-</ul>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[In this article we will try to take a deeper look at the semihosting capabilities and configure a simple PlatformIO project to use the I/O facilities of a computer running the PlatformIO IDE.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2022-09-19-debugging-semihosting/semihosting-schematic-overview.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2022-09-19-debugging-semihosting/semihosting-schematic-overview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core and PlatformIO IDE for Microsoft VSCode bugfix releases, Support for the latest ESP-IDF 4.4.2, Updated Arduino core for Espressif32]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
