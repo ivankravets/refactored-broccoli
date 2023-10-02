@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-09-04T15:06:41+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2023-09-04T00:00:00+03:00</published><updated>2023-09-04T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html"><![CDATA[<p>Welcome to the August 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2023-10-02T11:11:54+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source September Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-september-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source September Updates" /><published>2023-10-02T00:00:00+03:00</published><updated>2023-10-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-september-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-september-2023-updates.html"><![CDATA[<p>Welcome to the September 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+
+<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-september-news.jpg" alt="PlatformIO Open Source September Updates" /></p>
+
+<p>During September, we added support for the latest Zephyr framework and rolled out updates for ST STM32, Renesas RA, Nordic nRF52 and Raspberry Pico development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#zephyr-rtos-v34" id="markdown-toc-zephyr-rtos-v34">Zephyr RTOS v3.4</a></li>
+  <li><a href="#st-stm32-dev-platform-v170" id="markdown-toc-st-stm32-dev-platform-v170">ST STM32 dev-platform v17.0</a></li>
+  <li><a href="#renesas-ra-dev-platform-v12" id="markdown-toc-renesas-ra-dev-platform-v12">Renesas RA dev-platform v1.2</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v406" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v406">Arduino Core for mbed-enabled devices v4.0.6</a></li>
+</ul>
+
+<h2 id="zephyr-rtos-v34">Zephyr RTOS v3.4</h2>
+
+<p>We’re happy to announce updated support for the latest release v3.4.0 of <a href="https://www.zephyrproject.org/" target="_blank">Zephyr Project</a> - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.</p>
+
+<p>The renewed integration brings enhanced compatibility and faster performance, but currently focuses only on two platforms – <a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">ST STM32</a> and <a href="https://docs.platformio.org/en/latest/platforms/nxpimxrt.html">NXP iMXRT</a>. Stay tuned as we’re actively exploring opportunities to expand to more platforms in the future.</p>
+
+<p><strong>Related resources for Zephyr framework</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.4.0">Release notes for v3.4.0</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html">Documentation for Zephyr framework</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms">Supported development platforms</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v170">ST STM32 dev-platform v17.0</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> v17.0 comes with support for the latest Zephyr and Arduino cores, updated toolchain packages and several minor improvements:</p>
+
+<ul>
+  <li>New boards:
+    <ul>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/leafony_ap03.html">Leafony AP03</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/lora_e5_dev_board.html">SeeedStudio LoRa E5 Dev Board</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/lora_e5_mini.html">SeeedStudio LoRa-E5 mini</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/sparkfun_micromod_f405.html">SparkFun MicroMod STM32F405</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/genericSTM32H750VB.html">STM32H750VB</a></li>
+      <li><a href="https://docs.platformio.org/en/latest/boards/ststm32/genericSTM32G431CB.html">STM32G431CB</a></li>
+    </ul>
+  </li>
+  <li>Updated Zephyr to the latest v3.4.0 (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.4.0">release notes</a>)</li>
+  <li>Updated STM32 Arduino Core to the latest v2.6.0 (<a href="https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.6.0">release notes</a>)</li>
+  <li>Updated Arduino-mbed core to v4.0.6 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.0.6">release notes</a>)</li>
+  <li>Updated toolchain packages to v12.3.1 for Arduino integration (<a href="https://github.com/platformio/platform-ststm32/issues/720">#720</a>)</li>
+  <li>Fixed flash memory size for <code class="language-plaintext highlighter-rouge">nucleo_g0b1re</code> (<a href="https://github.com/platformio/platform-ststm32/issues/723">#723</a>)</li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-ststm32/issues/695">#695</a>, <a href="https://github.com/platformio/platform-ststm32/issues/715">#715</a>, <a href="https://github.com/platformio/platform-ststm32/issues/722">#722</a>, <a href="https://github.com/platformio/platform-ststm32/issues/728">#728</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="renesas-ra-dev-platform-v12">Renesas RA dev-platform v1.2</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.2.0 brings support for the latest Arduino core and several bugfixes:</p>
+
+<ul>
+  <li>Updated Arduino core to v1.0.4 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.0.4">release notes</a>)</li>
+  <li>Added missing ARCH macro for Uno boards (<a href="https://github.com/platformio/platform-renesas-ra/issues/11">#11</a>)</li>
+  <li>Fixed broken linker flag for FPU (<a href="https://github.com/platformio/platform-renesas-ra/issues/13">#13</a>)</li>
+  <li>Fixed J-Link device name for Portenta C33 (<a href="https://github.com/platformio/platform-renesas-ra/issues/14">#14</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v406">Arduino Core for mbed-enabled devices v4.0.6</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v4.0.6. According to the <a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.0.6">release notes</a>, v4.0.6 brings a lot of bugfixes and improvements in the core and accompanying libraries.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and devkits, Support for the latest Zephyr RTOS 3.4, Updates for ST STM32, Renesas RA and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2023-09-04T00:00:00+03:00</published><updated>2023-09-04T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html"><![CDATA[<p>Welcome to the August 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
 <!-- more -->
@@ -2050,125 +2136,4 @@ Minor fixes and improvements (<a href="https://github.com/platformio/platform-es
 
 <h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Major update of PlatformIO IDE, New boards & dev-kits, Updated Arduino cores for STMicroelectronics, Microchip AVR/megaAVR and mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO IDE 3.0 for VSCode 🚀</title><link href="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html" rel="alternate" type="text/html" title="PlatformIO IDE 3.0 for VSCode 🚀" /><published>2023-02-06T00:00:00+02:00</published><updated>2023-02-06T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-ide-3-0-for-vscode-released.html"><![CDATA[<p>PlatformIO Labs is dedicated to delivering the most advanced and innovative embedded development solutions on the market. With PlatformIO IDE, developers can take their embedded software development to the next level and achieve maximum productivity and efficiency.</p>
-
-<!-- more -->
-
-<p>We are excited to announce a new major release of <a href="https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide" target="_blank">PlatformIO IDE 3.0 for Microsoft Visual Studio Code (VSCode)</a> and provide embedded software developers with an advanced development environment that meets their evolving needs and demands. The new version of the IDE is built on the latest technology, delivering an enhanced user experience, improved performance and expanded functionality compared to previous versions.</p>
-
-<p>There’s a lot going on with this release, so we’ve prepared this special post with lots of details about new features and enhancements that provide a powerful and unique functionality, opening up new opportunities for developers to build highly sophisticated embedded applications.</p>
-
-<p><img class="figure-img img-fluid rounded" src="/assets/img/screenshots/desktop/platformio-ide-for-vscode.png" alt="PlatformIO IDE 3.0 for VSCode 🚀" /></p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#what-is-new" id="markdown-toc-what-is-new">What is New</a>    <ul>
-      <li><a href="#onboarding-with-walkthroughs" id="markdown-toc-onboarding-with-walkthroughs">Onboarding with “Walkthroughs”</a></li>
-      <li><a href="#project-management" id="markdown-toc-project-management">Project Management</a>        <ul>
-          <li><a href="#intellisense-for-platformioini" id="markdown-toc-intellisense-for-platformioini">IntelliSense for “platformio.ini”</a></li>
-          <li><a href="#unit-testing-ui" id="markdown-toc-unit-testing-ui">Unit Testing UI</a></li>
-          <li><a href="#port-switcher" id="markdown-toc-port-switcher">Port Switcher</a></li>
-          <li><a href="#custom-platformio-toolbar" id="markdown-toc-custom-platformio-toolbar">Custom PlatformIO Toolbar</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="#upgrade" id="markdown-toc-upgrade">Upgrade</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="what-is-new">What is New</h2>
-
-<p>PlatformIO IDE 3.0 for VSCode has something new for every developer. In this section, we are going to highlight the most important changes and
-features introduced in the latest release. Please visit <a href="https://github.com/platformio/platformio-vscode-ide/releases/tag/v3.0.0" target="_blank">PlatformIO IDE for VSCode Release Notes</a> for more detailed information.</p>
-
-<h3 id="onboarding-with-walkthroughs">Onboarding with “Walkthroughs”</h3>
-
-<p>First impressions are crucial. That’s why we prepared an informative <strong>Walkthroughs</strong> page to help newcomers understand the PlatformIO ecosystem and features of the PlatformIO IDE extension via a comprehensive multi-step checklist. We hope that this improvement will significantly simplify the onboarding process when developers install PlatformIO IDE 3.0 for the first time.</p>
-
-<p><strong>Demo</strong></p>
-
-<p>If PlatformIO IDE for VSCode is already installed, please open <strong>Walkthroughs</strong> via <code class="language-plaintext highlighter-rouge">Menu: Help &gt; Get Started &gt; Walkthroughs &gt; More...</code></p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/onboarding-and-walkthrough.jpeg&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/onboarding-and-walkthrough.jpeg" />
-</a></p>
-
-<h3 id="project-management">Project Management</h3>
-
-<h4 id="intellisense-for-platformioini">IntelliSense for “platformio.ini”</h4>
-
-<p>Each PlatformIO project contains a highly customizable configuration file that provides tens of handy options that sometimes can be hard to remember. Even though developers can always consult PlatformIO documentation, it would be much more productive if all necessary information and hints were available without leaving the development environment. That’s why PlatformIO IDE 3.0 for VSCode finally brings the long-awaited IntelliSense support for the <a href="https://docs.platformio.org/en/latest/projectconf/index.html">platformio.ini</a> configuration file with the following features:</p>
-
-<ul>
-  <li>Auto-completion for configuration options</li>
-  <li>Auto-completion for choice-based option values</li>
-  <li>Hover over an option and get a quick documentation</li>
-  <li>Realtime serial port auto-completion for port-related options</li>
-  <li>Quickly jump to a development platform or library located in the <a href="https://registry.platformio.org/">PlatformIO Registry</a>.</li>
-</ul>
-
-<p><strong>Demo</strong></p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/platformio-ini-intellisense.gif&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/platformio-ini-intellisense.gif" />
-</a></p>
-
-<h4 id="unit-testing-ui">Unit Testing UI</h4>
-
-<p><a href="https://docs.platformio.org/en/latest/advanced/unit-testing/index.html">PlatformIO Unit Testing</a> allows developers to separate independent parts of the firmware/program and test that individual parts in isolation to make sure they are working correctly. The new PlatformIO IDE 3.0 brings a seamless integration of the PlatformIO Unit Testing solution and VSCode Testing UI so that developers now have a single unified view of their testing results.</p>
-
-<p>Once you add tests to your project, a test beaker icon will be displayed on the VS Code Activity bar. The beaker icon is for the <strong>Test Explorer</strong> view. When you open the Test Explorer, you will see a list of test suites where you can manage project tests:</p>
-
-<ul>
-  <li>Filter test suites</li>
-  <li>Run selected test suites</li>
-  <li>Jump to a failed test case.</li>
-</ul>
-
-<p><strong>Demo</strong></p>
-
-<p>Here is a demonstration of a simple <a href="https://github.com/platformio/platformio-examples/tree/develop/unit-testing/calculator">calculator example</a> based on the <a href="https://docs.platformio.org/en/latest/advanced/unit-testing/frameworks/unity.html">Unity Testing Framework</a>:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/unit-testing-ui.jpeg&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/unit-testing-ui.jpeg" />
-</a></p>
-
-<h4 id="port-switcher">Port Switcher</h4>
-
-<p><strong>Project Port Switcher</strong> was one of the most requested feature by our community. We love to implement slight improvements to simplify lives of our users and bring better developer experience. Now it is possible to override the “upload”, “monitor” or “test” ports without any changes to the <a href="https://docs.platformio.org/en/latest/projectconf/index.html">platformio.ini</a> configuration file. You can also pass your custom value to the port such as IP address for OTA, media disk, or even leverage <a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/upload/upload_port.html">wildcard patterns</a>.</p>
-
-<p>Note that the overridden port changed via the new switcher has higher priority over the ports configured in the <a href="https://docs.platformio.org/en/latest/projectconf/index.html">platformio.ini</a> configuration file.</p>
-
-<p><strong>Demo</strong></p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/port-switcher.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/port-switcher.png" />
-</a></p>
-
-<h4 id="custom-platformio-toolbar">Custom PlatformIO Toolbar</h4>
-
-<p>One of our priorities is to make PlatformIO IDE more personalized and flexible so that developers can customize their development environment and hence significantly increase their programming productivity. PlatformIO IDE 3.0 for VSCode allows developers to configure their own toolbar using a new <code class="language-plaintext highlighter-rouge">platformio-ide.toolbar</code> configuration option. Now they can declare their own buttons and attach arbitrary commands to them. They can use <a href="https://code.visualstudio.com/api/references/commands">Built-in VSCode Commands</a> or commands from any of their favorite 3rd party extensions.</p>
-
-<p>The button can be text, an icon, or even a mix of them. The list of supported icons is documented in the <a href="https://code.visualstudio.com/api/references/icons-in-labels#icon-listing">VSCode Icon Listing</a>.</p>
-
-<p>Developers can also have different toolbars per workspace thanks to the <a href="https://code.visualstudio.com/docs/getstarted/settings">User and Workspace Settings</a>.</p>
-
-<p><strong>Demo</strong></p>
-
-<p>Below is the overridden toolbar with custom buttons:</p>
-
-<p><a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/custom-platformio-toolbar.png&quot;}" href="#">
-  <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2023-02-06-platformio-ide-3-0-for-vscode-released/custom-platformio-toolbar.png" />
-</a></p>
-
-<h2 id="upgrade">Upgrade</h2>
-
-<p><strong>Requires VSCode 1.65 or above</strong></p>
-
-<p>Please navigate to “VSCode &gt; View &gt; Extensions” and click “Update”.</p>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><category term="featured" /><summary type="html"><![CDATA[PlatformIO IDE 3.0 for VSCode is out with long-awaited IntelliSense support for the "platformio.ini", seamless integration of the PlatformIO Unit Testing solution and VSCode Testing UI, custom PlatformIO Toolbar]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/img/screenshots/desktop/platformio-ide-for-vscode.png" /><media:content medium="image" url="https://piolabs.com/assets/img/screenshots/desktop/platformio-ide-for-vscode.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Major update of PlatformIO IDE, New boards & dev-kits, Updated Arduino cores for STMicroelectronics, Microchip AVR/megaAVR and mbed-enabled devices]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-february-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
