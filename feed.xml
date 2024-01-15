@@ -1,4 +1,778 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-01-08T14:04:13+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO 2023 Year in Review</title><link href="https://piolabs.com/blog/news/platformio-year-in-review-2023.html" rel="alternate" type="text/html" title="PlatformIO 2023 Year in Review" /><published>2024-01-08T00:00:00+02:00</published><updated>2024-01-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-year-in-review-2023</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-year-in-review-2023.html"><![CDATA[<p>We’ve been through a lot together, and it’s time to look back and see how PlatformIO Labs kept growing during the most challenging times in its history.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-01-15T13:39:41+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Setting up PlatformIO for CI/CD with Testing, Code Coverage and Versioning</title><link href="https://piolabs.com/blog/insights/cicd-testing-coverage-versioning.html" rel="alternate" type="text/html" title="Setting up PlatformIO for CI/CD with Testing, Code Coverage and Versioning" /><published>2024-01-15T00:00:00+02:00</published><updated>2024-01-15T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/cicd-testing-coverage-versioning</id><content type="html" xml:base="https://piolabs.com/blog/insights/cicd-testing-coverage-versioning.html"><![CDATA[<p>Today almost all professional software development is executed using an agile methodology
+with version control, automatic testing and builds in the cloud. However, this is not yet very common for firmware development.</p>
+
+<p>This article explores how to set up a PlatformIO project and benefit from all the CI/CD features of modern software development approaches.</p>
+
+<!-- more -->
+
+<h3>Table of Contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#project-requirements" id="markdown-toc-project-requirements">Project Requirements</a></li>
+  <li><a href="#getting-started" id="markdown-toc-getting-started">Getting Started</a>    <ul>
+      <li><a href="#step-1-project-environments" id="markdown-toc-step-1-project-environments">Step 1: Project Environments</a></li>
+      <li><a href="#step-2-build-info-injection" id="markdown-toc-step-2-build-info-injection">Step 2: Build Info Injection</a></li>
+      <li><a href="#step-3-versioning-essentials" id="markdown-toc-step-3-versioning-essentials">Step 3: Versioning Essentials</a></li>
+      <li><a href="#step-4-testing-with-code-coverage" id="markdown-toc-step-4-testing-with-code-coverage">Step 4: Testing with Code Coverage</a></li>
+    </ul>
+  </li>
+  <li><a href="#demo-time" id="markdown-toc-demo-time">Demo Time</a>    <ul>
+      <li><a href="#step-1-local-development" id="markdown-toc-step-1-local-development">Step 1: Local Development</a></li>
+      <li><a href="#step-2-committing-changes" id="markdown-toc-step-2-committing-changes">Step 2: Committing Changes</a></li>
+      <li><a href="#step-3-releasing-project" id="markdown-toc-step-3-releasing-project">Step 3: Releasing Project</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+  <li><a href="#appendix-1-why-do-we-need-all-of-this" id="markdown-toc-appendix-1-why-do-we-need-all-of-this">Appendix 1: Why do we need all of this?</a></li>
+  <li><a href="#appendix-2-testing-the-private-internals-of-a-c-class" id="markdown-toc-appendix-2-testing-the-private-internals-of-a-c-class">Appendix 2: Testing the private internals of a C++ class</a></li>
+  <li><a href="#appendix-3-a-single-source-file-built-in-both-environments" id="markdown-toc-appendix-3-a-single-source-file-built-in-both-environments">Appendix 3: A single source file built in both environments</a></li>
+  <li><a href="#appendix-4-step-by-step-review-of-the-buildinfopy-extra-script" id="markdown-toc-appendix-4-step-by-step-review-of-the-buildinfopy-extra-script">Appendix 4: Step-by-step review of the buildinfo.py extra script</a></li>
+  <li><a href="#appendix-5-step-by-step-review-of-github-actions-configuration-file" id="markdown-toc-appendix-5-step-by-step-review-of-github-actions-configuration-file">Appendix 5: Step-by-step review of Github Actions configuration file</a></li>
+  <li><a href="#further-improvements" id="markdown-toc-further-improvements">Further Improvements</a></li>
+</ul>
+
+<h2 id="project-requirements">Project Requirements</h2>
+
+<p>Let’s first list the requirements for our development environment:</p>
+
+<ul>
+  <li>Builds
+    <ul>
+      <li>be able to do a local development build on the development machine</li>
+      <li>be able to do a production build in the cloud and archive the binary</li>
+    </ul>
+  </li>
+  <li>Testing
+    <ul>
+      <li>run selected unit tests, on the desktop as well as on the target</li>
+      <li>run all unit tests, on the desktop, target, as well as in the cloud</li>
+      <li>generate a test coverage report, locally and in the cloud</li>
+    </ul>
+  </li>
+  <li>Versioning
+    <ul>
+      <li>use semantic versioning, e.g. v1.2.3</li>
+      <li>every build “knows” its type (development/production/etc.)</li>
+      <li>every build “knows” its version</li>
+      <li>whenever merging into the main branch, the version is automatically incremented, a release is created and sources and binary are attached to this release</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If the purpose of any of these requirements is not immediately clear, <a href="/blog/insights/cicd-testing-coverage-versioning.html#appendix-1-why-do-we-need-all-of-this">appendix 1</a> clarifies the rationale behind them.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<h3 id="step-1-project-environments">Step 1: Project Environments</h3>
+
+<p>The first step is to set up <code class="language-plaintext highlighter-rouge">platformio.ini</code> with a number of environments. Each environment will map onto a type of build (development/production/etc.). Separate environments will also take care of the testing. Here is a list of environments to get started:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">selected_generic_unittests</code></li>
+  <li><code class="language-plaintext highlighter-rouge">all_generic_unittests</code></li>
+  <li><code class="language-plaintext highlighter-rouge">target_selected_unittests</code></li>
+  <li><code class="language-plaintext highlighter-rouge">target_application</code></li>
+  <li><code class="language-plaintext highlighter-rouge">production_application</code></li>
+</ul>
+
+<p>Selecting the correct environment is simple from the bottom toolbar:</p>
+
+<figure class="figure mb-1">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-1.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-1.png" />
+    </a>
+</figure>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-2.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-2.png" />
+    </a>
+</figure>
+
+<p>To ensure all environments use consistent parameters, we define those parameters in the <strong>[options]</strong> section and reuse those definitions in the <strong>[env:]</strong> sections.</p>
+
+<p>Environments intended for the target hardware have to configure the specifics of the board, framework, debug interface, etc.:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[options]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">atmelavr</span>
+<span class="py">board</span> <span class="p">=</span> <span class="s">uno</span>
+<span class="py">framework</span> <span class="p">=</span> <span class="s">arduino</span>
+</code></pre></div></div>
+
+<p>Unit tests require some additional build flags to generate the coverage info. Specific tests can be selected with the <a href="https://docs.platformio.org/en/latest/projectconf/sections/env/options/test/test_filter.html">test_filter</a> option:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">unittesting_buildflag</span> <span class="p">=</span> <span class="s">-D unitTesting</span>
+<span class="py">generic_hw_buildflag</span> <span class="p">=</span> <span class="s">-D generic_hw</span>
+<span class="py">coverage_buildflag</span> <span class="p">=</span>
+  <span class="err">-lgcov</span>
+  <span class="err">--coverage</span>
+  <span class="err">-fprofile-abs-path</span>
+  <span class="err">-Og</span>
+</code></pre></div></div>
+
+<p>After defining the parameters in the <strong>[options]</strong> section, you can use them in any environment, as shown in the example below:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:target_selected_unittests]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">${options.platform}</span>
+<span class="py">board</span> <span class="p">=</span> <span class="s">${options.board}</span>
+<span class="py">framework</span> <span class="p">=</span> <span class="s">${options.framework}</span>
+
+<span class="py">build_flags</span> <span class="p">=</span>   <span class="s">${options.unittesting_buildflag}</span>
+
+<span class="py">test_framework</span> <span class="p">=</span> <span class="s">unity</span>
+<span class="py">test_filter</span> <span class="p">=</span> <span class="s">${options.selected_tests}</span>
+</code></pre></div></div>
+
+<h3 id="step-2-build-info-injection">Step 2: Build Info Injection</h3>
+
+<p>For the firmware to “know” what kind of build it is, we could use some compiler build flags, but this quickly becomes difficult to manage when we need more than a few settings. So instead I use a pair of files <code class="language-plaintext highlighter-rouge">buildinfo.h/.cpp</code>, which are generated at the beginning of the build process and included into the application:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// buildinfo.h</span>
+
+<span class="cp">#pragma once
+</span>
+<span class="cp">#include</span> <span class="cpf">"stdint.h"</span><span class="cp">
+#include</span> <span class="cpf">"buildtype.h"</span><span class="cp">
+#include</span> <span class="cpf">"buildenvironment.h"</span><span class="cp">
+</span>
+<span class="k">class</span> <span class="nc">version</span> <span class="p">{</span>
+  <span class="nl">public:</span>
+    <span class="n">version</span><span class="p">()</span> <span class="o">=</span> <span class="k">delete</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">getIsVersionMajor</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isVersionMajor</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="nf">getIsVersionMinor</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isVersionMinor</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="nf">getIsVersionPatch</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isVersionPatch</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">static</span> <span class="n">buildType</span> <span class="nf">getBuildType</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">theBuildType</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">static</span> <span class="n">buildEnvironment</span> <span class="nf">getBuildEnvironment</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">theBuildEnvironment</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">static</span> <span class="kt">void</span> <span class="nf">setIsVersion</span><span class="p">();</span>
+    <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">getIsVersionAsString</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">isVersionString</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="cp">#ifndef unitTesting
+</span>  <span class="k">private</span><span class="o">:</span>
+<span class="cp">#endif
+</span>    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">isVersionMajor</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">isVersionMinor</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">uint8_t</span> <span class="n">isVersionPatch</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="n">buildType</span> <span class="n">theBuildType</span><span class="p">;</span>
+    <span class="k">static</span> <span class="n">buildEnvironment</span> <span class="n">theBuildEnvironment</span><span class="p">;</span>
+
+    <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint8_t</span> <span class="n">maxVersionStringLength</span><span class="p">{</span><span class="mi">16U</span><span class="p">};</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">isVersionString</span><span class="p">[</span><span class="n">maxVersionStringLength</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// buildinfo.cpp</span>
+
+<span class="cp">#include</span> <span class="cpf">"version.h"</span><span class="cp">
+#include</span> <span class="cpf">"buildinfo.h"</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="kt">uint8_t</span> <span class="n">version</span><span class="o">::</span><span class="n">isVersionMajor</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">uint8_t</span> <span class="n">version</span><span class="o">::</span><span class="n">isVersionMinor</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="kt">uint8_t</span> <span class="n">version</span><span class="o">::</span><span class="n">isVersionPatch</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<span class="n">buildType</span> <span class="n">version</span><span class="o">::</span><span class="n">theBuildType</span><span class="p">{</span><span class="n">buildType</span><span class="o">::</span><span class="n">unknown</span><span class="p">};</span>
+<span class="n">buildEnvironment</span> <span class="n">version</span><span class="o">::</span><span class="n">theBuildEnvironment</span><span class="p">{</span><span class="n">buildEnvironment</span><span class="o">::</span><span class="n">unknown</span><span class="p">};</span>
+
+<span class="kt">char</span> <span class="n">version</span><span class="o">::</span><span class="n">isVersionString</span><span class="p">[</span><span class="n">maxVersionStringLength</span><span class="p">]{};</span>
+
+<span class="kt">void</span> <span class="n">version</span><span class="o">::</span><span class="n">setIsVersion</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">isVersionMajor</span>      <span class="o">=</span> <span class="n">buildInfo</span><span class="o">::</span><span class="n">mainVersionDigit</span><span class="p">;</span>
+    <span class="n">isVersionMinor</span>      <span class="o">=</span> <span class="n">buildInfo</span><span class="o">::</span><span class="n">minorVersionDigit</span><span class="p">;</span>
+    <span class="n">isVersionPatch</span>      <span class="o">=</span> <span class="n">buildInfo</span><span class="o">::</span><span class="n">patchVersionDigit</span><span class="p">;</span>
+    <span class="n">theBuildType</span>        <span class="o">=</span> <span class="n">buildInfo</span><span class="o">::</span><span class="n">theBuildType</span><span class="p">;</span>
+    <span class="n">theBuildEnvironment</span> <span class="o">=</span> <span class="n">buildInfo</span><span class="o">::</span><span class="n">theBuildEnvironment</span><span class="p">;</span>
+
+    <span class="n">snprintf</span><span class="p">(</span><span class="n">isVersionString</span><span class="p">,</span> <span class="n">maxVersionStringLength</span><span class="p">,</span> <span class="s">"v%d.%d.%d"</span><span class="p">,</span> <span class="n">isVersionMajor</span><span class="p">,</span> <span class="n">isVersionMinor</span><span class="p">,</span> <span class="n">isVersionPatch</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This is only an example of what works for me and I use C++, but you will find it easy to adjust it to your specific needs.</p>
+
+<p>When doing <strong>local</strong> builds, these files are generated with a Python script <code class="language-plaintext highlighter-rouge">buildinfo.py</code>.
+On the cloud builds it is generated from a Github action declared in <code class="language-plaintext highlighter-rouge">testbuildrelease.yml</code>. I keep them together in the <strong>.github/workflows</strong> folder:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-3.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-3.png" />
+    </a>
+</figure>
+
+<p>When the application includes the <code class="language-plaintext highlighter-rouge">buildinfo.h</code> file, it gets access to all the build info that can be used for multiple purposes, for example:</p>
+
+<ul>
+  <li>show the actual version of the firmware on the startup screen</li>
+  <li>enable logging to UART only on a local development build and diable in production builds</li>
+  <li>identify development builds, e.g. with different UI colors, so they won’t accidentally get installed at the customer side</li>
+  <li>determine the age of the firmware based upon its build timestamp</li>
+</ul>
+
+<h3 id="step-3-versioning-essentials">Step 3: Versioning Essentials</h3>
+
+<p>To keep track of the version, we use the well-known semantic versioning scheme, abbreviated <code class="language-plaintext highlighter-rouge">SemVer</code>, where a version looks like <code class="language-plaintext highlighter-rouge">v1.2.3</code>. The digits refer to the major version, minor version, patch version. Every time we do a release, one of the digits is incremented:</p>
+
+<ul>
+  <li>the major version increments on new features which are no longer backward compatible</li>
+  <li>the minor version increments on new features which are backward compatible</li>
+  <li>the patch version increments on bug fixes or code improvements without functional changes</li>
+</ul>
+
+<p>More info on semantic versioning see <a href="https://semver.org/" target="_blank">Semantic Versioning 2.0.0</a></p>
+
+<p>When we do a local build, instead of incrementing SemVer digits, we simply add the latest (short) <strong>commit hash</strong> to the version, for example <code class="language-plaintext highlighter-rouge">v1.2.3-a2e4d5c7</code>. While developing, we usually create many different versions in between releases, but by using the commit hash, we can easily match any binary with its source.</p>
+
+<p>When we merge changes from the <code class="language-plaintext highlighter-rouge">develop</code> branch into <code class="language-plaintext highlighter-rouge">main</code>, a Github Actions workflow will run and analyze the title of the merge commit. If this title contains <strong>major</strong> we create a major release. Similar for the word <strong>minor</strong> which creates a minor release. In all other cases we create a patch release. For convenience, each build also has a timestamp, e.g. <code class="language-plaintext highlighter-rouge">2023-10-15 12:34:56</code>.</p>
+
+<h3 id="step-4-testing-with-code-coverage">Step 4: Testing with Code Coverage</h3>
+
+<p>In order to know what we have actually tested, code coverage is supported, locally and via Github Actions. Locally, we use a VSCode extension such as GCOV viewer (see my previous article <a href="/blog/insights/test-coverage-on-unit-testing.html">Getting Started with Code Coverage in PlatformIO: A Beginner’s Guide to Writing Effective Tests</a>).</p>
+
+<p>When building in the cloud with Github Actions, we connect the repository to the <strong>codecov.io</strong> service. Codecov is free for public repositories and there is good getting started documentation available <a href="https://docs.codecov.com/docs/quick-start" target="_blank">here</a>. After setting this up, our Github action will send the coverage results to Codecov and we will be able to browse the results report in an interactive way.</p>
+
+<h2 id="demo-time">Demo Time</h2>
+
+<p>Now it’s time to see it all in action!</p>
+
+<p>I’ve set up a (template) <a href="https://github.com/Strooom/demoCloudBuilds" target="_blank">Github repository</a> so it’s easy to replicate it on your side. You can import it directly from the VSCode Welcome Page:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-11.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-11.png" />
+    </a>
+</figure>
+
+<p>As for the actual target hardware, I am using the <strong>Arduino Uno</strong> board to keep things simple, but you can easily adapt that to a board of your preference by modifying the hardware settings in the <strong>[options]</strong> section of <code class="language-plaintext highlighter-rouge">platformio.ini</code>.</p>
+
+<p>The repository has 2 branches: <code class="language-plaintext highlighter-rouge">main</code> and <code class="language-plaintext highlighter-rouge">develop</code>. Locally, we work on develop. The <strong>main</strong> branch is protected from committing directly, so you can only merge <strong>develop</strong> into <strong>main</strong>, which will then automatically create a release. The repository also has a <strong>v0.0.0</strong> release as a starting point to simplify the scripts.</p>
+
+<h3 id="step-1-local-development">Step 1: Local Development</h3>
+
+<p>First, make sure you are on the develop branch. Let’s assume you are working on the <code class="language-plaintext highlighter-rouge">lib/circularbuffer</code> library. The tests for this library are in <code class="language-plaintext highlighter-rouge">test/test_generic_circularbuffer</code>. The environment <code class="language-plaintext highlighter-rouge">[env:selected_generic_unittests]</code> uses a test filter so it only runs the tests for the library we’re working on. This approach keeps the test-driven-design cycles fast.</p>
+
+<p>At any time you can simply run the unit tests to quickly validate your work on this library.
+With the GCOV viewer you can easily check what code has been tested.</p>
+
+<div class="alert alert-warning" role="alert">
+  <b>Tip:</b> It's also easy to debug the code under test by adding <b>debug_test = test_generic_circularbuffer</b> to your <b>platformio.ini</b> and then start the debugger.
+</div>
+
+<p>If at any time you want to verify that all other unit tests are still passing, simply switch to the <code class="language-plaintext highlighter-rouge">[env:all_generic_unittests]</code> and run the tests. Of course it takes a bit longer, but it’s always reassuring that changes on your library under development did not break anything somewhere else in the project.</p>
+
+<p>Assuming all unit tests are green, the next step could be to build and upload the application to the target. Simply change the environment to <code class="language-plaintext highlighter-rouge">[env:target_application]</code> and choose upload.</p>
+
+<p>Before the build, the Python script <code class="language-plaintext highlighter-rouge">.github/workflows/buildinfo.py</code> will be executed. This script creates <code class="language-plaintext highlighter-rouge">buildinfo.h/.cpp</code> files containing useful info about the current build. This info is then available to the application for whatever purpose, as is shown in the example application in <code class="language-plaintext highlighter-rouge">src/main.cpp</code>:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">"version.h"</span><span class="cp">
+#include</span> <span class="cpf">"buildinfo.h"</span><span class="cp">
+</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">version</span><span class="o">::</span><span class="n">setIsVersion</span><span class="p">();</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Version "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">version</span><span class="o">::</span><span class="n">getIsVersionAsString</span><span class="p">());</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">toString</span><span class="p">(</span><span class="n">buildInfo</span><span class="o">::</span><span class="n">theBuildEnvironment</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">toString</span><span class="p">(</span><span class="n">buildInfo</span><span class="o">::</span><span class="n">theBuildType</span><span class="p">));</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">" build, "</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">buildInfo</span><span class="o">::</span><span class="n">buildTimeStamp</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="step-2-committing-changes">Step 2: Committing Changes</h3>
+
+<p>Assuming you are happy with the application running on the target, let’s do a commit and push it to Github. This will trigger a workflow in the cloud which does the following:</p>
+
+<ul>
+  <li>start a fresh (virtual) Linux machine</li>
+  <li>install PlatformIO on it</li>
+  <li>checkout the repository to it</li>
+  <li>run all unit tests</li>
+  <li>build the application using the latest version plus a commit hash</li>
+</ul>
+
+<p>If all of this is successful, the workflow run will turn green and have the resulting binary file attached to it, so it’s easy to refer and go back to this build any time later.</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-4.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-4.png" />
+    </a>
+</figure>
+
+<p>If the workflow fails, you’ll be notified by email and/or on Github mobile app. There are several steps included in the workflow which output the state of the current run and should allow you to quickly troubleshoot it.</p>
+
+<div class="alert alert-warning" role="alert">
+  <b>Note:</b> There is a Github Actions plugin which allows to see the result of the workflow run inside VSCode. However, if something goes wrong, you'll be redirected to the Github site to inspect the detailed output of the workflow run.
+</div>
+
+<p>One of the steps pushes the coverage report from unit testing to codecov.io, so we can see the results there:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-5.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-5.png" />
+    </a>
+</figure>
+
+<p>And you can drill down into each file to see which code is not yet tested, marked in red or yellow:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-6.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-6.png" />
+    </a>
+</figure>
+
+<div class="alert alert-warning" role="alert">
+  <b>Tip:</b> Codecov also provides a nice badge which you can place into your <b>README.md</b> file. Go into <b>Codecov - Your repository - Settings - Badges &amp; Graphs</b> to copy paste the needed markdown code for the badge.
+</div>
+
+<h3 id="step-3-releasing-project">Step 3: Releasing Project</h3>
+
+<p>Now, assume we are still doing fine and we decide that the latest commit to <strong>develop</strong> is ready to be released. Go into Github and create a pull request to start the merge of <strong>develop</strong> into <strong>main</strong>. Then when Github confirms everything can be merged, give the merge commit a name which starts with <strong>“minor”</strong>:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-7.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-7.png" />
+    </a>
+</figure>
+
+<div class="alert alert-warning" role="alert">
+  <b>Note:</b> the keywords <b>major</b> and <b>minor</b> are case sensitive!
+</div>
+
+<p>The merge commit will again trigger the workflow to run, but on the <strong>main</strong> branch this time. Furthermore, the <strong>major</strong> or <strong>minor</strong> keyword in the merge commit name will be recognized by the workflow and result in the creation of a new version and related release. The binary file as well as the source code will be attached to the release:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-8.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-8.png" />
+    </a>
+</figure>
+
+<p>And Github will send a notification email to the team that there is a new release:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-9.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-9.png" />
+    </a>
+</figure>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>VSCode with PlatformIO provides all the features needed for a professional embedded software development setup:</p>
+
+<ul>
+  <li>multiple environments for a project allow easy switching between unit testing and building target application</li>
+  <li>using options simplifies the managing of these environments and keeps them consistent</li>
+  <li>seamless integration with Github opens the path to builds in the cloud</li>
+  <li>builds in the cloud simplify development distributed over a team</li>
+  <li>Python scripting enables automation of tasks, such as automatic SemVer versioning</li>
+</ul>
+
+<h2 id="appendix-1-why-do-we-need-all-of-this">Appendix 1: Why do we need all of this?</h2>
+
+<ul>
+  <li>The target hardware is often connected to your local machine through a debug interface. The most common workflow is to write code, build a binary and download to the target.</li>
+  <li>When working with multiple developers on an application, who has the latest official release? By doing the build in the cloud, you ensure the releases are always unique and in a central location.</li>
+  <li>Test-driven Design (TDD) works best with fast build/test cycles, i.e. a few seconds. So when working on a particular area, you only want those tests being executed. Skipping all other tests reduces the cycle from minutes to seconds.</li>
+  <li>However, before merging your new stuff into the main branch, you want to be sure your new code does not break anything else, so here we want to run all tests.</li>
+  <li>A Test-Coverage report will give you a metric on the overall progress of your development. It will also show which areas may need more attention.</li>
+  <li>During development, some features may be enabled (e.g. logging) and others disabled (e.g. firmware updates). In order to make sure that the production version for the customer has all the right features, we enable/disable them automatically by allowing the firmware build to know what type it is.</li>
+</ul>
+
+<h2 id="appendix-2-testing-the-private-internals-of-a-c-class">Appendix 2: Testing the private internals of a C++ class</h2>
+
+<p>The private members of a class are inaccessible for code outside that class. But for unit testing, I often would like to make an exception, as it is easier to verify the correct functioning of the code if the tests are allowed to look at the private internals of the class.</p>
+
+<p>A pragmatic approach is to add an additional build flag to the unit test builds (e.g. <code class="language-plaintext highlighter-rouge">unitTesting</code>) and exclude the <code class="language-plaintext highlighter-rouge">private</code> keyword from the source code for these kinds of builds.</p>
+
+<p>In <strong>platformio.ini</strong> we can add the following option:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">unittesting_buildflag</span> <span class="p">=</span> <span class="s">-D unitTesting</span>
+</code></pre></div></div>
+
+<p>which we apply to all unit testing builds:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[env:selected_generic_unittests]</span>
+<span class="py">platform</span> <span class="p">=</span> <span class="s">native</span>
+
+<span class="py">build_flags</span> <span class="p">=</span>
+  <span class="err">${options.unittesting_buildflag}</span>
+  <span class="err">${options.generic_hw_buildflag}</span>
+  <span class="err">${options.coverage_buildflag}</span>
+</code></pre></div></div>
+
+<p>which then can be used in any class definition where you want the unit tests to have access to the private members:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef unitTesting
+</span>  <span class="nl">private:</span>
+<span class="cp">#endif
+</span>    <span class="kt">uint32_t</span> <span class="n">head</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="kt">uint32_t</span> <span class="n">level</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+    <span class="n">itemType</span> <span class="n">theBuffer</span><span class="p">[</span><span class="n">bufferLength</span><span class="p">]{};</span>
+</code></pre></div></div>
+
+<p>In this example (<code class="language-plaintext highlighter-rouge">circularbuffer.h</code>) the unit tests can directly check the head and level of the buffer, for example in the following test:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">test_initialize</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">testBufferLength</span><span class="p">{</span><span class="mi">4</span><span class="p">};</span>
+    <span class="n">circularBuffer</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="p">,</span> <span class="n">testBufferLength</span><span class="o">&gt;</span> <span class="n">theBuffer</span><span class="p">;</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT32</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">theBuffer</span><span class="p">.</span><span class="n">head</span><span class="p">);</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT32</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">theBuffer</span><span class="p">.</span><span class="n">level</span><span class="p">);</span>
+    <span class="n">TEST_ASSERT_EQUAL_UINT32</span><span class="p">(</span><span class="n">testBufferLength</span><span class="p">,</span> <span class="n">theBuffer</span><span class="p">.</span><span class="n">length</span><span class="p">);</span>
+    <span class="n">TEST_ASSERT_TRUE</span><span class="p">(</span><span class="n">theBuffer</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">());</span>
+    <span class="n">TEST_ASSERT_FALSE</span><span class="p">(</span><span class="n">theBuffer</span><span class="p">.</span><span class="n">hasEvents</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="appendix-3-a-single-source-file-built-in-both-environments">Appendix 3: A single source file built in both environments</h2>
+
+<p>Sometimes the code we write could run on the target as well as on our desktop machine, but it requires small changes in order to build correctly. For example, on the Arduino platform, some C-string handling functions such as <strong>strlen</strong> require the main Arduino header file <strong>Arduino.h</strong>. However, for the desktop scenario, there is no <strong>Arduino.h</strong> file and we need include *<cstring>* header to make **strlen** work.</cstring></p>
+
+<p>To deal with this, there is another build flag, which allows the code to know if we are building for target or for generic desktop hardware:</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">generic_hw_buildflag</span> <span class="p">=</span> <span class="s">-D generic_hw</span>
+</code></pre></div></div>
+
+<p>Inside the code, we can use this to include the correct header as is shown here in the tests for the version library:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef generic_hw
+#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+#else
+#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+#endif
+</span></code></pre></div></div>
+
+<p>So now we can use <strong>strlen</strong> in this test and it will work fine on both targets.</p>
+
+<p>This approach can be further extended into the code itself. Provide mocks for certain hardware and use the mocks during desktop unit testing, use the real hardware when testing on the actual target hardware.</p>
+
+<h2 id="appendix-4-step-by-step-review-of-the-buildinfopy-extra-script">Appendix 4: Step-by-step review of the buildinfo.py extra script</h2>
+
+<p>First step is to run a Git command <code class="language-plaintext highlighter-rouge">git describe --tags</code> to get the latest tag and strip off any spaces from it:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># determine the latest releasev semver
+</span><span class="n">latest_release_tag</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">git</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">describe</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--tags</span><span class="sh">"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">latest_release_tag</span> <span class="o">=</span> <span class="n">latest_release_tag</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mLatest Release Tag     : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_tag</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Next we split the output into its parts:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># determine last release version
+</span><span class="n">latest_release_tag_parts</span> <span class="o">=</span> <span class="n">latest_release_tag</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="s">-</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">latest_release_semver_incl_v</span> <span class="o">=</span> <span class="n">latest_release_tag_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">latest_release_semver</span> <span class="o">=</span> <span class="n">latest_release_semver_incl_v</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">latest_release_digits</span> <span class="o">=</span> <span class="n">latest_release_semver</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="s">.</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">latest_release_main</span> <span class="o">=</span> <span class="n">latest_release_digits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">latest_release_minor</span> <span class="o">=</span> <span class="n">latest_release_digits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">latest_release_patch</span> <span class="o">=</span> <span class="n">latest_release_digits</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mLatest Release Main    : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_main</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mLatest Release Minor   : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_minor</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mLatest Release Patch   : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_patch</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>One more Git command will fetch the commit hash while the timestamp is retrieved from the OS:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># determine current commit hash
+</span><span class="n">current_commit_hash</span> <span class="o">=</span> <span class="n">subprocess</span><span class="p">.</span><span class="nf">run</span><span class="p">([</span><span class="sh">"</span><span class="s">git</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">rev-parse</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">--short</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">HEAD</span><span class="sh">"</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="p">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">current_commit_hash</span> <span class="o">=</span> <span class="n">current_commit_hash</span><span class="p">.</span><span class="n">stdout</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mCurrent Commit Hash    : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">current_commit_hash</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># determine the build timstamp
+</span><span class="n">build_timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="nf">now</span><span class="p">().</span><span class="nf">strftime</span><span class="p">(</span><span class="sh">"</span><span class="s">%Y-%b-%d %H:%M:%S</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print </span><span class="p">(</span><span class="sh">"</span><span class="se">\033</span><span class="s">[93;1;4mBuild Timestamp        : </span><span class="sh">"</span> <span class="o">+</span> <span class="n">build_timestamp</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\033</span><span class="s">[0m</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Notice the print commands, they will show the output in yellow in the build terminal:</p>
+
+<figure class="figure mb-5">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-10.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-01-15-cicd-testing-coverage-versioning/image-10.png" />
+    </a>
+</figure>
+
+<p>Finally, the different elements are written to the <strong>buildinfo.cpp</strong> file:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># store the results in a source file, so our source code has access to it
+</span><span class="n">include_file</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">lib/version/buildinfo.cpp</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ##########################################################################</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ### This file is generated by Build and Continuous Integration scripts ###</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ###   .github/workflows/buildinfo.py for local development environment ###</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ###   .github/workflows/testbuildrelease.yml for CI environment        ###</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ### Changes will be overwritten on the next build                      ###</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">// ##########################################################################</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">#include </span><span class="se">\"</span><span class="s">buildinfo.h</span><span class="se">\"\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const buildEnvironment buildInfo::theBuildEnvironment{buildEnvironment::local};</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const buildType buildInfo::theBuildType{buildType::development};</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const int buildInfo::mainVersionDigit   = </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_main</span> <span class="o">+</span> <span class="sh">"</span><span class="s">;</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const int buildInfo::minorVersionDigit  = </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_minor</span> <span class="o">+</span> <span class="sh">"</span><span class="s">;</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const int buildInfo::patchVersionDigit  = </span><span class="sh">"</span> <span class="o">+</span> <span class="n">latest_release_patch</span> <span class="o">+</span> <span class="sh">"</span><span class="s">;</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const char* buildInfo::lastCommitTag    = </span><span class="se">\"</span><span class="sh">"</span> <span class="o">+</span> <span class="n">current_commit_hash</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\"</span><span class="s">;</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="sh">"</span><span class="s">const char* buildInfo::buildTimeStamp   = </span><span class="se">\"</span><span class="sh">"</span> <span class="o">+</span> <span class="n">build_timestamp</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\"</span><span class="s">;</span><span class="se">\n</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">include_file</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="alert alert-warning" role="alert">
+  <b>Note:</b> I have no experience whatsoever in Python, so feel free to suggest your improvements to this script
+</div>
+
+<h2 id="appendix-5-step-by-step-review-of-github-actions-configuration-file">Appendix 5: Step-by-step review of Github Actions configuration file</h2>
+
+<p>The following code makes the workflow run on a Ubuntu runner when there is a push on main and develop branches:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">Test, Build and Release</span>
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">workflow_dispatch</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">main</span><span class="pi">,</span> <span class="nv">develop</span><span class="pi">]</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">versioning</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">Determine version, Test, Build and Release</span>
+    <span class="na">permissions</span><span class="pi">:</span> <span class="s">write-all</span>
+
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">outputs</span><span class="pi">:</span>
+      <span class="na">branchname</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.branchname }}</span>
+      <span class="na">commithash</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.commithash }}</span>
+      <span class="na">buildtimestamp</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.buildtimestamp }}</span>
+      <span class="na">lastmajordigit</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.lastmajordigit }}</span>
+      <span class="na">lastminordigit</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.lastminordigit }}</span>
+      <span class="na">lastpatchdigit</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.lastpatchdigit }}</span>
+      <span class="na">lastversion</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.lastversion }}</span>
+      <span class="na">nextmajordigit</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.nextmajordigit }}</span>
+      <span class="na">nextminordigit</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.nextminordigit }}</span>
+      <span class="na">nextpatchdigit</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.nextpatchdigit }}</span>
+      <span class="na">buildversion</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.buildversion }}</span>
+      <span class="na">buildversionfilename</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.buildversionfilename }}</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>The <strong>outputs</strong> section defines some internal workflow variables to collect data in the different steps further down. Notice how the name of the step is used between <strong>steps.</strong> and <strong>.outputs</strong></p>
+
+<p>Next a number of steps are listed, which will be executed sequentially. I’m not 100% sure what caching does, but I think it speeds up data-exchange between the steps. This workflow runs to completion in under a minute, so it’s not bad:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">steps</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Enable caching</span>
+    <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/cache@v3</span>
+    <span class="na">with</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="pi">|</span>
+        <span class="s">~/.cache/pip</span>
+        <span class="s">~/.platformio/.cache</span>
+      <span class="na">key</span><span class="pi">:</span> <span class="s">${{ runner.os }}-pio</span>
+
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Checkout Repository</span>
+    <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/checkout@v3</span>
+    <span class="na">with</span><span class="pi">:</span>
+      <span class="na">fetch-depth</span><span class="pi">:</span> <span class="m">0</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Next step runs a series of shell commands to fetch the latest version, latest commit hash and current timestamp from Git. The values are stored in the outputs defined above:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Get version data</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">versioninfo</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">echo "extract branch name from github_ref '${{ github.ref }}'"</span>
+    <span class="s">declare branchname=$(echo "${{ github.ref }}" | cut -d'/' -f 3-)</span>
+    <span class="s">echo "clean branch name = $branchname"</span>
+    <span class="s">echo "extract commit short hash : $(git rev-parse --short HEAD)"</span>
+    <span class="s">declare commithash=$(git rev-parse --short HEAD)</span>
+    <span class="s">echo "extract build timestamp"</span>
+    <span class="s">declare buildtimestamp=$(date "+%Y-%b-%d-%H:%M:%S")</span>
+    <span class="s">echo "buildtimestamp = $buildtimestamp"</span>
+    <span class="s">declare fulltag=$(git describe --tag $(git rev-parse --verify refs/remotes/origin/main))</span>
+    <span class="s">echo "fulltag = [$fulltag]"</span>
+    <span class="s">declare versiontag=$(echo $fulltag | cut -d'-' -f1)</span>
+    <span class="s">echo "extract SemVer numbers from version tag [$versiontag]"</span>
+    <span class="s">declare -i lastmajordigit=$(echo $versiontag | cut -c 1- | cut -d'.' -f1)</span>
+    <span class="s">echo "lastmajordigit = $lastmajordigit"</span>
+    <span class="s">declare -i lastminordigit=$(echo $versiontag | cut -c 1- | cut -d'.' -f2)</span>
+    <span class="s">echo "lastminordigit = $lastminordigit"</span>
+    <span class="s">declare -i lastpatchdigit=$(echo $versiontag | cut -c 1- | cut -d'.' -f3)</span>
+    <span class="s">echo "lastpatchdigit = $lastpatchdigit"</span>
+    <span class="s">declare lastversion="v$lastmajordigit.$lastminordigit.$lastpatchdigit"</span>
+    <span class="s">echo "output variables to GitHub Actions"</span>
+    <span class="s">echo "branchname=$branchname" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "lastmajordigit=$lastmajordigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "lastminordigit=$lastminordigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "lastpatchdigit=$lastpatchdigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "commithash=$commithash" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "buildtimestamp=$buildtimestamp" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "lastversion=$lastversion" &gt;&gt; $GITHUB_OUTPUT</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>The next step determines what version we are building. If not running on the main branch, it’s simply the uses the latest version plus a commit hash. If we are on main, then we check the merge commit message to determine what next version to generate:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Determine which version to build</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">selectversion</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">echo "Triggered from Branch : ${{ steps.versioninfo.outputs.branchname }}"</span>
+    <span class="s">echo "Commit hash           : ${{ steps.versioninfo.outputs.commithash }}"</span>
+    <span class="s">echo "Last version          : ${{ steps.versioninfo.outputs.lastversion }}"</span>
+    <span class="s">echo "  Major               : ${{ steps.versioninfo.outputs.lastmajordigit }}"</span>
+    <span class="s">echo "  Minor               : ${{ steps.versioninfo.outputs.lastminordigit }}"</span>
+    <span class="s">echo "  Patch               : ${{ steps.versioninfo.outputs.lastpatchdigit }}"</span>
+    <span class="s">if [ "${{ steps.versioninfo.outputs.branchname }}" == "main" ]; then</span>
+      <span class="s">echo "Triggered from merge on main branch with commit title : ${{ github.event.head_commit.message }}"</span>
+      <span class="s">if [[ "${{ github.event.head_commit.message }}" == *"major"* ]]; then</span>
+        <span class="s">echo "Incrementing Major versionDigit"</span>
+        <span class="s">declare -i nextmajordigit=${{ steps.versioninfo.outputs.lastmajordigit }}+1</span>
+        <span class="s">declare -i nextminordigit=0</span>
+        <span class="s">declare -i nextpatchdigit=0</span>
+        <span class="s">declare buildversion="v$nextmajordigit.$nextminordigit.$nextpatchdigit"</span>
+        <span class="s">declare buildversionfilename=$(echo "${buildversion//./_}")</span>
+
+      <span class="s">elif [[ "${{ github.event.head_commit.message }}" == *"minor"* ]]; then</span>
+        <span class="s">echo "Incrementing Minor versionDigit"</span>
+        <span class="s">declare -i nextmajordigit=${{ steps.versioninfo.outputs.lastmajordigit }}</span>
+        <span class="s">declare -i nextminordigit=${{ steps.versioninfo.outputs.lastminordigit }}+1</span>
+        <span class="s">declare -i nextpatchdigit=0</span>
+        <span class="s">declare buildversion="v$nextmajordigit.$nextminordigit.$nextpatchdigit"</span>
+        <span class="s">declare buildversionfilename=$(echo "${buildversion//./_}")</span>
+      <span class="s">else</span>
+        <span class="s">echo "Incrementing Patch versionDigit"</span>
+        <span class="s">declare -i nextmajordigit=${{ steps.versioninfo.outputs.lastmajordigit }}</span>
+        <span class="s">declare -i nextminordigit=${{ steps.versioninfo.outputs.lastminordigit }}</span>
+        <span class="s">declare -i nextpatchdigit=${{ steps.versioninfo.outputs.lastpatchdigit }}+1</span>
+        <span class="s">declare buildversion="v$nextmajordigit.$nextminordigit.$nextpatchdigit"</span>
+        <span class="s">declare buildversionfilename=$(echo "${buildversion//./_}")</span>
+      <span class="s">fi</span>
+    <span class="s">else</span>
+      <span class="s">echo "Not on main branch -&gt; development version"</span>
+      <span class="s">declare -i nextmajordigit=${{ steps.versioninfo.outputs.lastmajordigit }}</span>
+      <span class="s">declare -i nextminordigit=${{ steps.versioninfo.outputs.lastminordigit }}</span>
+      <span class="s">declare -i nextpatchdigit=${{ steps.versioninfo.outputs.lastpatchdigit }}</span>
+      <span class="s">declare buildversion="v$nextmajordigit.$nextminordigit.$nextpatchdigit-${{ steps.versioninfo.outputs.commithash }}"</span>
+      <span class="s">declare buildversionfilename=$(echo "${buildversion//./_}")</span>
+    <span class="s">fi</span>
+    <span class="s">echo "Building Version : $buildversion"</span>
+    <span class="s">echo "  Major          : $nextmajordigit"</span>
+    <span class="s">echo "  Minor          : $nextminordigit"</span>
+    <span class="s">echo "  Patch          : $nextpatchdigit"</span>
+    <span class="s">echo "Filename         : $buildversionfilename"</span>
+    <span class="s">echo "output variables to GitHub Actions"</span>
+    <span class="s">echo "nextmajordigit=$nextmajordigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "nextminordigit=$nextminordigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "nextpatchdigit=$nextpatchdigit" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "buildversion=$buildversion" &gt;&gt; $GITHUB_OUTPUT</span>
+    <span class="s">echo "buildversionfilename=$buildversionfilename" &gt;&gt; $GITHUB_OUTPUT</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Then we write the <strong>buildinfo.cpp</strong> file:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Save Build info</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s2">"</span><span class="s">DamianReeves/write-file-action@master"</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">lib/version/buildinfo.cpp</span>
+    <span class="na">write-mode</span><span class="pi">:</span> <span class="s">overwrite</span>
+    <span class="na">contents</span><span class="pi">:</span> <span class="pi">|</span>
+      <span class="s">// ##########################################################################</span>
+      <span class="s">// ### This file is generated by Build and Continuous Integration scripts ###</span>
+      <span class="s">// ###   .github/workflows/buildinfo.py for local development environment ###</span>
+      <span class="s">// ###   .github/workflows/testbuildrelease.yml for CI environment        ###</span>
+      <span class="s">// ### Changes will be overwritten on the next build                      ###</span>
+      <span class="s">// ##########################################################################</span>
+      <span class="s">#include "buildinfo.h"</span>
+      <span class="s">const buildEnvironment buildInfo::theBuildEnvironment{buildEnvironment::ci};</span>
+      <span class="s">const buildType buildInfo::theBuildType{buildType::production};</span>
+      <span class="s">const int buildInfo::mainVersionDigit   = ${{ steps.selectversion.outputs.nextmajordigit }};</span>
+      <span class="s">const int buildInfo::minorVersionDigit  = ${{ steps.selectversion.outputs.nextminordigit }};</span>
+      <span class="s">const int buildInfo::patchVersionDigit  = ${{ steps.selectversion.outputs.nextpatchdigit }};</span>
+      <span class="s">const char* buildInfo::lastCommitTag    = "${{ steps.versioninfo.outputs.commithash }}";</span>
+      <span class="s">const char* buildInfo::buildTimeStamp   = "${{ steps.versioninfo.outputs.buildtimestamp }}";</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Next steps install PlatformIO, run all unit tests and upload the test results to codecov.io:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install PlatformIO Core</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="s">pip install --upgrade platformio</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run all generic unit tests</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">pio test -e all_generic_unittests</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Upload coverage reports to Codecov</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">codecov/codecov-action@v3</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">gcov</span><span class="pi">:</span> <span class="kc">true</span>
+    <span class="na">gcov_include</span><span class="pi">:</span> <span class="s1">'</span><span class="s">.pio/build/all_generic_unittests/*'</span>
+  <span class="na">env</span><span class="pi">:</span>
+    <span class="na">CODECOV_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.CODECOV_TOKEN }}</span>
+</code></pre></div></div>
+
+<p>This step then builds the application:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Build</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+    <span class="s">pio run -e production_application</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Finally the resulting binary is attached to the workflow, and when doing a release, also to the release:</p>
+
+<!--  -->
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Attach Binary to Workflow run</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">attachbinarytoworkflowrun</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-artifact@v3</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.buildversionfilename }}.hex</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">.pio/build/production_application/firmware.hex</span>
+    <span class="na">if-no-files-found</span><span class="pi">:</span> <span class="s">error</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Release when on main branch</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">createrelease</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/create-release@v1</span>
+  <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.branchname == 'main'}}</span>
+  <span class="na">env</span><span class="pi">:</span>
+    <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">tag_name</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.buildversion }}</span>
+    <span class="na">release_name</span><span class="pi">:</span> <span class="s">Release ${{ steps.selectversion.outputs.buildversion }}</span>
+    <span class="na">draft</span><span class="pi">:</span> <span class="kc">false</span>
+    <span class="na">prerelease</span><span class="pi">:</span> <span class="kc">false</span>
+
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Attach Binary to Release</span>
+  <span class="na">id</span><span class="pi">:</span> <span class="s">attachbinarytorelease</span>
+  <span class="na">uses</span><span class="pi">:</span> <span class="s">actions/upload-release-asset@v1</span>
+  <span class="na">if</span><span class="pi">:</span> <span class="s">${{ steps.versioninfo.outputs.branchname == 'main'}}</span>
+  <span class="na">env</span><span class="pi">:</span>
+    <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+  <span class="na">with</span><span class="pi">:</span>
+    <span class="na">upload_url</span><span class="pi">:</span> <span class="s">${{ steps.createrelease.outputs.upload_url }}</span>
+    <span class="na">asset_path</span><span class="pi">:</span> <span class="s">.pio/build/production_application/firmware.hex</span>
+    <span class="na">asset_name</span><span class="pi">:</span> <span class="s">${{ steps.selectversion.outputs.buildversionfilename }}.hex</span>
+    <span class="na">asset_content_type</span><span class="pi">:</span> <span class="s">application/octet-stream</span>
+</code></pre></div></div>
+<!--  -->
+
+<div class="alert alert-warning" role="alert">
+  <b>Note:</b> Some binaries have <b>.hex</b>, others have <b>.bin</b> extension. You may need to adjust this script, in case your binary has a different extension. Also the source path where the binary is fetched depends on the envitonment name, so keep those in sync.
+</div>
+
+<h2 id="further-improvements">Further Improvements</h2>
+
+<p>Congratulations, you’ve made it to the end of this blog post which was certainly not an easy read. You can further discuss this topic on the <a href="https://community.platformio.org/t/setting-up-platformio-for-ci-cd-with-testing-code-coverage-and-versioning/37871" target="_blank">PlatformIO forum</a>. Suggestions for improvements are also very welcome, simply post an issue on the demo repository.</p>
+
+<p>Thank you.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Pascal Roobrouck</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[Leveraging PlatformIO for Effortless Continuous Integration and Delivery in Collaborative Environments for Optimized Embedded Software Deployment Workflow]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO 2023 Year in Review</title><link href="https://piolabs.com/blog/news/platformio-year-in-review-2023.html" rel="alternate" type="text/html" title="PlatformIO 2023 Year in Review" /><published>2024-01-08T00:00:00+02:00</published><updated>2024-01-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-year-in-review-2023</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-year-in-review-2023.html"><![CDATA[<p>We’ve been through a lot together, and it’s time to look back and see how PlatformIO Labs kept growing during the most challenging times in its history.</p>
 
 <!-- more -->
 
@@ -1937,67 +2711,4 @@ The IDR is the only register that must be implemented by any Access Port.</p>
 </ul>
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Alex Kavalchuk</name></author><category term="blog" /><category term="engineering" /><summary type="html"><![CDATA[Exploring the Architecture and Capabilities of the ARM Debug Access Port for Embedded System Debugging]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source April Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-april-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source April Updates" /><published>2023-05-01T00:00:00+03:00</published><updated>2023-05-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-april-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-april-2023-updates.html"><![CDATA[<p>Welcome to the April 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-april-news.jpg" alt="PlatformIO Open Source April Updates" /></p>
-
-<p>During April, we rolled out important updates for Teensy and Espressif32 dev-platforms, fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#espressif32-dev-platform-v62" id="markdown-toc-espressif32-dev-platform-v62">Espressif32 dev-platform v6.2</a></li>
-  <li><a href="#teensy-dev-platform-v418" id="markdown-toc-teensy-dev-platform-v418">Teensy dev-platform v4.18</a></li>
-  <li><a href="#stay-in-touch-with-us" id="markdown-toc-stay-in-touch-with-us">Stay in touch with us</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v62">Espressif32 dev-platform v6.2</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest Arduino Core, new boards and dev-kits, several minor fixes and improvements:</p>
-
-<ul>
-  <li>Added boards:
-    <ul>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32-c3-devkitc-02.html">Espressif ESP32-C3-DevKitC-02</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s3_mini.html">WEMOS LOLIN S3 Mini</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/m5stack-stamps3.html">M5Stack StampS3</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/seeed_xiao_esp32s3.html">Seeed Studio XIAO ESP32S3</a></li>
-    </ul>
-  </li>
-  <li>Added support for Arduino v2.0.8 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.8">release notes</a>)</li>
-  <li>Updated esptoolpy to v4.5.1 (<a href="https://github.com/espressif/esptool/releases/tag/v4.5.1">release notes</a>)</li>
-  <li>Added local cacert file containing “DST Root CA X3” to certificate bundle (<a href="https://github.com/platformio/platform-espressif32/issues/1066">#1066</a>)</li>
-  <li>Fixed HWID for the <code class="language-plaintext highlighter-rouge">seeed_xiao_esp32c3</code> board</li>
-  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-espressif32/issues/1032">#1032</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1055">#1055</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1067">#1067</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1082">#1082</a>)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-espressif32/releases/tag/v6.2.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="teensy-dev-platform-v418">Teensy dev-platform v4.18</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/teensy">Teensy</a> dev-platform brings support for the latest Teensyduino v1.58 and updated toolchains:</p>
-
-<ul>
-  <li>Updated Teensyduino to v1.58 (<a href="https://github.com/PaulStoffregen/cores/releases/tag/1.58">release notes</a>)</li>
-  <li>Updated toolchain package to v11.3.1 for Arm-based boards</li>
-  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-teensy/issues/94">#94</a>, <a href="https://github.com/platformio/platform-teensy/issues/95">#95</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Teensy dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/teensy.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-teensy/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for Teensyduino v1.58, Updated Espressif dev-platform with the latest Arduino Core]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-april-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Alex Kavalchuk</name></author><category term="blog" /><category term="engineering" /><summary type="html"><![CDATA[Exploring the Architecture and Capabilities of the ARM Debug Access Port for Embedded System Debugging]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2023-05-09-diving-into-arm-debug-access-port/title.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
