@@ -1,4 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-04-01T16:23:24+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2024-04-01T00:00:00+03:00</published><updated>2024-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html"><![CDATA[<p>Welcome to the March 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-06-03T14:55:29+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2024-06-03T00:00:00+03:00</published><updated>2024-06-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2024-updates.html"><![CDATA[<p>Welcome to the May 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-may-news.jpg" alt="PlatformIO Open Source May Updates" /></p>
+
+<p>During May, we rolled out a bugfix release for PlatformIO Core, added support for the new Arduino ESP32 core v2.0.16, rolled out updates for several popular development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#platformio-core-v6115" id="markdown-toc-platformio-core-v6115">PlatformIO Core v6.1.15</a></li>
+  <li><a href="#espressif32-dev-platform-v67" id="markdown-toc-espressif32-dev-platform-v67">Espressif32 dev-platform v6.7</a></li>
+  <li><a href="#st-stm32-dev-platform-v174" id="markdown-toc-st-stm32-dev-platform-v174">ST STM32 dev-platform v17.4</a></li>
+  <li><a href="#nordic-nrf52-dev-platform-v105" id="markdown-toc-nordic-nrf52-dev-platform-v105">Nordic nRF52 dev-platform v10.5</a></li>
+  <li><a href="#microchip-sam-dev-platform-v83" id="markdown-toc-microchip-sam-dev-platform-v83">Microchip SAM dev-platform v8.3</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v413" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v413">Arduino Core for mbed-enabled devices v4.1.3</a></li>
+</ul>
+
+<h2 id="platformio-core-v6115">PlatformIO Core v6.1.15</h2>
+
+<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next maintenance release with bugfixes:</p>
+
+<ul>
+  <li>Resolved an issue where the <a href="https://docs.platformio.org/en/latest/librarymanager/ldf.html">LDF</a> couldn’t locate a library dependency declared via version control system repository (<a href="https://github.com/platformio/platformio-core/issues/4885">issue #4885</a>)</li>
+  <li>Resolved an issue related to the inaccurate detection of the Clang compiler (<a href="https://github.com/platformio/platformio-core/pull/4897">pull #4897</a>)</li>
+</ul>
+
+<p>See <a href="https://github.com/platformio/platformio-core/releases/tag/v6.1.15">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
+
+<h2 id="espressif32-dev-platform-v67">Espressif32 dev-platform v6.7</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest Arduino core, new boards and dev-kits, several fixes and improvements:</p>
+
+<ul>
+  <li>New boards: <code class="language-plaintext highlighter-rouge">ESP32-S3 PowerFeather</code>, <code class="language-plaintext highlighter-rouge">MotorGo Mini 1</code>, <code class="language-plaintext highlighter-rouge">senseBox MCU-S2</code></li>
+  <li>Added support for Arduino v2.0.16 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.16">release notes</a>)</li>
+  <li>Updated toolchain packages for IDF integration to v13.2.0 (<a href="https://github.com/platformio/platform-espressif32/issues/1360">#1360</a>)</li>
+  <li>Improvements to <code class="language-plaintext highlighter-rouge">esp32_exception_decoder</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1357">#1357</a>)</li>
+  <li>Better handling of IDF linker script fragments</li>
+  <li>Minor fixes and improvements</li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v174">ST STM32 dev-platform v17.4</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform v17.4 brings support for the latest Arduino-mbed core and several bug fixes:</p>
+
+<ul>
+  <li>Updated Arduino-mbed core to v4.1.3 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.1.3">release notes</a>)</li>
+  <li>Added consistent set of STM32xx defines to all boards (<a href="https://github.com/platformio/platform-ststm32/pull/760">#760</a>)</li>
+  <li>Added Arduino support for Nucleo-F446ZE board (<a href="https://github.com/platformio/platform-ststm32/pull/772">#772</a>, <a href="https://github.com/platformio/platform-ststm32/pull/773">#773</a>)</li>
+  <li>Fixed ST STM32G0316-DISCO flash size (<a href="https://github.com/platformio/platform-ststm32/pull/767">#767</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="nordic-nrf52-dev-platform-v105">Nordic nRF52 dev-platform v10.5</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> dev-platform v10.5 comes with updated Arduino cores:</p>
+
+<ul>
+  <li>Updated Adafruit Core to the latest v1.6.1 (<a href="https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/1.6.1">release notes</a>)</li>
+  <li>Updated Arduino-mbed core to v4.1.3 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.1.3">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Nordic nRF52 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/nordicnrf52.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-nordicnrf52/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-sam-dev-platform-v83">Microchip SAM dev-platform v8.3</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/atmelsam">Microchip SAM</a> dev-platform brings updates for several popular Arduino cores:</p>
+
+<ul>
+  <li>Updated Arduino Core to v1.8.14 (<a href="https://github.com/arduino/ArduinoCore-samd/releases/tag/1.8.14">release notes</a>)</li>
+  <li>Updated Adafruit Core to v1.7.16 (<a href="https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.7.16">release notes</a>)</li>
+  <li>Updated Seeed Core to v1.8.5 (<a href="https://github.com/Seeed-Studio/ArduinoCore-samd/releases/tag/v1.8.5">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Microchip SAM dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelsam.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-atmelsam/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v413">Arduino Core for mbed-enabled devices v4.1.3</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v4.1.3. According to the <a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.1.3">release notes</a>, v4.1.3 brings a lot of bugfixes and improvements in the core and accompanying libraries.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, New boards and dev-kits, Updates for Espressif32, ST STM32, Microchip SAM, Nordic nRF52 and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2024-04-01T00:00:00+03:00</published><updated>2024-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html"><![CDATA[<p>Welcome to the March 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
 <!-- more -->
@@ -1597,112 +1703,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Improved PlatformIO IDE for Microsoft VSCode, PlatformIO Core bugfix release, New Renesas RA dev-platform, New boards and dev-kits, support for the latest Mbed OS]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2023-07-03T00:00:00+03:00</published><updated>2023-07-03T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2023-updates.html"><![CDATA[<p>Welcome to the June 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
-
-<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-june-news.jpg" alt="PlatformIO Open Source June Updates" /></p>
-
-<p>During June, we rolled out an updated version of PlatformIO IDE for Visual Studio Code, added support for the latest Arduino cores for ST STM32, Nordic nRF52 and Microchip SAM development platforms, fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#platformio-ide-32-for-visual-studio-code" id="markdown-toc-platformio-ide-32-for-visual-studio-code">PlatformIO IDE 3.2 for Visual Studio Code</a></li>
-  <li><a href="#st-stm32-v160" id="markdown-toc-st-stm32-v160">ST STM32 v16.0</a></li>
-  <li><a href="#nordic-nrf52-v100" id="markdown-toc-nordic-nrf52-v100">Nordic nRF52 v10.0</a></li>
-  <li><a href="#microchip-sam-v82" id="markdown-toc-microchip-sam-v82">Microchip SAM v8.2</a></li>
-  <li><a href="#chips-alliance-v13" id="markdown-toc-chips-alliance-v13">CHIPS Alliance v1.3</a></li>
-</ul>
-
-<h2 id="platformio-ide-32-for-visual-studio-code">PlatformIO IDE 3.2 for Visual Studio Code</h2>
-
-<p>We are pleased to announce a new stable release of PlatformIO IDE 3.2 for <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">Visual Studio Code</a> that brings a new powerful linting feature that highlights syntactical and stylistic issues in the <a href="https://docs.platformio.org/en/latest/projectconf/index.html">“platformio.ini”</a> configuration file:</p>
-
-<p><img class="figure-img img-fluid rounded" src="https://raw.githubusercontent.com/platformio/platformio-vscode-ide/develop/.github/media/platformio-ini-lint-demo.png" alt="PlatformIO Open Source June Updates" /></p>
-
-<p>Other enhancements and bugfixes:</p>
-
-<ul>
-  <li>Improved project cleanup process by utilizing the <code class="language-plaintext highlighter-rouge">fullclean</code> target instead of <code class="language-plaintext highlighter-rouge">cleanall</code>. This ensures a thorough clean-up, including the removal of dependent libraries</li>
-  <li>Updated PlatformIO Core Installer Script to <a href="https://github.com/platformio/platformio-core-installer/releases/tag/v1.1.3">v1.1.3</a></li>
-  <li>Resolved an issue where certain buttons were missing from the status bar in VSCode 1.79 after the recent update (issue <a href="https://github.com/platformio/platformio-vscode-ide/issues/3736">#3736</a>)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platformio-vscode-ide/releases/tag/v3.2.0">Release Notes</a> for more detailed information.</p>
-
-<h2 id="st-stm32-v160">ST STM32 v16.0</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> v16.0.0 comes with support for the latest Arduino core, updated packages and several minor improvements:</p>
-
-<ul>
-  <li>Updated STM32 Arduino Core to the latest v2.5.0 (<a href="https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.5.0">release notes</a>)</li>
-  <li>Updated OpenOCD package to the latest v0.12</li>
-  <li>Switched Arduino Core to GCC v10.3 packages (<a href="https://github.com/platformio/platform-ststm32/issues/301">#301</a>, <a href="https://github.com/platformio/platform-ststm32/issues/486">#486</a>, <a href="https://github.com/platformio/platform-ststm32/issues/605">#605</a>, <a href="https://github.com/platformio/platform-ststm32/issues/650">#650</a>)</li>
-  <li>Enabled CMSIS-DAP for genericSTM32F103C6 (<a href="https://github.com/platformio/platform-ststm32/issues/696">#696</a>)</li>
-  <li>Various memory size corrections (<a href="https://github.com/platformio/platform-ststm32/issues/617">#617</a>, <a href="https://github.com/platformio/platform-ststm32/issues/649">#649</a>, <a href="https://github.com/platformio/platform-ststm32/issues/656">#656</a>, <a href="https://github.com/platformio/platform-ststm32/issues/699">#699</a>)</li>
-  <li>Dropped support for legacy Mbed v5</li>
-</ul>
-
-<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="nordic-nrf52-v100">Nordic nRF52 v10.0</h2>
-
-<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> dev-platform brings support for the latest Adafruit core and updated OpenOCD v0.12 packages:</p>
-
-<ul>
-  <li>Updated Arduino Adafruit core to v1.5.0 (<a href="https://github.com/adafruit/Adafruit_nRF52_Arduino/releases/tag/1.5.0">release notes</a>)</li>
-  <li>Updated OpenOCD package to the latest v0.12</li>
-  <li>Dropped support for legacy Mbed v5</li>
-</ul>
-
-<p><strong>Related resources for the Nordic nRF52 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/nordicnrf52.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-nordicnrf52/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="microchip-sam-v82">Microchip SAM v8.2</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/atmelsam">Microchip SAM</a> dev-platform brings updates for several Arduino cores, updated OpenOCD v0.12 and several minor improvements:</p>
-
-<ul>
-  <li>Updated Arduino Adafruit Core to v1.7.13 (<a href="https://github.com/adafruit/ArduinoCore-samd/releases/tag/1.7.13">release notes</a>)</li>
-  <li>Updated Arduino Seeed Core to v1.8.4 (<a href="https://github.com/Seeed-Studio/ArduinoCore-samd/releases/tag/v1.8.4">release notes</a>)</li>
-  <li>Updated Arduino SODAQ Core to v1.8.9</li>
-  <li>Updated OpenOCD package to the latest v0.12</li>
-  <li>Removed duplicate macro in Seeeduino Wio Terminal manifest</li>
-</ul>
-
-<p><strong>Related resources for the Microchip SAM dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelsam.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-atmelsam/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="chips-alliance-v13">CHIPS Alliance v1.3</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/chipsalliance">CHIPS Alliance</a> dev-platform comes with support for Verilator-based RVfpga-ViDBo and RVfpga-Pipeline simulation tools:</p>
-
-<ul>
-  <li>Added new option for supporting RVfpga-ViDBo and RVfpga-Pipeline (<a href="https://github.com/platformio/platform-chipsalliance/issues/12">#12</a>)</li>
-  <li>Fixed “program_fpga” target errors (<a href="https://github.com/platformio/platform-chipsalliance/issues/11">#11</a>)</li>
-</ul>
-
-<p><strong>Related resources for the CHIPS Alliance dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/chipsalliance.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-chipsalliance/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Improved PlatformIO IDE for Microsoft VSCode, Updates for ST STM32, Nordic nRF52 and Microchip SAM dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-june-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-june-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Improved PlatformIO IDE for Microsoft VSCode, PlatformIO Core bugfix release, New Renesas RA dev-platform, New boards and dev-kits, support for the latest Mbed OS]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-july-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
