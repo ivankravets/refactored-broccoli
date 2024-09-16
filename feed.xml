@@ -1,4 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-08-04T13:14:26+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source July Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-july-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source July Updates" /><published>2024-08-01T00:00:00+03:00</published><updated>2024-08-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-july-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-july-2024-updates.html"><![CDATA[<p>Welcome to the July 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-09-16T14:34:19+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Enhancing Code Quality with PlatformIO, SonarCloud and GitHub Actions</title><link href="https://piolabs.com/blog/insights/sonarcloud-platformio-ci-workflow.html" rel="alternate" type="text/html" title="Enhancing Code Quality with PlatformIO, SonarCloud and GitHub Actions" /><published>2024-09-16T00:00:00+03:00</published><updated>2024-09-16T00:00:00+03:00</updated><id>https://piolabs.com/blog/insights/sonarcloud-platformio-ci-workflow</id><content type="html" xml:base="https://piolabs.com/blog/insights/sonarcloud-platformio-ci-workflow.html"><![CDATA[<p>This article continues where my previous blogpost, <a href="/blog/insights/cicd-testing-coverage-versioning.html" target="_blank">Setting up PlatformIO for CI/CD with Testing, Code Coverage and Versioning</a>, left off. We will now add SonarCloud static code analysis to a PlatformIO project with a CI workflow.</p>
+
+<!-- more -->
+
+<h3>Table of Contents</h3>
+
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#sonarlint" id="markdown-toc-sonarlint">SonarLint</a></li>
+  <li><a href="#sonarcloud" id="markdown-toc-sonarcloud">SonarCloud</a>    <ul>
+      <li><a href="#sonarcloud-with-github-actions" id="markdown-toc-sonarcloud-with-github-actions">SonarCloud with Github Actions</a></li>
+    </ul>
+  </li>
+  <li><a href="#will-it-make-my-code-better" id="markdown-toc-will-it-make-my-code-better">Will it make my code better?</a></li>
+  <li><a href="#unit-testing-first" id="markdown-toc-unit-testing-first">Unit Testing First</a></li>
+  <li><a href="#pay-it-forward" id="markdown-toc-pay-it-forward">Pay it Forward</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Static code analysis involves testing your source code against a number of well-known and common mistakes by analyzing the source code without running it.
+PlatformIO already has this feature under <strong>Project Tasks &gt; Advanced &gt; Check</strong> which will, for example, launch CppCheck.
+But like many other tools, things are moving to the cloud, and a popular cloud-based provider of static code analysis is SonarCloud.io.</p>
+
+<p>This company brings static code analysis to another level with several useful extra features:</p>
+
+<ul>
+  <li>Supporting many languages, so if your project has mixed C and C++, SonarCloud can check both.</li>
+  <li>Selecting which rules you want in your check: start from their defaults, then tweak to disable some checks or add extra ones.</li>
+  <li>Integrating code analysis and test coverage into one report.</li>
+  <li>Integrating into your CI workflow, so with every push of new code, you can have it automatically checked. The tagline here is “<strong>Clean as You Code</strong>” meaning that SonarCloud will show you not only the total project quality metrics but also the <strong>New Code</strong> metrics. This means that even on a legacy codebase, you can ensure that all changes meet the quality rules, resulting in continuous code quality improvement.</li>
+</ul>
+
+<p>So let’s give it a try and see how well it works together with PlatformIO</p>
+
+<h2 id="sonarlint">SonarLint</h2>
+
+<p>A simple first step is to install the VSCode extension called <a href="https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-vscode">SonarLint</a>.
+This extension will provide the static code analysis features locally in your IDE, where SonarLint will add orange squiggles under suspicious code to warn you and recommend better options.</p>
+
+<figure class="figure mb-1">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-1.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-1.png" />
+    </a>
+</figure>
+
+<p>Note in the example below the squiggles on the line 276 and an explanation when you hover over it.
+All the yellow lines on the minimap (on the right) show potential problems with your code.
+While CppCheck would run on demand, SonarLint is running in the background, continuously checking your code as you write it.</p>
+
+<figure class="figure mb-1">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-2.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-2.png" />
+    </a>
+</figure>
+
+<p>SonarLint can pick up settings from a file called sonar-project.properties in the root of your project.
+Once you are using SonarCloud, it will also be possible to sync your settings stored in the cloud to SonarLint running locally in the IDE.
+This works for any project, including PlatformIO projects.</p>
+
+<h2 id="sonarcloud">SonarCloud</h2>
+
+<p>A simple next step is to create an account on SonarCloud.io, then give that account access to some of your GitHub repositories, enabling cloud-based static code analysis.
+The default setting is <strong>Automatic Analysis</strong> which means SonarCloud will notice when you do a push or pull request on your main branch,
+then fetch the code from your repository and run its analysis. Again, this works for any project, including PlatformIO.</p>
+
+<p>This mode has a few shortcomings:</p>
+
+<ul>
+  <li>The automatic mode does not handle code coverage.</li>
+  <li>In the automatic mode, SonarCloud polls the repository, whereas I prefer to “push” a trigger from a GitHub Actions workflow to SonarCloud.
+This way, the workflow remains in control of all actions and their sequences.</li>
+</ul>
+
+<h3 id="sonarcloud-with-github-actions">SonarCloud with Github Actions</h3>
+
+<p>Go to your SonarCloud project homepage, select “Administration | Analysis method” and disable the slider for Automatic Analysis.
+Then open your workflow file (<code class="language-plaintext highlighter-rouge">.github/workflows/testbuildrelease.yml</code> in the example) and add the following sections:</p>
+
+<!--  -->
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">install gcovr </span><span class="m">5.0</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="s">pip install gcovr==5.0</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>This step will install <code class="language-plaintext highlighter-rouge">gcovr</code>, which is needed to collect and transform the test coverage results into a format that SonarCloud understands.
+The following lines will install the SonarCloud agent:</p>
+
+<!--  -->
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Install sonar-scanner and build-wrapper</span>
+   <span class="na">uses</span><span class="pi">:</span> <span class="s">sonarsource/sonarcloud-github-c-cpp@v3</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>After your workflow is ready to do a build, add the following section:</p>
+
+<!--  -->
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Generate Compilation DataBase</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="s">pio run -t compiledb</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>This command will generate a special file called <code class="language-plaintext highlighter-rouge">compile_commands.json</code>, which is used as input for SonarCloud.
+This file describes which source files are being used for the build, and thus which files matter for calculating its resulting score.</p>
+
+<p>After the unit testing step, add this section:</p>
+
+<!--  -->
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Collect coverage into XML report</span>
+  <span class="na">run</span><span class="pi">:</span> <span class="s">gcovr --sonarqube &gt; coverage.xml</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>This step will run <code class="language-plaintext highlighter-rouge">gcovr</code> and transform the coverage files into a proper format for SonarCloud.</p>
+
+<p>After your application is built, add this section:</p>
+
+<!--  -->
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Run sonar-scanner</span>
+    <span class="na">env</span><span class="pi">:</span>
+      <span class="na">GITHUB_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.GITHUB_TOKEN }}</span>
+      <span class="na">SONAR_TOKEN</span><span class="pi">:</span> <span class="s">${{ secrets.SONAR_TOKEN }}</span>
+    <span class="na">run</span><span class="pi">:</span> <span class="pi">|</span>
+     <span class="s">sonar-scanner \</span>
+        <span class="s">--define sonar.projectKey=Strooom_MuMo-v2-Node-SW \</span>
+        <span class="s">--define sonar.organization=strooom-1 \</span>
+        <span class="s">--define sonar.coverageReportPaths=coverage.xml</span>
+</code></pre></div></div>
+<!--  -->
+
+<p>Of course you need to replace the <code class="language-plaintext highlighter-rouge">projectKey</code> and <code class="language-plaintext highlighter-rouge">organization</code> parameters with your own actual values.
+You can get them on your SonarCloud project homepage, just open <strong>Information</strong> to see the right keys.</p>
+
+<p>Now, when the workflow is set up, make a commit and push it to the repository. This will trigger the workflow to run,
+allowing you to see the uploading of unit test coverage results as well as the source code being scanned.</p>
+
+<p>On SonarCloud.io you can now see the results. The (short) commit hash makes it easy to link the analysis with the actual commit. Click on it to get a lot more detail:</p>
+
+<figure class="figure mb-1">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-4.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-4.png" />
+    </a>
+</figure>
+
+<p>Finally, when we merge our develop branch into main, the workflow will kick in again, but as SonarCloud detects the trigger is a Pull Request, it hooks itself into the checks before you merge. This is a great quality check before merging new code into your production main branch.</p>
+
+<figure class="figure mb-7">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-5.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-5.png" />
+    </a>
+</figure>
+
+<h2 id="will-it-make-my-code-better">Will it make my code better?</h2>
+
+<p>Does SonarCloud help me to write better code? After my first analysis, I was facing almost 2000 issues in a codebase of 20K lines, so this was a bit disappointing.</p>
+
+<p>It turned out that there were quite a bit of <strong>false positives</strong>:</p>
+
+<ul>
+  <li>Legitimate contents being flagged as outcommented code. For example, font files where the comments explained which character the bytes represents:</li>
+</ul>
+
+<figure class="figure mb-7">
+    <a data-bigpicture="{&quot;imgSrc&quot;: &quot;/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-6.png&quot;}" href="#">
+      <img class="img-fluid screenshot mw-md-100" src="/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/image-6.png" />
+    </a>
+</figure>
+
+<ul>
+  <li>There were also a few rules to which I don’t agree because in an embedded environment you want to be careful with dynamic memory allocation.
+So much of the standard-library stuff needs to be used with care, so I deactivated these rules.</li>
+</ul>
+
+<p>Still, I admit that SonarCloud did find quite a few areas for improvement:</p>
+
+<ul>
+  <li>Function parameters or class member functions that could be made “const”</li>
+  <li>Implicit casts with loss of precision: I checked all of them and, where appropriate, replaced them with explicit casts</li>
+  <li>Code duplication</li>
+  <li>Code with excessive cyclomatic complexity</li>
+  <li>SonarCloud flags all your comments with “TODO” as a problem, which helps me remember to address them</li>
+  <li>SonarCloud flags outcommented code as a problem, which pushed me to fix it and eliminate hanging technical debt</li>
+</ul>
+
+<p>Finally, I also found a lot of problems in foreign code that I incorporated, including autogenerated code from ST’s CubeMX tooling.
+I don’t want to touch it, mainly because it will be overwritten if I ever regenerate it.
+Still, it provided me with valuable insights into the vulnerabilities of ST’s code, which helps me handle them better.</p>
+
+<p>Then I included a QR-Code library from someone else, and it also had many warnings.
+In this case, it was my intention to eventually refactor it into something more robust and modern.
+Here, of course, all the advice from SonarCloud is very useful, as it points me to the parts needing refactoring.</p>
+
+<p>As a whole, I found it a very positive experience and I intend to use SonarCloud on all of my future projects.</p>
+
+<h2 id="unit-testing-first">Unit Testing First</h2>
+
+<p>You will make many small code changes while cleaning and of course this can only be done with peace of mind if you have sufficient unit testing in place first,
+so get your unit testing working first, then take the next step with SonarCloud.</p>
+
+<h2 id="pay-it-forward">Pay it Forward</h2>
+
+<p>All this amazing functionality is free for open oource projects, and I don’t take that for granted, so thank you PlatformIO, Github and SonarCloud.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Pascal Roobrouck</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[This guide covers setting up SonarCloud with PlatformIO, utilizing SonarLint for local static analysis, and leveraging SonarCloud's cloud-based analysis with GitHub Actions workflows to identify and address code issues]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/main.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2024-09-16-sonarcloud-platformio-ci-workflow/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source July Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-july-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source July Updates" /><published>2024-08-01T00:00:00+03:00</published><updated>2024-08-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-july-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-july-2024-updates.html"><![CDATA[<p>Welcome to the July 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
 This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
 <!-- more -->
@@ -1567,127 +1772,4 @@ As we wrap up the year, December is bringing some cool changes our way. Amid all
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and devkits, Support for the latest Zephyr RTOS 3.4, Updates for ST STM32, Renesas RA and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2023-09-04T00:00:00+03:00</published><updated>2023-09-04T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2023-updates.html"><![CDATA[<p>Welcome to the August 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-august-news.jpg" alt="PlatformIO Open Source August Updates" /></p>
-
-<p>During August, we rolled out a bugfix release for PlatformIO Core, added support for the latest Arduino ESP32 core v2.0.11 and ESP-IDF v5.1.1, fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#platformio-core-6111" id="markdown-toc-platformio-core-6111">PlatformIO Core 6.1.11</a></li>
-  <li><a href="#esp-idf-v51" id="markdown-toc-esp-idf-v51">ESP-IDF v5.1</a></li>
-  <li><a href="#espressif32-dev-platform-v64" id="markdown-toc-espressif32-dev-platform-v64">Espressif32 dev-platform v6.4</a></li>
-  <li><a href="#renesas-ra-dev-platform-v11" id="markdown-toc-renesas-ra-dev-platform-v11">Renesas RA dev-platform v1.1</a></li>
-  <li><a href="#heltec-cubecell-dev-platform-v11" id="markdown-toc-heltec-cubecell-dev-platform-v11">Heltec Cubecell dev-platform v1.1</a></li>
-</ul>
-
-<h2 id="platformio-core-6111">PlatformIO Core 6.1.11</h2>
-
-<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next release with lots of great improvements and bugfixes:</p>
-
-<ul>
-  <li>Resolved an issue that caused generated projects for <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">PlatformIO IDE for VSCode</a> to break when the <code class="language-plaintext highlighter-rouge">-iprefix</code> compiler flag was used</li>
-  <li>Resolved an issue encountered while utilizing the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_exec.html">pio pkg exec</a> command on the Windows platform to execute Python scripts from a package</li>
-  <li>Implemented a crucial improvement to the <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_run.html">pio run</a> command, guaranteeing that the <code class="language-plaintext highlighter-rouge">monitor</code> target is not executed if any of the preceding targets, such as <code class="language-plaintext highlighter-rouge">upload</code>, encounter failures</li>
-  <li><a href="https://docs.platformio.org/en/latest/plus/check-tools/cppcheck.html">Cppcheck</a> v2.11 with new checks, CLI commands and various analysis improvements</li>
-  <li>Resolved a critical issue that arose on macOS ARM platforms due to the Python “requests” module, leading to a “ModuleNotFoundError: No module named ‘chardet’” (<a href="https://github.com/platformio/platformio-core/issues/4702">issue #4702</a>)</li>
-  <li>Resolved a possible issue that may cause generated projects for <a href="https://docs.platformio.org/en/latest/integration/ide/vscode.html">PlatformIO IDE for VSCode</a> to fail to launch a debug session because of a missing “objdump” binary when GDB is not part of the toolchain package</li>
-  <li>Resolved a regression issue that resulted in the malfunction of the Memory Inspection feature within <a href="https://docs.platformio.org/en/latest/home/index.html">PIO Home</a></li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platformio-core/releases/tag/v6.1.10">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
-
-<h2 id="esp-idf-v51">ESP-IDF v5.1</h2>
-
-<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v5.1.1</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
-
-<p><strong>Major enhancements in v5.1:</strong></p>
-
-<ul>
-  <li>Added Zigbee support for ESP32-C6</li>
-  <li>Added support for ESP32-H2 MP chip</li>
-</ul>
-
-<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
-
-<p><strong>Related resources for ESP-IDF</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.1">Release notes for v5.1</a></li>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.1.1">Release notes for v5.1.1</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v64">Espressif32 dev-platform v6.4</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest Arduino Core and ESP-IDF, new boards and dev-kits, several minor fixes and improvements:</p>
-
-<ul>
-  <li>Added new boards and dev-kits:
-    <ul>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/m5stack-adafruit_matrixportal_esp32s3.html">Adafruit MatrixPortal ESP32-S3</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/arduino_nano_esp32.html">Arduino Nano ESP32</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/esp32-c6-devkitm-1.html">Espressif ESP32-C6-DevKitM-1</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/dfrobot_romeo_esp32s3.html">DFRobot Romeo ESP32-S3</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/nebulas3.html">Kinetic Dynamics Nebula S3</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/m5stamp-pico.html">M5Stamp-Pico</a></li>
-      <li><a href="https://docs.platformio.org/en/latest/boards/espressif32/m5stack-cores3.html">M5Stack-CoreS3</a></li>
-    </ul>
-  </li>
-  <li>Added support for Arduino v2.0.11 (<a href="https://github.com/espressif/arduino-esp32/releases/tag/2.0.11">release notes</a>)</li>
-  <li>Updated ESP-IDF to v5.1.1 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.1.1">release notes</a>)</li>
-  <li>Initial support for ESP32-C6 (<a href="https://github.com/platformio/platform-espressif32/pull/1054">#1054</a>)</li>
-  <li>Improved dynamic memory size calculation process (<a href="https://github.com/platformio/platform-espressif32/pull/1159">#1159</a>, <a href="https://github.com/platformio/platform-espressif32/issues/1178">#1178</a>)</li>
-  <li>Support for custom application partition names (<a href="https://github.com/platformio/platform-espressif32/pull/1166">#1166</a>)</li>
-  <li>Fixed OpenOCD configuration for Lolin S2 boards (<a href="https://github.com/platformio/platform-espressif32/pull/1139">#1139</a>)</li>
-  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-espressif32/pull/1146">#1146</a>, <a href="https://github.com/platformio/platform-espressif32/pull/1175">#1175</a>, <a href="https://github.com/platformio/platform-espressif32/pull/1176">#1176</a>)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-espressif32/releases/tag/v6.4.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="renesas-ra-dev-platform-v11">Renesas RA dev-platform v1.1</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.9.0 brings support for the latest Arduino core:</p>
-
-<ul>
-  <li>Updated Arduino core to v1.0.2 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.0.2">release notes</a>)</li>
-  <li>Fixed broken uploader package selection (<a href="https://github.com/platformio/platform-renesas-ra/issues/9">#9</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="heltec-cubecell-dev-platform-v11">Heltec Cubecell dev-platform v1.1</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/heltecautomation/heltec-cubecell">Heltec CubeCell</a> dev-platform comes with support for the latest Arduino core and several minor fixes:</p>
-
-<ul>
-  <li>Added support for CubeCell core v1.6.0 (<a href="https://github.com/HelTecAutomation/CubeCell-Arduino/releases/tag/V1.6.0">release notes</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p><strong>Related resources for the Heltec CubeCell dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/heltec-cubecell.html">Documentation</a></li>
-  <li><a href="https://github.com/HelTecAutomation/platform-heltec-cubecell/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, New boards and dev-kits, Support for the latest ESP-IDF v5.1, Updates for Espressif32, Renesas RA and Heltec CubeCell dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and devkits, Support for the latest Zephyr RTOS 3.4, Updates for ST STM32, Renesas RA and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-september-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
