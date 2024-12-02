@@ -1,4 +1,91 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-10-07T11:19:03+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source September Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-september-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source September Updates" /><published>2024-10-07T00:00:00+03:00</published><updated>2024-10-07T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-september-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-september-2024-updates.html"><![CDATA[<p>Welcome to the September 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2024-12-02T19:56:47+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source November Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-november-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source November Updates" /><published>2024-12-02T00:00:00+02:00</published><updated>2024-12-02T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-november-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-november-2024-updates.html"><![CDATA[<p>Welcome to the November 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+
+<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-november-news.jpg" alt="PlatformIO Open Source November Updates" /></p>
+
+<p>During November, we added support for the latest Zephyr framework, rolled out updates for ST STM32 and Renesas RA development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#zephyr-rtos-v40" id="markdown-toc-zephyr-rtos-v40">Zephyr RTOS v4.0</a></li>
+  <li><a href="#st-stm32-dev-platform-v180" id="markdown-toc-st-stm32-dev-platform-v180">ST STM32 dev-platform v18.0</a></li>
+  <li><a href="#renesas-ra-dev-platform-v16" id="markdown-toc-renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v421" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v421">Arduino Core for mbed-enabled devices v4.2.1</a></li>
+</ul>
+
+<h2 id="zephyr-rtos-v40">Zephyr RTOS v4.0</h2>
+
+<p>We’re happy to announce updated support for the latest release v4.0 of <a href="https://www.zephyrproject.org/" target="_blank">Zephyr Project</a> - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.</p>
+
+<p>Major enhancements in v4.0.0:</p>
+
+<ul>
+  <li>A new key-value storage subsystem compatible with all non-volatile storage types</li>
+  <li>Expanded audio and video capabilities</li>
+  <li>A new comparator device driver subsystem for analog comparators</li>
+  <li>New stepper and haptics device driver subsystems</li>
+</ul>
+
+<p><strong>Related resources for Zephyr framework</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.0.0">Release notes for v4.0.0</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html">Documentation for Zephyr framework</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms">Supported development platforms</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v180">ST STM32 dev-platform v18.0</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform brings support for the latest Zephyr, updated Arduino cores, new boards and dev-kits, several fixes and improvements:</p>
+
+<ul>
+  <li>New boards:
+    <ul>
+      <li>RYMCU Nebula Pi F103VE</li>
+      <li>RYMCU STM32F407VE</li>
+    </ul>
+  </li>
+  <li>Updated Zephyr to the latest v4.0.0 (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.0.0">release notes</a>)</li>
+  <li>Updated STM32 Arduino Core to the latest v2.9.0 (<a href="https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/2.9.0">release notes</a>)</li>
+  <li>Updated Arduino-mbed core to v4.2.1 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.2.1">release notes</a>)</li>
+  <li>Fixed an issue with uploading for Arduino Giga &amp; Nicla boards (<a href="https://github.com/platformio/platform-ststm32/pull/794">#794</a>)</li>
+  <li>Enabled Arduino framework for Nucleo-F439ZI (<a href="https://github.com/platformio/platform-ststm32/pull/802">#802</a>)</li>
+  <li>Enabled mbed-os for Nucleo-U575ZI (<a href="https://github.com/platformio/platform-ststm32/pull/805">#805</a>)</li>
+  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-ststm32/pull/813">#813</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.6.0 brings support for the latest Arduino core:</p>
+
+<ul>
+  <li>Updated Arduino core to v1.2.2 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.2.2">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v421">Arduino Core for mbed-enabled devices v4.2.1</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v4.2.1. According to the <a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.2.1">release notes</a>, v4.2.1 brings a lot of bugfixes and improvements in the core and accompanying libraries.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Support for the latest Zephyr RTOS 4.0, Updates for ST STM32, Renesas RA and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source September Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-september-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source September Updates" /><published>2024-10-07T00:00:00+03:00</published><updated>2024-10-07T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-september-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-september-2024-updates.html"><![CDATA[<p>Welcome to the September 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
 
 <p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
@@ -1705,111 +1792,4 @@ As we wrap up the year, December is bringing some cool changes our way. Amid all
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF, Updates for Espressif32, ST STM32, Nordic nRF52 and Raspberry Pi RP2040 dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source November Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-november-2023-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source November Updates" /><published>2023-12-04T00:00:00+02:00</published><updated>2023-12-04T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-november-2023-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-november-2023-updates.html"><![CDATA[<p>Welcome to the November 2023 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
-
-<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-november-news.jpg" alt="PlatformIO Open Source November Updates" /></p>
-
-<p>During November, we added support for the latest Zephyr framework, rolled out updates for ST STM32, Renesas RA and Microchip AVR development platforms and fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#zephyr-rtos-v35" id="markdown-toc-zephyr-rtos-v35">Zephyr RTOS v3.5</a></li>
-  <li><a href="#microchip-avr-dev-platform-v50" id="markdown-toc-microchip-avr-dev-platform-v50">Microchip AVR dev-platform v5.0</a></li>
-  <li><a href="#renesas-ra-dev-platform-v13" id="markdown-toc-renesas-ra-dev-platform-v13">Renesas RA dev-platform v1.3</a></li>
-  <li><a href="#st-stm32-dev-platform-v171" id="markdown-toc-st-stm32-dev-platform-v171">ST STM32 dev-platform v17.1</a></li>
-</ul>
-
-<h2 id="zephyr-rtos-v35">Zephyr RTOS v3.5</h2>
-
-<p>We’re happy to announce updated support for the latest release v3.5.0 of <a href="https://www.zephyrproject.org/" target="_blank">Zephyr Project</a> - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.</p>
-
-<p>Major enhancements in v3.5.0:</p>
-
-<ul>
-  <li>Picolibc is now the default C standard library</li>
-  <li>Added new modem subsystem</li>
-  <li>Added support for linkable loadable extensions (llext)</li>
-  <li>Added new hardware spinlock driver API</li>
-</ul>
-
-<p><strong>Related resources for Zephyr framework</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.5.0">Release notes for v3.5.0</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html">Documentation for Zephyr framework</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms">Supported development platforms</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="microchip-avr-dev-platform-v50">Microchip AVR dev-platform v5.0</h2>
-
-<p>The latest release of the <a href="https://registry.platformio.org/platforms/platformio/atmelavr">Microchip AVR</a> v5.0 comes with updates for highly customizable Arduino cores by MCUdude, improved support for the <code class="language-plaintext highlighter-rouge">Urboot</code> bootloader and several minor improvements:</p>
-
-<ul>
-  <li>New board <a href="https://docs.platformio.org/en/latest/boards/atmelavr/uno_mini.html">Arduino Uno Mini</a></li>
-  <li>Updated Arduino AVR core to v1.8.6 (<a href="https://github.com/platformio/platform-atmelavr/pull/314">#314</a>)</li>
-  <li>Updated MCUdude’s cores (<a href="https://github.com/platformio/platform-atmelavr/pull/320">#320</a>):
-    <ul>
-      <li>MajorCore <code class="language-plaintext highlighter-rouge">v3.0.0</code> (<a href="https://github.com/MCUdude/MajorCore/releases/tag/v3.0.0">release notes</a>)</li>
-      <li>MegaCore <code class="language-plaintext highlighter-rouge">v3.0.0</code> (<a href="https://github.com/MCUdude/MegaCore/releases/tag/v3.0.0">release notes</a>)</li>
-      <li>MightyCore <code class="language-plaintext highlighter-rouge">v3.0.0</code> (<a href="https://github.com/MCUdude/MightyCore/releases/tag/v3.0.0">release notes</a>)</li>
-      <li>MiniCore <code class="language-plaintext highlighter-rouge">v3.0.0</code> (<a href="https://github.com/MCUdude/MiniCore/releases/tag/v3.0.0">release notes</a>)</li>
-    </ul>
-  </li>
-  <li>MCUdude cores switched to AVRDUDE v7.2</li>
-  <li>Added initial support for the <code class="language-plaintext highlighter-rouge">Urboot</code> bootloader for MigntyCore, MiniCore, MegaCore, or MajorCore (<a href="https://github.com/platformio/platform-atmelavr/pull/321">#321</a>)</li>
-  <li>Fixed an issue with excessive quotes when path to AVRDUDE contains a whitespace character (<a href="https://github.com/platformio/platform-atmelavr/pull/297">#297</a>)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-atmelavr/releases/tag/v5.0.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the Microchip AVR dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/atmelavr.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-atmelavr/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="renesas-ra-dev-platform-v13">Renesas RA dev-platform v1.3</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.3.0 brings support for the latest Arduino core and several bugfixes:</p>
-
-<ul>
-  <li>Updated Arduino core to v1.0.5 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.0.5">release notes</a>)</li>
-  <li>Downgraded GCC to v7 to avoid compatibility isues (<a href="https://github.com/platformio/platform-renesas-ra/issues/18">#18</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="st-stm32-dev-platform-v171">ST STM32 dev-platform v17.1</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> v17.1 comes with support for the latest Zephyr and several minor improvements:</p>
-
-<ul>
-  <li>Updated Zephyr to the latest v3.5.0 (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v3.5.0">release notes</a>)</li>
-  <li>Added Mbed support for <code class="language-plaintext highlighter-rouge">nucelo_h723zg</code> (<a href="https://github.com/platformio/platform-ststm32/issues/740">#740</a>)</li>
-  <li>Added missing macro for LoRa E5 Dev Board (<a href="https://github.com/platformio/platform-ststm32/issues/738">#738</a>)</li>
-  <li>Minor fixes and improvements</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platform-ststm32/releases/tag/v17.1.0">Release Notes</a> for more detailed information.</p>
-
-<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and devkits, Support for the latest Zephyr RTOS 3.5, Updates for ST STM32, Renesas RA and Microchip AVR dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-november-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF, Updates for Espressif32, ST STM32, Nordic nRF52 and Raspberry Pi RP2040 dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-december-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
