@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2025-01-13T12:11:28+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">Leveraging PlatformIO and STM32CubeIDE for Optimized STM32 Firmware Development</title><link href="https://piolabs.com/blog/insights/platformio-stm32cube-workflow.html" rel="alternate" type="text/html" title="Leveraging PlatformIO and STM32CubeIDE for Optimized STM32 Firmware Development" /><published>2025-01-13T00:00:00+02:00</published><updated>2025-01-13T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/platformio-stm32cube-workflow</id><content type="html" xml:base="https://piolabs.com/blog/insights/platformio-stm32cube-workflow.html"><![CDATA[<p>My preferred environment for firmware development is VSCode with PlatformIO.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2025-02-03T12:31:21+02:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2025-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2025-02-03T00:00:00+02:00</published><updated>2025-02-03T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2025-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2025-updates.html"><![CDATA[<p>Welcome to the January 2025 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+What better way to start the new year than by sharing a few exciting updates? Here’s a look at what we’ve accomplished this January.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-january-news.jpg" alt="PlatformIO Open Source January Updates" /></p>
+
+<p>During January, we added support for the latest ESP-IDF, rolled out updates for several popular development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#esp-idf-v54" id="markdown-toc-esp-idf-v54">ESP-IDF v5.4</a></li>
+  <li><a href="#espressif32-dev-platform-v610" id="markdown-toc-espressif32-dev-platform-v610">Espressif32 dev-platform v6.10</a></li>
+  <li><a href="#st-stm32-dev-platform-v190" id="markdown-toc-st-stm32-dev-platform-v190">ST STM32 dev-platform v19.0</a></li>
+  <li><a href="#renesas-ra-dev-platform-v16" id="markdown-toc-renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</a></li>
+</ul>
+
+<h2 id="esp-idf-v54">ESP-IDF v5.4</h2>
+
+<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v5.4</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
+
+<p><strong>Major enhancements in v5.4:</strong></p>
+
+<ul>
+  <li>Amazon SMP Kernel: Upgraded to upstream v11.1.0</li>
+  <li>MbedTLS: Updated the MbedTLS version to v3.6.2</li>
+  <li>Added support for BLE scanning and initiating state coexistence on ESP32</li>
+  <li>Added a new Generic PHY driver to support all 802.3 compliant PHYs</li>
+</ul>
+
+<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
+
+<p><strong>Related resources for ESP-IDF</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.4">Release notes for v5.4</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="espressif32-dev-platform-v610">Espressif32 dev-platform v6.10</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF, new boards and dev-kits, several fixes and improvements:</p>
+
+<ul>
+  <li>Added new boards:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Freenove ESP32-S3-WROOM</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Freenove ESP32-WROVER-E</code></li>
+      <li><code class="language-plaintext highlighter-rouge">RYMCU ESP32-DevKitC</code></li>
+      <li><code class="language-plaintext highlighter-rouge">RYMCU ESP32-C3-DevKitM-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ESP32-S3-DevKitC-1</code></li>
+      <li><code class="language-plaintext highlighter-rouge">LilyGo T3 S3</code></li>
+    </ul>
+  </li>
+  <li>Added support for ESP-IDF v5.4 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.4">release notes</a>)</li>
+  <li>Updated toolchain packages for IDF to v14.2.0</li>
+  <li>Added support for ESP32-C6 ULP (<a href="https://github.com/platformio/platform-espressif32/issues/1507">#1507</a>)</li>
+  <li>Better handling of the IDF Python virtual environment (<a href="https://github.com/platformio/platform-espressif32/issues/1525">#1525</a>)</li>
+  <li>Added automatic rebuild for IDF projects if external dependencies changed (<a href="https://github.com/platformio/platform-espressif32/issues/1514">#1514</a>)</li>
+  <li>Enabled by default IDF Component Manager option to allow modification of managed components</li>
+  <li>Fixed missing PSRAM flags for <code class="language-plaintext highlighter-rouge">Adafruit Feather ESP32-S3 TFT</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1498">#1498</a>)</li>
+  <li>Fixed default flash frequency for <code class="language-plaintext highlighter-rouge">Heltec Wireless Stick Lite</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1480">#1480</a>)</li>
+  <li>Added missing USB_CDC flag for <code class="language-plaintext highlighter-rouge">Romeo ESP32-S3</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1512">#1512</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v190">ST STM32 dev-platform v19.0</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform comes with new boards, updated STM32Cube packages and several minor improvements:</p>
+
+<ul>
+  <li>Added new boards: <code class="language-plaintext highlighter-rouge">Blues Cygnet</code>, <code class="language-plaintext highlighter-rouge">Blues Swan R5</code></li>
+  <li>Updated STM32Cube packages to the latest available (<a href="https://github.com/platformio/platform-ststm32/pull/806">#806</a>):
+    <ul>
+      <li>STM32CubeF0 v1.11.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF0/releases/tag/v1.11.5">release notes</a>)</li>
+      <li>STM32CubeF1 v1.8.6 (<a href="https://github.com/STMicroelectronics/STM32CubeF1/releases/tag/v1.8.6">release notes</a>)</li>
+      <li>STM32CubeF2 v1.9.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF2/releases/tag/v1.9.5">release notes</a>)</li>
+      <li>STM32CubeF3 v1.11.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF3/releases/tag/v1.11.5">release notes</a>)</li>
+      <li>STM32CubeF4 v1.28.1 (<a href="https://github.com/STMicroelectronics/STM32CubeF4/releases/tag/v1.28.1">release notes</a>)</li>
+      <li>STM32CubeF7 v1.17.2 (<a href="https://github.com/STMicroelectronics/STM32CubeF7/releases/tag/v1.17.2">release notes</a>)</li>
+      <li>STM32CubeG0 v1.6.2 (<a href="https://github.com/STMicroelectronics/STM32CubeG0/releases/tag/v1.6.2">release notes</a>)</li>
+      <li>STM32CubeG4 v1.6.1 (<a href="https://github.com/STMicroelectronics/STM32CubeG4/releases/tag/v1.6.1">release notes</a>)</li>
+      <li>STM32CubeH7 v1.12.1 (<a href="https://github.com/STMicroelectronics/STM32CubeH7/releases/tag/v1.12.1">release notes</a>)</li>
+      <li>STM32CubeL0 v1.12.2 (<a href="https://github.com/STMicroelectronics/STM32CubeL0/releases/tag/v1.12.2">release notes</a>)</li>
+      <li>STM32CubeL1 v1.10.4 (<a href="https://github.com/STMicroelectronics/STM32CubeL1/releases/tag/v1.10.4">release notes</a>)</li>
+      <li>STM32CubeL4 v1.18.1 (<a href="https://github.com/STMicroelectronics/STM32CubeL4/releases/tag/v1.18.1">release notes</a>)</li>
+      <li>STM32CubeL5 v1.5.1 (<a href="https://github.com/STMicroelectronics/STM32CubeL5/releases/tag/v1.5.1">release notes</a>)</li>
+    </ul>
+  </li>
+  <li>Added support for project-based Zephyr manifest files</li>
+  <li>Fixed broken variant name for Nucleo F446ZE (<a href="https://github.com/platformio/platform-ststm32/pull/819">#819</a>)</li>
+  <li>Improved consistency between Blues boards (<a href="https://github.com/platformio/platform-ststm32/pull/824">#824</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.6.0 brings support for the latest Arduino core:</p>
+
+<ul>
+  <li>Updated Arduino core to v1.3.2 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.3.2">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF, Updates for Espressif32, ST STM32 and Renesas RA dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Leveraging PlatformIO and STM32CubeIDE for Optimized STM32 Firmware Development</title><link href="https://piolabs.com/blog/insights/platformio-stm32cube-workflow.html" rel="alternate" type="text/html" title="Leveraging PlatformIO and STM32CubeIDE for Optimized STM32 Firmware Development" /><published>2025-01-13T00:00:00+02:00</published><updated>2025-01-13T00:00:00+02:00</updated><id>https://piolabs.com/blog/insights/platformio-stm32cube-workflow</id><content type="html" xml:base="https://piolabs.com/blog/insights/platformio-stm32cube-workflow.html"><![CDATA[<p>My preferred environment for firmware development is VSCode with PlatformIO.
 However, for one of my projects, I needed to develop on an STM32, and for this MCU family,
 STM32CubeIDE is the manufacturer’s recommended tool.</p>
 
@@ -1800,86 +1924,4 @@ With the GCOV viewer you can easily check what code has been tested.</p>
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Pascal Roobrouck</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[Leveraging PlatformIO for Effortless Continuous Integration and Delivery in Collaborative Environments for Optimized Embedded Software Deployment Workflow]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO 2023 Year in Review</title><link href="https://piolabs.com/blog/news/platformio-year-in-review-2023.html" rel="alternate" type="text/html" title="PlatformIO 2023 Year in Review" /><published>2024-01-08T00:00:00+02:00</published><updated>2024-01-08T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-year-in-review-2023</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-year-in-review-2023.html"><![CDATA[<p>We’ve been through a lot together, and it’s time to look back and see how PlatformIO Labs kept growing during the most challenging times in its history.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/2024-01-08-platformio-year-in-review-2023/platformio_year_in_review_2023.png" alt="PlatformIO 2023 Year in Review" /></p>
-
-<p>As we step into 2024, it’s a mix of happy times and thoughtful moments. We’re excited to share some good news with you, but we also want to take a moment to reflect on what’s going on in the world. As we all know, tragic events are occurring in multiple places on our planet, and Ukraine is one of them. Our R&amp;D team is located in this beautiful country, where people are currently facing tough times due to the ongoing war. Despite all the difficulties, we managed to adapt to the new harsh conditions and adjust our plans when needed. This helped us achieve steady growth even when things outside were uncertain. We also made solid plans to keep everything going smoothly.</p>
-
-<h3>Table of Contents</h3>
-
-<ul id="markdown-toc">
-  <li><a href="#major-milestones" id="markdown-toc-major-milestones">Major Milestones</a>    <ul>
-      <li><a href="#soaring-to-4-million-unique-installations" id="markdown-toc-soaring-to-4-million-unique-installations">Soaring to 4 Million Unique Installations</a></li>
-      <li><a href="#unveiling-a-new-chapter-with-platformio-core-6" id="markdown-toc-unveiling-a-new-chapter-with-platformio-core-6">Unveiling a New Chapter with PlatformIO Core 6</a></li>
-      <li><a href="#revolutionizing-embedded-development-with-platformio-ide-30" id="markdown-toc-revolutionizing-embedded-development-with-platformio-ide-30">Revolutionizing Embedded Development with PlatformIO IDE 3.0</a></li>
-      <li><a href="#elevating-the-industry-with-platformio-package-registry-improvements" id="markdown-toc-elevating-the-industry-with-platformio-package-registry-improvements">Elevating the Industry with PlatformIO Package Registry Improvements</a></li>
-      <li><a href="#welcoming-new-voices-to-our-blog" id="markdown-toc-welcoming-new-voices-to-our-blog">Welcoming New Voices to Our Blog</a></li>
-    </ul>
-  </li>
-  <li><a href="#unveiling-the-future" id="markdown-toc-unveiling-the-future">Unveiling the Future</a></li>
-  <li><a href="#words-of-appreciation" id="markdown-toc-words-of-appreciation">Words of Appreciation</a></li>
-</ul>
-
-<h2 id="major-milestones">Major Milestones</h2>
-
-<h3 id="soaring-to-4-million-unique-installations">Soaring to 4 Million Unique Installations</h3>
-
-<p>We’re thrilled to share that we are approaching a remarkable milestone of 4 million
-unique installations of our <a href="https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide" target="_blank">PlatformIO IDE for VSCode</a>.</p>
-
-<figure class="figure mb-7">
-  <img class="figure-img img-fluid rounded lift lift-lg" src="/assets/posts/2024-01-08-platformio-year-in-review-2023/platformio_yearly_active_users_2014_2023.png" alt="PlatformIO Yearly Active Users (2014-2021)" />
-  <figcaption class="figure-caption text-center">
-    PlatformIO Active Users (2014-2023)
-  </figcaption>
-</figure>
-
-<p>This incredible number is a testament to the trust and support of
-our growing community. Thank you for choosing PlatformIO and being a part of our journey!</p>
-
-<h3 id="unveiling-a-new-chapter-with-platformio-core-6">Unveiling a New Chapter with PlatformIO Core 6</h3>
-
-<p>We’ve consistently delivered significant new features and numerous enhancements across all our main  products.</p>
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/2022-07-14-platformio-core-6-1-released/platformio-core-6-1-released.png" alt="PlatformIO Core 6.1" /></p>
-
-<p>The heart of the entire PlatformIO ecosystem, the PlatformIO Core, has now reached the 6.1 milestone, bringing substantial improvements to performance, a better testing and debugging experience, an updated package management system and many other enhancements. This milestone represents our commitment to continuous improvement and providing you with the best possible instruments for embedded development.</p>
-
-<h3 id="revolutionizing-embedded-development-with-platformio-ide-30">Revolutionizing Embedded Development with PlatformIO IDE 3.0</h3>
-
-<p>Our dedication to enhancing user experiences extends to our <a href="https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide" target="_blank">PlatformIO IDE for VSCode</a>.</p>
-
-<p><img class="figure-img img-fluid rounded" src="/assets/img/screenshots/desktop/platformio-ide-for-vscode-laptop.png" alt="PlatformIO IDE 3.0" /></p>
-
-<p>Our extension for VSCode not only reflects our responsiveness to the needs of embedded engineers around the globe, but also sets a new standard for efficiency and functionality in embedded development by leveraging our highly-customizable <a href="/technology/modern-ui-toolkit.html">Modern UI Toolkit</a>. The latest updates bring substantially refactored project management workflow, new intelliSense feature for PlatformIO configuration files and many other great UX/UI improvements!</p>
-
-<h3 id="elevating-the-industry-with-platformio-package-registry-improvements">Elevating the Industry with PlatformIO Package Registry Improvements</h3>
-
-<p>We’ve been hard at work refining our <a href="/technology/trusted-package-registry.html">Trusted Package Registry</a> solution and the results have been positive. These improvements have caught the attention of key players in the industry and we’re proud to have created a product that meets the needs of diverse markets. Your trust is driving positive change across the embedded systems market.</p>
-
-<h3 id="welcoming-new-voices-to-our-blog">Welcoming New Voices to Our Blog</h3>
-
-<p>Diversity and collaboration are at the heart of the PlatformIO community, and this year, we’ve expanded the voices contributing to our blog. New authors have shared their expertise, bringing fresh perspectives and insights to our community. We believe that a variety of voices fosters creativity and innovation, making the blog a richer resource for everyone.</p>
-
-<h2 id="unveiling-the-future">Unveiling the Future</h2>
-
-<p>In the year 2024, we are gearing up for some major announcements. Get ready for new and improved versions of our open-source projects! We’ve been hard at work, taking your feedback to heart and crafting features that will enhance your experience. These upcoming releases are not just updates; they provide a glimpse into the future of the PlatformIO ecosystem.</p>
-
-<p>Another one of our primary goals for the year 2024 is to surpass the 5 million installations mark. We’re not merely setting a target; we’re laying the groundwork for a more extensive and vibrant community. Your trust and engagement have fueled our growth, and we are excited to welcome even more users into the PlatformIO ecosystem.</p>
-
-<h2 id="words-of-appreciation">Words of Appreciation</h2>
-
-<p>As we celebrate these achievements, we want to express our deepest gratitude to you — the PlatformIO community.
-Your feedback, support, and enthusiasm have fueled our growth and inspired us to reach new heights.
-Looking ahead, we’re excited about the opportunities to innovate, collaborate, and continue this
-incredible journey together. We are proud of what we’ve done. To everyone who’s been a part of this journey — thank you!
-You’ve made PlatformIO what it is today, and we’re excited to see what we can achieve together in the years ahead.</p>
-
-<p><strong>Have a great 2024!</strong></p>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Ivan Kravets</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[Our Journey Through Tough Times: The highlights of the major milestones and achievements of PlatformIO Labs in 2023]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2024-01-08-platformio-year-in-review-2023/platformio_year_in_review_2023.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2024-01-08-platformio-year-in-review-2023/platformio_year_in_review_2023.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Pascal Roobrouck</name></author><category term="blog" /><category term="insights" /><summary type="html"><![CDATA[Leveraging PlatformIO for Effortless Continuous Integration and Delivery in Collaborative Environments for Optimized Embedded Software Deployment Workflow]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" /><media:content medium="image" url="https://piolabs.com/assets/posts/2024-01-15-cicd-testing-coverage-versioning/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
