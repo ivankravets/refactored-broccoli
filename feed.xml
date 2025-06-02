@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2025-04-07T15:02:44+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2025-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2025-04-07T00:00:00+03:00</published><updated>2025-04-07T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2025-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2025-updates.html"><![CDATA[<p>Welcome to the March 2025 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2025-06-02T12:41:34+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source May Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-may-2025-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source May Updates" /><published>2025-06-02T00:00:00+03:00</published><updated>2025-06-02T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-may-2025-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-may-2025-updates.html"><![CDATA[<p>Welcome to the May 2025 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
+What better way to start the new year than by sharing a few exciting updates? Here’s a look at what we’ve accomplished this May.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-may-news.jpg" alt="PlatformIO Open Source May Updates" /></p>
+
+<p>During May, we added support for the latest ESP-IDF, rolled out updates for several popular development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#esp-idf-v541" id="markdown-toc-esp-idf-v541">ESP-IDF v5.4.1</a></li>
+  <li><a href="#espressif32-dev-platform-v611" id="markdown-toc-espressif32-dev-platform-v611">Espressif32 dev-platform v6.11</a></li>
+  <li><a href="#st-stm32-dev-platform-v192" id="markdown-toc-st-stm32-dev-platform-v192">ST STM32 dev-platform v19.2</a></li>
+  <li><a href="#arduino-core-for-mbed-enabled-devices-v431" id="markdown-toc-arduino-core-for-mbed-enabled-devices-v431">Arduino Core for mbed-enabled devices v4.3.1</a></li>
+</ul>
+
+<h2 id="esp-idf-v541">ESP-IDF v5.4.1</h2>
+
+<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v5.4.1</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
+
+<p><strong>Major enhancements in v5.4.1:</strong></p>
+
+<ul>
+  <li>Added config to enable/disable BLE channel assessment and ping procedure on ESP32</li>
+  <li>Optimization of RX calibration for Wi-Fi in high-interference environments</li>
+  <li>Added MALLOC_CAP_SIMD flag to allocate memory that is suitable for SIMD instructions</li>
+</ul>
+
+<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
+
+<p><strong>Related resources for ESP-IDF</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.4.1">Release notes for v5.4.1</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="espressif32-dev-platform-v611">Espressif32 dev-platform v6.11</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF, a new board and several fixes and improvements:</p>
+
+<ul>
+  <li>Added a new board: <code class="language-plaintext highlighter-rouge">Seeed Xiao ESP32C6</code></li>
+  <li>Added support for ESP-IDF v5.4.1 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.4.1">release notes</a>)</li>
+  <li>Added a new package for ESP32 series ROM ELF files (<a href="https://github.com/espressif/esp-rom-elfs/releases/tag/20240305">release notes</a>)</li>
+  <li>Improvements to <code class="language-plaintext highlighter-rouge">Esp32ExceptionDecoder</code> to properly decode backtraces (<a href="https://github.com/platformio/platform-espressif32/pull/1572">#1572</a>)</li>
+  <li>Fixed a incorrect OpenOCD config name for Freenove ESP32-Wrover (<a href="https://github.com/platformio/platform-espressif32/issues/1562">#1562</a>)</li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v192">ST STM32 dev-platform v19.2</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform comes with new boards, updated STM32Cube packages and several minor improvements:</p>
+
+<ul>
+  <li>Added a new board: <code class="language-plaintext highlighter-rouge">NUCLEO-G491RE</code></li>
+  <li>Updated CMSIS packages to the latest available:
+    <ul>
+      <li>STM32F0 v2.3.7 (<a href="https://github.com/STMicroelectronics/cmsis-device-f0/releases/tag/v2.3.7">release notes</a>)</li>
+      <li>STM32F1 v4.3.5 (<a href="https://github.com/STMicroelectronics/cmsis-device-f1/releases/tag/v4.3.5">release notes</a>)</li>
+      <li>STM32F2 v2.2.6 (<a href="https://github.com/STMicroelectronics/cmsis-device-f2/releases/tag/v2.2.6">release notes</a>)</li>
+      <li>STM32F3 v2.3.8 (<a href="https://github.com/STMicroelectronics/cmsis-device-f3/releases/tag/v2.3.8">release notes</a>)</li>
+      <li>STM32F4 v2.6.11 (<a href="https://github.com/STMicroelectronics/cmsis-device-f4/releases/tag/v2.6.11">release notes</a>)</li>
+      <li>STM32F7 v1.2.10 (<a href="https://github.com/STMicroelectronics/cmsis-device-f7/releases/tag/v1.2.10">release notes</a>)</li>
+      <li>STM32G0 v1.4.4 (<a href="https://github.com/STMicroelectronics/cmsis-device-g0/releases/tag/v1.4.4">release notes</a>)</li>
+      <li>STM32G4 v1.2.5 (<a href="https://github.com/STMicroelectronics/cmsis-device-g4/releases/tag/v1.2.5">release notes</a>)</li>
+      <li>STM32H7 v1.10.6 (<a href="https://github.com/STMicroelectronics/cmsis-device-h7/releases/tag/v1.10.6">release notes</a>)</li>
+      <li>STM32L0 v1.9.4 (<a href="https://github.com/STMicroelectronics/cmsis-device-l0/releases/tag/v1.9.4">release notes</a>)</li>
+      <li>STM32L1 v2.3.4 (<a href="https://github.com/STMicroelectronics/cmsis-device-l1/releases/tag/v2.3.4">release notes</a>)</li>
+      <li>STM32L4 v1.7.4 (<a href="https://github.com/STMicroelectronics/cmsis-device-l4/releases/tag/v1.7.4">release notes</a>)</li>
+      <li>STM32L5 v1.0.6 (<a href="https://github.com/STMicroelectronics/cmsis-device-l5/releases/tag/v1.0.6">release notes</a>)</li>
+    </ul>
+  </li>
+  <li>Updated Arduino-mbed core to v4.3.1 (<a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.3.1">release notes</a>)</li>
+  <li>Updated stm32flash package to v0.7 (<a href="https://github.com/platformio/platform-ststm32/issues/610">#610</a>, <a href="https://github.com/platformio/platform-ststm32/issues/640">#640</a>, <a href="https://github.com/platformio/platform-ststm32/issues/665">#665</a>)</li>
+  <li>Updated SVD Files for STM32G0 series (<a href="https://github.com/platformio/platform-ststm32/pull/847">#847</a>)</li>
+  <li>Enabled Arduino for genericSTM32F407IGT6 (<a href="https://github.com/platformio/platform-ststm32/pull/844">#844</a>)</li>
+  <li>Enabled Zephyr for Nucleo-G070RB (<a href="https://github.com/platformio/platform-ststm32/pull/854">#854</a>)</li>
+  <li>Added DFU as upload method for WeAct MiniSTM32H743 (<a href="https://github.com/platformio/platform-ststm32/issues/850">#850</a>)</li>
+  <li>Fixed default RAM size for genericSTM32H750VB board (<a href="https://github.com/platformio/platform-ststm32/issues/843">#843</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="arduino-core-for-mbed-enabled-devices-v431">Arduino Core for mbed-enabled devices v4.3.1</h2>
+
+<p>The <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a>, <a href="https://registry.platformio.org/platforms/platformio/nordicnrf52">Nordic nRF52</a> and <a href="https://registry.platformio.org/platforms/platformio/raspberrypi">Raspberry Pi RP2040</a> dev-platforms have been updated to support the latest Arduino Core for mbed-enabled devices v4.3.1. According to the <a href="https://github.com/arduino/ArduinoCore-mbed/releases/tag/4.3.1">release notes</a>, v4.3.1 brings a lot of bugfixes and improvements in the core and accompanying libraries.</p>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF, Updates for Espressif32, ST STM32 and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2025-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2025-04-07T00:00:00+03:00</published><updated>2025-04-07T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2025-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2025-updates.html"><![CDATA[<p>Welcome to the March 2025 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
 
 <p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
@@ -1768,124 +1870,4 @@ This month we received a lot of helpful feedback from our community, which let u
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
 
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, New boards and dev-kits, Updates for Espressif32, ST STM32, Microchip SAM, Nordic nRF52 and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source March Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source March Updates" /><published>2024-04-01T00:00:00+03:00</published><updated>2024-04-01T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-march-2024-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-march-2024-updates.html"><![CDATA[<p>Welcome to the March 2024 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-march-news.jpg" alt="PlatformIO Open Source March Updates" /></p>
-
-<p>During March, we rolled out a bugfix release for PlatformIO Core, added support for the latest ESP-IDF v5.2.1, published updates for several development platforms, fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#platformio-core-v6114" id="markdown-toc-platformio-core-v6114">PlatformIO Core v6.1.14</a></li>
-  <li><a href="#esp-idf-v52" id="markdown-toc-esp-idf-v52">ESP-IDF v5.2</a></li>
-  <li><a href="#espressif32-dev-platform-v65" id="markdown-toc-espressif32-dev-platform-v65">Espressif32 dev-platform v6.5</a></li>
-  <li><a href="#intel-mcs-51-dev-platform-v22" id="markdown-toc-intel-mcs-51-dev-platform-v22">Intel MCS-51 dev-platform v2.2</a></li>
-  <li><a href="#renesas-ra-dev-platform-v14" id="markdown-toc-renesas-ra-dev-platform-v14">Renesas RA dev-platform v1.4</a></li>
-</ul>
-
-<h2 id="platformio-core-v6114">PlatformIO Core v6.1.14</h2>
-
-<p><a href="https://docs.platformio.org/en/latest/core/index.html">PlatformIO Core</a> is the heart of the whole PlatformIO ecosystem and we are excited to announce the next release with lots of great improvements and bugfixes:</p>
-
-<ul>
-  <li>Introduced the <code class="language-plaintext highlighter-rouge">--json-output</code> option to the <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_test.html">pio test</a> command, enabling users to generate test results in the JSON format</li>
-  <li>Upgraded the build engine to the latest version of SCons (4.7.0) to improve build performance, reliability, and compatibility with other tools and systems (<a href="https://github.com/SCons/scons/releases/tag/4.7.0">release notes</a>)</li>
-  <li>Broadened version support for the <code class="language-plaintext highlighter-rouge">pyelftools</code> dependency, enabling compatibility with lower versions and facilitating integration with a wider range of third-party tools (<a href="https://github.com/platformio/platformio-core/issues/4834">issue #4834</a>)</li>
-  <li>Addressed an issue where passing a relative path (<code class="language-plaintext highlighter-rouge">--project-dir</code>) to the <a href="https://docs.platformio.org/en/latest/core/userguide/project/cmd_init.html">pio project init</a> command resulted in an error (<a href="https://github.com/platformio/platformio-core/issues/4847">issue #4847</a>)</li>
-  <li>Enhanced <a href="https://docs.platformio.org/en/latest/advanced/static-code-analysis/index.html">Static Code Analysis</a> to accommodate scenarios where custom <code class="language-plaintext highlighter-rouge">src_dir</code> or <code class="language-plaintext highlighter-rouge">include_dir</code> are located outside the project folder (<a href="https://github.com/platformio/platformio-core/pull/4874">pull #4874</a>)</li>
-  <li>Corrected the validation of <code class="language-plaintext highlighter-rouge">symlink://</code> <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_install.html#local-folder">package specifications</a> , resolving an issue that caused the package manager to repeatedly reinstall dependencies (<a href="https://github.com/platformio/platformio-core/pull/4870">pull #4870</a>)</li>
-  <li>Resolved an issue related to the relative package path in the <a href="https://docs.platformio.org/en/latest/core/userguide/pkg/cmd_publish.html">pio pkg publish</a> command</li>
-  <li>Resolved an issue where the <a href="https://docs.platformio.org/en/latest/librarymanager/ldf.html">LDF</a> selected an incorrect library version (<a href="https://github.com/platformio/platformio-core/issues/4860">issue #4860</a>)</li>
-  <li>Resolved an issue with the <code class="language-plaintext highlighter-rouge">hexlify</code> filter in the <a href="https://docs.platformio.org/en/latest/core/userguide/device/cmd_monitor.html">device monitor</a> command, ensuring proper representation of characters with Unicode code points higher than 127 (<a href="https://github.com/platformio/platformio-core/issues/4732">issue #4732</a>)</li>
-</ul>
-
-<p>See <a href="https://github.com/platformio/platformio-core/releases/tag/v6.1.14">Release Notes</a> for more detailed information and use <a href="https://docs.platformio.org/en/latest/core/userguide/cmd_upgrade.html">pio upgrade</a> command to update to the latest version.</p>
-
-<h2 id="esp-idf-v52">ESP-IDF v5.2</h2>
-
-<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v5.2.1</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
-
-<p><strong>Major enhancements in v5.2:</strong></p>
-
-<ul>
-  <li>Upgraded IDF FreeRTOS kernel to v10.5.1 LTS</li>
-  <li>Added new I2C Slave/Master driver</li>
-  <li>Addded support for 32MB Octal PSRAM on ESP32S3</li>
-</ul>
-
-<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
-
-<p><strong>Related resources for ESP-IDF</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.2.1">Release notes for v5.2.1</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v65">Espressif32 dev-platform v6.5</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF, new boards and dev-kits, several fixes and improvements:</p>
-
-<ul>
-  <li>New boards: <a href="https://docs.platformio.org/en/latest/boards/espressif32/adafruit_feather_esp32s2.html">Adafruit Feather ESP32-S2</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lilka_v2.html">Lilka v2</a>, <a href="https://docs.platformio.org/en/latest/boards/espressif32/lolin_s3_pro.html">WEMOS LOLIN S3 PRO</a></li>
-  <li>Updated ESP-IDF to v5.2.1 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.2.1">release notes</a>)</li>
-  <li>Removed deprecated <code class="language-plaintext highlighter-rouge">pkg_resources</code> dependency (<a href="https://github.com/platformio/platform-espressif32/issues/1277">#1277</a>)</li>
-  <li>Added new helper function <code class="language-plaintext highlighter-rouge">_get_board_f_image</code> for getting firmware image frequency (<a href="https://github.com/platformio/platform-espressif32/issues/1304">#1304</a>)</li>
-  <li>Added new helper function <code class="language-plaintext highlighter-rouge">_get_board_f_boot</code> for getting bootloader frequency (<a href="https://github.com/platformio/platform-espressif32/pull/1331">#1331</a>)</li>
-  <li>Better handling of ULP sources in incremental builds (<a href="https://github.com/platformio/platform-espressif32/issues/1320">#1320</a>)</li>
-  <li>Switched to GCC-wrapped ar &amp; ranlib to enable LTO (<a href="https://github.com/platformio/platform-espressif32/pull/1329">#1329</a>)</li>
-  <li>Droped support for deprecated Briki boards</li>
-  <li>Minor fixes and improvements (
-  <a href="https://github.com/platformio/platform-espressif32/issues/1304">#1304</a>,
-  <a href="https://github.com/platformio/platform-espressif32/issues/1312">#1312</a>,
-  <a href="https://github.com/platformio/platform-espressif32/issues/1314">#1314</a>,
-  <a href="https://github.com/platformio/platform-espressif32/issues/1321">#1321</a>,
-  <a href="https://github.com/platformio/platform-espressif32/issues/1334">#1334</a>
-)</li>
-</ul>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="intel-mcs-51-dev-platform-v22">Intel MCS-51 dev-platform v2.2</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/intel_mcs51">Intel MCS-51</a> dev-platform v2.2.0 comes with updated toolchain packages and uploader packages:</p>
-
-<ul>
-  <li>Updated SDCC toolchain to v4.4.0 (<a href="https://github.com/platformio/platform-intel_mcs51/issues/54">#54</a>)</li>
-  <li>Updated STC MCU ISP flash tool to v1.10 (<a href="https://github.com/platformio/platform-intel_mcs51/issues/56">#56</a>)</li>
-  <li>Minor fixes and improvements (<a href="https://github.com/platformio/platform-intel_mcs51/issues/57">#57</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Intel MCS-51 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/intel_mcs51.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-intel_mcs51/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="renesas-ra-dev-platform-v14">Renesas RA dev-platform v1.4</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.4.0 brings support for the latest Arduino core:</p>
-
-<ul>
-  <li>Updated Arduino core to v1.1.0 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.1.0">release notes</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, New boards and dev-kits, Support for the latest ESP-IDF, Updates for Renesas RA and Intel MCS-51 dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-march-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[PlatformIO Core bugfix release, New boards and dev-kits, Updates for Espressif32, ST STM32, Microchip SAM, Nordic nRF52 and mbed-enabled dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-may-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
