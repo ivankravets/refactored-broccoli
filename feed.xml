@@ -1,4 +1,139 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2026-07-08T12:55:02+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2026-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2026-07-06T00:00:00+03:00</published><updated>2026-07-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2026-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2026-updates.html"><![CDATA[<p>Welcome to the June 2026 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://piolabs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://piolabs.com/" rel="alternate" type="text/html" /><updated>2026-09-07T13:57:22+03:00</updated><id>https://piolabs.com/feed.xml</id><title type="html">PlatformIO Labs</title><subtitle>A proven technology used by global innovators and by millions of embedded developers around the world.</subtitle><author><name>PlatformIO Labs</name><email>contact@piolabs.com</email></author><entry><title type="html">PlatformIO Open Source August Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-august-2026-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source August Updates" /><published>2026-09-07T00:00:00+03:00</published><updated>2026-09-07T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-august-2026-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-august-2026-updates.html"><![CDATA[<p>Welcome to the August 2026 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
+
+<p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
+
+<!-- more -->
+
+<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-august-news.jpg" alt="PlatformIO Open Source August Updates" /></p>
+
+<p>During August, we added support for the latest ESP-IDF v6.1 and Zephyr RTOS 4.4.2, rolled out updates for Espressif32, ST STM32 and other development platforms, fixed a lot of issues. Some of the key highlights include:</p>
+
+<ul id="markdown-toc">
+  <li><a href="#esp-idf-v61" id="markdown-toc-esp-idf-v61">ESP-IDF v6.1</a></li>
+  <li><a href="#zephyr-rtos-v442" id="markdown-toc-zephyr-rtos-v442">Zephyr RTOS v4.4.2</a></li>
+  <li><a href="#st-stm32-dev-platform-v200" id="markdown-toc-st-stm32-dev-platform-v200">ST STM32 dev-platform v20.0</a></li>
+  <li><a href="#espressif32-dev-platform-v71" id="markdown-toc-espressif32-dev-platform-v71">Espressif32 dev-platform v7.1</a></li>
+  <li><a href="#microchip-sam-dev-platform-v90" id="markdown-toc-microchip-sam-dev-platform-v90">Microchip SAM dev-platform v9.0</a></li>
+</ul>
+
+<h2 id="esp-idf-v61">ESP-IDF v6.1</h2>
+
+<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v6.1</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
+
+<p><strong>Major enhancements in v6.1:</strong></p>
+
+<ul>
+  <li>Supported BLE uart more interfaces</li>
+  <li>Added Wi-Fi Aware Pairing and Security for iOS compatibility</li>
+  <li>Added support for transmitting multiple non-contiguous buffers by UHCI</li>
+  <li>Now cache won’t be disabled while calling read APIs on other chips than ESP32</li>
+</ul>
+
+<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
+
+<p><strong>Related resources for ESP-IDF</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v6.1">Release notes for v6.1</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="zephyr-rtos-v442">Zephyr RTOS v4.4.2</h2>
+
+<p>We’re happy to announce updated support for the latest release v4.4.2 of <a href="https://www.zephyrproject.org/" target="_blank">Zephyr Project</a> - a scalable real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with safety and security in mind.</p>
+
+<p><strong>Major enhancements in v4.4.2:</strong></p>
+
+<ul>
+  <li>Bluetooth LE host qualification for 4.4 release</li>
+  <li>Added mcxc242 lpuart dma support (async api)</li>
+  <li><code class="language-plaintext highlighter-rouge">ENTROPY_PSA_CRYPTO_RNG</code> deprecated without migration path</li>
+</ul>
+
+<p><strong>Related resources for Zephyr framework</strong>:</p>
+
+<ul>
+  <li><a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.4.2">Release notes for v4.4.2</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html">Documentation for Zephyr framework</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#platforms">Supported development platforms</a></li>
+  <li><a href="https://docs.platformio.org/en/latest/frameworks/zephyr.html#boards">Supported boards</a></li>
+</ul>
+
+<h2 id="st-stm32-dev-platform-v200">ST STM32 dev-platform v20.0</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform comes with new boards and dev-kits, support for the latest Zephyr RTOS and Arduino core, updated STM32Cube packages:</p>
+
+<ul>
+  <li>New boards:
+    <ul>
+      <li>Nucleo C031C6</li>
+      <li>Nucleo C071RB</li>
+      <li>Nucleo C092RC</li>
+      <li>STM32C0116-DK</li>
+      <li>STM32C0316-DK</li>
+    </ul>
+  </li>
+  <li>Updated STM32Cube packages to the latest available:
+    <ul>
+      <li>STM32CubeC0 v1.4.1 (<a href="https://github.com/STMicroelectronics/STM32CubeF0/releases/tag/v1.4.1">release notes</a>)</li>
+      <li>STM32CubeF0 v1.11.6 (<a href="https://github.com/STMicroelectronics/STM32CubeF0/releases/tag/v1.11.6">release notes</a>)</li>
+      <li>STM32CubeF1 v1.8.7 (<a href="https://github.com/STMicroelectronics/STM32CubeF1/releases/tag/v1.8.7">release notes</a>)</li>
+      <li>STM32CubeF2 v1.9.6 (<a href="https://github.com/STMicroelectronics/STM32CubeF2/releases/tag/v1.9.6">release notes</a>)</li>
+      <li>STM32CubeF3 v1.11.6 (<a href="https://github.com/STMicroelectronics/STM32CubeF3/releases/tag/v1.11.6">release notes</a>)</li>
+      <li>STM32CubeF4 v1.28.3 (<a href="https://github.com/STMicroelectronics/STM32CubeF4/releases/tag/v1.28.3">release notes</a>)</li>
+      <li>STM32CubeF7 v1.17.4 (<a href="https://github.com/STMicroelectronics/STM32CubeF7/releases/tag/v1.17.4">release notes</a>)</li>
+      <li>STM32CubeG0 v1.6.3 (<a href="https://github.com/STMicroelectronics/STM32CubeG0/releases/tag/v1.6.3">release notes</a>)</li>
+      <li>STM32CubeG4 v1.6.3 (<a href="https://github.com/STMicroelectronics/STM32CubeG4/releases/tag/v1.6.3">release notes</a>)</li>
+      <li>STM32CubeH7 v1.13.0 (<a href="https://github.com/STMicroelectronics/STM32CubeH7/releases/tag/v1.13.0">release notes</a>)</li>
+      <li>STM32CubeL0 v1.12.4 (<a href="https://github.com/STMicroelectronics/STM32CubeL0/releases/tag/v1.12.4">release notes</a>)</li>
+      <li>STM32CubeL1 v1.10.6 (<a href="https://github.com/STMicroelectronics/STM32CubeL1/releases/tag/v1.10.6">release notes</a>)</li>
+      <li>STM32CubeL4 v1.18.2 (<a href="https://github.com/STMicroelectronics/STM32CubeL4/releases/tag/v1.18.2">release notes</a>)</li>
+      <li>STM32CubeL5 v1.6.0 (<a href="https://github.com/STMicroelectronics/STM32CubeL5/releases/tag/v1.6.0">release notes</a>)</li>
+    </ul>
+  </li>
+  <li>Updated STM32 Arduino Core to v3.0.0 (<a href="https://github.com/stm32duino/Arduino_Core_STM32/releases/tag/3.0.0">release notes</a>)</li>
+  <li>Updated Zephyr to v4.4.2 (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.4.2">release notes</a>)</li>
+</ul>
+
+<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="espressif32-dev-platform-v71">Espressif32 dev-platform v7.1</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF and minor improvements:</p>
+
+<ul>
+  <li>Added support for ESP-IDF v6.1 (<a href="https://github.com/espressif/esp-idf/releases/tag/v6.1">release notes</a>)</li>
+  <li>Fixed C++ flag leakage from IDF build environment (<a href="https://github.com/platformio/platform-espressif32/issues/1759">#1759</a>)</li>
+  <li>Minor fixes and improvements</li>
+</ul>
+
+<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
+
+<ul>
+  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
+  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
+</ul>
+
+<h2 id="microchip-sam-dev-platform-v90">Microchip SAM dev-platform v9.0</h2>
+
+<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/atmelsam">Microchip SAM</a> dev-platform comes with updated support for the latest Zephyr RTOS and minor improvements:</p>
+
+<ul>
+  <li>Updated Zephyr to v4.4.2 (<a href="https://github.com/zephyrproject-rtos/zephyr/releases/tag/v4.4.2">release notes</a>)</li>
+  <li>Added support for custom board variants directory (<a href="https://github.com/platformio/platform-atmelsam/issues/238">#238</a>)</li>
+  <li>Added missing firmware offsets (<a href="https://github.com/platformio/platform-atmelsam/issues/233">#233</a>)</li>
+  <li>Minor fixes and improvements</li>
+</ul>
+
+<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
+
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF and Zephyr RTOS, Updates for Espressif32, ST STM32 and Microchip SAM dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-august-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source June Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-june-2026-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source June Updates" /><published>2026-07-06T00:00:00+03:00</published><updated>2026-07-06T00:00:00+03:00</updated><id>https://piolabs.com/blog/news/platformio-oss-june-2026-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-june-2026-updates.html"><![CDATA[<p>Welcome to the June 2026 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.</p>
 
 <p>This month we received a lot of helpful feedback from our community, which let us identify the most important parts of our OSS ecosystem that required our attention, so there are plenty of updates pushed in this month that we hope you will like.</p>
 
@@ -1604,128 +1739,4 @@
 <p>Further exploration of specific wired protocols, such as 1-Wire, UART, I2C, SPI, and others, will reveal even more details to consider when developing effective and reliable solutions for digital data transmission.</p>
 
 <h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Alex Kavalchuk</name></author><category term="blog" /><category term="engineering" /><summary type="html"><![CDATA[A Comprehensive Look at the Physical Level Principles that enable Reliable Embedded System Communication]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2025-03-13-wired-embedded-protocols-basics/cover.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2025-03-13-wired-embedded-protocols-basics/cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">PlatformIO Open Source January Updates</title><link href="https://piolabs.com/blog/news/platformio-oss-january-2025-updates.html" rel="alternate" type="text/html" title="PlatformIO Open Source January Updates" /><published>2025-02-03T00:00:00+02:00</published><updated>2025-02-03T00:00:00+02:00</updated><id>https://piolabs.com/blog/news/platformio-oss-january-2025-updates</id><content type="html" xml:base="https://piolabs.com/blog/news/platformio-oss-january-2025-updates.html"><![CDATA[<p>Welcome to the January 2025 updates of <a href="https://platformio.org/">PlatformIO Open Source</a> professional collaborative platform for embedded development.
-What better way to start the new year than by sharing a few exciting updates? Here’s a look at what we’ve accomplished this January.</p>
-
-<!-- more -->
-
-<p><img class="figure-img img-fluid rounded" src="/assets/posts/oss-updates/platformio-oss-january-news.jpg" alt="PlatformIO Open Source January Updates" /></p>
-
-<p>During January, we added support for the latest ESP-IDF, rolled out updates for several popular development platforms, fixed a lot of issues. Some of the key highlights include:</p>
-
-<ul id="markdown-toc">
-  <li><a href="#esp-idf-v54" id="markdown-toc-esp-idf-v54">ESP-IDF v5.4</a></li>
-  <li><a href="#espressif32-dev-platform-v610" id="markdown-toc-espressif32-dev-platform-v610">Espressif32 dev-platform v6.10</a></li>
-  <li><a href="#st-stm32-dev-platform-v190" id="markdown-toc-st-stm32-dev-platform-v190">ST STM32 dev-platform v19.0</a></li>
-  <li><a href="#renesas-ra-dev-platform-v16" id="markdown-toc-renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</a></li>
-</ul>
-
-<h2 id="esp-idf-v54">ESP-IDF v5.4</h2>
-
-<p>We’re happy to announce updated support for the latest release of <strong>ESP-IDF v5.4</strong> - the official development framework for the ESP32, ESP32-S and ESP32-C Series SoCs. It provides a self-sufficient SDK for any generic application development on these platforms, using programming languages such as C and C++. ESP-IDF currently powers millions of devices in the field, and enables building a variety of network-connected products, ranging from simple light bulbs and toys to big appliances and industrial devices.</p>
-
-<p><strong>Major enhancements in v5.4:</strong></p>
-
-<ul>
-  <li>Amazon SMP Kernel: Upgraded to upstream v11.1.0</li>
-  <li>MbedTLS: Updated the MbedTLS version to v3.6.2</li>
-  <li>Added support for BLE scanning and initiating state coexistence on ESP32</li>
-  <li>Added a new Generic PHY driver to support all 802.3 compliant PHYs</li>
-</ul>
-
-<p>More information on project configuration for ESP-IDF can be found <a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#configuration">here</a>.</p>
-
-<p><strong>Related resources for ESP-IDF</strong>:</p>
-
-<ul>
-  <li><a href="https://github.com/espressif/esp-idf/releases/tag/v5.4">Release notes for v5.4</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html">Documentation for ESP-IDF</a></li>
-  <li><a href="https://docs.platformio.org/en/latest/frameworks/espidf.html#boards">Supported boards</a></li>
-</ul>
-
-<h2 id="espressif32-dev-platform-v610">Espressif32 dev-platform v6.10</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/espressif32">Espressif 32</a> dev-platform brings support for the latest ESP-IDF, new boards and dev-kits, several fixes and improvements:</p>
-
-<ul>
-  <li>Added new boards:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">Freenove ESP32-S3-WROOM</code></li>
-      <li><code class="language-plaintext highlighter-rouge">Freenove ESP32-WROVER-E</code></li>
-      <li><code class="language-plaintext highlighter-rouge">RYMCU ESP32-DevKitC</code></li>
-      <li><code class="language-plaintext highlighter-rouge">RYMCU ESP32-C3-DevKitM-1</code></li>
-      <li><code class="language-plaintext highlighter-rouge">ESP32-S3-DevKitC-1</code></li>
-      <li><code class="language-plaintext highlighter-rouge">LilyGo T3 S3</code></li>
-    </ul>
-  </li>
-  <li>Added support for ESP-IDF v5.4 (<a href="https://github.com/espressif/esp-idf/releases/tag/v5.4">release notes</a>)</li>
-  <li>Updated toolchain packages for IDF to v14.2.0</li>
-  <li>Added support for ESP32-C6 ULP (<a href="https://github.com/platformio/platform-espressif32/issues/1507">#1507</a>)</li>
-  <li>Better handling of the IDF Python virtual environment (<a href="https://github.com/platformio/platform-espressif32/issues/1525">#1525</a>)</li>
-  <li>Added automatic rebuild for IDF projects if external dependencies changed (<a href="https://github.com/platformio/platform-espressif32/issues/1514">#1514</a>)</li>
-  <li>Enabled by default IDF Component Manager option to allow modification of managed components</li>
-  <li>Fixed missing PSRAM flags for <code class="language-plaintext highlighter-rouge">Adafruit Feather ESP32-S3 TFT</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1498">#1498</a>)</li>
-  <li>Fixed default flash frequency for <code class="language-plaintext highlighter-rouge">Heltec Wireless Stick Lite</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1480">#1480</a>)</li>
-  <li>Added missing USB_CDC flag for <code class="language-plaintext highlighter-rouge">Romeo ESP32-S3</code> (<a href="https://github.com/platformio/platform-espressif32/issues/1512">#1512</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Espressif32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/espressif32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-espressif32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="st-stm32-dev-platform-v190">ST STM32 dev-platform v19.0</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/ststm32">ST STM32</a> dev-platform comes with new boards, updated STM32Cube packages and several minor improvements:</p>
-
-<ul>
-  <li>Added new boards: <code class="language-plaintext highlighter-rouge">Blues Cygnet</code>, <code class="language-plaintext highlighter-rouge">Blues Swan R5</code></li>
-  <li>Updated STM32Cube packages to the latest available (<a href="https://github.com/platformio/platform-ststm32/pull/806">#806</a>):
-    <ul>
-      <li>STM32CubeF0 v1.11.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF0/releases/tag/v1.11.5">release notes</a>)</li>
-      <li>STM32CubeF1 v1.8.6 (<a href="https://github.com/STMicroelectronics/STM32CubeF1/releases/tag/v1.8.6">release notes</a>)</li>
-      <li>STM32CubeF2 v1.9.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF2/releases/tag/v1.9.5">release notes</a>)</li>
-      <li>STM32CubeF3 v1.11.5 (<a href="https://github.com/STMicroelectronics/STM32CubeF3/releases/tag/v1.11.5">release notes</a>)</li>
-      <li>STM32CubeF4 v1.28.1 (<a href="https://github.com/STMicroelectronics/STM32CubeF4/releases/tag/v1.28.1">release notes</a>)</li>
-      <li>STM32CubeF7 v1.17.2 (<a href="https://github.com/STMicroelectronics/STM32CubeF7/releases/tag/v1.17.2">release notes</a>)</li>
-      <li>STM32CubeG0 v1.6.2 (<a href="https://github.com/STMicroelectronics/STM32CubeG0/releases/tag/v1.6.2">release notes</a>)</li>
-      <li>STM32CubeG4 v1.6.1 (<a href="https://github.com/STMicroelectronics/STM32CubeG4/releases/tag/v1.6.1">release notes</a>)</li>
-      <li>STM32CubeH7 v1.12.1 (<a href="https://github.com/STMicroelectronics/STM32CubeH7/releases/tag/v1.12.1">release notes</a>)</li>
-      <li>STM32CubeL0 v1.12.2 (<a href="https://github.com/STMicroelectronics/STM32CubeL0/releases/tag/v1.12.2">release notes</a>)</li>
-      <li>STM32CubeL1 v1.10.4 (<a href="https://github.com/STMicroelectronics/STM32CubeL1/releases/tag/v1.10.4">release notes</a>)</li>
-      <li>STM32CubeL4 v1.18.1 (<a href="https://github.com/STMicroelectronics/STM32CubeL4/releases/tag/v1.18.1">release notes</a>)</li>
-      <li>STM32CubeL5 v1.5.1 (<a href="https://github.com/STMicroelectronics/STM32CubeL5/releases/tag/v1.5.1">release notes</a>)</li>
-    </ul>
-  </li>
-  <li>Added support for project-based Zephyr manifest files</li>
-  <li>Fixed broken variant name for Nucleo F446ZE (<a href="https://github.com/platformio/platform-ststm32/pull/819">#819</a>)</li>
-  <li>Improved consistency between Blues boards (<a href="https://github.com/platformio/platform-ststm32/pull/824">#824</a>)</li>
-</ul>
-
-<p><strong>Related resources for the ST STM32 dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/ststm32.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-ststm32/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 id="renesas-ra-dev-platform-v16">Renesas RA dev-platform v1.6</h2>
-
-<p>The new release of the <a href="https://registry.platformio.org/platforms/platformio/renesas-ra">Renesas RA</a> dev-platform v1.6.0 brings support for the latest Arduino core:</p>
-
-<ul>
-  <li>Updated Arduino core to v1.3.2 (<a href="https://github.com/arduino/ArduinoCore-renesas/releases/tag/1.3.2">release notes</a>)</li>
-</ul>
-
-<p><strong>Related resources for the Renesas RA dev-platform</strong>:</p>
-
-<ul>
-  <li><a href="https://docs.platformio.org/en/latest/platforms/renesas-ra.html">Documentation</a></li>
-  <li><a href="https://github.com/platformio/platform-renesas-ra/tree/develop/examples">Project Examples</a></li>
-</ul>
-
-<h2 class="no_toc" id="stay-in-touch-with-us">Stay in touch with us</h2>
-
-<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Valerii Koval</name></author><category term="blog" /><category term="news" /><summary type="html"><![CDATA[New boards and dev-kits, Support for the latest ESP-IDF, Updates for Espressif32, ST STM32 and Renesas RA dev-platforms]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/oss-updates/platformio-oss-january-news.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Stay tuned to this blog or follow us on <a href="https://www.linkedin.com/company/platformio" target="_blank">LinkedIn</a> and Twitter <a href="https://twitter.com/PlatformIO_Org" target="_blank">@PlatformIO_Org</a> to keep up to date with the latest news, articles and tips!</p>]]></content><author><name>Alex Kavalchuk</name></author><category term="blog" /><category term="engineering" /><summary type="html"><![CDATA[A Comprehensive Look at the Physical Level Principles that enable Reliable Embedded System Communication]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://piolabs.com/assets/posts/2025-03-13-wired-embedded-protocols-basics/cover.jpg" /><media:content medium="image" url="https://piolabs.com/assets/posts/2025-03-13-wired-embedded-protocols-basics/cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
